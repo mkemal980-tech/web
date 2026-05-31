@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "start": "npx serve -s . -l $PORT"
+    "start": "npx http-server . -p $PORT"
   },
   "dependencies": {
-    "serve": "^14.2.4"
+    "http-server": "^14.1.1"
   }
 }
