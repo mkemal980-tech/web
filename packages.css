@@ -93,6 +93,9 @@
 .hero h1.pk-hero-h1 { font-size: clamp(30px, 3.6vw, 44px); max-width: 19ch; }
 
 /* ---- Detaylı kapsam / yapılacak işler ---- */
+@media (min-width: 760px) {
+  h2.nowrap-lg { white-space: nowrap; }
+}
 .scope { border-top: 1px solid var(--line); }
 .ws {
   display:grid; grid-template-columns: 320px 1fr; gap: 48px;

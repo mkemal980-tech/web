@@ -365,7 +365,7 @@ html[data-theme="contrast"] .cta-box { background:#000; }
 .foot .desc { color: var(--ink-2); font-size: 14.5px; max-width: 34ch; }
 .foot h5 { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 16px; font-weight: 500; }
 .foot ul { list-style:none; margin:0; padding:0; display:grid; gap: 11px; }
-.foot a { color: var(--ink-2); font-size: 14.5px; }
+.foot a, .foot ul li span { color: var(--ink-2); font-size: 14.5px; font-family: var(--font-body); font-weight: 400; }
 .foot a:hover { color: var(--accent); }
 .foot-bot { display:flex; justify-content:space-between; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); }
 
@@ -769,6 +769,103 @@ html[data-theme="dark"] .cl-suggest { background: color-mix(in oklab, #1a2c49 78
 }
 @media (prefers-reduced-motion: reduce) {
   .cl-orbit-spin, .sat .ic, .t-main { animation: none !important; }
+}
+
+</style>
+<style data-src="contact.css">
+/* ===================================================================
+   ESG LAB — İletişim formu bölümü
+   styles.css token sistemini kullanır
+   =================================================================== */
+
+.contact-grid {
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 0;
+  border-radius: 22px; overflow: hidden; border: 1px solid var(--line);
+  box-shadow: var(--shadow); background: var(--surface);
+}
+
+/* left: dark info panel */
+.contact-aside {
+  background: var(--ink); color: #fff; padding: clamp(34px, 4vw, 56px);
+  position: relative; overflow: hidden; display: flex; flex-direction: column;
+}
+html[data-theme="dark"] .contact-aside { background: var(--surface-2); border-right: 1px solid var(--line-strong); }
+html[data-theme="contrast"] .contact-aside { background: #000; }
+.contact-aside::after {
+  content: ""; position: absolute; right: -30%; bottom: -30%; width: 380px; height: 380px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--accent) 60%, transparent), transparent 66%);
+  opacity: .5; pointer-events: none;
+}
+.contact-aside .ca-eyebrow {
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+  color: color-mix(in oklab, var(--accent) 60%, #fff); margin-bottom: 18px; position: relative;
+}
+.contact-aside h2 { font-size: clamp(26px, 3vw, 36px); letter-spacing: -.022em; position: relative; max-width: 16ch; }
+.contact-aside .ca-lead { color: rgba(255,255,255,.72); font-size: 16px; margin: 16px 0 0; position: relative; max-width: 38ch; }
+
+.ca-list { list-style: none; margin: auto 0 0; padding: 30px 0 0; display: grid; gap: 18px; position: relative; }
+.ca-item { display: flex; gap: 14px; align-items: flex-start; }
+.ca-item .ic {
+  flex: none; width: 40px; height: 40px; border-radius: 11px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14);
+  display: grid; place-items: center; color: #fff;
+}
+.ca-item .tx .l { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: rgba(255,255,255,.5); }
+.ca-item .tx a, .ca-item .tx span { display: block; color: #fff; font-size: 15px; margin-top: 3px; text-decoration: none; }
+.ca-item .tx a:hover { color: color-mix(in oklab, var(--accent) 70%, #fff); }
+
+/* right: form */
+.contact-form { padding: clamp(34px, 4vw, 56px); }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.field { display: flex; flex-direction: column; margin-bottom: 18px; }
+.field label {
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: 8px;
+}
+.field label .req { color: var(--accent); }
+.field input, .field select, .field textarea {
+  font-family: var(--font-body); font-size: 15px; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line-strong); border-radius: 10px;
+  padding: 12px 14px; outline: 0; transition: border-color .15s, box-shadow .15s; width: 100%;
+}
+.field textarea { resize: vertical; min-height: 120px; }
+.field input::placeholder, .field textarea::placeholder { color: var(--ink-3); }
+.field input:focus, .field select:focus, .field textarea:focus {
+  border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+.field.invalid input, .field.invalid select, .field.invalid textarea { border-color: #d9534f; }
+.field .err { color: #d9534f; font-size: 12px; margin-top: 6px; display: none; font-family: var(--font-mono); }
+.field.invalid .err { display: block; }
+.field select { appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237e8ea3' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px;
+}
+
+.cf-actions { display: flex; align-items: center; gap: 16px; margin-top: 6px; flex-wrap: wrap; }
+.cf-actions .btn { padding: 13px 24px; }
+.cf-note { font-size: 12.5px; color: var(--ink-3); font-family: var(--font-mono); }
+
+.cf-success {
+  display: none; text-align: center; padding: 40px 20px;
+}
+.cf-success.on { display: block; animation: cfFade .4s ease; }
+@keyframes cfFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.cf-success .ck {
+  width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 22px;
+  background: color-mix(in oklab, var(--accent) 14%, var(--surface)); color: var(--accent);
+  display: grid; place-items: center;
+}
+.cf-success.is-fail .ck { background: color-mix(in oklab, #d9534f 14%, var(--surface)); color: #d9534f; }
+.cf-success h3 { font-size: 24px; margin-bottom: 12px; }
+.cf-success p { color: var(--ink-2); font-size: 15.5px; max-width: 40ch; margin: 0 auto 22px; }
+.contact-form.sent .cf-body { display: none; }
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-aside .ca-list { margin-top: 26px; }
+}
+@media (max-width: 560px) {
+  .cf-row { grid-template-columns: 1fr; }
 }
 
 </style>
@@ -1184,14 +1281,82 @@ html[data-theme="dark"] .cl-suggest { background: color-mix(in oklab, #1a2c49 78
   </div>
 </section>
 
-<!-- ============================== CTA ============================== -->
-<section class="section wrap cta" id="contact">
-  <div class="cta-box reveal">
-    <h2 data-i18n="cta_t">Sürdürülebilirlik yol haritanızı birlikte çıkaralım.</h2>
-    <p data-i18n="cta_p">45 dakikalık ücretsiz bir değerlendirme görüşmesiyle başlayın — kurumunuzun veri olgunluğunu ve öncelikli adımları birlikte belirleyelim.</p>
-    <div class="hero-cta">
-      <a href="mailto:bilgi@esgakademi.net" class="btn btn-primary"><span data-i18n="cta_b1">Görüşme planla</span> <span class="arrow">→</span></a>
-      <a href="#services" class="btn btn-ghost" data-i18n="cta_b2">Hizmetleri incele</a>
+<!-- ============================== İLETİŞİM ============================== -->
+<section class="section wrap" id="contact">
+  <div class="contact-grid reveal">
+    <!-- left: info -->
+    <aside class="contact-aside">
+      <span class="ca-eyebrow" data-i18n="ct_eyebrow">İletişim</span>
+      <h2 data-i18n="ct_title">Yol haritanızı birlikte çıkaralım.</h2>
+      <p class="ca-lead" data-i18n="ct_lead">Formu doldurun; veri olgunluğunuzu ve öncelikli adımları konuşmak için en geç 2 iş günü içinde dönüş yapalım.</p>
+      <ul class="ca-list">
+        <li class="ca-item">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <span class="tx"><span class="l" data-i18n="ct_email_l">E-posta</span><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></span>
+        </li>
+        <li class="ca-item">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z"/></svg></span>
+          <span class="tx"><span class="l" data-i18n="ct_phone_l">Telefon</span><a href="tel:+905339552884">+90 533 955 28 84</a></span>
+        </li>
+        <li class="ca-item">
+          <span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span class="tx"><span class="l" data-i18n="ct_addr_l">Adres</span><span data-i18n="ft_addr">Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- right: form -->
+    <div class="contact-form" id="contactFormWrap">
+      <form id="contactForm" class="cf-body" novalidate>
+        <div class="cf-row">
+          <div class="field" data-required>
+            <label data-i18n="ct_f_name">Ad Soyad <span class="req">*</span></label>
+            <input type="text" name="name" autocomplete="name" />
+            <span class="err"></span>
+          </div>
+          <div class="field" data-required>
+            <label data-i18n="ct_f_email">E-posta <span class="req">*</span></label>
+            <input type="email" name="email" autocomplete="email" />
+            <span class="err"></span>
+          </div>
+        </div>
+        <div class="cf-row">
+          <div class="field">
+            <label data-i18n="ct_f_company">Şirket / Kurum</label>
+            <input type="text" name="company" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label data-i18n="ct_f_phone">Telefon</label>
+            <input type="tel" name="phone" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="ct_f_topic">İlgi alanı</label>
+          <select name="topic">
+            <option data-i18n="ct_t1">Karbon ayak izi & emisyon</option>
+            <option data-i18n="ct_t2">ESG raporlama & strateji</option>
+            <option data-i18n="ct_t3">Online eğitim</option>
+            <option data-i18n="ct_t4">KOBİ paketi</option>
+            <option data-i18n="ct_t5">Diğer</option>
+          </select>
+        </div>
+        <div class="field" data-required>
+          <label data-i18n="ct_f_msg">Mesajınız <span class="req">*</span></label>
+          <textarea name="message" data-i18n-ph="ct_ph" placeholder="Kurumunuz ve ihtiyacınız hakkında kısaca yazın…"></textarea>
+          <span class="err"></span>
+        </div>
+        <div class="cf-actions">
+          <button type="submit" class="btn btn-primary"><span data-i18n="ct_send">Mesajı gönder</span> <span class="arrow">→</span></button>
+          <span class="cf-note" data-i18n="ct_note">Yanıt süresi: ~2 iş günü</span>
+        </div>
+      </form>
+
+      <div class="cf-success" id="cfSuccess">
+        <div class="ck"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 13 4 4L19 7"/></svg></div>
+        <h3 class="s-t">Teşekkürler, mesajınız hazır!</h3>
+        <p class="s-p">E-posta uygulamanız önceden doldurulmuş bir mesajla açıldı.</p>
+        <button class="btn btn-ghost" id="cfAgain"><span class="s-again">Yeni mesaj</span></button>
+      </div>
     </div>
   </div>
 </section>
@@ -1308,6 +1473,14 @@ html[data-theme="dark"] .cl-suggest { background: color-mix(in oklab, #1a2c49 78
       cta_t: 'Sürdürülebilirlik yol haritanızı birlikte çıkaralım.',
       cta_p: '45 dakikalık ücretsiz bir değerlendirme görüşmesiyle başlayın — kurumunuzun veri olgunluğunu ve öncelikli adımları birlikte belirleyelim.',
       cta_b1: 'Görüşme planla', cta_b2: 'Hizmetleri incele',
+      ct_eyebrow: 'İletişim', ct_title: 'Yol haritanızı birlikte çıkaralım.',
+      ct_lead: 'Formu doldurun; veri olgunluğunuzu ve öncelikli adımları konuşmak için en geç 2 iş günü içinde dönüş yapalım.',
+      ct_email_l: 'E-posta', ct_phone_l: 'Telefon', ct_addr_l: 'Adres',
+      ct_f_name: 'Ad Soyad <span class="req">*</span>', ct_f_email: 'E-posta <span class="req">*</span>',
+      ct_f_company: 'Şirket / Kurum', ct_f_phone: 'Telefon', ct_f_topic: 'İlgi alanı',
+      ct_t1: 'Karbon ayak izi & emisyon', ct_t2: 'ESG raporlama & strateji', ct_t3: 'Online eğitim', ct_t4: 'KOBİ paketi', ct_t5: 'Diğer',
+      ct_f_msg: 'Mesajınız <span class="req">*</span>', ct_ph: 'Kurumunuz ve ihtiyacınız hakkında kısaca yazın…',
+      ct_send: 'Mesajı gönder', ct_note: 'Yanıt süresi: ~2 iş günü',
       ft_desc: 'Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.',
       ft_h1: 'Hizmetler', ft_s1: 'Karbon yönetimi', ft_s2: 'ESG raporlama', ft_s3: 'Eğitim & farkındalık', ft_s4: 'Metodoloji',
       ft_h2: 'Kurum', ft_c1: 'Hakkımızda', ft_c2: 'Yaklaşım', ft_c3: 'Etki', ft_c4: 'İletişim',
@@ -1440,6 +1613,14 @@ html[data-theme="dark"] .cl-suggest { background: color-mix(in oklab, #1a2c49 78
       cta_t: 'Let’s build your sustainability roadmap together.',
       cta_p: 'Start with a free 45-minute assessment call — we’ll map your organization’s data maturity and priority next steps together.',
       cta_b1: 'Book a call', cta_b2: 'Explore services',
+      ct_eyebrow: 'Contact', ct_title: 'Let’s build your roadmap together.',
+      ct_lead: 'Fill out the form and we’ll get back to you within 2 business days to discuss your data maturity and priority next steps.',
+      ct_email_l: 'Email', ct_phone_l: 'Phone', ct_addr_l: 'Address',
+      ct_f_name: 'Full name <span class="req">*</span>', ct_f_email: 'Email <span class="req">*</span>',
+      ct_f_company: 'Company', ct_f_phone: 'Phone', ct_f_topic: 'Topic',
+      ct_t1: 'Carbon footprint & emissions', ct_t2: 'ESG reporting & strategy', ct_t3: 'Online training', ct_t4: 'SME package', ct_t5: 'Other',
+      ct_f_msg: 'Your message <span class="req">*</span>', ct_ph: 'Tell us briefly about your organization and needs…',
+      ct_send: 'Send message', ct_note: 'Response time: ~2 business days',
       ft_desc: 'Data-driven sustainability consulting. Carbon, ESG reporting and corporate capacity building.',
       ft_h1: 'Services', ft_s1: 'Carbon management', ft_s2: 'ESG reporting', ft_s3: 'Training & awareness', ft_s4: 'Methodology',
       ft_h2: 'Company', ft_c1: 'About', ft_c2: 'Approach', ft_c3: 'Impact', ft_c4: 'Contact',
@@ -1528,6 +1709,10 @@ html[data-theme="dark"] .cl-suggest { background: color-mix(in oklab, #1a2c49 78
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       const v = d[el.getAttribute('data-i18n')];
       if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+      const v = d[el.getAttribute('data-i18n-ph')];
+      if (v != null) el.setAttribute('placeholder', v);
     });
     document.querySelectorAll('#lang button').forEach(function (b) {
       b.classList.toggle('on', b.getAttribute('data-lang') === l);
@@ -1860,6 +2045,120 @@ html[data-theme="dark"] .cl-suggest { background: color-mix(in oklab, #1a2c49 78
     });
   }, { threshold: 0.25 });
   io.observe(root);
+})();
+
+</script>
+<script data-src="contact.js">
+/* ===================================================================
+   ESG LAB — İletişim formu (Web3Forms ile otomatik gönderim)
+   Mesajlar doğrudan bilgi@esgakademi.net adresine iletilir.
+   =================================================================== */
+(function () {
+  'use strict';
+
+  var FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+  var ACCESS_KEY = '485f0a2b-4374-47d5-8cb9-94d2806abeee';
+  var TO_EMAIL = 'bilgi@esgakademi.net';
+
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+
+  function lang() { return document.documentElement.lang === 'en' ? 'en' : 'tr'; }
+
+  var MSG = {
+    tr: {
+      req: 'Bu alan zorunlu', email: 'Geçerli bir e-posta girin',
+      sending: 'Gönderiliyor…', send: 'Mesajı gönder',
+      sent_t: 'Mesajınız bize ulaştı!',
+      sent_p: 'Teşekkürler — talebinizi aldık. En geç 2 iş günü içinde dönüş yapıyoruz.',
+      fail_t: 'Bir sorun oluştu',
+      fail_p: 'Mesaj gönderilemedi. Lütfen tekrar deneyin veya bize doğrudan e-posta yazın.',
+      again: 'Yeni mesaj'
+    },
+    en: {
+      req: 'This field is required', email: 'Enter a valid email',
+      sending: 'Sending…', send: 'Send message',
+      sent_t: 'Your message was sent!',
+      sent_p: 'Thank you — we received your request and reply within 2 business days.',
+      fail_t: 'Something went wrong',
+      fail_p: 'The message could not be sent. Please try again or email us directly.',
+      again: 'New message'
+    }
+  };
+  function t(k) { return MSG[lang()][k]; }
+
+  function setErr(field, msg) { field.classList.add('invalid'); var e = field.querySelector('.err'); if (e) e.textContent = msg; }
+  function clearErr(field) { field.classList.remove('invalid'); }
+
+  function validate() {
+    var ok = true;
+    form.querySelectorAll('.field[data-required]').forEach(function (field) {
+      var inp = field.querySelector('input, select, textarea');
+      clearErr(field);
+      if (!inp.value.trim()) { setErr(field, t('req')); ok = false; return; }
+      if (inp.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim())) { setErr(field, t('email')); ok = false; }
+    });
+    return ok;
+  }
+
+  function val(name) { var el = form.elements[name]; return el ? el.value.trim() : ''; }
+
+  function showState(kind) {
+    form.classList.add('sent');
+    var s = document.getElementById('cfSuccess');
+    s.querySelector('.s-t').textContent = t(kind === 'fail' ? 'fail_t' : 'sent_t');
+    s.querySelector('.s-p').textContent = t(kind === 'fail' ? 'fail_p' : 'sent_p');
+    s.querySelector('.s-again').textContent = t('again');
+    s.classList.toggle('is-fail', kind === 'fail');
+    s.classList.add('on');
+  }
+
+  var submitBtn = form.querySelector('button[type="submit"] span:first-child');
+
+  form.addEventListener('input', function (e) {
+    var field = e.target.closest('.field');
+    if (field && field.classList.contains('invalid')) clearErr(field);
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate()) {
+      var first = form.querySelector('.field.invalid input, .field.invalid select, .field.invalid textarea');
+      if (first) first.focus();
+      return;
+    }
+
+    var data = new FormData(form);
+    data.append('access_key', ACCESS_KEY);
+    data.append('subject', 'Web sitesi iletişim formu — ' + (val('name') || ''));
+    data.append('from_name', 'ESG LAB Web');
+
+    if (submitBtn) submitBtn.textContent = t('sending');
+    var btnEl = form.querySelector('button[type="submit"]');
+    if (btnEl) btnEl.disabled = true;
+
+    fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.success) showState('ok');
+        else showState('fail');
+      })
+      .catch(function () { showState('fail'); })
+      .finally(function () {
+        if (submitBtn) submitBtn.textContent = t('send');
+        if (btnEl) btnEl.disabled = false;
+      });
+  });
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#cfAgain')) {
+      form.reset();
+      form.classList.remove('sent');
+      var s = document.getElementById('cfSuccess');
+      s.classList.remove('on'); s.classList.remove('is-fail');
+      form.querySelectorAll('.field.invalid').forEach(clearErr);
+    }
+  });
 })();
 
 </script>

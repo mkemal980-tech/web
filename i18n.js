@@ -61,6 +61,14 @@
       cta_t: 'Sürdürülebilirlik yol haritanızı birlikte çıkaralım.',
       cta_p: '45 dakikalık ücretsiz bir değerlendirme görüşmesiyle başlayın — kurumunuzun veri olgunluğunu ve öncelikli adımları birlikte belirleyelim.',
       cta_b1: 'Görüşme planla', cta_b2: 'Hizmetleri incele',
+      ct_eyebrow: 'İletişim', ct_title: 'Yol haritanızı birlikte çıkaralım.',
+      ct_lead: 'Formu doldurun; veri olgunluğunuzu ve öncelikli adımları konuşmak için en geç 2 iş günü içinde dönüş yapalım.',
+      ct_email_l: 'E-posta', ct_phone_l: 'Telefon', ct_addr_l: 'Adres',
+      ct_f_name: 'Ad Soyad <span class="req">*</span>', ct_f_email: 'E-posta <span class="req">*</span>',
+      ct_f_company: 'Şirket / Kurum', ct_f_phone: 'Telefon', ct_f_topic: 'İlgi alanı',
+      ct_t1: 'Karbon ayak izi & emisyon', ct_t2: 'ESG raporlama & strateji', ct_t3: 'Online eğitim', ct_t4: 'KOBİ paketi', ct_t5: 'Diğer',
+      ct_f_msg: 'Mesajınız <span class="req">*</span>', ct_ph: 'Kurumunuz ve ihtiyacınız hakkında kısaca yazın…',
+      ct_send: 'Mesajı gönder', ct_note: 'Yanıt süresi: ~2 iş günü',
       ft_desc: 'Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.',
       ft_h1: 'Hizmetler', ft_s1: 'Karbon yönetimi', ft_s2: 'ESG raporlama', ft_s3: 'Eğitim & farkındalık', ft_s4: 'Metodoloji',
       ft_h2: 'Kurum', ft_c1: 'Hakkımızda', ft_c2: 'Yaklaşım', ft_c3: 'Etki', ft_c4: 'İletişim',
@@ -193,6 +201,14 @@
       cta_t: 'Let’s build your sustainability roadmap together.',
       cta_p: 'Start with a free 45-minute assessment call — we’ll map your organization’s data maturity and priority next steps together.',
       cta_b1: 'Book a call', cta_b2: 'Explore services',
+      ct_eyebrow: 'Contact', ct_title: 'Let’s build your roadmap together.',
+      ct_lead: 'Fill out the form and we’ll get back to you within 2 business days to discuss your data maturity and priority next steps.',
+      ct_email_l: 'Email', ct_phone_l: 'Phone', ct_addr_l: 'Address',
+      ct_f_name: 'Full name <span class="req">*</span>', ct_f_email: 'Email <span class="req">*</span>',
+      ct_f_company: 'Company', ct_f_phone: 'Phone', ct_f_topic: 'Topic',
+      ct_t1: 'Carbon footprint & emissions', ct_t2: 'ESG reporting & strategy', ct_t3: 'Online training', ct_t4: 'SME package', ct_t5: 'Other',
+      ct_f_msg: 'Your message <span class="req">*</span>', ct_ph: 'Tell us briefly about your organization and needs…',
+      ct_send: 'Send message', ct_note: 'Response time: ~2 business days',
       ft_desc: 'Data-driven sustainability consulting. Carbon, ESG reporting and corporate capacity building.',
       ft_h1: 'Services', ft_s1: 'Carbon management', ft_s2: 'ESG reporting', ft_s3: 'Training & awareness', ft_s4: 'Methodology',
       ft_h2: 'Company', ft_c1: 'About', ft_c2: 'Approach', ft_c3: 'Impact', ft_c4: 'Contact',
@@ -281,6 +297,10 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       const v = d[el.getAttribute('data-i18n')];
       if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function (el) {
+      const v = d[el.getAttribute('data-i18n-ph')];
+      if (v != null) el.setAttribute('placeholder', v);
     });
     document.querySelectorAll('#lang button').forEach(function (b) {
       b.classList.toggle('on', b.getAttribute('data-lang') === l);
