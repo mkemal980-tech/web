@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-accent="orange" data-font="grotesk" data-density="regular">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESG LAB — Online Eğitim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style data-src="styles.css">
+/* ========================================================================
+   ESG LAB — Sürdürülebilirlik danışmanlığı
+   Bilimsel / veri odaklı, sade & kurumsal sistem
+   ======================================================================== */
+
+/* ---- Tokens ---------------------------------------------------------- */
+:root {
+  --font-head: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* light "lab" — default */
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --surface-3: #e6ecf3;
+  --line: #e1e8f0;
+  --line-strong: #cdd8e4;
+  --ink: #0d1a2d;
+  --ink-2: #46586e;
+  --ink-3: #7e8ea3;
+  --accent: #2563eb;
+  --accent-2: #0891b2;
+  --accent-soft: color-mix(in oklab, var(--accent) 12%, var(--surface));
+  --on-accent: #ffffff;
+  --grid: color-mix(in oklab, var(--line) 70%, transparent);
+  --shadow: 0 1px 2px rgba(13,26,45,.04), 0 8px 28px -12px rgba(13,26,45,.14);
+  --shadow-sm: 0 1px 2px rgba(13,26,45,.05);
+
+  --maxw: 1220px;
+  --gut: clamp(20px, 5vw, 56px);
+  --radius: 14px;
+  --radius-sm: 9px;
+  --scale: 1; /* density */
+  --sec-pad: calc(88px * var(--scale));
+}
+
+/* ---- Directions ------------------------------------------------------ */
+html[data-theme="dark"] {
+  --bg: #070d18;
+  --surface: #0d1726;
+  --surface-2: #13223a;
+  --surface-3: #1a2c49;
+  --line: #1d2f4a;
+  --line-strong: #2a4063;
+  --ink: #eaf1fb;
+  --ink-2: #a7b8d1;
+  --ink-3: #6c809e;
+  --accent-soft: color-mix(in oklab, var(--accent) 22%, var(--surface));
+  --grid: color-mix(in oklab, var(--line) 80%, transparent);
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 50px -20px rgba(0,0,0,.7);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+}
+html[data-theme="contrast"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f5f7;
+  --surface-3: #ececf0;
+  --line: #111111;
+  --line-strong: #111111;
+  --ink: #000000;
+  --ink-2: #1c1c1c;
+  --ink-3: #555555;
+  --accent-soft: color-mix(in oklab, var(--accent) 10%, #fff);
+  --shadow: none;
+  --shadow-sm: none;
+}
+html[data-theme="contrast"] .card,
+html[data-theme="contrast"] .panel,
+html[data-theme="contrast"] .svc { border-width: 1.5px; }
+
+/* ---- Accents --------------------------------------------------------- */
+html[data-accent="blue"]   { --accent: #2563eb; --accent-2: #0891b2; }
+html[data-accent="orange"] { --accent: #fa541c; --accent-2: #ff7a45; }
+html[data-accent="indigo"] { --accent: #4f46e5; --accent-2: #0e7aa8; }
+html[data-accent="cyan"]   { --accent: #0e7490; --accent-2: #2563eb; }
+html[data-accent="slate"]  { --accent: #334e68; --accent-2: #0891b2; }
+
+/* ---- Fonts (tweak) --------------------------------------------------- */
+html[data-font="plex"]    { --font-head: 'IBM Plex Sans', sans-serif; }
+html[data-font="grotesk"] { --font-head: 'Space Grotesk', sans-serif; }
+
+/* ---- Density --------------------------------------------------------- */
+html[data-density="compact"] { --scale: .72; }
+html[data-density="regular"] { --scale: 1; }
+html[data-density="comfy"]   { --scale: 1.28; }
+
+/* ---- Reset ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.005em;
+  transition: background .4s ease, color .4s ease;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing: -0.022em; line-height: 1.06; margin: 0; }
+
+/* ---- Layout ---------------------------------------------------------- */
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gut); }
+.section { padding-block: var(--sec-pad); }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.eyebrow::before {
+  content: attr(data-num);
+  color: var(--ink-3);
+}
+.sec-head { max-width: 720px; margin-bottom: calc(40px * var(--scale)); }
+.sec-head h2 { font-size: clamp(30px, 4vw, 46px); margin-top: 18px; }
+.sec-head p { color: var(--ink-2); font-size: 18px; margin: 18px 0 0; max-width: 60ch; }
+
+/* ---- Buttons --------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px; font-weight: 500;
+  border: 1px solid transparent;
+  transition: transform .12s ease, background .2s ease, border-color .2s, color .2s;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: color-mix(in oklab, var(--accent) 86%, #000); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { background: var(--surface-2); border-color: var(--ink-3); }
+.btn .arrow { transition: transform .2s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ---- Nav ------------------------------------------------------------- */
+.nav {
+  position: sticky; top: 0; z-index: 60;
+  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s ease, background .3s ease;
+}
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav-inner { display: flex; align-items: center; gap: 28px; height: 68px; }
+.brand { display: flex; align-items: center; gap: 11px; font-family: var(--font-head); font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 7px;
+  background: var(--ink);
+  position: relative; flex: none;
+  display: grid; place-items: center;
+}
+.brand-mark::before { content:""; width: 11px; height: 11px; border-radius: 3px; background: var(--accent); }
+.brand-mark::after { content:""; position:absolute; right:5px; top:5px; width:4px; height:4px; border-radius:50%; background: var(--accent-2); }
+html[data-theme="contrast"] .brand-mark { background:#000; }
+.brand b { font-weight: 600; }
+.brand .lab { color: var(--accent); }
+.nav-links { display: flex; gap: 4px; margin-left: 8px; }
+.nav-links a {
+  font-size: 14.5px; color: var(--ink-2); padding: 8px 13px; border-radius: 8px;
+  font-weight: 450; transition: color .15s, background .15s; white-space: nowrap;
+}
+.nav-links a:hover { color: var(--ink); background: var(--surface-2); }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+
+.lang {
+  display: inline-flex; align-items: center; border: 1px solid var(--line-strong);
+  border-radius: 9px; overflow: hidden; font-family: var(--font-mono); font-size: 12px;
+}
+.lang button {
+  background: transparent; border: 0; color: var(--ink-3); padding: 7px 11px; letter-spacing: .06em;
+  transition: background .15s, color .15s;
+}
+.lang button.on { background: var(--ink); color: var(--surface); }
+html[data-theme="contrast"] .lang button.on { background:#000; color:#fff; }
+
+.nav-cta { padding: 9px 16px; font-size: 14px; }
+.menu-btn { display: none; }
+
+/* ---- Hero ------------------------------------------------------------ */
+.hero { padding-top: calc(56px * var(--scale)); padding-bottom: calc(76px * var(--scale)); position: relative; overflow: hidden; }
+
+/* centered hero (GitBook-style) */
+.hero-center { text-align: center; padding-top: calc(64px * var(--scale)); padding-bottom: calc(28px * var(--scale)); }
+.hero-center .hero-copy { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.hero-center .eyebrow { margin-bottom: 26px; }
+.hero-center h1 { font-size: clamp(34px, 5.4vw, 66px); letter-spacing: -0.032em; line-height: 1.05; text-wrap: balance; }
+.hero-center h1 .hl { color: var(--accent); }
+.hero-center .hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); margin: 22px auto 32px; width: 100%; max-width: 860px; text-wrap: normal; }
+.hero-center .hero-cta { justify-content: center; }
+@media (min-width: 1180px) { .hero-center h1 { white-space: nowrap; } }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero h1 { font-size: clamp(38px, 5.6vw, 68px); letter-spacing: -0.03em; }
+.hero h1 .hl { color: var(--accent); }
+.hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.4vw, 20px); margin: 26px 0 34px; max-width: 48ch; }
+.hero-cta { display: flex; gap: 13px; flex-wrap: wrap; }
+.hero-meta { margin-top: 40px; display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-meta .m { display: flex; flex-direction: column; gap: 3px; }
+.hero-meta .m b { font-family: var(--font-head); font-size: 24px; }
+.hero-meta .m span { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+
+/* ---- Data panel (card) ---------------------------------------------- */
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.dpanel { padding: 22px; }
+.dpanel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.dpanel-head .t { font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--ink-3); text-transform: uppercase; }
+.dpanel-head .v { font-family: var(--font-head); font-size: 30px; }
+.dpanel-head .v small { font-size: 14px; color: var(--ink-3); font-family: var(--font-mono); }
+.trend { display:inline-flex; align-items:center; gap:5px; font-family: var(--font-mono); font-size:12px; padding:4px 8px; border-radius:6px; background: var(--accent-soft); color: var(--accent); }
+.chart { margin-top: 8px; }
+.chart svg { width: 100%; height: auto; display:block; overflow: visible; }
+.axis { font-family: var(--font-mono); font-size: 10px; fill: var(--ink-3); letter-spacing: .04em; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.dpanel-foot { display:flex; gap: 18px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.dpanel-foot .f { flex:1; }
+.dpanel-foot .f span { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing:.05em; color: var(--ink-3); display:block; }
+.dpanel-foot .f b { font-family: var(--font-head); font-size: 18px; font-weight: 600; }
+
+/* ---- Trust bar ------------------------------------------------------- */
+.trust { border-block: 1px solid var(--line); }
+.trust .wrap { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; padding-block: 26px; }
+.trust .lbl { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); }
+.trust .logos { display:flex; gap: 38px; flex-wrap: wrap; align-items:center; opacity: .82; }
+.trust .logos span { font-family: var(--font-head); font-weight: 600; font-size: 17px; color: var(--ink-2); letter-spacing: -.01em; }
+
+/* ---- Stats band ------------------------------------------------------ */
+.stats { background: var(--surface); border-block: 1px solid var(--line); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: calc(46px * var(--scale)) 28px; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat .n { font-family: var(--font-head); font-size: clamp(34px, 4vw, 50px); font-weight: 600; letter-spacing: -.03em; display:flex; align-items:baseline; gap:2px; }
+.stat .n .u { font-size: .5em; color: var(--accent); font-weight: 500; }
+.stat .k { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); margin-top: 10px; }
+
+/* ---- Services -------------------------------------------------------- */
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.svc {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 28px 32px; display: flex; flex-direction: column; min-height: 340px;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .25s ease;
+}
+.svc:hover { border-color: var(--line-strong); transform: translateY(-3px); box-shadow: var(--shadow); }
+.svc .idx { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); letter-spacing: .08em; }
+.svc .ic { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-soft); display:grid; place-items:center; margin: 18px 0 20px; color: var(--accent); }
+.svc h3 { font-size: 22px; }
+.svc p { color: var(--ink-2); font-size: 15.5px; margin: 12px 0 18px; }
+.svc ul { list-style: none; margin: auto 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); display: grid; gap: 9px; }
+.svc li { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); display:flex; gap: 9px; align-items:center; }
+.svc li::before { content:""; width: 5px; height: 5px; border-radius: 1px; background: var(--accent-2); flex:none; }
+
+/* ---- Process --------------------------------------------------------- */
+.proc { position: relative; }
+.proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
+.step { padding: 30px 26px 30px 0; position: relative; }
+.step::before {
+  content: counter(step, decimal-leading-zero); counter-increment: step;
+  font-family: var(--font-mono); font-size: 13px; color: var(--accent);
+  display: inline-block; margin-bottom: 18px;
+}
+.step .dot { position:absolute; top: 30px; right: 0; width: 11px; height: 11px; }
+.step-line { height: 1px; background: var(--line); position: relative; margin-bottom: -1px; }
+.step-line .fill { position:absolute; inset: 0 auto 0 0; width: 0; background: var(--accent); transition: width 1.1s ease; }
+.step .node { position: absolute; top: -5px; width: 11px; height: 11px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+.step h3 { font-size: 19px; margin-bottom: 9px; }
+.step p { color: var(--ink-2); font-size: 14.5px; margin: 0; padding-right: 14px; }
+
+/* ---- Methodology / data tabs ---------------------------------------- */
+.method-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 4vw, 60px); align-items: center; }
+.tabs { display: inline-flex; gap: 5px; background: var(--surface-2); padding: 5px; border-radius: 11px; margin-bottom: 26px; }
+.tabs button {
+  border: 0; background: transparent; padding: 9px 16px; border-radius: 8px;
+  font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .03em; color: var(--ink-2);
+  transition: background .2s, color .2s; text-transform: uppercase;
+}
+.tabs button.on { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+.method-copy h3 { font-size: clamp(26px, 3vw, 38px); margin-bottom: 16px; }
+.method-copy p { color: var(--ink-2); margin: 0 0 20px; }
+.method-copy .feat { display: grid; gap: 13px; margin-top: 24px; }
+.method-copy .feat div { display:flex; gap: 12px; align-items:flex-start; font-size: 15px; }
+.method-copy .feat .mk { color: var(--accent); flex:none; margin-top: 3px; }
+
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+.viz .vtop { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 20px; }
+.viz .vtop .t { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing:.05em; color: var(--ink-3); }
+.viz .vtop .b { font-family: var(--font-head); font-size: 26px; margin-top: 4px; }
+.pane { display: none; }
+.pane.on { display: block; animation: fade .4s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* gauge */
+.gauge-wrap { display:flex; gap: 26px; align-items:center; }
+.subbars { flex: 1; display: grid; gap: 16px; }
+.subbar .sl { display:flex; justify-content:space-between; font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); margin-bottom: 7px; }
+.subbar .track { height: 7px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+.subbar .bar { height: 100%; width: 0; border-radius: 4px; background: var(--accent); transition: width 1s ease; }
+.subbar:nth-child(2) .bar { background: var(--accent-2); }
+.subbar:nth-child(3) .bar { background: color-mix(in oklab, var(--accent) 55%, var(--accent-2)); }
+
+/* sector bars */
+.hbars { display: grid; gap: 15px; }
+.hbar .hl { display:flex; justify-content:space-between; font-size: 13.5px; margin-bottom: 7px; }
+.hbar .hl b { font-family: var(--font-mono); color: var(--ink-3); font-weight: 400; }
+.hbar .track { height: 10px; background: var(--surface-2); border-radius: 5px; overflow:hidden; }
+.hbar .bar { height: 100%; width: 0; border-radius: 5px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 1.1s ease; }
+
+/* ---- Principles / about --------------------------------------------- */
+.about-grid { display:grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 70px); }
+.about-lead { font-family: var(--font-head); font-size: clamp(24px, 2.6vw, 33px); line-height: 1.25; letter-spacing: -.02em; }
+.about-lead em { color: var(--accent); font-style: normal; }
+.princ { display:grid; grid-template-columns: 1fr 1fr; gap: 28px 34px; }
+.princ .p { }
+.princ .p .h { display:flex; gap: 11px; align-items:center; margin-bottom: 9px; }
+.princ .p .h .mk { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+.princ .p h4 { font-size: 17px; }
+.princ .p p { color: var(--ink-2); font-size: 14.5px; margin: 0; }
+
+/* ---- CTA ------------------------------------------------------------- */
+.cta { }
+.cta-box {
+  background: var(--ink); color: #fff; border-radius: 20px; padding: clamp(40px, 6vw, 80px);
+  position: relative; overflow: hidden;
+}
+html[data-theme="dark"] .cta-box { background: var(--surface-2); border: 1px solid var(--line-strong); }
+html[data-theme="contrast"] .cta-box { background:#000; }
+.cta-box::after {
+  content:""; position:absolute; right: -10%; top: -40%; width: 460px; height: 460px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--accent) 60%, transparent), transparent 65%);
+  opacity: .55; pointer-events:none;
+}
+.cta-box h2 { font-size: clamp(28px, 4vw, 46px); max-width: 18ch; position:relative; }
+.cta-box p { color: rgba(255,255,255,.72); margin: 18px 0 30px; max-width: 52ch; position:relative; font-size: 17px; }
+.cta-box .hero-cta { position: relative; }
+.cta-box .btn-ghost { color:#fff; border-color: rgba(255,255,255,.25); }
+.cta-box .btn-ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+
+/* ---- Footer ---------------------------------------------------------- */
+.foot { border-top: 1px solid var(--line); padding-block: 56px 40px; }
+.foot-grid { display:grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+.foot .brand { margin-bottom: 16px; }
+.foot .desc { color: var(--ink-2); font-size: 14.5px; max-width: 34ch; }
+.foot h5 { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 16px; font-weight: 500; }
+.foot ul { list-style:none; margin:0; padding:0; display:grid; gap: 11px; }
+.foot a { color: var(--ink-2); font-size: 14.5px; }
+.foot a:hover { color: var(--accent); }
+.foot-bot { display:flex; justify-content:space-between; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); }
+
+/* ---- Reveal ---------------------------------------------------------- */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal[data-d="1"] { transition-delay: .07s; }
+.reveal[data-d="2"] { transition-delay: .14s; }
+.reveal[data-d="3"] { transition-delay: .21s; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---- Responsive ------------------------------------------------------ */
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .method-grid, .about-grid { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .proc-grid { grid-template-columns: 1fr 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .nav-links { display: none; }
+  .menu-btn { display: inline-grid; place-items:center; width: 40px; height: 40px; border-radius: 9px; border: 1px solid var(--line-strong); background: var(--surface); }
+  .svc-grid, .princ, .foot-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 20px; }
+  .nav-cta { display: none; }
+}
+
+/* tweak panel host */
+#tweak-root { position: fixed; z-index: 90; }
+
+/* hero CTA: filled button black, slightly smaller (yalnızca üst hero) */
+#hero .hero-cta .btn { padding: 10px 17px; font-size: 14px; }
+#hero .hero-cta .btn-primary { background: var(--ink); color: var(--surface); }
+#hero .hero-cta .btn-primary:hover { background: color-mix(in oklab, var(--ink) 86%, #000); }
+html[data-theme="contrast"] #hero .hero-cta .btn-primary { background:#000; color:#fff; }
+
+</style>
+<style data-src="egitimler.css">
+/* ===================================================================
+   ESG LAB — Online Eğitim sayfası
+   styles.css token sistemini kullanır (turuncu vurgu)
+   =================================================================== */
+
+/* category accent colors */
+:root {
+  --cat-e: #1f8a5b;   /* çevresel — yeşil-mavi (sadece kategori rozetinde) */
+  --cat-de: #0e8f8f;  /* döngüsel ekonomi — camgöbç */
+  --cat-s: #2a6fdb;   /* sosyal — mavi */
+  --cat-g: #8a5cd8;   /* yönetişim — mor */
+  --cat-gen: #c2543a; /* genel — marka turuncusu tonu */
+}
+html[data-theme="dark"] {
+  --cat-e: #3fb27f; --cat-de: #2fc4c4; --cat-s: #5a93f0; --cat-g: #a883e6; --cat-gen: #ff8a5c;
+}
+
+/* hero */
+.edu-hero { text-align:center; padding-top: calc(60px * var(--scale)); padding-bottom: calc(36px * var(--scale)); }
+.edu-hero .hero-copy { max-width: 880px; margin: 0 auto; }
+.edu-hero h1 { font-size: clamp(34px, 5vw, 60px); letter-spacing:-.03em; line-height: 1.05; }
+.edu-hero h1 .hl { color: var(--accent); }
+.edu-hero p { color: var(--ink-2); font-size: clamp(17px,1.4vw,19px); margin: 20px auto 0; max-width: 60ch; }
+.edu-stats { display:flex; justify-content:center; gap: 40px; flex-wrap:wrap; margin-top: 30px; }
+.edu-stats .e b { font-family: var(--font-head); font-size: 26px; }
+.edu-stats .e span { display:block; font-family: var(--font-mono); font-size: 11.5px; text-transform:uppercase; letter-spacing:.06em; color: var(--ink-3); margin-top: 3px; }
+
+/* toolbar: filters + search */
+.edu-toolbar {
+  position: sticky; top: 68px; z-index: 40; background: color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line); padding: 14px 0;
+}
+.edu-toolbar .wrap { display:flex; align-items:center; gap: 16px; flex-wrap: wrap; }
+.filters { display:flex; gap: 7px; flex-wrap: wrap; }
+.filt {
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-2);
+  padding: 8px 15px; border-radius: 999px; font-size: 13.5px; font-weight: 500; font-family: var(--font-body);
+  display:inline-flex; align-items:center; gap: 8px; transition: all .18s ease;
+}
+.filt:hover { border-color: var(--ink-3); color: var(--ink); }
+.filt.on { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+html[data-theme="contrast"] .filt.on { background:#000; color:#fff; }
+.filt .dot { width: 8px; height: 8px; border-radius: 50%; }
+.filt .ct { font-family: var(--font-mono); font-size: 11px; opacity: .65; }
+.filt[data-cat="E"] .dot { background: var(--cat-e); }
+.filt[data-cat="DE"] .dot { background: var(--cat-de); }
+.filt[data-cat="S"] .dot { background: var(--cat-s); }
+.filt[data-cat="G"] .dot { background: var(--cat-g); }
+.filt[data-cat="GEN"] .dot { background: var(--cat-gen); }
+.edu-search { margin-left:auto; display:flex; align-items:center; gap: 9px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 10px; padding: 9px 13px; min-width: 230px; }
+.edu-search svg { color: var(--ink-3); flex:none; }
+.edu-search input { border: 0; background: transparent; outline: 0; color: var(--ink); font-family: var(--font-body); font-size: 14px; width: 100%; }
+.edu-search input::placeholder { color: var(--ink-3); }
+
+/* category section */
+.cat-block { padding-top: calc(56px * var(--scale)); }
+.cat-head { display:flex; align-items:center; gap: 14px; margin-bottom: 26px; }
+.cat-badge { width: 44px; height: 44px; border-radius: 12px; display:grid; place-items:center; color:#fff; font-family: var(--font-head); font-weight: 600; font-size: 20px; flex:none; }
+.cat-badge[data-cat="E"] { background: var(--cat-e); }
+.cat-badge[data-cat="DE"] { background: var(--cat-de); font-size: 16px; }
+.cat-badge[data-cat="S"] { background: var(--cat-s); }
+.cat-badge[data-cat="G"] { background: var(--cat-g); }
+.cat-badge[data-cat="GEN"] { background: var(--cat-gen); }
+.cat-head h2 { font-size: clamp(24px, 2.6vw, 32px); letter-spacing:-.02em; }
+.cat-head .sub { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-3); margin-top: 3px; }
+
+/* course grid */
+.edu-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.course {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+  padding: 24px 24px 22px; display:flex; flex-direction:column; text-align:left;
+  cursor: pointer; transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+  position: relative; overflow: hidden; min-height: 230px;
+}
+.course::before {
+  content:""; position:absolute; left:0; top:0; bottom:0; width: 3px; background: var(--cc, var(--accent)); opacity:.0; transition: opacity .2s;
+}
+.course:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--line-strong); }
+.course:hover::before { opacity: 1; }
+.course[data-cat="E"] { --cc: var(--cat-e); }
+.course[data-cat="DE"] { --cc: var(--cat-de); }
+.course[data-cat="S"] { --cc: var(--cat-s); }
+.course[data-cat="G"] { --cc: var(--cat-g); }
+.course[data-cat="GEN"] { --cc: var(--cat-gen); }
+.course .c-top { display:flex; align-items:center; justify-content:space-between; gap: 10px; margin-bottom: 16px; }
+.c-code { font-family: var(--font-mono); font-size: 12px; color: var(--cc, var(--accent)); letter-spacing: .02em; font-weight: 500;
+  background: color-mix(in oklab, var(--cc, var(--accent)) 12%, var(--surface)); padding: 5px 10px; border-radius: 7px; }
+.c-cat { font-family: var(--font-mono); font-size: 11px; letter-spacing:.08em; color: var(--ink-3); text-transform:uppercase; display:flex; align-items:center; gap:6px; }
+.c-cat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cc, var(--accent)); }
+.course h3 { font-size: 19px; line-height: 1.2; letter-spacing:-.015em; }
+.course .c-obj { color: var(--ink-2); font-size: 14px; margin: 11px 0 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.course .c-foot { margin-top:auto; padding-top: 15px; border-top: 1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+.course .c-mod { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-3); }
+.course .c-go { font-size: 13px; color: var(--cc, var(--accent)); font-weight: 600; display:inline-flex; align-items:center; gap: 6px; }
+.course .c-go .ar { transition: transform .2s; }
+.course:hover .c-go .ar { transform: translateX(3px); }
+
+.edu-empty { text-align:center; padding: 60px 0; color: var(--ink-3); font-size: 16px; display:none; }
+
+/* ---- detail modal ---- */
+.modal-back {
+  position: fixed; inset: 0; z-index: 100; background: color-mix(in oklab, var(--ink) 55%, transparent);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  display:none; align-items: flex-start; justify-content: center; padding: 5vh 20px; overflow-y: auto;
+}
+.modal-back.on { display: flex; animation: mfade .2s ease; }
+@keyframes mfade { from { opacity: 0; } to { opacity: 1; } }
+.modal {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 20px; max-width: 760px; width: 100%;
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,.5); animation: mrise .28s cubic-bezier(.2,.7,.2,1); overflow: hidden;
+}
+@keyframes mrise { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: none; } }
+.modal-hd { padding: 30px 34px 24px; border-bottom: 1px solid var(--line); position: relative; }
+.modal-hd .row { display:flex; align-items:center; gap: 10px; margin-bottom: 14px; }
+.modal-hd .m-code { font-family: var(--font-mono); font-size: 12.5px; color: var(--mc); background: color-mix(in oklab, var(--mc) 13%, var(--surface)); padding: 5px 11px; border-radius: 7px; font-weight: 500; }
+.modal-hd .m-cat { font-family: var(--font-mono); font-size: 11px; letter-spacing:.08em; text-transform:uppercase; color: var(--ink-3); display:flex; align-items:center; gap:6px; }
+.modal-hd .m-cat .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mc); }
+.modal-hd h2 { font-size: clamp(22px, 3vw, 30px); line-height: 1.12; letter-spacing:-.02em; max-width: 92%; }
+.modal-close {
+  position:absolute; top: 24px; right: 26px; width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); display:grid; place-items:center; font-size: 18px;
+  transition: background .15s, color .15s;
+}
+.modal-close:hover { background: var(--surface-2); color: var(--ink); }
+.modal-bd { padding: 26px 34px 34px; }
+.m-objective { font-size: 16px; color: var(--ink); line-height: 1.6; margin: 0 0 28px; padding: 18px 20px; background: var(--surface-2); border-radius: 12px; border-left: 3px solid var(--mc); }
+.m-sec { margin-bottom: 26px; }
+.m-sec:last-child { margin-bottom: 0; }
+.m-sec .m-lbl { display:flex; align-items:center; gap: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing:.07em; text-transform:uppercase; color: var(--ink-3); margin-bottom: 14px; }
+.m-sec .m-lbl .num { color: var(--mc); }
+.m-modules { list-style:none; margin:0; padding:0; display:grid; gap: 10px; }
+.m-modules li { display:flex; gap: 12px; align-items:flex-start; font-size: 15px; color: var(--ink); line-height: 1.45; }
+.m-modules li .mk { flex:none; width: 22px; height: 22px; border-radius: 7px; background: color-mix(in oklab, var(--mc) 14%, var(--surface)); color: var(--mc); display:grid; place-items:center; font-family: var(--font-mono); font-size: 11px; margin-top: 1px; }
+.m-two { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.m-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.m-card h4 { display:flex; align-items:center; gap:8px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing:.06em; text-transform:uppercase; color: var(--mc); margin: 0 0 10px; font-weight: 500; }
+.m-card p { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+.modal-ft { display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap: wrap; margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); }
+.modal-ft .note { font-size: 13.5px; color: var(--ink-3); }
+
+html.modal-open { overflow: hidden; }
+
+@media (max-width: 980px) {
+  .edu-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .edu-grid { grid-template-columns: 1fr; }
+  .edu-search { margin-left: 0; width: 100%; }
+  .edu-toolbar { top: 60px; }
+  .m-two { grid-template-columns: 1fr; }
+  .modal-hd, .modal-bd { padding-left: 22px; padding-right: 22px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span>ESG&nbsp;<span class="lab">LAB</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services" data-i18n="nav_services">Hizmetler</a>
+      <a href="index.html#method" data-i18n="nav_method">Metodoloji</a>
+      <a href="egitimler.html" class="cur" data-i18n="nav_edu">Online Eğitim</a>
+      <a href="kobi-paketi.html" data-i18n="nav_pkg">KOBİ Paketi</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="tr" class="on">TR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="mailto:bilgi@esgakademi.net" class="btn btn-primary nav-cta" data-i18n="nav_cta">İletişim</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================== HERO ============================== -->
+<section class="hero edu-hero section wrap">
+  <div class="hero-copy">
+    <span class="eyebrow reveal" data-num="" data-i18n="edu_eyebrow">ESG Akademi · Online Eğitim</span>
+    <h1 class="reveal" data-d="1" data-i18n="edu_title">Sürdürülebilirlik yetkinliğini <span class="hl">eğitimle</span> kurun.</h1>
+    <p class="reveal" data-d="2" data-i18n="edu_sub">Karbondan döngüsel ekonomiye, sosyal sorumluluktan yönetişime; standart temelli ve uygulamaya dönük online eğitim kataloğu. E, S ve G başlıkları altında kategorize edilmiştir.</p>
+    <div class="edu-stats reveal" data-d="3">
+      <div class="e"><b id="stTotal">22</b><span data-i18n="edu_st1">Eğitim programı</span></div>
+      <div class="e"><b>E · S · G</b><span data-i18n="edu_st2">Kategori</span></div>
+      <div class="e"><b data-i18n="edu_st3v">Standart temelli</b><span data-i18n="edu_st3">ISO · CDP · GRI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TOOLBAR ============================== -->
+<div class="edu-toolbar" id="eduToolbar">
+  <div class="wrap">
+    <div class="filters" id="eduFilters"></div>
+    <div class="edu-search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="eduSearchInput" placeholder="Eğitim ara…" autocomplete="off" />
+    </div>
+  </div>
+</div>
+
+<!-- ============================== SECTIONS ============================== -->
+<div class="wrap" style="padding-bottom: 90px">
+  <div id="eduSections"></div>
+  <div class="edu-empty" id="eduEmpty"></div>
+</div>
+
+</main>
+
+<!-- ============================== MODAL ============================== -->
+<div class="modal-back" id="eduModal"></div>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
+        <p class="desc" data-i18n="ft_desc">Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.</p>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h1">Hizmetler</h5>
+        <ul>
+          <li><a href="index.html#services" data-i18n="ft_s1">Karbon yönetimi</a></li>
+          <li><a href="index.html#services" data-i18n="ft_s2">ESG raporlama</a></li>
+          <li><a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a></li>
+          <li><a href="kobi-paketi.html" data-i18n="nav_pkg">KOBİ Paketi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h2">Kurum</h5>
+        <ul>
+          <li><a href="index.html#about" data-i18n="ft_c1">Hakkımızda</a></li>
+          <li><a href="index.html#process" data-i18n="ft_c2">Yaklaşım</a></li>
+          <li><a href="index.html#stats" data-i18n="ft_c3">Etki</a></li>
+          <li><a href="mailto:bilgi@esgakademi.net" data-i18n="ft_c4">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h3">İletişim</h5>
+        <ul>
+          <li><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></li>
+          <li><a href="tel:+905339552884">+90 533 955 28 84</a></li>
+          <li><span data-i18n="ft_addr">Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ESG LAB</span>
+      <span data-i18n="ft_legal">Tüm hakları saklıdır · Gizlilik · KVKK</span>
+    </div>
+  </div>
+</footer>
+
+<div id="tweak-root"></div>
+
+<script data-src="i18n.js">
+/* ===================================================================
+   ESG LAB — i18n + etkileşimler
+   =================================================================== */
+(function () {
+  'use strict';
+
+  /* ---------------- Dictionary ---------------- */
+  const DICT = {
+    tr: {
+      nav_services: 'Hizmetler', nav_process: 'Yaklaşım', nav_method: 'Metodoloji', nav_about: 'Hakkımızda', nav_cta: 'İletişim',
+      hero_eyebrow: 'Sürdürülebilirlik · Veri · Strateji',
+      hero_title: 'Sürdürülebilirliği <span class="hl">ölçülebilir</span> kılıyoruz.',
+      hero_sub: "ESG LAB; KOBİ'ler, büyük kurumlar ve kamu için karbon yönetimi, ESG raporlama ve kurumsal kapasite geliştirme alanlarında veriye dayalı danışmanlık sunar.",
+      hero_cta1: 'Ücretsiz değerlendirme', hero_cta2: 'Metodolojimiz',
+      hero_m1: 'uyumlu envanter', hero_m2: 'kapsam 1·2·3', hero_m3: 'raporlama',
+      dp_title: 'Karbon yoğunluğu — tCO₂e / m₺ ciro', dp_f1: 'Kapsam 1 · 2', dp_f2: 'Kapsam 3', dp_f3: 'Hedef yılı',
+      trust_lbl: 'Birlikte çalıştığımız ekosistem',
+      fc_eyebrow: 'Platform', fc_title: 'Tek bir veri çatısı, üç somut çıktı',
+      fc_sub: 'Danışmanlık bir raporla bitmez. Verinizi panoya, panoyu rapora, raporu ekibinizin yetkinliğine dönüştürüyoruz.',
+      fc1_chip: 'Toplam azaltım', fc1_tag: 'Veri panosu', fc1_t: 'Karbon verinizi tek panelde',
+      fc1_p: 'Tüm tesis ve kapsamların emisyonu canlı bir panoda toplanır; eğilimi ve hedefe uzaklığı anlık görürsünüz.', fc1_b: 'Veri panosu',
+      fc2_btn: 'Doğrula', fc2_tag: 'Raporlama', fc2_t: 'Standartlara uyumlu raporlar',
+      fc2_p: 'GRI, CSRD/ESRS ve TSRS gereksinimlerine eşlenmiş, doğrulamaya hazır raporları tek tıkla üretin.', fc2_b: 'Raporlama',
+      fc3_new: 'Yeni', fc3_bubble: 'Ekibinizi 12 modülde sertifikalandırıyoruz.', fc3_tag: 'Akademi', fc3_t: 'Ekibinizi içeriden güçlendirin',
+      fc3_p: 'Role özel modüller ve sertifikasyonla sürdürülebilirlik yetkinliğini kurum içinde kalıcı hale getirin.', fc3_b: 'Akademi',
+      cl_title: 'İklim stratejiniz, hedeften eyleme',
+      cl_sub: 'Emisyon hedeflerinizi bilimle hizalayın ve net-sıfıra giden yolu adım adım planlayın — uluslararası standartlarla uyumlu, denetime hazır.',
+      cl_badge: '1,5°C', cl_suggest: '2030 için doğrulanabilir azaltım hedefleri önerildi…',
+      cl_a_t: 'Hedefleriniz, bilimle hizalı', cl_a_p: 'Emisyon azaltım hedeflerinizi Science Based Targets initiative (SBTi) kriterlerine göre belirleyin; 1,5°C senaryosuyla uyumlu, bağımsız doğrulanabilir hedefler kurun.', cl_a_b: "SBTi'yi keşfet",
+      cl_b_eyebrow: 'NET-SIFIR', cl_b_t: 'Net-sıfır yol haritanız', cl_b_p: 'Kapsam 1, 2 ve 3 emisyonlarınızı kapsayan aşamalı bir net-sıfır planı; ara kilometre taşları, azaltım kaldıraçları ve dengeleme stratejisiyle.',
+      st_1: 'Tamamlanan proje', st_2: 'Ortalama emisyon azaltımı', st_3: 'Sektörde saha deneyimi', st_4: 'Eğitilen profesyonel',
+      svc_eyebrow: 'Hizmetler', svc_title: 'Üç temel uzmanlık alanı',
+      svc_sub: 'Teşhisten raporlamaya kadar tüm sürdürülebilirlik yolculuğunuzu tek bir veri çatısı altında yönetiyoruz.',
+      svc1_t: 'Karbon ayak izi & emisyon yönetimi', svc1_p: 'Kapsam 1, 2 ve 3 sera gazı envanteri, doğrulamaya hazır hesaplama ve net-sıfır yol haritası.',
+      svc1_l1: 'GHG Protocol envanteri', svc1_l2: 'ISO 14064 doğrulama desteği', svc1_l3: 'Azaltım & SBTi hedefleri',
+      svc2_t: 'ESG raporlama & strateji', svc2_p: 'Çift önemlilik analizi, paydaş haritalama ve CSRD/GRI uyumlu raporlama mimarisi.',
+      svc2_l1: 'GRI · CSRD · TSRS uyumu', svc2_l2: 'Çift önemlilik analizi', svc2_l3: 'ESG skor & derecelendirme',
+      svc3_t: 'Eğitim & kurumsal farkındalık', svc3_p: 'Yönetim kurulundan saha ekiplerine kadar role özel eğitim programları ve kapasite geliştirme.',
+      svc3_l1: 'Yönetici farkındalık atölyeleri', svc3_l2: 'Teknik ekip sertifikasyonu', svc3_l3: 'Sürdürülebilirlik akademisi',
+      proc_eyebrow: 'Yaklaşım', proc_title: 'Veriyle başlar, etkiyle biter',
+      proc_sub: 'Her projeyi denetlenebilir bir veri zinciri olarak kurguluyoruz — varsayım değil, kanıt.',
+      p1_t: 'Teşhis', p1_p: 'Mevcut durum analizi, veri olgunluğu ve regülasyon maruziyeti taraması.',
+      p2_t: 'Ölçüm', p2_p: 'Sera gazı envanteri, ESG gösterge seti ve doğrulanabilir veri toplama.',
+      p3_t: 'Strateji', p3_p: 'Azaltım senaryoları, hedef belirleme ve yatırım önceliklendirme.',
+      p4_t: 'Raporlama', p4_p: 'Standartlara uyumlu rapor, beyan ve sürekli izleme panosu.',
+      m_eyebrow: 'Metodoloji', m_title: 'Kanıta dayalı, denetime hazır',
+      m_sub: 'Topladığımız her veri noktası kaynağına kadar izlenebilir. Tahmin yürütmüyoruz — ölçüyor, doğruluyor ve görselleştiriyoruz.',
+      m_f1: '<b>Tek doğruluk kaynağı.</b> Tüm göstergeler merkezi bir veri modelinde toplanır.',
+      m_f2: '<b>Bağımsız doğrulanabilirlik.</b> Hesaplamalar üçüncü taraf denetimine hazır kurgulanır.',
+      m_f3: '<b>Canlı izleme.</b> İlerleme, statik rapor değil yaşayan bir panodan takip edilir.',
+      tab_1: 'Karbon', tab_2: 'ESG Skoru', tab_3: 'Sektör',
+      vz_c_t: 'Yıllık emisyon (tCO₂e)', vz_c_a: '● Gerçekleşen', vz_c_b: '● Hedef patikası', vz_c_c: 'Net-sıfır',
+      vz_s_t: 'Bileşik ESG skoru', vz_s_e: 'Çevresel (E)', vz_s_s: 'Sosyal (S)', vz_s_g: 'Yönetişim (G)',
+      vz_x_t: 'Emisyon kaynağı dağılımı', vz_x_1: 'Enerji & ısıtma', vz_x_2: 'Tedarik zinciri', vz_x_3: 'Lojistik & ulaşım', vz_x_4: 'Atık & su', vz_x_5: 'Diğer',
+      ab_eyebrow: 'Hakkımızda',
+      ab_lead: 'Sürdürülebilirliğin bir <em>uyum yükü</em> değil, ölçülebilir bir <em>rekabet avantajı</em> olduğuna inanıyoruz.',
+      ab_1t: 'Bağımsızlık', ab_1p: 'Tedarikçi değiliz; çıkarımız yalnızca verinizin doğruluğunda.',
+      ab_2t: 'Şeffaflık', ab_2p: 'Her sayının arkasındaki yöntemi ve kaynağı açıkça paylaşırız.',
+      ab_3t: 'Uygulanabilirlik', ab_3p: 'Rafta kalan rapor değil, sahada işleyen yol haritası üretiriz.',
+      ab_4t: 'Bilimsel temel', ab_4p: 'Uluslararası standart ve en güncel iklim bilimine dayanırız.',
+      cta_t: 'Sürdürülebilirlik yol haritanızı birlikte çıkaralım.',
+      cta_p: '45 dakikalık ücretsiz bir değerlendirme görüşmesiyle başlayın — kurumunuzun veri olgunluğunu ve öncelikli adımları birlikte belirleyelim.',
+      cta_b1: 'Görüşme planla', cta_b2: 'Hizmetleri incele',
+      ft_desc: 'Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.',
+      ft_h1: 'Hizmetler', ft_s1: 'Karbon yönetimi', ft_s2: 'ESG raporlama', ft_s3: 'Eğitim & farkındalık', ft_s4: 'Metodoloji',
+      ft_h2: 'Kurum', ft_c1: 'Hakkımızda', ft_c2: 'Yaklaşım', ft_c3: 'Etki', ft_c4: 'İletişim',
+      ft_h3: 'İletişim', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'Tüm hakları saklıdır · Gizlilik · KVKK',
+      nav_pkg: 'KOBİ Paketi',
+      nav_edu: 'Online Eğitim',
+      edu_eyebrow: 'ESG Akademi · Online Eğitim',
+      edu_title: 'Sürdürülebilirlik yetkinliğini <span class="hl">eğitimle</span> kurun.',
+      edu_sub: 'Karbondan döngüsel ekonomiye, sosyal sorumluluktan yönetişime; standart temelli ve uygulamaya dönük online eğitim kataloğu. E, S ve G başlıkları altında kategorize edilmiştir.',
+      edu_st1: 'Eğitim programı', edu_st2: 'Kategori', edu_st3: 'ISO · CDP · GRI', edu_st3v: 'Standart temelli',
+      pk_eyebrow: "KOBİ'ler için · Sabit kapsam",
+      pk_title: 'Sürdürülebilirliğe <span class="hl">12 haftada</span> sağlam bir başlangıç.',
+      pk_sub: "Büyük danışmanlık bütçeleri olmadan; KOBİ'niz için sabit kapsamlı, sabit fiyatlı ve doğrudan uygulanabilir bir sürdürülebilirlik paketi.",
+      pk_cta1: 'Paket teklifi al', pk_cta2: 'Kapsamı incele',
+      pk_m1v: '12 hafta', pk_m1: 'ana işlerin teslimi', pk_m2v: '12 ay', pk_m2: 'danışmanlık süresi', pk_m3v: 'Haftalık', pk_m3: 'değerlendirme toplantısı',
+      pk_sum_t: 'Paket bir bakışta', pk_sum_badge: 'KOBİ',
+      pk_sum_1: 'Karbon ayak izi envanteri (Kapsam 1–2–3)', pk_sum_2: 'ESG ön-değerlendirme & olgunluk skoru',
+      pk_sum_3: 'Önceliklendirilmiş azaltım yol haritası', pk_sum_4: 'Yarım günlük ekip eğitimi', pk_sum_5: 'Yönetici özeti & dijital rapor',
+      pk_sum_from: 'Standart kapsam', pk_sum_price: 'Teklife göre <small>+KDV</small>', pk_sum_link: 'Detay',
+      pk_v_eyebrow: 'Neden KOBİ paketi', pk_v_title: 'Kurumsal kalite, KOBİ ölçeği',
+      pk_v_sub: "Büyük şirketlerin sürdürülebilirlik metodolojisini, KOBİ'lerin bütçesine ve hızına göre paketledik.",
+      pk_v1t: 'Sabit fiyat', pk_v1p: 'Kapsam baştan bellidir, açık uçlu danışmanlık faturası yoktur.',
+      pk_v2t: 'Hızlı sonuç', pk_v2p: '12 hafta içinde elinizde denetime uygun bir rapor ve yol haritası olur.',
+      pk_v3t: 'Regülasyona hazır', pk_v3p: 'Tedarik zinciri ve müşteri taleplerine, yaklaşan raporlama yükümlülüklerine hazırlık.',
+      pk_v4t: 'Teşvik uyumu', pk_v4p: 'KOSGEB ve diğer destek programlarına uygunluk kontrol listesi dahildir.',
+      pk_m_eyebrow: 'Paket içeriği', pk_m_title: 'Pakette ne var?',
+      pk_m_sub: 'Altı modül; teşhisten ekibinizin eğitimine kadar uçtan uca tek bir teslimat.',
+      pk_mod1t: 'Karbon envanteri', pk_mod1p: 'Kapsam 1 ve 2 sera gazı hesabı, temel Kapsam 3 kalemleri.',
+      pk_mod2t: 'ESG ön-değerlendirme', pk_mod2p: 'Çevresel, sosyal ve yönetişim olgunluk skoru ve kıyaslama.',
+      pk_mod3t: 'Azaltım yol haritası', pk_mod3p: 'Etki/maliyet önceliğine göre sıralanmış somut aksiyon planı.',
+      pk_mod4t: 'Ekip eğitimi', pk_mod4p: 'Yarım günlük, role özel sürdürülebilirlik farkındalık oturumu.',
+      pk_mod5t: 'Yönetici raporu', pk_mod5p: 'Karar vericiler için özet ve denetime uygun teknik ek.',
+      pk_mod6t: 'Teşvik kontrol listesi', pk_mod6p: 'Uygun destek ve hibe programları için hazırlık ve kontrol listesi.',
+      pk_t_eyebrow: 'Zaman çizelgesi', pk_t_title: 'Ana işler 12 hafta, danışmanlık 12 ay',
+      pk_t_sub: 'Ana işler 12 haftada, dört fazda tamamlanır. Danışmanlık ilişkisi ise 12 ay sürer — her hafta yaptığımız değerlendirme ve revizyon toplantılarıyla yol haritanızı canlı tutarız.',
+      pk_eng_k1: 'Ana işler', pk_eng_v1: '12 hafta', pk_eng_d1: 'Dört faz, net teslimatlar',
+      pk_eng_k2: 'Danışmanlık', pk_eng_v2: '12 ay', pk_eng_d2: 'Uçtan uca refakat ve destek',
+      pk_eng_k3: 'Ritim', pk_eng_v3: 'Haftalık', pk_eng_d3: 'Değerlendirme & revizyon toplantısı',
+      pk_ph1t: 'Başlangıç', pk_ph1p: 'Tanışma, kapsam netleştirme ve veri toplama planı.', pk_ph1a: 'Başlangıç toplantısı', pk_ph1b: 'Veri talep listesi',
+      pk_ph2t: 'Ölçüm', pk_ph2p: 'Karbon envanteri ve ESG göstergelerinin hesaplanması.', pk_ph2a: 'GHG hesaplaması', pk_ph2b: 'ESG skor seti',
+      pk_ph3t: 'Analiz', pk_ph3p: 'Sonuçların yorumlanması ve azaltım yol haritası.', pk_ph3a: 'Önceliklendirme', pk_ph3b: 'Senaryo & hedef',
+      pk_ph4t: 'Teslim', pk_ph4p: 'Rapor sunumu, ekip eğitimi ve sonraki adımlar.', pk_ph4a: 'Yönetici sunumu', pk_ph4b: 'Eğitim oturumu',
+      pk_pr_eyebrow: 'Paketler', pk_pr_title: 'Ölçeğinize uygun üç paket',
+      pk_pr_sub: "Tek tesisli bir KOBİ'den çok lokasyonlu gruplara kadar; aynı metodoloji, farklı kapsam.",
+      pk_pop: 'En çok tercih edilen', pk_tier_cta: 'Teklif al',
+      pk_tier1s: 'Tek lokasyon', pk_tier1n: 'Temel', pk_tier1d: "İlk adımı atan, tek tesisli KOBİ'ler için.",
+      pk_t1f1: 'Karbon Kapsam 1–2 envanteri', pk_t1f2: 'ESG ön-değerlendirme', pk_t1f3: 'Yol haritası özeti', pk_t1f4: 'Dijital yönetici raporu', pk_t1f5: 'Ekip eğitimi', pk_t1f6: 'Takip dönemi',
+      pk_tier2s: 'Çok lokasyon', pk_tier2n: 'Büyüme', pk_tier2d: "Müşteri ve regülasyon talebi gelen büyüyen KOBİ'ler için.",
+      pk_t2f1: 'Kapsam 1–2 + öncelikli Kapsam 3', pk_t2f2: 'Tam ESG değerlendirme & skor', pk_t2f3: 'Detaylı azaltım yol haritası', pk_t2f4: 'Yarım günlük ekip eğitimi', pk_t2f5: 'Teşvik uyum kontrol listesi', pk_t2f6: '3 ay e-posta takip desteği',
+      pk_tier3s: 'Grup / holding', pk_tier3n: 'Kurumsal+', pk_tier3d: 'Çok şirketli yapılar ve ileri raporlama ihtiyacı için.',
+      pk_t3f1: 'Büyüme paketinin tamamı', pk_t3f2: 'Tedarik zinciri analizi', pk_t3f3: 'CSRD / GRI raporlama hazırlığı', pk_t3f4: 'Çeyreklik izleme panosu', pk_t3f5: 'Özel yönetici atölyeleri', pk_t3f6: '12 ay danışmanlık desteği',
+      pk_f_eyebrow: 'Sık sorulanlar', pk_f_title: 'Aklınızdaki sorular',
+      pk_q1: 'Paket ne kadar sürede tamamlanıyor?', pk_a1: 'Tipik bir KOBİ için süreç başlangıç toplantısından nihai sunuma kadar 12 haftadır. Veri hazırlığınıza ve lokasyon sayısına göre bu süre kısalabilir veya uzayabilir.',
+      pk_q2: 'Hangi verileri sağlamamız gerekiyor?', pk_a2: 'Genellikle enerji ve yakıt faturaları, üretim/operasyon hacimleri, araç filosu ve atık verileri yeterlidir. Başlangıçta size net bir veri talep listesi iletiyoruz.',
+      pk_q3: 'Rapor denetime ve müşteri taleplerine uygun mu?', pk_a3: 'Evet. Hesaplamalar GHG Protocol ve ISO 14064 metodolojisine göre, üçüncü taraf doğrulamasına hazır şekilde yapılandırılır.',
+      pk_q4: 'Devlet teşviklerinden yararlanabilir miyiz?', pk_a4: 'Pakete, KOSGEB ve ilgili destek programlarına uygunluğunuzu değerlendiren bir kontrol listesi dahildir. Başvuru sürecinde de yönlendirme sağlıyoruz.',
+      pk_q5: 'Paket sonrası destek alabilir miyiz?', pk_a5: 'Evet. Büyüme ve Kurumsal+ paketleri takip dönemleri içerir; ayrıca yıllık izleme ve raporlama için ayrı sürekli destek paketleri sunuyoruz.',
+      pk_cta_t: "KOBİ'niz için doğru paketi birlikte seçelim.",
+      pk_cta_p: 'Kısa bir görüşmede ölçeğinizi ve hedeflerinizi konuşalım; size en uygun paketi ve net bir teklifi 2 iş günü içinde iletelim.',
+      pk_cta_b1: 'Teklif iste', pk_cta_b2: 'Tüm hizmetler',
+      pk_sc_eyebrow: 'Detaylı kapsam', pk_sc_title: 'Yapılacak işler',
+      pk_sc_sub: 'Tek bir standart paket, altı iş kolu. Her iş kolu net teslimatlarla sonuçlanır — neyi, nasıl ve hangi standartla yaptığımız baştan bellidir.',
+      pk_sc_deliver: 'Teslimat',
+      pk_sc_a_t: 'Karbon ayak izi & envanter', pk_sc_a_d: 'Sera gazı envanter raporu (Excel + PDF)',
+      pk_sc_a_1: 'Baz yıl ve organizasyonel sınırların belirlenmesi', pk_sc_a_2: 'Kapsam 1: yakıt, jeneratör, araç filosu, soğutucu gaz kaçakları', pk_sc_a_3: 'Kapsam 2: satın alınan elektrik, ısıtma ve soğutma', pk_sc_a_4: 'Kapsam 3 (öncelikli): satın alınan mal/hizmet, atık, iş seyahati, lojistik', pk_sc_a_5: 'Emisyon faktörleri ve GHG Protocol / ISO 14064 metodolojisi', pk_sc_a_6: 'Veri kalite kontrolü ve belirsizlik değerlendirmesi',
+      pk_sc_b_t: 'ESG değerlendirme & olgunluk', pk_sc_b_d: 'ESG skor kartı ve değerlendirme raporu',
+      pk_sc_b_1: 'Çevresel (E), Sosyal (S), Yönetişim (G) gösterge taraması', pk_sc_b_2: 'Çift önemlilik ve öncelikli konu analizi', pk_sc_b_3: 'Mevzuat ve müşteri taleplerine karşı boşluk analizi', pk_sc_b_4: 'Sektör kıyaslaması (benchmark)', pk_sc_b_5: 'Politika ve yönetişim yapısı değerlendirmesi',
+      pk_sc_c_t: 'Azaltım yol haritası', pk_sc_c_d: 'Önceliklendirilmiş aksiyon planı',
+      pk_sc_c_1: 'Azaltım fırsatlarının tespiti ve nicelendirilmesi', pk_sc_c_2: 'Etki/maliyet önceliklendirmesi (azaltım maliyet eğrisi)', pk_sc_c_3: 'Enerji verimliliği ve yenilenebilir enerji önerileri', pk_sc_c_4: 'Kısa, orta ve uzun vadeli hedef belirleme', pk_sc_c_5: 'Net-sıfır patikası taslağı',
+      pk_sc_d_t: 'Tedarik zinciri & raporlama hazırlığı', pk_sc_d_d: 'Raporlama hazırlık dosyası',
+      pk_sc_d_1: 'Kritik tedarikçilerin haritalanması', pk_sc_d_2: 'CSRD / GRI / TSRS gereksinim eşlemesi', pk_sc_d_3: 'Veri toplama süreç ve altyapı önerisi', pk_sc_d_4: 'Beyan ve doğrulama yol haritası',
+      pk_sc_e_t: 'Eğitim & kurumsal kapasite', pk_sc_e_d: 'Eğitim materyalleri ve katılım belgesi',
+      pk_sc_e_1: 'Yönetici farkındalık oturumu (yarım gün)', pk_sc_e_2: 'Teknik ekip uygulama atölyesi', pk_sc_e_3: 'Sürdürülebilirlik el kitabı ve şablonlar', pk_sc_e_4: 'Rol bazlı sorumluluk matrisi',
+      pk_sc_f_t: 'İzleme & sürekli danışmanlık', pk_sc_f_d: 'Haftalık toplantılar + 12 ay danışmanlık',
+      pk_sc_f_1: 'Haftalık değerlendirme ve revizyon toplantıları', pk_sc_f_2: 'Aylık ilerleme raporu ve hedef takibi', pk_sc_f_3: 'Çeyreklik izleme panosu güncellemesi', pk_sc_f_4: '12 ay boyunca e-posta ve görüşme desteği',
+      pk_sc_foot: '<b>Tek paket, tüm kapsam.</b> Kapsamı lokasyon sayınıza ve sektörünüze göre birlikte ölçeklendirir, net bir teklif sunarız.', pk_sc_foot_cta: 'Teklif al'
+    },
+    en: {
+      nav_services: 'Services', nav_process: 'Approach', nav_method: 'Methodology', nav_about: 'About', nav_cta: 'Contact',
+      hero_eyebrow: 'Sustainability · Data · Strategy',
+      hero_title: 'We make sustainability <span class="hl">measurable</span>.',
+      hero_sub: 'ESG LAB delivers data-driven advisory in carbon management, ESG reporting and corporate capacity building — for SMEs, large enterprises and the public sector.',
+      hero_cta1: 'Free assessment', hero_cta2: 'Our methodology',
+      hero_m1: 'compliant inventory', hero_m2: 'scope 1·2·3', hero_m3: 'reporting',
+      dp_title: 'Carbon intensity — tCO₂e / €M revenue', dp_f1: 'Scope 1 · 2', dp_f2: 'Scope 3', dp_f3: 'Target year',
+      trust_lbl: 'The ecosystem we work with',
+      fc_eyebrow: 'Platform', fc_title: 'One data layer, three tangible outputs',
+      fc_sub: "Consulting doesn't end with a report. We turn your data into a dashboard, the dashboard into a report, and the report into your team's capability.",
+      fc1_chip: 'Total reduction', fc1_tag: 'Dashboard', fc1_t: 'Your carbon data in one dashboard',
+      fc1_p: 'Emissions across all sites and scopes are consolidated into a live dashboard — see the trend and distance to target instantly.', fc1_b: 'Dashboard',
+      fc2_btn: 'Verify', fc2_tag: 'Reporting', fc2_t: 'Standards-compliant reports',
+      fc2_p: 'Generate audit-ready reports mapped to GRI, CSRD/ESRS and TSRS requirements in a single click.', fc2_b: 'Reporting',
+      fc3_new: 'New', fc3_bubble: 'We certify your team across 12 modules.', fc3_tag: 'Academy', fc3_t: 'Empower your team from within',
+      fc3_p: 'Make sustainability capability permanent in-house with role-specific modules and certification.', fc3_b: 'Academy',
+      cl_title: 'Your climate strategy, from target to action',
+      cl_sub: 'Align your emission targets with science and plan your path to net-zero step by step — standards-aligned and audit-ready.',
+      cl_badge: '1.5°C', cl_suggest: 'Verifiable reduction targets suggested for 2030…',
+      cl_a_t: 'Your targets, aligned with science', cl_a_p: 'Set your emission reduction targets to Science Based Targets initiative (SBTi) criteria — credible, independently verifiable targets aligned with a 1.5°C scenario.', cl_a_b: 'Explore SBTi',
+      cl_b_eyebrow: 'NET-ZERO', cl_b_t: 'Your net-zero roadmap', cl_b_p: 'A phased net-zero plan covering your Scope 1, 2 and 3 emissions — with interim milestones, reduction levers and an offsetting strategy.',
+      st_1: 'Projects delivered', st_2: 'Average emission reduction', st_3: 'Industries in the field', st_4: 'Professionals trained',
+      svc_eyebrow: 'Services', svc_title: 'Three core areas of expertise',
+      svc_sub: 'From diagnosis to reporting, we run your entire sustainability journey under a single data framework.',
+      svc1_t: 'Carbon footprint & emission management', svc1_p: 'Scope 1, 2 and 3 GHG inventory, audit-ready calculation and a net-zero roadmap.',
+      svc1_l1: 'GHG Protocol inventory', svc1_l2: 'ISO 14064 verification support', svc1_l3: 'Reduction & SBTi targets',
+      svc2_t: 'ESG reporting & strategy', svc2_p: 'Double materiality analysis, stakeholder mapping and a CSRD/GRI-compliant reporting architecture.',
+      svc2_l1: 'GRI · CSRD · TSRS alignment', svc2_l2: 'Double materiality analysis', svc2_l3: 'ESG score & rating',
+      svc3_t: 'Training & corporate awareness', svc3_p: 'Role-specific training programs and capacity building, from the boardroom to field teams.',
+      svc3_l1: 'Executive awareness workshops', svc3_l2: 'Technical team certification', svc3_l3: 'Sustainability academy',
+      proc_eyebrow: 'Approach', proc_title: 'Starts with data, ends with impact',
+      proc_sub: 'We design every project as an auditable chain of evidence — proof, not assumption.',
+      p1_t: 'Diagnose', p1_p: 'Current-state analysis, data maturity and regulatory exposure scan.',
+      p2_t: 'Measure', p2_p: 'GHG inventory, ESG indicator set and verifiable data collection.',
+      p3_t: 'Strategy', p3_p: 'Reduction scenarios, target setting and investment prioritization.',
+      p4_t: 'Report', p4_p: 'Standards-compliant report, disclosure and a continuous monitoring dashboard.',
+      m_eyebrow: 'Methodology', m_title: 'Evidence-based, audit-ready',
+      m_sub: 'Every data point we collect is traceable to its source. We don’t guess — we measure, verify and visualize.',
+      m_f1: '<b>Single source of truth.</b> All indicators are consolidated into one central data model.',
+      m_f2: '<b>Independent verifiability.</b> Calculations are structured for third-party audit.',
+      m_f3: '<b>Live monitoring.</b> Progress is tracked on a living dashboard, not a static report.',
+      tab_1: 'Carbon', tab_2: 'ESG Score', tab_3: 'Sector',
+      vz_c_t: 'Annual emissions (tCO₂e)', vz_c_a: '● Actual', vz_c_b: '● Target path', vz_c_c: 'Net-zero',
+      vz_s_t: 'Composite ESG score', vz_s_e: 'Environmental (E)', vz_s_s: 'Social (S)', vz_s_g: 'Governance (G)',
+      vz_x_t: 'Emission source breakdown', vz_x_1: 'Energy & heating', vz_x_2: 'Supply chain', vz_x_3: 'Logistics & transport', vz_x_4: 'Waste & water', vz_x_5: 'Other',
+      ab_eyebrow: 'About',
+      ab_lead: 'We believe sustainability is not a <em>compliance burden</em> but a measurable <em>competitive advantage</em>.',
+      ab_1t: 'Independence', ab_1p: 'We are not a supplier; our only interest is the accuracy of your data.',
+      ab_2t: 'Transparency', ab_2p: 'We openly share the method and source behind every number.',
+      ab_3t: 'Actionability', ab_3p: 'We produce roadmaps that work in the field, not reports that sit on a shelf.',
+      ab_4t: 'Scientific basis', ab_4p: 'We build on international standards and the latest climate science.',
+      cta_t: 'Let’s build your sustainability roadmap together.',
+      cta_p: 'Start with a free 45-minute assessment call — we’ll map your organization’s data maturity and priority next steps together.',
+      cta_b1: 'Book a call', cta_b2: 'Explore services',
+      ft_desc: 'Data-driven sustainability consulting. Carbon, ESG reporting and corporate capacity building.',
+      ft_h1: 'Services', ft_s1: 'Carbon management', ft_s2: 'ESG reporting', ft_s3: 'Training & awareness', ft_s4: 'Methodology',
+      ft_h2: 'Company', ft_c1: 'About', ft_c2: 'Approach', ft_c3: 'Impact', ft_c4: 'Contact',
+      ft_h3: 'Contact', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'All rights reserved · Privacy · GDPR',
+      nav_pkg: 'SME Package',
+      nav_edu: 'Online Training',
+      edu_eyebrow: 'ESG Academy · Online Training',
+      edu_title: 'Build sustainability capability <span class="hl">through training</span>.',
+      edu_sub: 'From carbon to circular economy, social responsibility to governance — a standards-based, practical online training catalog, categorized under E, S and G.',
+      edu_st1: 'Training programs', edu_st2: 'Categories', edu_st3: 'ISO · CDP · GRI', edu_st3v: 'Standards-based',
+      pk_eyebrow: 'For SMEs · Fixed scope',
+      pk_title: 'A solid start to sustainability in <span class="hl">12 weeks</span>.',
+      pk_sub: 'No large consulting budgets required — a fixed-scope, fixed-price and directly actionable sustainability package built for your SME.',
+      pk_cta1: 'Request a quote', pk_cta2: 'View scope',
+      pk_m1v: '12 weeks', pk_m1: 'core work delivery', pk_m2v: '12 months', pk_m2: 'advisory engagement', pk_m3v: 'Weekly', pk_m3: 'review meeting',
+      pk_sum_t: 'Package at a glance', pk_sum_badge: 'SME',
+      pk_sum_1: 'Carbon footprint inventory (Scope 1–2–3)', pk_sum_2: 'ESG pre-assessment & maturity score',
+      pk_sum_3: 'Prioritized reduction roadmap', pk_sum_4: 'Half-day team training', pk_sum_5: 'Executive summary & digital report',
+      pk_sum_from: 'Standard scope', pk_sum_price: 'On request <small>+VAT</small>', pk_sum_link: 'Details',
+      pk_v_eyebrow: 'Why the SME package', pk_v_title: 'Enterprise quality, SME scale',
+      pk_v_sub: 'We packaged the sustainability methodology of large companies to fit the budget and pace of SMEs.',
+      pk_v1t: 'Fixed price', pk_v1p: 'Scope is defined upfront — no open-ended consulting invoices.',
+      pk_v2t: 'Fast results', pk_v2p: 'Within 12 weeks you hold an audit-ready report and a roadmap.',
+      pk_v3t: 'Regulation-ready', pk_v3p: 'Prepared for supply chain and customer demands and upcoming reporting obligations.',
+      pk_v4t: 'Incentive alignment', pk_v4p: 'A checklist for eligibility to KOSGEB and other support programs is included.',
+      pk_m_eyebrow: 'What\u2019s included', pk_m_title: 'What\u2019s in the package?',
+      pk_m_sub: 'Six modules — one end-to-end delivery, from diagnosis to training your team.',
+      pk_mod1t: 'Carbon inventory', pk_mod1p: 'Scope 1 and 2 GHG calculation, core Scope 3 items.',
+      pk_mod2t: 'ESG pre-assessment', pk_mod2p: 'Environmental, social and governance maturity score and benchmark.',
+      pk_mod3t: 'Reduction roadmap', pk_mod3p: 'A concrete action plan ranked by impact/cost priority.',
+      pk_mod4t: 'Team training', pk_mod4p: 'A half-day, role-specific sustainability awareness session.',
+      pk_mod5t: 'Executive report', pk_mod5p: 'A summary for decision-makers and an audit-ready technical annex.',
+      pk_mod6t: 'Incentive checklist', pk_mod6p: 'Preparation and checklist for eligible support and grant programs.',
+      pk_t_eyebrow: 'Timeline', pk_t_title: 'Core work 12 weeks, advisory 12 months',
+      pk_t_sub: 'The core work is completed in 12 weeks across four phases. The advisory engagement runs for 12 months — with weekly review and revision meetings, we keep your roadmap alive.',
+      pk_eng_k1: 'Core work', pk_eng_v1: '12 weeks', pk_eng_d1: 'Four phases, clear deliverables',
+      pk_eng_k2: 'Advisory', pk_eng_v2: '12 months', pk_eng_d2: 'End-to-end guidance and support',
+      pk_eng_k3: 'Cadence', pk_eng_v3: 'Weekly', pk_eng_d3: 'Review & revision meeting',
+      pk_ph1t: 'Kick-off', pk_ph1p: 'Introduction, scope clarification and a data collection plan.', pk_ph1a: 'Kick-off meeting', pk_ph1b: 'Data request list',
+      pk_ph2t: 'Measure', pk_ph2p: 'Calculating the carbon inventory and ESG indicators.', pk_ph2a: 'GHG calculation', pk_ph2b: 'ESG score set',
+      pk_ph3t: 'Analyze', pk_ph3p: 'Interpreting results and building the reduction roadmap.', pk_ph3a: 'Prioritization', pk_ph3b: 'Scenario & target',
+      pk_ph4t: 'Deliver', pk_ph4p: 'Report presentation, team training and next steps.', pk_ph4a: 'Executive presentation', pk_ph4b: 'Training session',
+      pk_pr_eyebrow: 'Packages', pk_pr_title: 'Three packages to match your scale',
+      pk_pr_sub: 'From a single-site SME to multi-location groups — same methodology, different scope.',
+      pk_pop: 'Most chosen', pk_tier_cta: 'Get a quote',
+      pk_tier1s: 'Single location', pk_tier1n: 'Essential', pk_tier1d: 'For single-site SMEs taking the first step.',
+      pk_t1f1: 'Carbon Scope 1–2 inventory', pk_t1f2: 'ESG pre-assessment', pk_t1f3: 'Roadmap summary', pk_t1f4: 'Digital executive report', pk_t1f5: 'Team training', pk_t1f6: 'Follow-up period',
+      pk_tier2s: 'Multi-location', pk_tier2n: 'Growth', pk_tier2d: 'For growing SMEs facing customer and regulatory demand.',
+      pk_t2f1: 'Scope 1–2 + priority Scope 3', pk_t2f2: 'Full ESG assessment & score', pk_t2f3: 'Detailed reduction roadmap', pk_t2f4: 'Half-day team training', pk_t2f5: 'Incentive compliance checklist', pk_t2f6: '3-month email follow-up',
+      pk_tier3s: 'Group / holding', pk_tier3n: 'Enterprise+', pk_tier3d: 'For multi-company structures with advanced reporting needs.',
+      pk_t3f1: 'The entire Growth package', pk_t3f2: 'Supply chain analysis', pk_t3f3: 'CSRD / GRI reporting readiness', pk_t3f4: 'Quarterly monitoring dashboard', pk_t3f5: 'Dedicated executive workshops', pk_t3f6: '12-month advisory support',
+      pk_f_eyebrow: 'FAQ', pk_f_title: 'Questions on your mind',
+      pk_q1: 'How long does the package take?', pk_a1: 'For a typical SME the process runs 12 weeks, from kick-off to the final presentation. This can be shorter or longer depending on your data readiness and number of locations.',
+      pk_q2: 'What data do we need to provide?', pk_a2: 'Usually energy and fuel bills, production/operation volumes, vehicle fleet and waste data are enough. At the start we send you a clear data request list.',
+      pk_q3: 'Is the report fit for audit and customer demands?', pk_a3: 'Yes. Calculations are structured per the GHG Protocol and ISO 14064 methodology, ready for third-party verification.',
+      pk_q4: 'Can we benefit from government incentives?', pk_a4: 'The package includes a checklist assessing your eligibility for KOSGEB and related support programs. We also guide you through the application process.',
+      pk_q5: 'Can we get support after the package?', pk_a5: 'Yes. The Growth and Enterprise+ packages include follow-up periods; we also offer separate ongoing support packages for annual monitoring and reporting.',
+      pk_cta_t: 'Let\u2019s choose the right package for your SME together.',
+      pk_cta_p: 'In a short call we\u2019ll discuss your scale and goals, then send you the most suitable package and a clear quote within 2 business days.',
+      pk_cta_b1: 'Request a quote', pk_cta_b2: 'All services',
+      pk_sc_eyebrow: 'Detailed scope', pk_sc_title: 'Scope of work',
+      pk_sc_sub: 'One standard package, six workstreams. Each workstream ends with clear deliverables — what we do, how, and to which standard is defined upfront.',
+      pk_sc_deliver: 'Deliverable',
+      pk_sc_a_t: 'Carbon footprint & inventory', pk_sc_a_d: 'GHG inventory report (Excel + PDF)',
+      pk_sc_a_1: 'Setting the base year and organizational boundaries', pk_sc_a_2: 'Scope 1: fuel, generators, vehicle fleet, refrigerant leaks', pk_sc_a_3: 'Scope 2: purchased electricity, heating and cooling', pk_sc_a_4: 'Scope 3 (priority): purchased goods/services, waste, business travel, logistics', pk_sc_a_5: 'Emission factors and GHG Protocol / ISO 14064 methodology', pk_sc_a_6: 'Data quality control and uncertainty assessment',
+      pk_sc_b_t: 'ESG assessment & maturity', pk_sc_b_d: 'ESG scorecard and assessment report',
+      pk_sc_b_1: 'Environmental (E), Social (S), Governance (G) indicator scan', pk_sc_b_2: 'Double materiality and priority topic analysis', pk_sc_b_3: 'Gap analysis against regulation and customer demands', pk_sc_b_4: 'Sector benchmarking', pk_sc_b_5: 'Policy and governance structure assessment',
+      pk_sc_c_t: 'Reduction roadmap', pk_sc_c_d: 'Prioritized action plan',
+      pk_sc_c_1: 'Identifying and quantifying reduction opportunities', pk_sc_c_2: 'Impact/cost prioritization (marginal abatement cost curve)', pk_sc_c_3: 'Energy efficiency and renewable energy recommendations', pk_sc_c_4: 'Short, medium and long-term target setting', pk_sc_c_5: 'Net-zero pathway draft',
+      pk_sc_d_t: 'Supply chain & reporting readiness', pk_sc_d_d: 'Reporting readiness file',
+      pk_sc_d_1: 'Mapping critical suppliers', pk_sc_d_2: 'CSRD / GRI / TSRS requirement mapping', pk_sc_d_3: 'Data collection process and infrastructure proposal', pk_sc_d_4: 'Disclosure and verification roadmap',
+      pk_sc_e_t: 'Training & corporate capacity', pk_sc_e_d: 'Training materials and certificate of attendance',
+      pk_sc_e_1: 'Executive awareness session (half-day)', pk_sc_e_2: 'Technical team hands-on workshop', pk_sc_e_3: 'Sustainability handbook and templates', pk_sc_e_4: 'Role-based responsibility matrix',
+      pk_sc_f_t: 'Monitoring & ongoing advisory', pk_sc_f_d: 'Weekly meetings + 12-month advisory',
+      pk_sc_f_1: 'Weekly review and revision meetings', pk_sc_f_2: 'Monthly progress report and target tracking', pk_sc_f_3: 'Quarterly monitoring dashboard update', pk_sc_f_4: 'Email and call support throughout the 12 months',
+      pk_sc_foot: '<b>One package, full scope.</b> We scale the scope with you based on your number of locations and sector, and give you a clear quote.', pk_sc_foot_cta: 'Get a quote'
+    }
+  };
+
+  let lang = localStorage.getItem('esglab_lang') || 'tr';
+
+  function applyLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    const d = DICT[l];
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      const v = d[el.getAttribute('data-i18n')];
+      if (v != null) el.innerHTML = v;
+    });
+    document.querySelectorAll('#lang button').forEach(function (b) {
+      b.classList.toggle('on', b.getAttribute('data-lang') === l);
+    });
+    localStorage.setItem('esglab_lang', l);
+    window.dispatchEvent(new CustomEvent('esglab:lang', { detail: l }));
+    // refresh counters that already ran
+    document.querySelectorAll('.count[data-done]').forEach(function (c) {
+      c.textContent = fmt(+c.getAttribute('data-to'));
+    });
+  }
+
+  function fmt(n) {
+    return n >= 1000 ? n.toLocaleString(lang === 'tr' ? 'tr-TR' : 'en-US') : String(n);
+  }
+
+  /* ---------------- Lang toggle ---------------- */
+  document.getElementById('lang').addEventListener('click', function (e) {
+    const b = e.target.closest('button');
+    if (b) applyLang(b.getAttribute('data-lang'));
+  });
+
+  /* ---------------- Nav scrolled ---------------- */
+  const nav = document.getElementById('nav');
+  const onScroll = function () { nav.classList.toggle('scrolled', window.scrollY > 8); };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------------- Mobile menu (anchor scroll) ---------------- */
+  const menuBtn = document.getElementById('menuBtn');
+  if (menuBtn) menuBtn.addEventListener('click', function () {
+    const target = document.getElementById('services') || document.querySelector('main section');
+    if (target) window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+  });
+
+  /* ---------------- Counters ---------------- */
+  function runCounter(el) {
+    const to = +el.getAttribute('data-to');
+    const dur = 1400, t0 = performance.now();
+    function tick(now) {
+      const p = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(to * e));
+      if (p < 1) requestAnimationFrame(tick);
+      else { el.textContent = fmt(to); el.setAttribute('data-done', '1'); }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* ---------------- Hero line draw ---------------- */
+  let heroDone = false;
+  function animateHero() {
+    if (heroDone) return; heroDone = true;
+    const line = document.getElementById('heroLine');
+    const area = document.getElementById('heroArea');
+    if (line) {
+      const len = line.getTotalLength();
+      line.style.strokeDasharray = len;
+      line.style.strokeDashoffset = len;
+      line.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.4,.7,.2,1)';
+      requestAnimationFrame(function () { line.style.strokeDashoffset = '0'; });
+      // dots
+      const pts = line.getAttribute('points').trim().split(/\s+/);
+      const g = document.getElementById('heroDots');
+      pts.forEach(function (pt, i) {
+        const xy = pt.split(',');
+        const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        c.setAttribute('cx', xy[0]); c.setAttribute('cy', xy[1]); c.setAttribute('r', '3.2');
+        c.setAttribute('fill', 'var(--surface)'); c.setAttribute('stroke', 'var(--accent)'); c.setAttribute('stroke-width', '2');
+        c.style.opacity = '0'; c.style.transition = 'opacity .3s ease ' + (0.5 + i * 0.13) + 's';
+        g.appendChild(c);
+        requestAnimationFrame(function () { c.style.opacity = '1'; });
+      });
+    }
+    if (area) { area.style.transition = 'opacity 1.2s ease .5s'; requestAnimationFrame(function () { area.style.opacity = '1'; }); }
+  }
+
+  /* ---------------- Bars / gauge / process fill ---------------- */
+  function fillBars(scope) {
+    (scope || document).querySelectorAll('.bar[data-w]').forEach(function (b) {
+      b.style.width = b.getAttribute('data-w') + '%';
+    });
+  }
+  function animateGauge() {
+    const g = document.getElementById('gauge');
+    if (g && !g.getAttribute('data-done')) {
+      const score = 78, circ = 314;
+      g.style.transition = 'stroke-dashoffset 1.3s cubic-bezier(.4,.7,.2,1)';
+      requestAnimationFrame(function () { g.style.strokeDashoffset = circ * (1 - score / 100); });
+      g.setAttribute('data-done', '1');
+    }
+  }
+
+  /* ---------------- Reveal observer ---------------- */
+  const io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      if (en.target.id === 'stats') en.target.querySelectorAll('.count').forEach(runCounter);
+      if (en.target.id === 'hero') animateHero();
+      if (en.target.classList.contains('proc')) {
+        const f = document.getElementById('procFill'); if (f) f.style.width = '100%';
+      }
+      if (en.target.id === 'method') { fillBars(document.querySelector('[data-pane="carbon"]')); }
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+  ['stats', 'hero', 'method'].forEach(function (id) { const el = document.getElementById(id); if (el) io.observe(el); });
+  const proc = document.querySelector('.proc'); if (proc) io.observe(proc);
+
+  /* ---------------- Methodology tabs ---------------- */
+  const tabs = document.getElementById('tabs');
+  if (tabs) tabs.addEventListener('click', function (e) {
+    const b = e.target.closest('button'); if (!b) return;
+    const name = b.getAttribute('data-tab');
+    tabs.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+    document.querySelectorAll('#viz .pane').forEach(function (p) {
+      const on = p.getAttribute('data-pane') === name;
+      p.classList.toggle('on', on);
+      if (on) {
+        p.querySelectorAll('.bar[data-w]').forEach(function (bar) { bar.style.width = '0'; });
+        requestAnimationFrame(function () { setTimeout(function () { fillBars(p); }, 40); });
+        if (name === 'score') { document.getElementById('gauge').removeAttribute('data-done'); document.getElementById('gauge').style.strokeDashoffset = '314'; setTimeout(animateGauge, 60); }
+      }
+    });
+  });
+
+  /* ---------------- Init ---------------- */
+  applyLang(lang);
+})();
+
+</script>
+<script data-src="egitimler-data.js">
+/* ===================================================================
+   ESG LAB — Online Eğitim kataloğu verisi
+   Metinler yüklenen eğitim görsellerinden birebir korunmuştur.
+   cat: E (Çevresel) · S (Sosyal) · G (Yönetişim) · GEN (Genel)
+   =================================================================== */
+window.ESG_COURSES = [
+  {
+    id: 'surdurulebilirlik-101', cat: 'GEN', code: 'Sürdürülebilirlik 101', level: 'Temel',
+    title: 'Sürdürülebilirlik 101 Eğitimi',
+    objective: 'Bu eğitimin amacı, sürdürülebilirliğe dair temel kavramları çevresel, sosyal ve yönetişim (ESG) boyutlarıyla bütüncül biçimde aktararak katılımcıların bireysel ve kurumsal düzeyde bilinçli ve uygulanabilir sürdürülebilirlik adımları atmasını sağlamaktır.',
+    modules: [
+      'Modül 1: Sürdürülebilirlik Temelleri',
+      'Modül 2: ESG Kavramı ve Kurumsal Yaklaşım',
+      'Modül 3: İklim Değişikliği ve Karbon Ayak İzi',
+      'Modül 4: Döngüsel Ekonomi ve Atık Yönetimi',
+      'Modül 5: Sürdürülebilir Kalkınma Amaçları',
+      'Modül 6: Bireysel ve Kurumsal Uygulama Örnekleri'
+    ],
+    benefits: 'Sürdürülebilirliğe dair net bir bakış açısı kazanır, günlük ve kurumsal hayatta uygulanabilir adımlar geliştirir ve sürdürülebilirlik projelerine katkı sağlayabilecek bilgi edinirsiniz.',
+    audience: 'Sürdürülebilirlik konularına ilgi duyan bireyler, şirket çalışanları ve yöneticiler, öğrenciler, kariyerine yeni başlayanlar ve sürdürülebilirlik alanında çalışmak isteyen profesyoneller için uygundur.'
+  },
+  {
+    id: 'ecovadis', cat: 'GEN', code: 'EcoVadis', level: 'Değerlendirme',
+    title: 'Ecovadis Eğitimi',
+    objective: 'Bu eğitim, EcoVadis değerlendirme metodolojisini, soru setlerini ve puanlama mantığını detaylı şekilde açıklayarak şirketlerin sürdürülebilirlik performansını doğru ve etkili biçimde yönetmesini sağlar.',
+    modules: [
+      'Modül 1: EcoVadis\u2019e Giriş ve Sürdürülebilirlik Temelleri',
+      'Modül 2: EcoVadis Metodolojisi: Temel İlkeler ve Değerlendirme Temaları',
+      'Modül 3: KSS Yönetim Sistemi Yapısı ve 7 Yönetim Göstergesi',
+      'Modül 4: İlkeler ve Eylemler Katmanı: POLI, ENDO, MESU, CERT',
+      'Modül 5: Sonuçlar Katmanı ve Puanlama Sistemi',
+      'Modül 6: Değerlendirme Süreci, Belge Gereksinimleri ve İyileştirme Uygulamaları'
+    ],
+    benefits: 'Katılımcılar, EcoVadis skorunu yükseltmeye yönelik doğru veri hazırlama, dokümantasyon ve sürekli iyileştirme yaklaşımı kazanır.',
+    audience: 'Bu eğitim; sürdürülebilirlik, ESG, tedarik zinciri, kalite, uyum ve kurumsal raporlama süreçlerinden sorumlu profesyoneller için uygundur.'
+  },
+  {
+    id: 'cdp-101', cat: 'E', code: 'CDP', level: '101',
+    title: 'CDP 101 Eğitimi',
+    objective: 'Katılımcılara CDP (Carbon Disclosure Project) sistemini tüm yönleriyle öğretmek, iklim, su ve orman raporlamalarının kurumsal stratejilerdeki rolünü kavratmak ve CDP\u2019yi uyum sürecinin ötesinde stratejik karar alma aracı olarak kullanma yetkinliği kazandırmak.',
+    modules: [
+      'Modül 1: CDP Sistemi ve Güncel Metodoloji',
+      'Modül 2: Emisyon Verileri ve Scope 1-2-3 Hesaplama',
+      'Modül 3: CDP Modülleri ve Raporlama Yapısı',
+      'Modül 4: Yatırımcı ve Tedarik Zinciri Taleplerinin Yönetimi',
+      'Modül 5: CDP Puanlama Sistemi ve Yüksek Skor Stratejileri',
+      'Modül 6: IFRS S2, TSRS 2 ve TCFD ile Entegrasyon',
+      'Modül 7: Sık Yapılan Hatalar ve Uygulama İpuçları'
+    ],
+    benefits: 'CDP raporlamasını doğru ve stratejik şekilde yapmayı sağlar, yüksek puan hedefleme becerisi kazandırır, IFRS S2–TSRS–TCFD uyumunu güçlendirir ve yatırımcı güvenini artırır.',
+    audience: 'Sürdürülebilirlik, ESG ve çevre yöneticileri, finans ve risk ekipleri, CDP\u2019ye ilk kez raporlama yapacak şirket temsilcileri, danışmanlar ve yatırımcı taleplerine yanıt vermek isteyen kurumlar için uygundur.'
+  },
+  {
+    id: 'ets', cat: 'E', code: 'TR-ETS / AB-ETS', level: 'Uyum',
+    title: 'Emisyon Ticaret Sistemi TR-ETS, AB-ETS',
+    objective: 'Bu eğitimin amacı, TR-ETS ve AB-ETS kapsamında emisyon izni alma, izleme-raporlama-doğrulama (MRV), tahsisat ve denkleştirme süreçlerini uygulamalı örneklerle öğreterek kurumların yasal uyum ve karbon yönetimi yetkinliğini artırmaktır.',
+    modules: [
+      'Modül 1: ETS\u2019nin Temelleri ve Yasal Çerçeve',
+      'Modül 2: Kapsam, Kapsam Dışı Faaliyetler ve Sektörel Uygulamalar',
+      'Modül 3: İzleme, Raporlama ve Doğrulama (MRV) Sistemi',
+      'Modül 4: Ücretsiz Tahsisatlar ve Hesaplama Yöntemleri',
+      'Modül 5: ETS Piyasası ve Ticaret Mekanizmaları',
+      'Modül 6: Denkleştirme (Offset) Mekanizmaları',
+      'Modül 7: AB ETS ve SKDM ile Uyum Süreci',
+      'Modül 8: Kurumsal Hazırlık ve Uygulama Planları'
+    ],
+    benefits: 'ETS\u2019ye yasal uyum sağlar, emisyon verilerinin doğru yönetilmesini öğretir, tahsisat ve raporlama risklerini azaltır ve stratejik karbon yönetimi becerisi kazandırır.',
+    audience: 'Enerji yoğun sektörlerdeki tesis yöneticileri, çevre-iklim birimleri, emisyon izleme ve raporlama sorumluları, danışmanlar, denetim firmaları ve ETS kapsamına girmeyi planlayan şirket temsilcileri için uygundur.'
+  },
+  {
+    id: 'iso-14046', cat: 'E', code: 'ISO 14046', level: 'Su Ayak İzi',
+    title: 'ISO 14046 Su Ayakizi Hesaplama ve Raporlama Standartı',
+    objective: 'ISO 14046 standardı kapsamında su ayakizi hesaplama ve raporlama süreçlerini öğretmek, işletmelerin su kullanımının çevresel etkilerini analiz edebilmesini ve sürdürülebilir su yönetimi stratejileri geliştirmesini sağlamaktır.',
+    modules: [
+      'Giriş ve Temel Kavramlar',
+      'ISO 14046 Standardının Genel Çerçevesi',
+      'Su Ayakizi Hesaplama Metodolojisi',
+      'Veri Toplama ve Değerlendirme Süreçleri',
+      'Su Ayakizi Raporlaması ve Uygulama Örnekleri',
+      'Su Yönetimi ve İyileştirme Stratejileri'
+    ],
+    benefits: 'Su ayakizi hesaplama ve raporlama yetkinliği kazanır, su verimliliğini artırır, uluslararası standartlara uygun ve güvenilir sürdürülebilirlik raporları hazırlarsınız.',
+    audience: 'Çevre ve sürdürülebilirlik uzmanları, su ve enerji yönetimi profesyonelleri, ISO standartlarına uyum sağlamak isteyen işletmeler ile sanayi, tarım ve üretim sektörlerinde çalışanlar için uygundur.'
+  },
+  {
+    id: 'iso-14064-1', cat: 'E', code: 'ISO 14064-1', level: 'Karbon Ayak İzi',
+    title: 'ISO 14064-1 Karbon Ayakizi Hesaplama ve Raporlama',
+    objective: 'ISO 14064-1 standardı kapsamında organizasyonel sera gazı emisyonlarının doğru şekilde hesaplanması, raporlanması ve doğrulanmasını öğretmek; kurumların yasal uyum ve sürdürülebilirlik hedeflerini desteklemek.',
+    modules: [
+      'Modül 1: Temel Kavramlar ve Küresel Zorluklar',
+      'ISO 14064-1 Giriş ve Temel Terimler',
+      'Standartın Temel İlkeleri',
+      'Madde 5 Kuruluş ve Raporlama Sınırları',
+      'Madde 6: Hesaplama Yöntemleri',
+      'Seragazı Azaltım Girişim ve Projeleri',
+      'Madde 8: Seragazı Envanter Kalite Yönetim Sistemi',
+      'Madde 9: Raporlama',
+      'Madde 10: Doğrulama'
+    ],
+    benefits: 'Karbon ayak izinizi doğru hesaplayarak çevresel etkinizi azaltır, yasal uyum sağlar, sürdürülebilirlik raporlaması ve yeşil finansmana erişimi güçlendirirsiniz.',
+    audience: 'Sürdürülebilirlik ve çevre yöneticileri, ESG uzmanları, karbon ayak izi hesaplayan mühendisler, danışmanlar, raporlama yapan firmalar ve karbon yönetiminde uzmanlaşmak isteyenler.'
+  },
+  {
+    id: 'iso-14067', cat: 'E', code: 'ISO 14067', level: 'Ürün KAİ',
+    title: 'ISO 14067 Ürün Karbon Ayakizi Eğitimi',
+    objective: 'ISO 14067 standardı kapsamında ürünlerin yaşam döngüsü boyunca oluşan karbon ayak izinin hesaplanması, raporlanması ve yönetilmesine yönelik metodoloji ve uygulamaları katılımcılara kazandırmayı amaçlar.',
+    modules: [
+      'ISO 14067\u2019in kapsamı ve ilkeleri',
+      'LCA temelli ürün karbon ayak izi hesaplama adımları',
+      'Emisyon faktörleri',
+      'Veri yönetimi',
+      'Doğrulama',
+      'Raporlama süreçleri ile azaltım stratejileri ele alınır.'
+    ],
+    benefits: 'Ürün karbon ayak izini doğru hesaplama, azaltım fırsatlarını belirleme ve sürdürülebilir ürün stratejileri geliştirerek rekabet avantajı kazanma yetkinliği sağlar.',
+    audience: 'Üretim, tedarik zinciri, Ar-Ge ve sürdürülebilirlik ekipleri, ürün bazlı karbon hesaplaması yapmak isteyen firmalar, ESG uzmanları ve danışmanlar için uygundur.'
+  },
+  {
+    id: 'iso-46001', cat: 'E', code: 'ISO 46001', level: 'Su Verimliliği',
+    title: 'ISO 46001 Su Verimliliği Yönetim Sistemi Temel',
+    objective: 'ISO 46001 standardı doğrultusunda işletmelerin su verimliliği yönetim sistemini kurma, uygulama ve sürekli iyileştirme süreçlerini öğretmek; su tüketimini ölçülebilir, izlenebilir ve sürdürülebilir şekilde yönetme yetkinliği kazandırmaktır.',
+    modules: [
+      'ISO 46001 standardına giriş ve temel kavramlar',
+      'Su verimliliği yönetim sisteminin kurulumu ve uygulanması',
+      'Su tüketimi izleme, ölçme ve raporlama yöntemleri',
+      'Su verimliliği göstergeleri ve iyileştirme teknikleri',
+      'Risk yönetimi, acil durum planlaması ve denetim hazırlıkları'
+    ],
+    benefits: 'Su tüketimini ve maliyetleri azaltır, çevresel sürdürülebilirliği güçlendirir, yasal uyum ve ISO 46001 sertifikasyon sürecine hazırlık sağlar.',
+    audience: 'Çevre ve sürdürülebilirlik uzmanları, tesis ve teknik yöneticiler, su yönetimiyle ilgilenen mühendisler, ISO 46001 belgelendirmesi hedefleyen işletmeler için uygundur.'
+  },
+  {
+    id: 'iso-50001', cat: 'E', code: 'ISO 50001', level: 'Enerji Yönetimi',
+    title: 'ISO 50001 Enerji Yönetim Sistemi',
+    objective: 'ISO 50001 standardı doğrultusunda enerji yönetim sisteminin kurulması, uygulanması ve sürekli iyileştirilmesini öğretmek; işletmelerin enerji performansını artırarak maliyetleri düşürmesine ve sürdürülebilirlik hedeflerine ulaşmasına destek olmaktır.',
+    modules: [
+      'Modül 1: Enerji yönetimi, enerji verimliliği ve ISO 50001 standardına giriş, temel kavramlar ve sistem yaklaşımı',
+      'Modül 2: ISO 50001 standardının yapısı, gereklilikleri, politika oluşturma ve enerji yönetim sistemi kurulumu',
+      'Modül 3: Enerji planlaması, veri toplama, enerji gözden geçirme, performans göstergeleri ve ölçüm teknikleri',
+      'Modül 4: Enerji performansının izlenmesi, analiz edilmesi, iyileştirme aksiyonları ve hedef belirleme',
+      'Modül 5: İç denetim, yönetimin gözden geçirmesi, sürekli iyileştirme ve belgelendirme sürecine hazırlık'
+    ],
+    benefits: 'Enerji maliyetlerini düşürür, enerji performansını artırır, yasal gerekliliklere uyumu kolaylaştırır ve ISO 50001 belgelendirmesiyle kurumsal rekabet gücünü artırır.',
+    audience: 'Enerji yöneticileri ve mühendisleri, sürdürülebilirlik ve çevre yöneticileri, üretim ve tesis yöneticileri, kalite–yönetim sistemi profesyonelleri ve enerji alanında kariyer hedefleyenler için uygundur.'
+  },
+  {
+    id: 'iso-59004', cat: 'DE', code: 'ISO 59004', level: 'Döngüsel Ekonomi',
+    title: 'ISO 59004 Döngüsel Ekonomi Eğitimi',
+    objective: 'ISO 59004 rehberliğinde döngüsel ekonomi kavramlarını, ilkelerini ve uygulama yaklaşımlarını öğretmek; kuruluşların kaynak verimliliğini artırarak sürdürülebilir iş modellerine geçişini desteklemek ve stratejik yol haritası oluşturmalarını sağlamak.',
+    modules: [
+      'Modül 1 – Döngüsel Ekonomiye Giriş',
+      'Modül 2 – ISO 59004\u2019ün Yapısı ve Prensipleri',
+      'Modül 3 – Değer Zinciri ve Kaynak Yönetimi',
+      'Modül 4 – İş Modelleri ve Organizasyonel Dönüşüm',
+      'Modül 5 – Performans Ölçümü ve İzleme',
+      'Modül 6 – Uygulama Örnekleri ve Vaka Analizleri'
+    ],
+    benefits: 'Kaynak kullanımını optimize eder, döngüsel iş modelleri geliştirmenizi sağlar, ESG performansını güçlendirir ve sürdürülebilir dönüşümde rekabet avantajı kazandırır.',
+    audience: 'Sürdürülebilirlik yöneticileri, strateji ve inovasyon ekipleri, tedarik zinciri ve üretim yöneticileri, kalite profesyonelleri ve döngüsel ekonomi alanında uzmanlaşmak isteyen profesyoneller.'
+  },
+  {
+    id: 'iso-59010', cat: 'DE', code: 'ISO 59010', level: 'Döngüsel Ekonomi',
+    title: 'ISO 59010 standardı, "Döngüsel Ekonomi — İş Modellerinin ve Değer Ağlarının Dönüşümü"',
+    objective: 'Bu eğitimin amacı, ISO 59010 standardı rehberliğinde işletmelerin doğrusal iş modellerinden döngüsel ekonomi temelli iş modellerine geçişini desteklemek, değer ağlarını dönüştürmeye yönelik stratejik bakış açısı kazandırmaktır.',
+    modules: [
+      'Modül 1: Döngüsel ekonomi yaklaşımı ve ISO 59010 standardının iş modellerine getirdiği temel dönüşüm çerçevesi ele alınır.',
+      'Modül 2: Doğrusal iş modellerinden döngüsel iş modellerine geçişin stratejik adımları ve dönüşüm dinamikleri açıklanır.',
+      'Modül 3: Değer ağları, paydaş iş birlikleri ve döngüsel değer yaratma mekanizmaları incelenir.',
+      'Modül 4: Döngüsel ekonomi odaklı iş modeli türleri ve uygulama senaryoları örneklerle değerlendirilir.',
+      'Modül 5: İş modeli dönüşümünde performans ölçümü, risk yönetimi ve izleme yaklaşımları ele alınır.'
+    ],
+    benefits: 'Döngüsel iş modelleri geliştirme yetkinliği kazandırır, kaynak verimliliğini artırır, değer zinciri risklerini azaltır ve sürdürülebilir rekabet avantajı sağlar.',
+    audience: 'Sürdürülebilirlik yöneticileri, strateji ve iş geliştirme ekipleri, Ar-Ge ve inovasyon profesyonelleri, tedarik zinciri yöneticileri ve döngüsel ekonomi alanında uzmanlaşmak isteyenler için uygundur.'
+  },
+  {
+    id: 'iso-59020', cat: 'DE', code: 'ISO 59020', level: 'Döngüsellik',
+    title: 'ISO 59020 Döngüsellik Performansının Ölçülmesi ve Değerlendirilmesi Standardı',
+    objective: 'Bu eğitimin amacı, ISO 59020 standardı doğrultusunda ürün, hizmet veya sistemlerin döngüsellik performansının nasıl ölçüleceğini, değerlendirileceğini ve sonuçların karar alma ve sürdürülebilirlik süreçlerine nasıl entegre edileceğini öğretmektir.',
+    modules: [
+      'Modül 1: Döngüsellik Performansına Giriş ve ISO 59020\u2019ye Genel Bakış',
+      'Modül 2: Ölçüm Kapsamının, Sistem Sınırlarının ve Paydaşların Belirlenmesi',
+      'Modül 3: Döngüsellik Göstergeleri ve Performans Metriklerinin Seçimi',
+      'Modül 4: Veri Toplama, Doğrulama ve Analiz Süreçleri',
+      'Modül 5: Döngüsellik Performansının Hesaplanması ve Yorumlanması',
+      'Modül 6: Raporlama, Karşılaştırma ve Yönetim Sistemlerine Entegrasyon'
+    ],
+    benefits: 'Döngüsellik performansını sayısal ve karşılaştırılabilir biçimde ölçmeyi sağlar, karar alma süreçlerini güçlendirir ve sürdürülebilirlik performansını kanıta dayalı hale getirir.',
+    audience: 'Sürdürülebilirlik yöneticileri, ESG ve döngüsel ekonomi uzmanları, kalite ve performans ölçüm ekipleri, Ar-Ge ve strateji profesyonelleri ile ISO 59000 serisiyle çalışanlar için uygundur.'
+  },
+  {
+    id: 'lca', cat: 'E', code: 'ISO 14044 · LCA', level: 'Yaşam Döngüsü',
+    title: 'LCA, Yaşam Döngüsü Analizi Eğitimi',
+    objective: 'Bu eğitim, ISO 14044 standardı doğrultusunda ürün, hizmet veya süreçlerin yaşam döngüsü boyunca çevresel etkilerinin analiz edilmesini öğretmeyi ve sürdürülebilirlik hedeflerini destekleyecek karar alma yetkinliği kazandırmayı amaçlar.',
+    modules: [
+      'Modül 1: Yaşam Döngüsü Analizi (LCA) Temel Kavramları',
+      'Modül 2: ISO 14044 Standardı ve LCA Aşamaları',
+      'Modül 3: Envanter Analizi ve Etki Değerlendirmesi',
+      'Modül 4: Hesaplama Yöntemleri ve Vaka Analizleri',
+      'Modül 5: LCA Sonuçlarının Raporlanması ve Doğrulanması'
+    ],
+    benefits: 'Çevresel etkileri bilimsel yöntemlerle analiz etmeyi, sürdürülebilir kararlar almayı ve ISO 14044 uyumlu yaşam döngüsü analizleri yürütmeyi sağlar.',
+    audience: 'Sürdürülebilirlik profesyonelleri, çevresel etki değerlendirmesi yapan yöneticiler, ürün ve süreç tasarımıyla ilgilenen mühendisler ile çevre ve sürdürülebilirlik hedeflerine katkı sağlamak isteyenler için uygundur.'
+  },
+  {
+    id: 'iso-26000', cat: 'S', code: 'ISO 26000', level: 'Sosyal Sorumluluk',
+    title: 'ISO 26000 Sosyal Sorumluluk Yönetimi',
+    objective: 'ISO 26000 rehberliği doğrultusunda kurumların sosyal sorumluluk yaklaşımını iş stratejilerine entegre etmeyi, paydaş yönetimini güçlendirmeyi ve etik, şeffaf, sürdürülebilir uygulamalar geliştirmeyi öğretmeyi amaçlar.',
+    modules: [
+      'ISO 26000\u2019in kapsamı ve ilkeleri',
+      'Yedi temel konu başlığı',
+      'Paydaş analizi',
+      'Etik ve sosyal sorumluluk entegrasyonu',
+      'Performans ölçümü',
+      'Raporlama ve iyi uygulama örneklerini kapsar.'
+    ],
+    benefits: 'Kurumsal itibar ve paydaş güvenini artırır, sosyal ve etik riskleri yönetilebilir kılar, sürdürülebilirlik raporlaması ve sosyal etki yönetimi yetkinliği kazandırır.',
+    audience: 'KSS yöneticileri ve ekipleri, sürdürülebilirlik uzmanları, kalite ve uyum birimleri, insan kaynakları, STK temsilcileri ve sosyal etki alanında çalışan profesyoneller için uygundur.'
+  },
+  {
+    id: 'sa-8000', cat: 'S', code: 'SA 8000', level: 'Sosyal Uygunluk',
+    title: 'SA 8000 Sosyal Sorumluluk Yönetim Sistemi Nedir',
+    objective: 'Katılımcılara SA8000 standardının yapı, ilke ve uygulama gerekliliklerini aktararak insan haklarına saygılı, etik ve sürdürülebilir bir çalışma ortamı kurma, iç sistem oluşturma, riskleri yönetme ve sertifikasyon sürecine hazırlanma yetkinliği kazandırmaktır.',
+    modules: [
+      'Modül 1: SA8000 Standardına Giriş ve Temel Kavramlar',
+      'Modül 2: SA8000\u2019in 9 Temel Sosyal Uygunluk Gerekliliği',
+      'Modül 3: Sosyal Performans Takımı ve Yönetim Sistemi',
+      'Modül 4: Risk Analizi, İç Tetkik ve Uygunsuzluk Yönetimi',
+      'Modül 5: Dokümantasyon, Şikayet Mekanizmaları ve Sertifikasyon Süreci'
+    ],
+    benefits: 'Kurumsal sosyal uygunluk sisteminin kurulmasını sağlar, çalışan memnuniyetini ve iş güvenliğini artırır, itibar ve müşteri güvenini güçlendirir, küresel tedarik zincirlerinde rekabet avantajı kazandırır.',
+    audience: 'İnsan kaynakları, sürdürülebilirlik, KSS, kalite ve uyum yöneticileri; sosyal uygunluk denetçileri; tedarik zinciri sorumluları ve uluslararası markalarla çalışan üreticiler için uygundur.'
+  },
+  {
+    id: 'sosyal-etki-101', cat: 'S', code: 'Sosyal Etki', level: '101',
+    title: 'Sosyal Etki 101',
+    objective: 'Bu eğitim, katılımcıların sosyal etki kavramını doğru şekilde anlamasını, sosyal etkileri planlama, anlatma ve raporlama becerisi kazanmasını ve toplumsal fayda yaratan çalışmalarını stratejik ve anlaşılır biçimde sunabilmesini amaçlar.',
+    modules: [
+      'Modül 1: Sosyal Etki Kavramı ve Temel İlkeler',
+      'Modül 2: Sosyal Etki Raporu Nedir ve Neden Gereklidir',
+      'Modül 3: Hedef Kitleye Göre Etki Raporlama Yaklaşımları',
+      'Modül 4: Görsel Anlatım ve Etkin İletişim Teknikleri',
+      'Modül 5: Hikâyeleştirme ile Sosyal Etkiyi Anlatmak',
+      'Modül 6: Gerçek Etki Raporu İncelemesi ve Uygulama Çalışması'
+    ],
+    benefits: 'Katılımcılar sosyal etkiyi ölçülebilir ve anlatılabilir hale getirir, paydaşlara uygun raporlama yapar, güçlü etki hikâyeleri oluşturur ve sosyal projelerinin görünürlüğünü ve güvenilirliğini artırır.',
+    audience: 'Sosyal etki yaratan projelerde çalışan STK temsilcileri, sosyal girişimciler, kurumsal sosyal sorumluluk ekipleri, iletişim ve raporlama uzmanları ile toplumsal faydasını görünür kılmak isteyen tüm profesyoneller için uygundur.'
+  },
+  {
+    id: 'surdurulebilir-ik', cat: 'S', code: 'Sürdürülebilir İK', level: 'İnsan Kaynakları',
+    title: 'Sürdürülebilir İnsan Kaynakları Eğitimi',
+    objective: 'Bu eğitimin amacı, insan kaynakları yönetiminde sürdürülebilirlik ve ESG temelli yaklaşımları kurumsal kültüre entegre etmeyi, çalışan bağlılığı, eşitlik, esenlik ve performansı destekleyen sürdürülebilir İK stratejileri geliştirme becerisi kazandırmaktır.',
+    modules: [
+      'Modül 1: Sürdürülebilirlik ve ESG Kavramlarına Giriş',
+      'Modül 2: İnsan Kaynaklarında Sürdürülebilirlik ve Stratejik Rol',
+      'Modül 3: Yeşil İnsan Kaynakları Uygulamaları',
+      'Modül 4: Çeşitlilik, Kapsayıcılık ve Eşitlik Yönetimi',
+      'Modül 5: Çalışan Esenliği, İş-Yaşam Dengesi ve Psikolojik Güvenlik',
+      'Modül 6: Performans, Eğitim ve Gelişimde Sürdürülebilir Yaklaşımlar',
+      'Modül 7: Kurumsal Sosyal Sorumluluk, Çalışan Katılımı ve Vaka Analizleri'
+    ],
+    benefits: 'İK süreçlerini sürdürülebilirlik ilkelerine göre yeniden tasarlamayı, çalışan bağlılığını ve işveren markasını güçlendirmeyi, ESG hedefleriyle uyumlu insan odaklı stratejiler geliştirmeyi sağlar.',
+    audience: 'İnsan kaynakları yöneticileri ve uzmanları, sürdürülebilirlik ve ESG ekipleri, orta-üst düzey yöneticiler ile sürdürülebilir İK uygulamalarını kurum kültürüne entegre etmek isteyen profesyoneller için uygundur.'
+  },
+  {
+    id: 'surdurulebilir-iletisim', cat: 'S', code: 'Sürdürülebilir İletişim', level: 'İletişim',
+    title: 'Sürdürülebilir İletişim Eğitimi',
+    objective: 'Bu eğitim, bireylerin ve kurumların çevresel, sosyal ve ekonomik dengeleri gözeten sürdürülebilir iletişim stratejileri geliştirmesini, paydaş güvenini artıran, etik ve etkili mesajlar üretmesini sağlamayı amaçlar.',
+    modules: [
+      'Modül 1: Sürdürülebilir İletişimin Temelleri',
+      'Modül 2: Strateji Geliştirme ve Uygulama',
+      'Modül 3: Dijital Platformlarda Etkileşim',
+      'Modül 4: Vaka Çalışmaları ve Workshop'
+    ],
+    benefits: 'Kurumsal itibar ve güveni güçlendirir, sürdürülebilirlik mesajlarını etkili iletmeyi sağlar, greenwashing risklerini azaltır, kariyer fırsatlarını artırır.',
+    audience: 'Kurumsal iletişim, halkla ilişkiler ve pazarlama profesyonelleri, STK çalışanları, sürdürülebilirlik raporlaması yapanlar, iletişim öğrencileri ve girişimciler için uygundur.'
+  },
+  {
+    id: 'surdurulebilir-pazarlama-101', cat: 'S', code: 'Sürdürülebilir Pazarlama', level: '101',
+    title: 'Sürdürülebilir Pazarlama 101',
+    objective: 'Bu eğitimin amacı, markaların çevresel, sosyal ve etik sorumlulukları gözeterek pazarlama stratejilerini nasıl kurgulayabileceklerini öğretmek, sürdürülebilirlik temelli marka değeri ve güven oluşturmaya yönelik temel bakış açısı kazandırmaktır.',
+    modules: [
+      'Modül 1: Sürdürülebilir Pazarlamaya Giriş',
+      'Modül 2: Pazarlamada Çevresel, Sosyal ve Etik Sorumluluklar',
+      'Modül 3: Sürdürülebilir Marka Stratejisi ve Konumlandırma',
+      'Modül 4: Tüketici Güveni, Şeffaflık ve İletişim',
+      'Modül 5: Greenwashing Riskleri ve Doğru Uygulamalar',
+      'Modül 6: Sürdürülebilir Pazarlamada İyi Örnekler'
+    ],
+    benefits: 'Sürdürülebilirlik odaklı pazarlama bakış açısı kazandırır, marka güvenini ve itibarı güçlendirir, etik ve çevresel riskleri azaltan stratejiler geliştirmeyi sağlar.',
+    audience: 'Pazarlama ve iletişim profesyonelleri, marka yöneticileri, girişimciler, sürdürülebilirlik odaklı kampanyalar geliştirmek isteyen ekipler ve pazarlamada sorumlu yaklaşımı benimsemek isteyen herkes için uygundur.'
+  },
+  {
+    id: 'iso-19011', cat: 'G', code: 'ISO 19011', level: 'İç Tetkik',
+    title: 'ISO 19011 İç Tetkik Eğitimi',
+    objective: 'Katılımcılara ISO 19011:2018 standardı doğrultusunda iç tetkiklerin planlanması, yürütülmesi, raporlanması ve iyileştirme süreçlerinin etkin şekilde uygulanması için gerekli bilgi ve becerileri kazandırmayı amaçlar.',
+    modules: [
+      'ISO 19011 temelleri',
+      'Risk temelli denetim yaklaşımı',
+      'Denetim programı planlama',
+      'Denetimin yürütülmesi',
+      'Bulguların raporlanması',
+      'Takip faaliyetleri ve sürekli iyileştirme.'
+    ],
+    benefits: 'Denetim etkinliğini artırır, uyum risklerini azaltır, sürekli iyileştirme kültürünü güçlendirir ve profesyonel iç denetçi yetkinliği kazandırır.',
+    audience: 'İç denetçiler, kalite–çevre–İSG yöneticileri, yönetim sistemi temsilcileri, belgelendirme sürecine hazırlanan kuruluş çalışanları ve denetime yeni başlayanlar için uygundur.'
+  },
+  {
+    id: 'iso-20400', cat: 'G', code: 'ISO 20400', level: 'Tedarik Zinciri',
+    title: 'ISO 20400 rehberliğinde Sürdürülebilir Tedarik Zincir',
+    objective: 'ISO 20400 rehberliği doğrultusunda satın alma ve tedarik zinciri süreçlerine çevresel, sosyal ve yönetişimsel (ESG) kriterlerin nasıl entegre edileceğini öğretmek ve kurumlarda sürdürülebilir tedarik yaklaşımı geliştirmeyi amaçlar.',
+    modules: [
+      'ISO 20400\u2019in yapısı ve ilkeleri',
+      'Sürdürülebilir tedarik kavram',
+      'Stratejik entegrasyon',
+      'Sürdürülebilir satın alma uygulamaları',
+      'Tedarikçi seçimi ve performans yönetimi',
+      'İyi uygulama örnekleri',
+      'ISO 26000 bağlantıları'
+    ],
+    benefits: 'Tedarik zincirinde ESG risklerini azaltır, şeffaflığı ve tedarikçi ilişkilerini güçlendirir, sürdürülebilirlik hedefleriyle uyumlu satın alma kararları alınmasını sağlar.',
+    audience: 'Satın alma ve tedarik zinciri yöneticileri, sürdürülebilirlik ve kalite uzmanları, kamu ve özel sektör temsilcileri ile ISO 20400\u2019i uygulamak isteyen tüm profesyoneller için uygundur.'
+  },
+  {
+    id: 'iso-37101', cat: 'G', code: 'ISO 37101', level: 'Yönetim Sistemi',
+    title: 'ISO 37101 Sürdürülebilir Kalkınma için Yönetim Sistemi Standardı',
+    objective: 'ISO 37101 standardı doğrultusunda şehirler, belediyeler ve topluluklar için sürdürülebilir kalkınma odaklı bir yönetim sistemi kurmayı, strateji geliştirmeyi, paydaş katılımını ve sürekli iyileştirme yaklaşımını kazandırmayı amaçlar.',
+    modules: [
+      'Modül 1: ISO 37101\u2019e giriş, temel kavramlar ve sürdürülebilir kalkınma yaklaşımı',
+      'Modül 2: 6 sürdürülebilirlik amacı ve 12 konu başlığı',
+      'Modül 3: Liderlik, politika oluşturma ve paydaş katılımı',
+      'Modül 4: Risk, fırsat yönetimi ve stratejik planlama',
+      'Modül 5: Performans izleme, göstergeler ve sürekli iyileştirme'
+    ],
+    benefits: 'Sürdürülebilirlik yol haritası oluşturmayı, şeffaf ve katılımcı karar almayı, dirençli ve yaşanabilir şehirler için stratejik yönetim becerisi kazandırır.',
+    audience: 'Belediyeler, yerel yönetimler, kamu kurumları, şehir planlamacıları, sürdürülebilirlik ve ESG yöneticileri, danışmanlar, akademisyenler ve akıllı şehir projeleri yürüten kurumlar için uygundur.'
+  }
+];
+
+</script>
+<script data-src="egitimler.js">
+/* ===================================================================
+   ESG LAB — Online Eğitim: kategori filtreleme, arama, detay modalı
+   =================================================================== */
+(function () {
+  'use strict';
+
+  var CATS = {
+    GEN: { tr: 'Genel', en: 'General', long_tr: 'Sürdürülebilirliğe giriş ve bütüncül programlar', long_en: 'Introductory & holistic sustainability programs' },
+    E:   { tr: 'Çevresel', en: 'Environmental', long_tr: 'Karbon, enerji, su ve emisyon yönetimi', long_en: 'Carbon, energy, water and emissions' },
+    DE:  { tr: 'Döngüsel Ekonomi', en: 'Circular Economy', long_tr: 'ISO 59000 serisi ve döngüsellik performansı', long_en: 'ISO 59000 series and circularity performance' },
+    S:   { tr: 'Sosyal', en: 'Social', long_tr: 'İnsan, toplum, çalışan ve paydaş', long_en: 'People, society, employees and stakeholders' },
+    G:   { tr: 'Yönetişim', en: 'Governance', long_tr: 'Denetim, tedarik ve yönetim sistemleri', long_en: 'Audit, procurement and management systems' }
+  };
+  var ORDER = ['GEN', 'E', 'DE', 'S', 'G'];
+
+  var courses = window.ESG_COURSES || [];
+  var lang = document.documentElement.lang === 'en' ? 'en' : 'tr';
+  var activeFilter = 'ALL';
+  var query = '';
+
+  var grid = document.getElementById('eduSections');
+  var empty = document.getElementById('eduEmpty');
+  var filterBar = document.getElementById('eduFilters');
+  var searchInput = document.getElementById('eduSearchInput');
+
+  var T = {
+    tr: { all: 'Tümü', modules: 'modül', detail: 'Detayları gör', empty: 'Aramanıza uygun eğitim bulunamadı.',
+      obj: 'Eğitimin Amacı', content: 'Eğitim İçeriği', benefit: 'Faydaları', who: 'Kimler İçin', note: 'Kayıt ve tarih bilgisi için bizimle iletişime geçin.',
+      cta: 'Bilgi al', search: 'Eğitim ara…' },
+    en: { all: 'All', modules: 'modules', detail: 'View details', empty: 'No training matches your search.',
+      obj: 'Objective', content: 'Course Content', benefit: 'Benefits', who: 'Who It\u2019s For', note: 'Contact us for enrollment and schedule.',
+      cta: 'Get info', search: 'Search training…' }
+  };
+
+  function t(k) { return T[lang][k]; }
+
+  /* ---------- filters ---------- */
+  function renderFilters() {
+    var counts = { ALL: courses.length };
+    ORDER.forEach(function (c) { counts[c] = courses.filter(function (x) { return x.cat === c; }).length; });
+    var html = '<button class="filt' + (activeFilter === 'ALL' ? ' on' : '') + '" data-f="ALL">' + t('all') + ' <span class="ct">' + counts.ALL + '</span></button>';
+    ORDER.forEach(function (c) {
+      html += '<button class="filt' + (activeFilter === c ? ' on' : '') + '" data-f="' + c + '" data-cat="' + c + '">' +
+        '<span class="dot"></span>' + (c === 'GEN' || c === 'E' || c === 'S' || c === 'G' ? (c === 'GEN' ? CATS[c][lang] : c + ' · ' + CATS[c][lang]) : CATS[c][lang]) +
+        ' <span class="ct">' + counts[c] + '</span></button>';
+    });
+    filterBar.innerHTML = html;
+  }
+
+  /* ---------- list ---------- */
+  function matches(c) {
+    if (activeFilter !== 'ALL' && c.cat !== activeFilter) return false;
+    if (query) {
+      var hay = (c.title + ' ' + c.code + ' ' + c.objective + ' ' + c.modules.join(' ') + ' ' + c.audience).toLowerCase();
+      if (hay.indexOf(query) === -1) return false;
+    }
+    return true;
+  }
+
+  function cardHTML(c, idx) {
+    return '<button class="course" data-cat="' + c.cat + '" data-id="' + c.id + '">' +
+      '<div class="c-top"><span class="c-code">' + esc(c.code) + '</span>' +
+      '<span class="c-cat"><span class="dot"></span>' + CATS[c.cat][lang] + '</span></div>' +
+      '<h3>' + esc(c.title) + '</h3>' +
+      '<p class="c-obj">' + esc(c.objective) + '</p>' +
+      '<div class="c-foot"><span class="c-mod">' + c.modules.length + ' ' + t('modules') + '</span>' +
+      '<span class="c-go">' + t('detail') + ' <span class="ar">→</span></span></div></button>';
+  }
+
+  function render() {
+    var visible = courses.filter(matches);
+    if (!visible.length) { grid.innerHTML = ''; empty.style.display = 'block'; empty.textContent = t('empty'); return; }
+    empty.style.display = 'none';
+    var html = '';
+    ORDER.forEach(function (cat) {
+      var list = visible.filter(function (x) { return x.cat === cat; });
+      if (!list.length) return;
+      html += '<section class="cat-block" data-cat="' + cat + '">' +
+        '<div class="cat-head"><div class="cat-badge" data-cat="' + cat + '">' + (cat === 'GEN' ? '◆' : cat === 'DE' ? '↻' : cat) + '</div>' +
+        '<div><h2>' + CATS[cat][lang] + '</h2><div class="sub">' + CATS[cat]['long_' + lang] + ' · ' + list.length + ' ' + t('modules').replace('modül', 'eğitim').replace('modules', 'courses') + '</div></div></div>' +
+        '<div class="edu-grid">' + list.map(cardHTML).join('') + '</div></section>';
+    });
+    grid.innerHTML = html;
+  }
+
+  /* ---------- modal ---------- */
+  var modalBack = document.getElementById('eduModal');
+  function openModal(id) {
+    var c = courses.find(function (x) { return x.id === id; });
+    if (!c) return;
+    var catVar = c.cat === 'E' ? 'var(--cat-e)' : c.cat === 'DE' ? 'var(--cat-de)' : c.cat === 'S' ? 'var(--cat-s)' : c.cat === 'G' ? 'var(--cat-g)' : 'var(--cat-gen)';
+    var mods = c.modules.map(function (m, i) {
+      return '<li><span class="mk">' + (i + 1) + '</span><span>' + esc(m) + '</span></li>';
+    }).join('');
+    modalBack.innerHTML =
+      '<div class="modal" style="--mc:' + catVar + '" role="dialog" aria-modal="true">' +
+        '<div class="modal-hd">' +
+          '<div class="row"><span class="m-code">' + esc(c.code) + '</span>' +
+          '<span class="m-cat"><span class="dot"></span>' + CATS[c.cat][lang] + '</span></div>' +
+          '<h2>' + esc(c.title) + '</h2>' +
+          '<button class="modal-close" aria-label="Kapat">✕</button>' +
+        '</div>' +
+        '<div class="modal-bd">' +
+          '<div class="m-objective">' + esc(c.objective) + '</div>' +
+          '<div class="m-sec"><div class="m-lbl"><span class="num">01</span>' + t('content') + '</div>' +
+            '<ul class="m-modules">' + mods + '</ul></div>' +
+          '<div class="m-two">' +
+            '<div class="m-card"><h4><span class="num">02</span>' + t('benefit') + '</h4><p>' + esc(c.benefits) + '</p></div>' +
+            '<div class="m-card"><h4><span class="num">03</span>' + t('who') + '</h4><p>' + esc(c.audience) + '</p></div>' +
+          '</div>' +
+          '<div class="modal-ft"><span class="note">' + t('note') + '</span>' +
+            '<a href="mailto:bilgi@esgakademi.net?subject=' + encodeURIComponent(c.title) + '" class="btn btn-primary"><span>' + t('cta') + '</span> <span class="arrow">→</span></a>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    modalBack.classList.add('on');
+    document.documentElement.classList.add('modal-open');
+  }
+  function closeModal() {
+    modalBack.classList.remove('on');
+    document.documentElement.classList.remove('modal-open');
+    modalBack.innerHTML = '';
+  }
+
+  /* ---------- events ---------- */
+  filterBar.addEventListener('click', function (e) {
+    var b = e.target.closest('.filt'); if (!b) return;
+    activeFilter = b.getAttribute('data-f');
+    renderFilters(); render();
+  });
+  grid.addEventListener('click', function (e) {
+    var c = e.target.closest('.course'); if (!c) return;
+    openModal(c.getAttribute('data-id'));
+  });
+  modalBack.addEventListener('click', function (e) {
+    if (e.target === modalBack || e.target.closest('.modal-close')) closeModal();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+  searchInput.addEventListener('input', function (e) {
+    query = e.target.value.trim().toLowerCase(); render();
+  });
+
+  window.addEventListener('esglab:lang', function (e) {
+    lang = e.detail === 'en' ? 'en' : 'tr';
+    searchInput.placeholder = t('search');
+    renderFilters(); render();
+  });
+
+  /* ---------- helpers ---------- */
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  /* ---------- init ---------- */
+  searchInput.placeholder = t('search');
+  renderFilters();
+  render();
+})();
+
+</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" data-src="tweaks-panel.jsx">
+
+/* BEGIN USAGE */
+// tweaks-panel.jsx
+// Reusable Tweaks shell + form-control helpers.
+// Exports (to window): useTweaks, TweaksPanel, TweakSection, TweakRow, TweakSlider,
+//   TweakToggle, TweakRadio, TweakSelect, TweakText, TweakNumber, TweakColor, TweakButton.
+//
+// Owns the host protocol (listens for __activate_edit_mode / __deactivate_edit_mode,
+// posts __edit_mode_available / __edit_mode_set_keys / __edit_mode_dismissed) so
+// individual prototypes don't re-roll it. Ships a consistent set of controls so you
+// don't hand-draw <input type="range">, segmented radios, steppers, etc.
+//
+// Usage (in an HTML file that loads React + Babel):
+//
+//   const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+//     "primaryColor": "#D97757",
+//     "palette": ["#D97757", "#29261b", "#f6f4ef"],
+//     "fontSize": 16,
+//     "density": "regular",
+//     "dark": false
+//   }/*EDITMODE-END*/;
+//
+//   function App() {
+//     const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+//     return (
+//       <div style={{ fontSize: t.fontSize, color: t.primaryColor }}>
+//         Hello
+//         <TweaksPanel>
+//           <TweakSection label="Typography" />
+//           <TweakSlider label="Font size" value={t.fontSize} min={10} max={32} unit="px"
+//                        onChange={(v) => setTweak('fontSize', v)} />
+//           <TweakRadio  label="Density" value={t.density}
+//                        options={['compact', 'regular', 'comfy']}
+//                        onChange={(v) => setTweak('density', v)} />
+//           <TweakSection label="Theme" />
+//           <TweakColor  label="Primary" value={t.primaryColor}
+//                        options={['#D97757', '#2A6FDB', '#1F8A5B', '#7A5AE0']}
+//                        onChange={(v) => setTweak('primaryColor', v)} />
+//           <TweakColor  label="Palette" value={t.palette}
+//                        options={[['#D97757', '#29261b', '#f6f4ef'],
+//                                  ['#475569', '#0f172a', '#f1f5f9']]}
+//                        onChange={(v) => setTweak('palette', v)} />
+//           <TweakToggle label="Dark mode" value={t.dark}
+//                        onChange={(v) => setTweak('dark', v)} />
+//         </TweaksPanel>
+//       </div>
+//     );
+//   }
+//
+// TweakRadio is the segmented control for 2–3 short options (auto-falls-back to
+// TweakSelect past ~16/~10 chars per label); reach for TweakSelect directly when
+// options are many or long. For color tweaks always curate 3-4 options rather than
+// a free picker; an option can also be a whole 2–5 color palette (the stored value
+// is the array). The Tweak* controls are a floor, not a ceiling — build custom
+// controls inside the panel if a tweak calls for UI they don't cover.
+/* END USAGE */
+// ─────────────────────────────────────────────────────────────────────────────
+
+const __TWEAKS_STYLE = `
+  .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
+    max-height:calc(100vh - 32px);display:flex;flex-direction:column;
+    transform:scale(var(--dc-inv-zoom,1));transform-origin:bottom right;
+    background:rgba(250,249,247,.78);color:#29261b;
+    -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+    border:.5px solid rgba(255,255,255,.6);border-radius:14px;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
+    font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
+  .twk-hd{display:flex;align-items:center;justify-content:space-between;
+    padding:10px 8px 10px 14px;cursor:move;user-select:none}
+  .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
+  .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
+    width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
+  .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
+  .twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
+    overflow-y:auto;overflow-x:hidden;min-height:0;
+    scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
+  .twk-body::-webkit-scrollbar{width:8px}
+  .twk-body::-webkit-scrollbar-track{background:transparent;margin:2px}
+  .twk-body::-webkit-scrollbar-thumb{background:rgba(0,0,0,.15);border-radius:4px;
+    border:2px solid transparent;background-clip:content-box}
+  .twk-body::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,.25);
+    border:2px solid transparent;background-clip:content-box}
+  .twk-row{display:flex;flex-direction:column;gap:5px}
+  .twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+  .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;
+    color:rgba(41,38,27,.72)}
+  .twk-lbl>span:first-child{font-weight:500}
+  .twk-val{color:rgba(41,38,27,.5);font-variant-numeric:tabular-nums}
+
+  .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    color:rgba(41,38,27,.45);padding:10px 0 0}
+  .twk-sect:first-child{padding-top:0}
+
+  .twk-field{appearance:none;box-sizing:border-box;width:100%;min-width:0;height:26px;padding:0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;
+    background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}
+  .twk-field:focus{border-color:rgba(0,0,0,.25);background:rgba(255,255,255,.85)}
+  select.twk-field{padding-right:22px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(0,0,0,.5)' d='M0 0h10L5 6z'/></svg>");
+    background-repeat:no-repeat;background-position:right 8px center}
+
+  .twk-slider{appearance:none;-webkit-appearance:none;width:100%;height:4px;margin:6px 0;
+    border-radius:999px;background:rgba(0,0,0,.12);outline:none}
+  .twk-slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+    width:14px;height:14px;border-radius:50%;background:#fff;
+    border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+  .twk-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;
+    background:#fff;border:.5px solid rgba(0,0,0,.12);box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:default}
+
+  .twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
+    background:rgba(0,0,0,.06);user-select:none}
+  .twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
+    background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(0,0,0,.12);
+    transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s}
+  .twk-seg.dragging .twk-seg-thumb{transition:none}
+  .twk-seg button{appearance:none;position:relative;z-index:1;flex:1;border:0;
+    background:transparent;color:inherit;font:inherit;font-weight:500;min-height:22px;
+    border-radius:6px;cursor:default;padding:4px 6px;line-height:1.2;
+    overflow-wrap:anywhere}
+
+  .twk-toggle{position:relative;width:32px;height:18px;border:0;border-radius:999px;
+    background:rgba(0,0,0,.15);transition:background .15s;cursor:default;padding:0}
+  .twk-toggle[data-on="1"]{background:#34c759}
+  .twk-toggle i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+    background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+  .twk-toggle[data-on="1"] i{transform:translateX(14px)}
+
+  .twk-num{display:flex;align-items:center;box-sizing:border-box;min-width:0;height:26px;padding:0 0 0 8px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:7px;background:rgba(255,255,255,.6)}
+  .twk-num-lbl{font-weight:500;color:rgba(41,38,27,.6);cursor:ew-resize;
+    user-select:none;padding-right:8px}
+  .twk-num input{flex:1;min-width:0;height:100%;border:0;background:transparent;
+    font:inherit;font-variant-numeric:tabular-nums;text-align:right;padding:0 8px 0 0;
+    outline:none;color:inherit;-moz-appearance:textfield}
+  .twk-num input::-webkit-inner-spin-button,.twk-num input::-webkit-outer-spin-button{
+    -webkit-appearance:none;margin:0}
+  .twk-num-unit{padding-right:8px;color:rgba(41,38,27,.45)}
+
+  .twk-btn{appearance:none;height:26px;padding:0 12px;border:0;border-radius:7px;
+    background:rgba(0,0,0,.78);color:#fff;font:inherit;font-weight:500;cursor:default}
+  .twk-btn:hover{background:rgba(0,0,0,.88)}
+  .twk-btn.secondary{background:rgba(0,0,0,.06);color:inherit}
+  .twk-btn.secondary:hover{background:rgba(0,0,0,.1)}
+
+  .twk-swatch{appearance:none;-webkit-appearance:none;width:56px;height:22px;
+    border:.5px solid rgba(0,0,0,.1);border-radius:6px;padding:0;cursor:default;
+    background:transparent;flex-shrink:0}
+  .twk-swatch::-webkit-color-swatch-wrapper{padding:0}
+  .twk-swatch::-webkit-color-swatch{border:0;border-radius:5.5px}
+  .twk-swatch::-moz-color-swatch{border:0;border-radius:5.5px}
+
+  .twk-chips{display:flex;gap:6px}
+  .twk-chip{position:relative;appearance:none;flex:1;min-width:0;height:46px;
+    padding:0;border:0;border-radius:6px;overflow:hidden;cursor:default;
+    box-shadow:0 0 0 .5px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.06);
+    transition:transform .12s cubic-bezier(.3,.7,.4,1),box-shadow .12s}
+  .twk-chip:hover{transform:translateY(-1px);
+    box-shadow:0 0 0 .5px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.12)}
+  .twk-chip[data-on="1"]{box-shadow:0 0 0 1.5px rgba(0,0,0,.85),
+    0 2px 6px rgba(0,0,0,.15)}
+  .twk-chip>span{position:absolute;top:0;bottom:0;right:0;width:34%;
+    display:flex;flex-direction:column;box-shadow:-1px 0 0 rgba(0,0,0,.1)}
+  .twk-chip>span>i{flex:1;box-shadow:0 -1px 0 rgba(0,0,0,.1)}
+  .twk-chip>span>i:first-child{box-shadow:none}
+  .twk-chip svg{position:absolute;top:6px;left:6px;width:13px;height:13px;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
+`;
+
+// ── useTweaks ───────────────────────────────────────────────────────────────
+// Single source of truth for tweak values. setTweak persists via the host
+// (__edit_mode_set_keys → host rewrites the EDITMODE block on disk).
+function useTweaks(defaults) {
+  const [values, setValues] = React.useState(defaults);
+  // Accepts either setTweak('key', value) or setTweak({ key: value, ... }) so a
+  // useState-style call doesn't write a "[object Object]" key into the persisted
+  // JSON block.
+  const setTweak = React.useCallback((keyOrEdits, val) => {
+    const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null
+      ? keyOrEdits : { [keyOrEdits]: val };
+    setValues((prev) => ({ ...prev, ...edits }));
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+    // Same-window signal so in-page listeners (deck-stage rail thumbnails)
+    // can react — the parent message only reaches the host, not peers.
+    window.dispatchEvent(new CustomEvent('tweakchange', { detail: edits }));
+  }, []);
+  return [values, setTweak];
+}
+
+// ── TweaksPanel ─────────────────────────────────────────────────────────────
+// Floating shell. Registers the protocol listener BEFORE announcing
+// availability — if the announce ran first, the host's activate could land
+// before our handler exists and the toolbar toggle would silently no-op.
+// The close button posts __edit_mode_dismissed so the host's toolbar toggle
+// flips off in lockstep; the host echoes __deactivate_edit_mode back which
+// is what actually hides the panel.
+function TweaksPanel({ title = 'Tweaks', children }) {
+  const [open, setOpen] = React.useState(false);
+  const dragRef = React.useRef(null);
+  const offsetRef = React.useRef({ x: 16, y: 16 });
+  const PAD = 16;
+
+  const clampToViewport = React.useCallback(() => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const w = panel.offsetWidth, h = panel.offsetHeight;
+    const maxRight = Math.max(PAD, window.innerWidth - w - PAD);
+    const maxBottom = Math.max(PAD, window.innerHeight - h - PAD);
+    offsetRef.current = {
+      x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)),
+      y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)),
+    };
+    panel.style.right = offsetRef.current.x + 'px';
+    panel.style.bottom = offsetRef.current.y + 'px';
+  }, []);
+
+  React.useEffect(() => {
+    if (!open) return;
+    clampToViewport();
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', clampToViewport);
+      return () => window.removeEventListener('resize', clampToViewport);
+    }
+    const ro = new ResizeObserver(clampToViewport);
+    ro.observe(document.documentElement);
+    return () => ro.disconnect();
+  }, [open, clampToViewport]);
+
+  React.useEffect(() => {
+    const onMsg = (e) => {
+      const t = e?.data?.type;
+      if (t === '__activate_edit_mode') setOpen(true);
+      else if (t === '__deactivate_edit_mode') setOpen(false);
+    };
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  const dismiss = () => {
+    setOpen(false);
+    window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+  };
+
+  const onDragStart = (e) => {
+    const panel = dragRef.current;
+    if (!panel) return;
+    const r = panel.getBoundingClientRect();
+    const sx = e.clientX, sy = e.clientY;
+    const startRight = window.innerWidth - r.right;
+    const startBottom = window.innerHeight - r.bottom;
+    const move = (ev) => {
+      offsetRef.current = {
+        x: startRight - (ev.clientX - sx),
+        y: startBottom - (ev.clientY - sy),
+      };
+      clampToViewport();
+    };
+    const up = () => {
+      window.removeEventListener('mousemove', move);
+      window.removeEventListener('mouseup', up);
+    };
+    window.addEventListener('mousemove', move);
+    window.addEventListener('mouseup', up);
+  };
+
+  if (!open) return null;
+  return (
+    <>
+      <style>{__TWEAKS_STYLE}</style>
+      <div ref={dragRef} className="twk-panel" data-omelette-chrome=""
+           style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+        <div className="twk-hd" onMouseDown={onDragStart}>
+          <b>{title}</b>
+          <button className="twk-x" aria-label="Close tweaks"
+                  onMouseDown={(e) => e.stopPropagation()}
+                  onClick={dismiss}>✕</button>
+        </div>
+        <div className="twk-body">
+          {children}
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ── Layout helpers ──────────────────────────────────────────────────────────
+
+function TweakSection({ label, children }) {
+  return (
+    <>
+      <div className="twk-sect">{label}</div>
+      {children}
+    </>
+  );
+}
+
+function TweakRow({ label, value, children, inline = false }) {
+  return (
+    <div className={inline ? 'twk-row twk-row-h' : 'twk-row'}>
+      <div className="twk-lbl">
+        <span>{label}</span>
+        {value != null && <span className="twk-val">{value}</span>}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+// ── Controls ────────────────────────────────────────────────────────────────
+
+function TweakSlider({ label, value, min = 0, max = 100, step = 1, unit = '', onChange }) {
+  return (
+    <TweakRow label={label} value={`${value}${unit}`}>
+      <input type="range" className="twk-slider" min={min} max={max} step={step}
+             value={value} onChange={(e) => onChange(Number(e.target.value))} />
+    </TweakRow>
+  );
+}
+
+function TweakToggle({ label, value, onChange }) {
+  return (
+    <div className="twk-row twk-row-h">
+      <div className="twk-lbl"><span>{label}</span></div>
+      <button type="button" className="twk-toggle" data-on={value ? '1' : '0'}
+              role="switch" aria-checked={!!value}
+              onClick={() => onChange(!value)}><i /></button>
+    </div>
+  );
+}
+
+function TweakRadio({ label, value, options, onChange }) {
+  const trackRef = React.useRef(null);
+  const [dragging, setDragging] = React.useState(false);
+  // The active value is read by pointer-move handlers attached for the lifetime
+  // of a drag — ref it so a stale closure doesn't fire onChange for every move.
+  const valueRef = React.useRef(value);
+  valueRef.current = value;
+
+  // Segments wrap mid-word once per-segment width runs out. The track is
+  // ~248px (280 panel − 28 body pad − 4 seg pad), each button loses 12px
+  // to its own padding, and 11.5px system-ui averages ~6.3px/char — so 2
+  // options fit ~16 chars each, 3 fit ~10. Past that (or >3 options), fall
+  // back to a dropdown rather than wrap.
+  const labelLen = (o) => String(typeof o === 'object' ? o.label : o).length;
+  const maxLen = options.reduce((m, o) => Math.max(m, labelLen(o)), 0);
+  const fitsAsSegments = maxLen <= ({ 2: 16, 3: 10 }[options.length] ?? 0);
+  if (!fitsAsSegments) {
+    // <select> emits strings — map back to the original option value so the
+    // fallback stays type-preserving (numbers, booleans) like the segment path.
+    const resolve = (s) => {
+      const m = options.find((o) => String(typeof o === 'object' ? o.value : o) === s);
+      return m === undefined ? s : typeof m === 'object' ? m.value : m;
+    };
+    return <TweakSelect label={label} value={value} options={options}
+                        onChange={(s) => onChange(resolve(s))} />;
+  }
+  const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
+  const idx = Math.max(0, opts.findIndex((o) => o.value === value));
+  const n = opts.length;
+
+  const segAt = (clientX) => {
+    const r = trackRef.current.getBoundingClientRect();
+    const inner = r.width - 4;
+    const i = Math.floor(((clientX - r.left - 2) / inner) * n);
+    return opts[Math.max(0, Math.min(n - 1, i))].value;
+  };
+
+  const onPointerDown = (e) => {
+    setDragging(true);
+    const v0 = segAt(e.clientX);
+    if (v0 !== valueRef.current) onChange(v0);
+    const move = (ev) => {
+      if (!trackRef.current) return;
+      const v = segAt(ev.clientX);
+      if (v !== valueRef.current) onChange(v);
+    };
+    const up = () => {
+      setDragging(false);
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
+  return (
+    <TweakRow label={label}>
+      <div ref={trackRef} role="radiogroup" onPointerDown={onPointerDown}
+           className={dragging ? 'twk-seg dragging' : 'twk-seg'}>
+        <div className="twk-seg-thumb"
+             style={{ left: `calc(2px + ${idx} * (100% - 4px) / ${n})`,
+                      width: `calc((100% - 4px) / ${n})` }} />
+        {opts.map((o) => (
+          <button key={o.value} type="button" role="radio" aria-checked={o.value === value}>
+            {o.label}
+          </button>
+        ))}
+      </div>
+    </TweakRow>
+  );
+}
+
+function TweakSelect({ label, value, options, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <select className="twk-field" value={value} onChange={(e) => onChange(e.target.value)}>
+        {options.map((o) => {
+          const v = typeof o === 'object' ? o.value : o;
+          const l = typeof o === 'object' ? o.label : o;
+          return <option key={v} value={v}>{l}</option>;
+        })}
+      </select>
+    </TweakRow>
+  );
+}
+
+function TweakText({ label, value, placeholder, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <input className="twk-field" type="text" value={value} placeholder={placeholder}
+             onChange={(e) => onChange(e.target.value)} />
+    </TweakRow>
+  );
+}
+
+function TweakNumber({ label, value, min, max, step = 1, unit = '', onChange }) {
+  const clamp = (n) => {
+    if (min != null && n < min) return min;
+    if (max != null && n > max) return max;
+    return n;
+  };
+  const startRef = React.useRef({ x: 0, val: 0 });
+  const onScrubStart = (e) => {
+    e.preventDefault();
+    startRef.current = { x: e.clientX, val: value };
+    const decimals = (String(step).split('.')[1] || '').length;
+    const move = (ev) => {
+      const dx = ev.clientX - startRef.current.x;
+      const raw = startRef.current.val + dx * step;
+      const snapped = Math.round(raw / step) * step;
+      onChange(clamp(Number(snapped.toFixed(decimals))));
+    };
+    const up = () => {
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+  return (
+    <div className="twk-num">
+      <span className="twk-num-lbl" onPointerDown={onScrubStart}>{label}</span>
+      <input type="number" value={value} min={min} max={max} step={step}
+             onChange={(e) => onChange(clamp(Number(e.target.value)))} />
+      {unit && <span className="twk-num-unit">{unit}</span>}
+    </div>
+  );
+}
+
+// Relative-luminance contrast pick — checkmarks drawn over a swatch need to
+// read on both #111 and #fafafa without per-option configuration. Hex input
+// only (#rgb / #rrggbb); named or rgb()/hsl() colors fall through to "light".
+function __twkIsLight(hex) {
+  const h = String(hex).replace('#', '');
+  const x = h.length === 3 ? h.replace(/./g, (c) => c + c) : h.padEnd(6, '0');
+  const n = parseInt(x.slice(0, 6), 16);
+  if (Number.isNaN(n)) return true;
+  const r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  return r * 299 + g * 587 + b * 114 > 148000;
+}
+
+const __TwkCheck = ({ light }) => (
+  <svg viewBox="0 0 14 14" aria-hidden="true">
+    <path d="M3 7.2 5.8 10 11 4.2" fill="none" strokeWidth="2.2"
+          strokeLinecap="round" strokeLinejoin="round"
+          stroke={light ? 'rgba(0,0,0,.78)' : '#fff'} />
+  </svg>
+);
+
+// TweakColor — curated color/palette picker. Each option is either a single
+// hex string or an array of 1-5 hex strings; the card adapts — a lone color
+// renders solid, a palette renders colors[0] as the hero (left ~2/3) with the
+// rest stacked in a sharp column on the right. onChange emits the
+// option in the shape it was passed (string stays string, array stays array).
+// Without options it falls back to the native color input for back-compat.
+function TweakColor({ label, value, options, onChange }) {
+  if (!options || !options.length) {
+    return (
+      <div className="twk-row twk-row-h">
+        <div className="twk-lbl"><span>{label}</span></div>
+        <input type="color" className="twk-swatch" value={value}
+               onChange={(e) => onChange(e.target.value)} />
+      </div>
+    );
+  }
+  // Native <input type=color> emits lowercase hex per the HTML spec, so
+  // compare case-insensitively. String() guards JSON.stringify(undefined),
+  // which returns the primitive undefined (no .toLowerCase).
+  const key = (o) => String(JSON.stringify(o)).toLowerCase();
+  const cur = key(value);
+  return (
+    <TweakRow label={label}>
+      <div className="twk-chips" role="radiogroup">
+        {options.map((o, i) => {
+          const colors = Array.isArray(o) ? o : [o];
+          const [hero, ...rest] = colors;
+          const sup = rest.slice(0, 4);
+          const on = key(o) === cur;
+          return (
+            <button key={i} type="button" className="twk-chip" role="radio"
+                    aria-checked={on} data-on={on ? '1' : '0'}
+                    aria-label={colors.join(', ')} title={colors.join(' · ')}
+                    style={{ background: hero }}
+                    onClick={() => onChange(o)}>
+              {sup.length > 0 && (
+                <span>
+                  {sup.map((c, j) => <i key={j} style={{ background: c }} />)}
+                </span>
+              )}
+              {on && <__TwkCheck light={__twkIsLight(hero)} />}
+            </button>
+          );
+        })}
+      </div>
+    </TweakRow>
+  );
+}
+
+function TweakButton({ label, onClick, secondary = false }) {
+  return (
+    <button type="button" className={secondary ? 'twk-btn secondary' : 'twk-btn'}
+            onClick={onClick}>{label}</button>
+  );
+}
+
+Object.assign(window, {
+  useTweaks, TweaksPanel, TweakSection, TweakRow,
+  TweakSlider, TweakToggle, TweakRadio, TweakSelect,
+  TweakText, TweakNumber, TweakColor, TweakButton,
+});
+
+</script>
+<script type="text/babel" data-src="app-tweaks.jsx">
+/* ESG LAB — Tweaks: yön, vurgu, tipografi, yoğunluk */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "direction": "light",
+  "accent": "#fa541c",
+  "font": "grotesk",
+  "density": "regular"
+}/*EDITMODE-END*/;
+
+const ACCENT_MAP = {
+  '#fa541c': 'orange',
+  '#2563eb': 'blue',
+  '#4f46e5': 'indigo',
+  '#0e7490': 'cyan',
+  '#334e68': 'slate'
+};
+
+function ESGTweaks() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(function () {
+    const r = document.documentElement;
+    r.setAttribute('data-theme', t.direction);
+    r.setAttribute('data-accent', ACCENT_MAP[t.accent] || 'blue');
+    r.setAttribute('data-font', t.font);
+    r.setAttribute('data-density', t.density);
+  }, [t.direction, t.accent, t.font, t.density]);
+
+  return (
+    <TweaksPanel title="Tweaks">
+      <TweakSection label="Yön / Direction" />
+      <TweakRadio
+        label="Tema"
+        value={t.direction}
+        options={[
+          { value: 'light', label: 'Aydınlık' },
+          { value: 'dark', label: 'Karanlık' },
+          { value: 'contrast', label: 'Kontrast' }
+        ]}
+        onChange={function (v) { setTweak('direction', v); }}
+      />
+      <TweakSection label="Renk & Tipografi" />
+      <TweakColor
+        label="Vurgu"
+        value={t.accent}
+        options={['#fa541c', '#2563eb', '#4f46e5', '#0e7490', '#334e68']}
+        onChange={function (v) { setTweak('accent', v); }}
+      />
+      <TweakRadio
+        label="Başlık fontu"
+        value={t.font}
+        options={[
+          { value: 'grotesk', label: 'Grotesk' },
+          { value: 'plex', label: 'Plex' }
+        ]}
+        onChange={function (v) { setTweak('font', v); }}
+      />
+      <TweakSection label="Düzen" />
+      <TweakRadio
+        label="Yoğunluk"
+        value={t.density}
+        options={[
+          { value: 'compact', label: 'Sık' },
+          { value: 'regular', label: 'Normal' },
+          { value: 'comfy', label: 'Ferah' }
+        ]}
+        onChange={function (v) { setTweak('density', v); }}
+      />
+    </TweaksPanel>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweak-root')).render(<ESGTweaks />);
+
+</script>
+</body>
+</html>

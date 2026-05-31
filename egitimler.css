@@ -1,0 +1,153 @@
+/* ===================================================================
+   ESG LAB — Online Eğitim sayfası
+   styles.css token sistemini kullanır (turuncu vurgu)
+   =================================================================== */
+
+/* category accent colors */
+:root {
+  --cat-e: #1f8a5b;   /* çevresel — yeşil-mavi (sadece kategori rozetinde) */
+  --cat-de: #0e8f8f;  /* döngüsel ekonomi — camgöbç */
+  --cat-s: #2a6fdb;   /* sosyal — mavi */
+  --cat-g: #8a5cd8;   /* yönetişim — mor */
+  --cat-gen: #c2543a; /* genel — marka turuncusu tonu */
+}
+html[data-theme="dark"] {
+  --cat-e: #3fb27f; --cat-de: #2fc4c4; --cat-s: #5a93f0; --cat-g: #a883e6; --cat-gen: #ff8a5c;
+}
+
+/* hero */
+.edu-hero { text-align:center; padding-top: calc(60px * var(--scale)); padding-bottom: calc(36px * var(--scale)); }
+.edu-hero .hero-copy { max-width: 880px; margin: 0 auto; }
+.edu-hero h1 { font-size: clamp(34px, 5vw, 60px); letter-spacing:-.03em; line-height: 1.05; }
+.edu-hero h1 .hl { color: var(--accent); }
+.edu-hero p { color: var(--ink-2); font-size: clamp(17px,1.4vw,19px); margin: 20px auto 0; max-width: 60ch; }
+.edu-stats { display:flex; justify-content:center; gap: 40px; flex-wrap:wrap; margin-top: 30px; }
+.edu-stats .e b { font-family: var(--font-head); font-size: 26px; }
+.edu-stats .e span { display:block; font-family: var(--font-mono); font-size: 11.5px; text-transform:uppercase; letter-spacing:.06em; color: var(--ink-3); margin-top: 3px; }
+
+/* toolbar: filters + search */
+.edu-toolbar {
+  position: sticky; top: 68px; z-index: 40; background: color-mix(in oklab, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line); padding: 14px 0;
+}
+.edu-toolbar .wrap { display:flex; align-items:center; gap: 16px; flex-wrap: wrap; }
+.filters { display:flex; gap: 7px; flex-wrap: wrap; }
+.filt {
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink-2);
+  padding: 8px 15px; border-radius: 999px; font-size: 13.5px; font-weight: 500; font-family: var(--font-body);
+  display:inline-flex; align-items:center; gap: 8px; transition: all .18s ease;
+}
+.filt:hover { border-color: var(--ink-3); color: var(--ink); }
+.filt.on { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+html[data-theme="contrast"] .filt.on { background:#000; color:#fff; }
+.filt .dot { width: 8px; height: 8px; border-radius: 50%; }
+.filt .ct { font-family: var(--font-mono); font-size: 11px; opacity: .65; }
+.filt[data-cat="E"] .dot { background: var(--cat-e); }
+.filt[data-cat="DE"] .dot { background: var(--cat-de); }
+.filt[data-cat="S"] .dot { background: var(--cat-s); }
+.filt[data-cat="G"] .dot { background: var(--cat-g); }
+.filt[data-cat="GEN"] .dot { background: var(--cat-gen); }
+.edu-search { margin-left:auto; display:flex; align-items:center; gap: 9px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 10px; padding: 9px 13px; min-width: 230px; }
+.edu-search svg { color: var(--ink-3); flex:none; }
+.edu-search input { border: 0; background: transparent; outline: 0; color: var(--ink); font-family: var(--font-body); font-size: 14px; width: 100%; }
+.edu-search input::placeholder { color: var(--ink-3); }
+
+/* category section */
+.cat-block { padding-top: calc(56px * var(--scale)); }
+.cat-head { display:flex; align-items:center; gap: 14px; margin-bottom: 26px; }
+.cat-badge { width: 44px; height: 44px; border-radius: 12px; display:grid; place-items:center; color:#fff; font-family: var(--font-head); font-weight: 600; font-size: 20px; flex:none; }
+.cat-badge[data-cat="E"] { background: var(--cat-e); }
+.cat-badge[data-cat="DE"] { background: var(--cat-de); font-size: 16px; }
+.cat-badge[data-cat="S"] { background: var(--cat-s); }
+.cat-badge[data-cat="G"] { background: var(--cat-g); }
+.cat-badge[data-cat="GEN"] { background: var(--cat-gen); }
+.cat-head h2 { font-size: clamp(24px, 2.6vw, 32px); letter-spacing:-.02em; }
+.cat-head .sub { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-3); margin-top: 3px; }
+
+/* course grid */
+.edu-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.course {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+  padding: 24px 24px 22px; display:flex; flex-direction:column; text-align:left;
+  cursor: pointer; transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease;
+  position: relative; overflow: hidden; min-height: 230px;
+}
+.course::before {
+  content:""; position:absolute; left:0; top:0; bottom:0; width: 3px; background: var(--cc, var(--accent)); opacity:.0; transition: opacity .2s;
+}
+.course:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--line-strong); }
+.course:hover::before { opacity: 1; }
+.course[data-cat="E"] { --cc: var(--cat-e); }
+.course[data-cat="DE"] { --cc: var(--cat-de); }
+.course[data-cat="S"] { --cc: var(--cat-s); }
+.course[data-cat="G"] { --cc: var(--cat-g); }
+.course[data-cat="GEN"] { --cc: var(--cat-gen); }
+.course .c-top { display:flex; align-items:center; justify-content:space-between; gap: 10px; margin-bottom: 16px; }
+.c-code { font-family: var(--font-mono); font-size: 12px; color: var(--cc, var(--accent)); letter-spacing: .02em; font-weight: 500;
+  background: color-mix(in oklab, var(--cc, var(--accent)) 12%, var(--surface)); padding: 5px 10px; border-radius: 7px; }
+.c-cat { font-family: var(--font-mono); font-size: 11px; letter-spacing:.08em; color: var(--ink-3); text-transform:uppercase; display:flex; align-items:center; gap:6px; }
+.c-cat .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cc, var(--accent)); }
+.course h3 { font-size: 19px; line-height: 1.2; letter-spacing:-.015em; }
+.course .c-obj { color: var(--ink-2); font-size: 14px; margin: 11px 0 16px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.course .c-foot { margin-top:auto; padding-top: 15px; border-top: 1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+.course .c-mod { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-3); }
+.course .c-go { font-size: 13px; color: var(--cc, var(--accent)); font-weight: 600; display:inline-flex; align-items:center; gap: 6px; }
+.course .c-go .ar { transition: transform .2s; }
+.course:hover .c-go .ar { transform: translateX(3px); }
+
+.edu-empty { text-align:center; padding: 60px 0; color: var(--ink-3); font-size: 16px; display:none; }
+
+/* ---- detail modal ---- */
+.modal-back {
+  position: fixed; inset: 0; z-index: 100; background: color-mix(in oklab, var(--ink) 55%, transparent);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  display:none; align-items: flex-start; justify-content: center; padding: 5vh 20px; overflow-y: auto;
+}
+.modal-back.on { display: flex; animation: mfade .2s ease; }
+@keyframes mfade { from { opacity: 0; } to { opacity: 1; } }
+.modal {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 20px; max-width: 760px; width: 100%;
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,.5); animation: mrise .28s cubic-bezier(.2,.7,.2,1); overflow: hidden;
+}
+@keyframes mrise { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: none; } }
+.modal-hd { padding: 30px 34px 24px; border-bottom: 1px solid var(--line); position: relative; }
+.modal-hd .row { display:flex; align-items:center; gap: 10px; margin-bottom: 14px; }
+.modal-hd .m-code { font-family: var(--font-mono); font-size: 12.5px; color: var(--mc); background: color-mix(in oklab, var(--mc) 13%, var(--surface)); padding: 5px 11px; border-radius: 7px; font-weight: 500; }
+.modal-hd .m-cat { font-family: var(--font-mono); font-size: 11px; letter-spacing:.08em; text-transform:uppercase; color: var(--ink-3); display:flex; align-items:center; gap:6px; }
+.modal-hd .m-cat .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mc); }
+.modal-hd h2 { font-size: clamp(22px, 3vw, 30px); line-height: 1.12; letter-spacing:-.02em; max-width: 92%; }
+.modal-close {
+  position:absolute; top: 24px; right: 26px; width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-2); display:grid; place-items:center; font-size: 18px;
+  transition: background .15s, color .15s;
+}
+.modal-close:hover { background: var(--surface-2); color: var(--ink); }
+.modal-bd { padding: 26px 34px 34px; }
+.m-objective { font-size: 16px; color: var(--ink); line-height: 1.6; margin: 0 0 28px; padding: 18px 20px; background: var(--surface-2); border-radius: 12px; border-left: 3px solid var(--mc); }
+.m-sec { margin-bottom: 26px; }
+.m-sec:last-child { margin-bottom: 0; }
+.m-sec .m-lbl { display:flex; align-items:center; gap: 10px; font-family: var(--font-mono); font-size: 12px; letter-spacing:.07em; text-transform:uppercase; color: var(--ink-3); margin-bottom: 14px; }
+.m-sec .m-lbl .num { color: var(--mc); }
+.m-modules { list-style:none; margin:0; padding:0; display:grid; gap: 10px; }
+.m-modules li { display:flex; gap: 12px; align-items:flex-start; font-size: 15px; color: var(--ink); line-height: 1.45; }
+.m-modules li .mk { flex:none; width: 22px; height: 22px; border-radius: 7px; background: color-mix(in oklab, var(--mc) 14%, var(--surface)); color: var(--mc); display:grid; place-items:center; font-family: var(--font-mono); font-size: 11px; margin-top: 1px; }
+.m-two { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.m-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.m-card h4 { display:flex; align-items:center; gap:8px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing:.06em; text-transform:uppercase; color: var(--mc); margin: 0 0 10px; font-weight: 500; }
+.m-card p { margin: 0; font-size: 14.5px; color: var(--ink-2); line-height: 1.55; }
+.modal-ft { display:flex; align-items:center; justify-content:space-between; gap: 16px; flex-wrap: wrap; margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--line); }
+.modal-ft .note { font-size: 13.5px; color: var(--ink-3); }
+
+html.modal-open { overflow: hidden; }
+
+@media (max-width: 980px) {
+  .edu-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 680px) {
+  .edu-grid { grid-template-columns: 1fr; }
+  .edu-search { margin-left: 0; width: 100%; }
+  .edu-toolbar { top: 60px; }
+  .m-two { grid-template-columns: 1fr; }
+  .modal-hd, .modal-bd { padding-left: 22px; padding-right: 22px; }
+}
