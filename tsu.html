@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-accent="orange" data-font="grotesk" data-density="regular">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Teknik Sürdürülebilirlik Uzmanlığı Eğitimi — ESG Akademi</title>
+<meta name="description" content="ISO 14064-1, ISO 14067, ISO 14046, ISO 14040/44 ve ISO 50001 standartlarını tek bir entegre programda, Excel uygulamalarıyla öğreten teknik sürdürülebilirlik eğitimi." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style data-src="styles.css">
+/* ========================================================================
+   ESG LAB — Sürdürülebilirlik danışmanlığı
+   Bilimsel / veri odaklı, sade & kurumsal sistem
+   ======================================================================== */
+
+/* ---- Tokens ---------------------------------------------------------- */
+:root {
+  --font-head: 'Space Grotesk', 'IBM Plex Sans', sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* light "lab" — default */
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --surface-2: #eef2f7;
+  --surface-3: #e6ecf3;
+  --line: #e1e8f0;
+  --line-strong: #cdd8e4;
+  --ink: #0d1a2d;
+  --ink-2: #46586e;
+  --ink-3: #7e8ea3;
+  --accent: #2563eb;
+  --accent-2: #0891b2;
+  --accent-soft: color-mix(in oklab, var(--accent) 12%, var(--surface));
+  --on-accent: #ffffff;
+  --grid: color-mix(in oklab, var(--line) 70%, transparent);
+  --shadow: 0 1px 2px rgba(13,26,45,.04), 0 8px 28px -12px rgba(13,26,45,.14);
+  --shadow-sm: 0 1px 2px rgba(13,26,45,.05);
+
+  --maxw: 1220px;
+  --gut: clamp(20px, 5vw, 56px);
+  --radius: 14px;
+  --radius-sm: 9px;
+  --scale: 1; /* density */
+  --sec-pad: calc(88px * var(--scale));
+}
+
+/* ---- Directions ------------------------------------------------------ */
+html[data-theme="dark"] {
+  --bg: #070d18;
+  --surface: #0d1726;
+  --surface-2: #13223a;
+  --surface-3: #1a2c49;
+  --line: #1d2f4a;
+  --line-strong: #2a4063;
+  --ink: #eaf1fb;
+  --ink-2: #a7b8d1;
+  --ink-3: #6c809e;
+  --accent-soft: color-mix(in oklab, var(--accent) 22%, var(--surface));
+  --grid: color-mix(in oklab, var(--line) 80%, transparent);
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 50px -20px rgba(0,0,0,.7);
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.4);
+}
+html[data-theme="contrast"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f5f7;
+  --surface-3: #ececf0;
+  --line: #111111;
+  --line-strong: #111111;
+  --ink: #000000;
+  --ink-2: #1c1c1c;
+  --ink-3: #555555;
+  --accent-soft: color-mix(in oklab, var(--accent) 10%, #fff);
+  --shadow: none;
+  --shadow-sm: none;
+}
+html[data-theme="contrast"] .card,
+html[data-theme="contrast"] .panel,
+html[data-theme="contrast"] .svc { border-width: 1.5px; }
+
+/* ---- Accents --------------------------------------------------------- */
+html[data-accent="blue"]   { --accent: #2563eb; --accent-2: #0891b2; }
+html[data-accent="orange"] { --accent: #fa541c; --accent-2: #ff7a45; }
+html[data-accent="indigo"] { --accent: #4f46e5; --accent-2: #0e7aa8; }
+html[data-accent="cyan"]   { --accent: #0e7490; --accent-2: #2563eb; }
+html[data-accent="slate"]  { --accent: #334e68; --accent-2: #0891b2; }
+
+/* ---- Fonts (tweak) --------------------------------------------------- */
+html[data-font="plex"]    { --font-head: 'IBM Plex Sans', sans-serif; }
+html[data-font="grotesk"] { --font-head: 'Space Grotesk', sans-serif; }
+
+/* ---- Density --------------------------------------------------------- */
+html[data-density="compact"] { --scale: .72; }
+html[data-density="regular"] { --scale: 1; }
+html[data-density="comfy"]   { --scale: 1.28; }
+
+/* ---- Reset ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.005em;
+  transition: background .4s ease, color .4s ease;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing: -0.022em; line-height: 1.06; margin: 0; }
+
+/* ---- Layout ---------------------------------------------------------- */
+.wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--gut); }
+.section { padding-block: var(--sec-pad); }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.eyebrow::before {
+  content: attr(data-num);
+  color: var(--ink-3);
+}
+.sec-head { max-width: 720px; margin-bottom: calc(40px * var(--scale)); }
+.sec-head h2 { font-size: clamp(30px, 4vw, 46px); margin-top: 18px; }
+.sec-head p { color: var(--ink-2); font-size: 18px; margin: 18px 0 0; max-width: 60ch; }
+
+/* ---- Buttons --------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 15px; font-weight: 500;
+  border: 1px solid transparent;
+  transition: transform .12s ease, background .2s ease, border-color .2s, color .2s;
+  white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: color-mix(in oklab, var(--accent) 86%, #000); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { background: var(--surface-2); border-color: var(--ink-3); }
+.btn .arrow { transition: transform .2s ease; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* ---- Nav ------------------------------------------------------------- */
+.nav {
+  position: sticky; top: 0; z-index: 60;
+  background: color-mix(in oklab, var(--bg) 78%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s ease, background .3s ease;
+}
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav-inner { display: flex; align-items: center; gap: 28px; height: 68px; }
+.brand { display: flex; align-items: center; gap: 11px; font-family: var(--font-head); font-weight: 600; font-size: 18px; letter-spacing: -0.02em; }
+.brand-mark {
+  width: 26px; height: 26px; border-radius: 7px;
+  background: var(--ink);
+  position: relative; flex: none;
+  display: grid; place-items: center;
+}
+.brand-mark::before { content:""; width: 11px; height: 11px; border-radius: 3px; background: var(--accent); }
+.brand-mark::after { content:""; position:absolute; right:5px; top:5px; width:4px; height:4px; border-radius:50%; background: var(--accent-2); }
+html[data-theme="contrast"] .brand-mark { background:#000; }
+.brand b { font-weight: 600; }
+.brand .lab { color: var(--accent); }
+.nav-links { display: flex; gap: 4px; margin-left: 8px; }
+.nav-links a {
+  font-size: 14.5px; color: var(--ink-2); padding: 8px 13px; border-radius: 8px;
+  font-weight: 450; transition: color .15s, background .15s; white-space: nowrap;
+}
+.nav-links a:hover { color: var(--ink); background: var(--surface-2); }
+.nav-right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+
+.lang {
+  display: inline-flex; align-items: center; border: 1px solid var(--line-strong);
+  border-radius: 9px; overflow: hidden; font-family: var(--font-mono); font-size: 12px;
+}
+.lang button {
+  background: transparent; border: 0; color: var(--ink-3); padding: 7px 11px; letter-spacing: .06em;
+  transition: background .15s, color .15s;
+}
+.lang button.on { background: var(--ink); color: var(--surface); }
+html[data-theme="contrast"] .lang button.on { background:#000; color:#fff; }
+
+.nav-cta { padding: 9px 16px; font-size: 14px; }
+.menu-btn { display: none; }
+
+/* ---- Hero ------------------------------------------------------------ */
+.hero { padding-top: calc(56px * var(--scale)); padding-bottom: calc(76px * var(--scale)); position: relative; overflow: hidden; }
+
+/* centered hero (GitBook-style) */
+.hero-center { text-align: center; padding-top: calc(64px * var(--scale)); padding-bottom: calc(28px * var(--scale)); }
+.hero-center .hero-copy { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+.hero-center .eyebrow { margin-bottom: 26px; }
+.hero-center h1 { font-size: clamp(34px, 5.4vw, 66px); letter-spacing: -0.032em; line-height: 1.05; text-wrap: balance; }
+.hero-center h1 .hl { color: var(--accent); }
+.hero-center .hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); margin: 22px auto 32px; width: 100%; max-width: 860px; text-wrap: normal; }
+.hero-center .hero-cta { justify-content: center; }
+@media (min-width: 1180px) { .hero-center h1 { white-space: nowrap; } }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero h1 { font-size: clamp(38px, 5.6vw, 68px); letter-spacing: -0.03em; }
+.hero h1 .hl { color: var(--accent); }
+.hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.4vw, 20px); margin: 26px 0 34px; max-width: 48ch; }
+.hero-cta { display: flex; gap: 13px; flex-wrap: wrap; }
+.hero-meta { margin-top: 40px; display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-meta .m { display: flex; flex-direction: column; gap: 3px; }
+.hero-meta .m b { font-family: var(--font-head); font-size: 24px; }
+.hero-meta .m span { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+
+/* ---- Data panel (card) ---------------------------------------------- */
+.card {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.dpanel { padding: 22px; }
+.dpanel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.dpanel-head .t { font-family: var(--font-mono); font-size: 12px; letter-spacing: .04em; color: var(--ink-3); text-transform: uppercase; }
+.dpanel-head .v { font-family: var(--font-head); font-size: 30px; }
+.dpanel-head .v small { font-size: 14px; color: var(--ink-3); font-family: var(--font-mono); }
+.trend { display:inline-flex; align-items:center; gap:5px; font-family: var(--font-mono); font-size:12px; padding:4px 8px; border-radius:6px; background: var(--accent-soft); color: var(--accent); }
+.chart { margin-top: 8px; }
+.chart svg { width: 100%; height: auto; display:block; overflow: visible; }
+.axis { font-family: var(--font-mono); font-size: 10px; fill: var(--ink-3); letter-spacing: .04em; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.dpanel-foot { display:flex; gap: 18px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+.dpanel-foot .f { flex:1; }
+.dpanel-foot .f span { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing:.05em; color: var(--ink-3); display:block; }
+.dpanel-foot .f b { font-family: var(--font-head); font-size: 18px; font-weight: 600; }
+
+/* ---- Trust bar ------------------------------------------------------- */
+.trust { border-block: 1px solid var(--line); }
+.trust .wrap { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; padding-block: 26px; }
+.trust .lbl { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); }
+.trust .logos { display:flex; gap: 38px; flex-wrap: wrap; align-items:center; opacity: .82; }
+.trust .logos span { font-family: var(--font-head); font-weight: 600; font-size: 17px; color: var(--ink-2); letter-spacing: -.01em; }
+
+/* ---- Stats band ------------------------------------------------------ */
+.stats { background: var(--surface); border-block: 1px solid var(--line); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: calc(46px * var(--scale)) 28px; border-right: 1px solid var(--line); }
+.stat:last-child { border-right: 0; }
+.stat .n { font-family: var(--font-head); font-size: clamp(34px, 4vw, 50px); font-weight: 600; letter-spacing: -.03em; display:flex; align-items:baseline; gap:2px; }
+.stat .n .u { font-size: .5em; color: var(--accent); font-weight: 500; }
+.stat .k { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); margin-top: 10px; }
+
+/* ---- Services -------------------------------------------------------- */
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.svc {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 28px 32px; display: flex; flex-direction: column; min-height: 340px;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .25s ease;
+}
+.svc:hover { border-color: var(--line-strong); transform: translateY(-3px); box-shadow: var(--shadow); }
+.svc .idx { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); letter-spacing: .08em; }
+.svc .ic { width: 42px; height: 42px; border-radius: 10px; background: var(--accent-soft); display:grid; place-items:center; margin: 18px 0 20px; color: var(--accent); }
+.svc h3 { font-size: 22px; }
+.svc p { color: var(--ink-2); font-size: 15.5px; margin: 12px 0 18px; }
+.svc ul { list-style: none; margin: auto 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); display: grid; gap: 9px; }
+.svc li { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); display:flex; gap: 9px; align-items:center; }
+.svc li::before { content:""; width: 5px; height: 5px; border-radius: 1px; background: var(--accent-2); flex:none; }
+
+/* ---- Process --------------------------------------------------------- */
+.proc { position: relative; }
+.proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; counter-reset: step; }
+.step { padding: 30px 26px 30px 0; position: relative; }
+.step::before {
+  content: counter(step, decimal-leading-zero); counter-increment: step;
+  font-family: var(--font-mono); font-size: 13px; color: var(--accent);
+  display: inline-block; margin-bottom: 18px;
+}
+.step .dot { position:absolute; top: 30px; right: 0; width: 11px; height: 11px; }
+.step-line { height: 1px; background: var(--line); position: relative; margin-bottom: -1px; }
+.step-line .fill { position:absolute; inset: 0 auto 0 0; width: 0; background: var(--accent); transition: width 1.1s ease; }
+.step .node { position: absolute; top: -5px; width: 11px; height: 11px; border-radius: 50%; background: var(--surface); border: 2px solid var(--accent); }
+.step h3 { font-size: 19px; margin-bottom: 9px; }
+.step p { color: var(--ink-2); font-size: 14.5px; margin: 0; padding-right: 14px; }
+
+/* ---- Methodology / data tabs ---------------------------------------- */
+.method-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(28px, 4vw, 60px); align-items: center; }
+.tabs { display: inline-flex; gap: 5px; background: var(--surface-2); padding: 5px; border-radius: 11px; margin-bottom: 26px; }
+.tabs button {
+  border: 0; background: transparent; padding: 9px 16px; border-radius: 8px;
+  font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .03em; color: var(--ink-2);
+  transition: background .2s, color .2s; text-transform: uppercase;
+}
+.tabs button.on { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
+.method-copy h3 { font-size: clamp(26px, 3vw, 38px); margin-bottom: 16px; }
+.method-copy p { color: var(--ink-2); margin: 0 0 20px; }
+.method-copy .feat { display: grid; gap: 13px; margin-top: 24px; }
+.method-copy .feat div { display:flex; gap: 12px; align-items:flex-start; font-size: 15px; }
+.method-copy .feat .mk { color: var(--accent); flex:none; margin-top: 3px; }
+
+.viz { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); }
+.viz .vtop { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 20px; }
+.viz .vtop .t { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing:.05em; color: var(--ink-3); }
+.viz .vtop .b { font-family: var(--font-head); font-size: 26px; margin-top: 4px; }
+.pane { display: none; }
+.pane.on { display: block; animation: fade .4s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* gauge */
+.gauge-wrap { display:flex; gap: 26px; align-items:center; }
+.subbars { flex: 1; display: grid; gap: 16px; }
+.subbar .sl { display:flex; justify-content:space-between; font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); margin-bottom: 7px; }
+.subbar .track { height: 7px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+.subbar .bar { height: 100%; width: 0; border-radius: 4px; background: var(--accent); transition: width 1s ease; }
+.subbar:nth-child(2) .bar { background: var(--accent-2); }
+.subbar:nth-child(3) .bar { background: color-mix(in oklab, var(--accent) 55%, var(--accent-2)); }
+
+/* sector bars */
+.hbars { display: grid; gap: 15px; }
+.hbar .hl { display:flex; justify-content:space-between; font-size: 13.5px; margin-bottom: 7px; }
+.hbar .hl b { font-family: var(--font-mono); color: var(--ink-3); font-weight: 400; }
+.hbar .track { height: 10px; background: var(--surface-2); border-radius: 5px; overflow:hidden; }
+.hbar .bar { height: 100%; width: 0; border-radius: 5px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width 1.1s ease; }
+
+/* ---- Principles / about --------------------------------------------- */
+.about-grid { display:grid; grid-template-columns: .9fr 1.1fr; gap: clamp(28px, 5vw, 70px); }
+.about-lead { font-family: var(--font-head); font-size: clamp(24px, 2.6vw, 33px); line-height: 1.25; letter-spacing: -.02em; }
+.about-lead em { color: var(--accent); font-style: normal; }
+.princ { display:grid; grid-template-columns: 1fr 1fr; gap: 28px 34px; }
+.princ .p { }
+.princ .p .h { display:flex; gap: 11px; align-items:center; margin-bottom: 9px; }
+.princ .p .h .mk { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+.princ .p h4 { font-size: 17px; }
+.princ .p p { color: var(--ink-2); font-size: 14.5px; margin: 0; }
+
+/* ---- CTA ------------------------------------------------------------- */
+.cta { }
+.cta-box {
+  background: var(--ink); color: #fff; border-radius: 20px; padding: clamp(40px, 6vw, 80px);
+  position: relative; overflow: hidden;
+}
+html[data-theme="dark"] .cta-box { background: var(--surface-2); border: 1px solid var(--line-strong); }
+html[data-theme="contrast"] .cta-box { background:#000; }
+.cta-box::after {
+  content:""; position:absolute; right: -10%; top: -40%; width: 460px; height: 460px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--accent) 60%, transparent), transparent 65%);
+  opacity: .55; pointer-events:none;
+}
+.cta-box h2 { font-size: clamp(28px, 4vw, 46px); max-width: 18ch; position:relative; }
+.cta-box p { color: rgba(255,255,255,.72); margin: 18px 0 30px; max-width: 52ch; position:relative; font-size: 17px; }
+.cta-box .hero-cta { position: relative; }
+.cta-box .btn-ghost { color:#fff; border-color: rgba(255,255,255,.25); }
+.cta-box .btn-ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+
+/* ---- Footer ---------------------------------------------------------- */
+.foot { border-top: 1px solid var(--line); padding-block: 56px 40px; }
+.foot-grid { display:grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+.foot .brand { margin-bottom: 16px; }
+.foot .desc { color: var(--ink-2); font-size: 14.5px; max-width: 34ch; }
+.foot h5 { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-3); margin: 0 0 16px; font-weight: 500; }
+.foot ul { list-style:none; margin:0; padding:0; display:grid; gap: 11px; }
+.foot a, .foot ul li span { color: var(--ink-2); font-size: 14.5px; font-family: var(--font-body); font-weight: 400; }
+.foot a:hover { color: var(--accent); }
+.foot-bot { display:flex; justify-content:space-between; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); }
+
+/* ---- Reveal ---------------------------------------------------------- */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal[data-d="1"] { transition-delay: .07s; }
+.reveal[data-d="2"] { transition-delay: .14s; }
+.reveal[data-d="3"] { transition-delay: .21s; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---- Responsive ------------------------------------------------------ */
+@media (max-width: 980px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .method-grid, .about-grid { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(1), .stat:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .proc-grid { grid-template-columns: 1fr 1fr; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  body { font-size: 16px; }
+  .nav-links { display: none; }
+  .menu-btn { display: inline-grid; place-items:center; width: 40px; height: 40px; border-radius: 9px; border: 1px solid var(--line-strong); background: var(--surface); }
+  .svc-grid, .princ, .foot-grid { grid-template-columns: 1fr; }
+  .hero-meta { gap: 20px; }
+  .nav-cta { display: none; }
+}
+
+/* tweak panel host */
+#tweak-root { position: fixed; z-index: 90; }
+
+/* hero CTA: filled button black, slightly smaller (yalnızca üst hero) */
+#hero .hero-cta .btn { padding: 10px 17px; font-size: 14px; }
+#hero .hero-cta .btn-primary { background: var(--ink); color: var(--surface); }
+#hero .hero-cta .btn-primary:hover { background: color-mix(in oklab, var(--ink) 86%, #000); }
+html[data-theme="contrast"] #hero .hero-cta .btn-primary { background:#000; color:#fff; }
+
+</style>
+<style>
+/* ===== TSU sayfasına özel ===== */
+:root { --cat-e: #1f8a5b; --tsu-line: var(--line); }
+
+.tsu-hero { padding-top: calc(58px * var(--scale)); padding-bottom: calc(40px * var(--scale)); position: relative; }
+.tsu-hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+.tsu-hero h1 { font-size: clamp(34px, 5vw, 60px); letter-spacing: -.03em; line-height: 1.04; }
+.tsu-hero h1 .hl { color: var(--accent); }
+.tsu-hero .lead { color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); margin: 24px 0 0; max-width: 52ch; }
+.tsu-hero .sub { color: var(--ink-2); font-size: 15.5px; margin: 18px 0 0; max-width: 54ch; }
+.tsu-cta { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 34px; }
+
+/* hero side: program kartı */
+.tsu-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+.tsu-card .hd { background: var(--ink); color: #fff; padding: 22px 24px; position: relative; overflow: hidden; }
+html[data-theme="contrast"] .tsu-card .hd { background:#000; }
+.tsu-card .hd::after { content:""; position:absolute; right:-20%; top:-60%; width:240px; height:240px; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 60%, transparent), transparent 66%); opacity:.55; }
+.tsu-card .hd .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: color-mix(in oklab, var(--accent) 55%, #fff); position: relative; }
+.tsu-card .hd .v { font-family: var(--font-head); font-size: 22px; margin-top: 6px; position: relative; }
+.tsu-card .rows { padding: 8px 24px 18px; }
+.tsu-card .r { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.tsu-card .r:last-child { border-bottom: 0; }
+.tsu-card .r .l { font-size: 14px; color: var(--ink-2); display:flex; align-items:center; gap:10px; }
+.tsu-card .r .l .ic { width: 30px; height: 30px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); display:grid; place-items:center; flex:none; }
+.tsu-card .r .val { font-family: var(--font-head); font-size: 15px; font-weight: 600; text-align: right; }
+
+/* satisfaction badge */
+.sat { display:inline-flex; align-items:center; gap: 10px; background: var(--accent-soft); color: var(--accent); font-family: var(--font-mono); font-size: 12.5px; padding: 8px 14px; border-radius: 999px; margin-bottom: 22px; }
+.sat b { font-family: var(--font-head); font-size: 14px; }
+
+/* stat band */
+.tsu-stats { background: var(--surface); border-block: 1px solid var(--line); }
+.tsu-stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.tsu-stat { padding: 34px 26px; border-right: 1px solid var(--line); }
+.tsu-stat:last-child { border-right: 0; }
+.tsu-stat .n { font-family: var(--font-head); font-size: clamp(28px, 3.4vw, 42px); font-weight: 600; letter-spacing: -.03em; display:flex; align-items:baseline; gap:3px; }
+.tsu-stat .n .u { font-size: .5em; color: var(--accent); }
+.tsu-stat .k { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); margin-top: 10px; }
+
+/* amaç */
+.aim-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 60px); }
+.aim-lead { font-family: var(--font-head); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; letter-spacing: -.02em; }
+.aim-lead em { color: var(--accent); font-style: normal; }
+.aim-body p { color: var(--ink-2); margin: 0 0 16px; }
+.aim-body p:last-child { margin-bottom: 0; }
+.aim-pills { display:flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.aim-pills span { font-family: var(--font-mono); font-size: 12px; color: var(--ink); background: var(--surface-2); border: 1px solid var(--line); padding: 7px 13px; border-radius: 8px; }
+
+/* standartlar */
+.std-list { display: grid; gap: 16px; }
+.std {
+  display: grid; grid-template-columns: 96px 1fr; gap: 26px; align-items: start;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 28px 30px;
+  transition: border-color .2s, box-shadow .25s, transform .2s;
+}
+.std:hover { border-color: var(--line-strong); box-shadow: var(--shadow); transform: translateY(-2px); }
+.std .num { font-family: var(--font-head); font-size: 40px; font-weight: 600; color: var(--accent); line-height: 1; letter-spacing: -.04em; }
+.std .num small { display:block; font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: .08em; margin-top: 8px; font-weight: 400; }
+.std h3 { font-size: 21px; letter-spacing: -.015em; }
+.std .iso { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); margin-bottom: 4px; }
+.std p { color: var(--ink-2); font-size: 15px; margin: 11px 0 0; max-width: 72ch; }
+.std .tags { display:flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.std .tags i { font-style: normal; font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-2); background: var(--surface-2); border: 1px solid var(--line); padding: 5px 10px; border-radius: 7px; }
+
+/* özellikler */
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.feat-c { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px 28px; }
+.feat-c .ic { width: 42px; height: 42px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); display:grid; place-items:center; margin-bottom: 18px; }
+.feat-c h3 { font-size: 17.5px; line-height: 1.2; }
+.feat-c p { color: var(--ink-2); font-size: 14.5px; margin: 11px 0 0; }
+
+/* info split: süre + sertifika */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 32px; }
+.panel .ph { display:flex; align-items:center; gap: 12px; margin-bottom: 22px; }
+.panel .ph .ic { width: 40px; height: 40px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); display:grid; place-items:center; flex:none; }
+.panel .ph h3 { font-size: 21px; letter-spacing:-.015em; }
+.panel .ph .ph-sub { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-3); margin-top: 2px; }
+.sched { display:grid; gap: 12px; }
+.sched .s-main { background: var(--ink); color:#fff; border-radius: 12px; padding: 18px 20px; position:relative; overflow:hidden; }
+html[data-theme="contrast"] .sched .s-main { background:#000; }
+.sched .s-main .d { font-family: var(--font-mono); font-size: 11.5px; letter-spacing:.05em; color: color-mix(in oklab, var(--accent) 55%, #fff); text-transform:uppercase; }
+.sched .s-main .t { font-size: 17px; font-weight: 500; margin-top: 6px; }
+.sched .s-main .h { font-family: var(--font-head); font-size: 22px; margin-top: 8px; }
+.sched .s-row { display:flex; justify-content:space-between; gap: 12px; padding: 11px 4px; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.sched .s-row:last-child { border-bottom: 0; }
+.sched .s-row b { font-family: var(--font-head); color: var(--ink); font-weight: 600; }
+.sched .s-alt { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin-top: 6px; line-height: 1.6; }
+
+.cert-list { list-style:none; margin:0; padding:0; display:grid; gap: 15px; }
+.cert-list li { display:flex; gap: 13px; align-items:flex-start; font-size: 14.5px; color: var(--ink); line-height: 1.45; }
+.cert-list li .ck { flex:none; width: 22px; height: 22px; border-radius: 7px; background: var(--accent-soft); color: var(--accent); display:grid; place-items:center; margin-top: 1px; }
+.cert-badges { display:flex; gap:10px; flex-wrap:wrap; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--line); }
+.cert-badges span { font-family: var(--font-mono); font-size: 11px; color: var(--ink-2); background: var(--surface-2); border:1px solid var(--line); padding: 6px 11px; border-radius: 8px; }
+
+/* ödeme + telafi */
+.pay-grid { display:grid; grid-template-columns: 1.1fr .9fr; gap: 22px; }
+.pay { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 32px; }
+.pay h3 { font-size: 21px; margin-bottom: 20px; display:flex; align-items:center; gap: 12px; }
+.pay h3 .ic { width: 40px; height: 40px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); display:grid; place-items:center; }
+.pay-items { display:grid; gap: 12px; }
+.pay-item { display:flex; justify-content:space-between; align-items:center; gap: 14px; padding: 13px 16px; background: var(--surface-2); border-radius: 10px; }
+.pay-item .l { font-size: 14.5px; color: var(--ink); }
+.pay-item .v { font-family: var(--font-head); font-weight: 600; font-size: 15px; color: var(--accent); white-space: nowrap; }
+.note-card { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin-top: 16px; }
+.note-card .nh { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing:.06em; color: var(--ink-3); margin-bottom: 8px; }
+.note-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+
+/* final CTA */
+.tsu-final .cta-box { background: var(--ink); color:#fff; border-radius: 20px; padding: clamp(40px,6vw,72px); position:relative; overflow:hidden; }
+html[data-theme="contrast"] .tsu-final .cta-box { background:#000; }
+.tsu-final .cta-box::after { content:""; position:absolute; right:-8%; top:-40%; width:440px; height:440px; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 60%, transparent), transparent 65%); opacity:.5; }
+.tsu-final h2 { font-size: clamp(28px, 4vw, 44px); max-width: 20ch; position:relative; }
+.tsu-final p { color: rgba(255,255,255,.72); margin: 18px 0 30px; max-width: 54ch; position:relative; font-size: 17px; }
+.tsu-final .tsu-cta { position:relative; margin-top: 0; }
+.tsu-final .btn-ghost { color:#fff; border-color: rgba(255,255,255,.25); }
+.tsu-final .btn-ghost:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+
+@media (max-width: 920px) {
+  .tsu-hero-grid, .aim-grid { grid-template-columns: 1fr; }
+  .tsu-stats .wrap { grid-template-columns: 1fr 1fr; }
+  .tsu-stat:nth-child(2) { border-right: 0; }
+  .tsu-stat:nth-child(1), .tsu-stat:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+  .split, .pay-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+  .feat-grid { grid-template-columns: 1fr; }
+  .std { grid-template-columns: 1fr; gap: 14px; }
+  .std .num { font-size: 32px; }
+  .pay-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span>ESG&nbsp;<span class="lab">LAB</span></span>
+    </a>
+    <div class="nav-right">
+      <span style="font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)">ESG Akademi</span>
+      <a href="#kayit" class="btn btn-primary nav-cta">Kayıt & Bilgi</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================== HERO ============================== -->
+<section class="tsu-hero section wrap">
+  <div class="tsu-hero-grid">
+    <div>
+      <div class="sat"><b>%100</b> memnuniyet · yüzlerce profesyonel</div>
+      <h1>Teknik Sürdürülebilirlik <span class="hl">Uzmanlığı</span> Eğitimi</h1>
+      <p class="lead">ISO standartları rehberliğinde; karbon, su, enerji ve yaşam döngüsü hesaplamalarını uçtan uca, Excel üzerinde uygulamalı olarak öğreten entegre teknik program.</p>
+      <p class="sub">Kuruluşların sürdürülebilirlik yolculuğunda ihtiyaç duyduğu tüm teknik bilgi, hesaplama yöntemleri ve uygulama detayları — beş temel ISO standardı tek bir bütüncül eğitimde bir araya getirildi.</p>
+      <div class="tsu-cta">
+        <a href="#kayit" class="btn btn-primary"><span>Kayıt ol</span> <span class="arrow">→</span></a>
+        <a href="#standartlar" class="btn btn-ghost">Program içeriği</a>
+      </div>
+    </div>
+
+    <aside class="tsu-card">
+      <div class="hd">
+        <div class="k">Program · Bir bakışta</div>
+        <div class="v">5 ISO Standardı · 56 Saat</div>
+      </div>
+      <div class="rows">
+        <div class="r"><span class="l"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg></span>Süre</span><span class="val">56 saat · 1 ay</span></div>
+        <div class="r"><span class="l"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>Günler</span><span class="val">Salı · Çarş · Perş</span></div>
+        <div class="r"><span class="l"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Saat</span><span class="val">19:15 – 22:45</span></div>
+        <div class="r"><span class="l"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m12 3 2.3 5 5.7.5-4.3 3.8 1.3 5.7L12 17l-5 3 1.3-5.7L4 10.5l5.7-.5z"/></svg></span>Sertifika</span><span class="val">FSM Üniversitesi</span></div>
+        <div class="r"><span class="l"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>Yöntem</span><span class="val">Excel uygulamalı</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================== STATS ============================== -->
+<section class="tsu-stats">
+  <div class="wrap">
+    <div class="tsu-stat"><div class="n">5</div><div class="k">Temel ISO standardı</div></div>
+    <div class="tsu-stat"><div class="n">56<span class="u">sa</span></div><div class="k">Toplam eğitim · 1 ay</div></div>
+    <div class="tsu-stat"><div class="n">100<span class="u">%</span></div><div class="k">Katılımcı memnuniyeti</div></div>
+    <div class="tsu-stat"><div class="n">5<span class="u">+1</span></div><div class="k">Sertifika & başarı belgesi</div></div>
+  </div>
+</section>
+
+<!-- ============================== AMAÇ ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal" style="max-width:760px">
+    <span class="eyebrow" data-num="01">Eğitimin amacı</span>
+    <h2>Teknik ISO modülleri, ilk kez tek bir entegre programda</h2>
+  </div>
+  <div class="aim-grid">
+    <p class="aim-lead reveal">Sürdürülebilirlik hesaplamalarında zorunlu kabul edilen <em>beş temel ISO standardını</em>; ortak yönleri, ilişkileri ve kapsamlarıyla birlikte sistematik biçimde öğretmek.</p>
+    <div class="aim-body reveal" data-d="1">
+      <p>Program; ISO 14064-1, ISO 14067, ISO 14046, ISO 14040/44 ve ISO 50001 standartlarının temel ilke ve prensiplerini kapsamlı şekilde ele alır. Standartlar ayrı ayrı değil; birbirleriyle ilişkileri ve bağlamları içinde, bütüncül bir yaklaşımla işlenir.</p>
+      <p>Böylece katılımcılar hem teorik bilgiyi hem de pratik hesaplama becerilerini birlikte geliştirir. Eğitim boyunca örnekler, gerçek vaka analizleri ve hesaplama araçlarıyla doğrudan uygulamaya dönük, yüksek katma değerli bir öğrenme deneyimi sunulur.</p>
+      <div class="aim-pills">
+        <span>Ortak yönler</span>
+        <span>Standartlar arası ilişki</span>
+        <span>Kapsam & bağlam</span>
+        <span>Uygulamalı hesaplama</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STANDARTLAR ============================== -->
+<section class="section wrap" id="standartlar">
+  <div class="sec-head reveal" style="max-width:760px">
+    <span class="eyebrow" data-num="02">Program içeriği</span>
+    <h2>Eğitimdeki beş temel standart</h2>
+    <p>Her standart, maddelerin aktarımının ötesinde; sektöre yönelik uygulamalar ve adım adım hesaplamalarla işlenir.</p>
+  </div>
+  <div class="std-list">
+    <article class="std reveal">
+      <div class="num">01<small>ISO 14064-1</small></div>
+      <div>
+        <div class="iso">Kurumsal Sera Gazı Emisyonları</div>
+        <h3>Karbon Ayak İzi Hesaplama ve Raporlama</h3>
+        <p>Karbon yönetiminin temel prensipleri; doğrudan ve dolaylı sera gazı emisyonlarının adım adım hesaplanması. Paris Anlaşması, ETS ve AB Taksonomisi gibi güncel düzenlemelerle birlikte ISO 14064-1 uygulamaları Excel üzerinde detaylı olarak öğretilir.</p>
+        <div class="tags"><i>Kapsam 1·2·3</i><i>Paris Anlaşması</i><i>ETS</i><i>Taksonomi</i><i>Excel</i></div>
+      </div>
+    </article>
+
+    <article class="std reveal" data-d="1">
+      <div class="num">02<small>ISO 50001</small></div>
+      <div>
+        <div class="iso">Enerji Yönetim Sistemi</div>
+        <h3>Enerji Verimliliği ve Performans Yönetimi</h3>
+        <p>ISO 50001 kapsamında sistem kurulumundan izleme ve sürekli iyileştirmeye kadar tüm süreçler. Katılımcılar enerji analizlerini ve performans göstergelerini (EnPI) uygulamalı olarak öğrenir.</p>
+        <div class="tags"><i>EnPI</i><i>Enerji analizi</i><i>İzleme</i><i>İyileştirme</i></div>
+      </div>
+    </article>
+
+    <article class="std reveal" data-d="2">
+      <div class="num">03<small>ISO 14067</small></div>
+      <div>
+        <div class="iso">Ürün Karbon Ayak İzi</div>
+        <h3>Ürün Bazında Karbon Hesaplama ve Beyan</h3>
+        <p>Ürünlerin yaşam döngüsü boyunca oluşan karbon ayak izinin hesaplanması ve raporlanması. ISO 14064 ile farkları; ürün etiketi ve çevresel ürün beyanı (EPD) gibi uygulamalar detaylı şekilde işlenir.</p>
+        <div class="tags"><i>Yaşam döngüsü</i><i>EPD</i><i>Ürün etiketi</i><i>Raporlama</i></div>
+      </div>
+    </article>
+
+    <article class="std reveal">
+      <div class="num">04<small>ISO 14046</small></div>
+      <div>
+        <div class="iso">Su Ayak İzi ve Su Yönetimi</div>
+        <h3>Mavi, Gri ve Yeşil Su Ayak İzi</h3>
+        <p>Mavi, gri ve yeşil su ayak izi kavramları tanıtılır; doğrudan ve dolaylı su kullanımına ilişkin hesaplamalar örneklerle uygulanır. Su verimliliği stratejileri ve regülasyonlara uyum konusunda yetkinlik kazandırılır.</p>
+        <div class="tags"><i>Mavi · Gri · Yeşil su</i><i>Su verimliliği</i><i>Regülasyon</i></div>
+      </div>
+    </article>
+
+    <article class="std reveal" data-d="1">
+      <div class="num">05<small>ISO 14040/44</small></div>
+      <div>
+        <div class="iso">LCA — Yaşam Döngüsü Değerlendirmesi</div>
+        <h3>Ürün ve Hizmetlerin Çevresel Etki Analizi</h3>
+        <p>Bir ürün veya hizmetin tüm yaşam döngüsündeki çevresel etkilerinin nasıl hesaplandığı, teorik ve uygulamalı düzeyde öğretilir. Katılımcılar gerçek projeler üzerinden farklı sektörlere yönelik kapsamlı analiz yapmayı öğrenir.</p>
+        <div class="tags"><i>Beşikten mezara</i><i>Etki kategorileri</i><i>Sektörel analiz</i></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================== ÖZELLİKLER ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal" style="max-width:760px">
+    <span class="eyebrow" data-num="03">Neden bu eğitim</span>
+    <h2>Sunum okumaktan öte, uygulama odaklı</h2>
+    <p>Sürdürülebilirlik alanında ihtisaslaşmış, yalnızca eğitim veren Türkiye'nin ilk ve tek kuruluşu olarak; her modülü sahadan beslenen bilgilerle kurguluyoruz.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-c reveal">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/><path d="m7 14 3-3 3 3 5-6"/></svg></div>
+      <h3>Uygulamalı ve sektöre yönelik</h3>
+      <p>ISO maddelerini aktarmakla kalmaz; sektör ihtiyaçlarına yönelik uygulamalar, gerçek vaka örnekleri ve hesaplama yöntemleriyle zenginleştirilmiş bir deneyim sunar.</p>
+    </div>
+    <div class="feat-c reveal" data-d="1">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M15 20c0-2 1-3.5 3-3.5"/></svg></div>
+      <h3>Vaka analizleri & atölye</h3>
+      <p>Atölye çalışmaları, grup bazlı hesaplamalar, interaktif quizler ve iyi uygulama örnekleri. Gerçek projeler üzerinden, sahada kullanılabilecek seviyeye gelirsiniz.</p>
+    </div>
+    <div class="feat-c reveal" data-d="2">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5M9 13h6M9 17h6"/></svg></div>
+      <h3>Geniş dokümantasyon</h3>
+      <p>Eğitim sonrası da kullanılabilecek kapsamlı dökümanlar, uygulama rehberleri ve hesaplama tabloları. Öğrendikleriniz iş hayatında kalıcı hale gelir.</p>
+    </div>
+    <div class="feat-c reveal">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+      <h3>Excel ile adım adım hesaplama</h3>
+      <p>Karbon, su ve enerji başta olmak üzere tüm temel hesaplamalar Excel üzerinde birebir yapılır. İzlemekle kalmaz, bizzat hesaplayarak öğrenirsiniz.</p>
+    </div>
+    <div class="feat-c reveal" data-d="1">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 12h8M8 16h5"/></svg></div>
+      <h3>Zengin içerik ve kaynaklar</h3>
+      <p>Tüm örnek Excel dosyaları, şablonlar, hesaplama araçları ve kaynaklar katılımcılarla paylaşılır — yalnızca sunuma dayalı eğitimlerin çok ötesinde.</p>
+    </div>
+    <div class="feat-c reveal" data-d="2">
+      <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 3 2.3 5 5.7.5-4.3 3.8 1.3 5.7L12 17l-5 3 1.3-5.7L4 10.5l5.7-.5z"/></svg></div>
+      <h3>Değer yaratan programlar</h3>
+      <p>Sektör profesyonellerinin gerçek ihtiyaçları ve çalışanların gelişim gereksinimleri dikkate alınarak, tamamen uygulamaya dayalı şekilde tasarlanmış modüller.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== SÜRE + SERTİFİKA ============================== -->
+<section class="section wrap">
+  <div class="split">
+    <div class="panel reveal">
+      <div class="ph">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
+        <div><h3>Eğitim saatleri & süre</h3><div class="ph-sub">Toplam 56 saat · 1 ay</div></div>
+      </div>
+      <div class="sched">
+        <div class="s-main">
+          <div class="d">Hafta içi akşam grubu</div>
+          <div class="t">Salı · Çarşamba · Perşembe</div>
+          <div class="h">19:15 – 22:45</div>
+        </div>
+        <div class="s-row"><span>Toplam süre</span><b>56 saat</b></div>
+        <div class="s-row"><span>Program uzunluğu</span><b>1 ay</b></div>
+        <div class="s-alt"><b style="color:var(--ink)">Alternatif gruplar (talebe göre):</b> Hafta sonu — Cmt/Pazar 10:00–16:00 · Hafta içi gündüz — Pzt–Cuma 10:00–16:00</div>
+      </div>
+    </div>
+
+    <div class="panel reveal" data-d="1">
+      <div class="ph">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 3 2.3 5 5.7.5-4.3 3.8 1.3 5.7L12 17l-5 3 1.3-5.7L4 10.5l5.7-.5z"/></svg></span>
+        <div><h3>Sertifikasyon</h3><div class="ph-sub">FSM Üniversitesi iş birliği</div></div>
+      </div>
+      <ul class="cert-list">
+        <li><span class="ck">✓</span><span>Eğitim sonunda yapılan sınav sonucunda <b>FSM Üniversitesi tarafından</b> sertifika düzenlenir.</span></li>
+        <li><span class="ck">✓</span><span>Sertifika <b>e-Devlet'te görüntülenebilir</b>, QR kodludur; kamu ve özel sektörde geçerli ve sorgulanabilir.</span></li>
+        <li><span class="ck">✓</span><span>ESG Akademi tarafından her standart için ayrı <b>5 adet İngilizce Başarı Belgesi</b> hazırlanır.</span></li>
+        <li><span class="ck">✓</span><span>Sertifikalar <b>Sanayi Bakanlığı Dijital Rozet & Sertifika</b> ile izlenebilir.</span></li>
+      </ul>
+      <div class="cert-badges">
+        <span>e-Devlet · QR</span>
+        <span>Kamu & özel geçerli</span>
+        <span>Dijital Rozet</span>
+        <span>5 × İngilizce belge</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ÖDEME + TELAFİ ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal" style="max-width:760px">
+    <span class="eyebrow" data-num="04">Ödeme & koşullar</span>
+    <h2>Esnek ödeme, ücretsiz telafi</h2>
+  </div>
+  <div class="pay-grid">
+    <div class="pay reveal">
+      <h3><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg></span>Ödeme seçenekleri</h3>
+      <div class="pay-items">
+        <div class="pay-item"><span class="l">Kredi kartına vade farksız taksit</span><span class="v">3 taksit</span></div>
+        <div class="pay-item"><span class="l">Taksit imkânı</span><span class="v">12 aya kadar</span></div>
+        <div class="pay-item"><span class="l">Nakit ödeme indirimi</span><span class="v">%5</span></div>
+        <div class="pay-item"><span class="l">Grup indirimi</span><span class="v">%10</span></div>
+        <div class="pay-item"><span class="l">2. eğitimi alanlara</span><span class="v">%5</span></div>
+      </div>
+    </div>
+    <div class="pay reveal" data-d="1">
+      <h3><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M12 7v5l3 2"/></svg></span>Telafi & ders kaydı</h3>
+      <div class="note-card">
+        <div class="nh">Ücretsiz tekrar</div>
+        <p>Yoğun ve hesaplama ağırlıklı bir program olduğundan; dersleri tekrar etmek, hesaplamaları pekiştirmek veya kaçırdığınız oturumları telafi etmek isterseniz <b>bir sonraki eğitime ücretsiz</b> katılabilirsiniz.</p>
+      </div>
+      <div class="note-card">
+        <div class="nh">Kayıt politikası</div>
+        <p>Eğitimde video kayıt alınmamaktadır; öğrenme, canlı ve etkileşimli oturumlar üzerinden yürütülür.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA ============================== -->
+<section class="section wrap tsu-final" id="kayit">
+  <div class="cta-box reveal">
+    <h2>Sıradaki gruba katılın, teknik uzmanlığınızı belgeleyin.</h2>
+    <p>Kontenjan, başlangıç tarihi ve kayıt için bize ulaşın. Eğitim içeriği ve ödeme seçenekleriyle ilgili tüm sorularınızı yanıtlayalım.</p>
+    <div class="tsu-cta">
+      <a href="mailto:bilgi@esgakademi.net?subject=Teknik%20S%C3%BCrd%C3%BCr%C3%BClebilirlik%20Uzmanl%C4%B1%C4%9F%C4%B1%20E%C4%9Fitimi%20%E2%80%94%20Kay%C4%B1t" class="btn btn-primary"><span>Kayıt & bilgi al</span> <span class="arrow">→</span></a>
+      <a href="tel:+905339552884" class="btn btn-ghost">+90 533 955 28 84</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
+        <p class="desc">Veriye dayalı sürdürülebilirlik danışmanlığı ve ESG Akademi eğitimleri.</p>
+      </div>
+      <div>
+        <h5>Program</h5>
+        <ul>
+          <li><a href="#standartlar">Standartlar</a></li>
+          <li><a href="#kayit">Süre & saatler</a></li>
+          <li><a href="#kayit">Sertifikasyon</a></li>
+          <li><a href="#kayit">Ödeme</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>ESG LAB</h5>
+        <ul>
+          <li><a href="index.html">Ana sayfa</a></li>
+          <li><a href="egitimler.html">Online Eğitim</a></li>
+          <li><a href="index.html#about">Hakkımızda</a></li>
+          <li><a href="index.html#contact">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></li>
+          <li><a href="tel:+905339552884">+90 533 955 28 84</a></li>
+          <li><span>Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ESG LAB · ESG Akademi</span>
+      <span>FSM Üniversitesi iş birliğiyle</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* scroll-reveal + nav shadow */
+(function () {
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+})();
+</script>
+</body>
+</html>
