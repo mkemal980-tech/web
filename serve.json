@@ -2,5 +2,7 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "directoryListing": false,
-  "rewrites": []
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" }
+  ]
 }
