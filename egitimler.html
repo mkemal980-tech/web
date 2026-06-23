@@ -392,6 +392,37 @@ html[data-theme="contrast"] .cta-box { background:#000; }
   .proc-grid { grid-template-columns: 1fr 1fr; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
+/* ---- Pricing --------------------------------------------------------- */
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.plan {
+  position: relative; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 30px 28px 32px; display: flex; flex-direction: column;
+  transition: border-color .2s ease, transform .2s ease, box-shadow .25s ease;
+}
+.plan:hover { border-color: var(--line-strong); transform: translateY(-3px); box-shadow: var(--shadow); }
+.plan.feat { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.plan .pop {
+  position: absolute; top: -12px; right: 22px; background: var(--accent); color: var(--on-accent);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; text-transform: uppercase;
+  padding: 5px 11px; border-radius: 7px; font-weight: 500;
+}
+.plan h3 { font-size: 24px; line-height: 1.1; }
+.plan .lead { color: var(--ink-2); font-size: 14.5px; margin: 12px 0 22px; min-height: 42px; }
+.plan .price {
+  display: inline-flex; align-items: baseline; gap: 6px; align-self: flex-start;
+  background: var(--ink); color: #fff; border-radius: 12px; padding: 13px 20px; margin-bottom: 22px;
+}
+html[data-theme="contrast"] .plan .price { background:#000; }
+.plan.feat .price { background: var(--accent); }
+.plan .price b { font-family: var(--font-head); font-size: 26px; font-weight: 600; letter-spacing: -.02em; }
+.plan .price span { font-family: var(--font-mono); font-size: 12.5px; opacity: .8; }
+.plan .seats { font-family: var(--font-head); font-weight: 600; font-size: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+.plan ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.plan li { display: flex; gap: 11px; align-items: flex-start; font-size: 14.5px; color: var(--ink-2); }
+.plan li .ck { flex: none; width: 19px; height: 19px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-top: 1px; }
+@media (max-width: 980px) { .price-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .price-grid { grid-template-columns: 1fr; } }
+
 @media (max-width: 720px) {
   body { font-size: 16px; }
   .nav-links { display: none; }
@@ -573,22 +604,23 @@ html.modal-open { overflow: hidden; }
 <!-- ============================== NAV ============================== -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="index.html">
+    <a class="brand" href="https://online.esgakademi.net/public/portal?guest=true">
       <span class="brand-mark"></span>
       <span>ESG&nbsp;<span class="lab">LAB</span></span>
     </a>
     <nav class="nav-links">
-      <a href="index.html#services" data-i18n="nav_services">Hizmetler</a>
-      <a href="index.html#method" data-i18n="nav_method">Metodoloji</a>
-      <a href="egitimler.html" class="cur" data-i18n="nav_edu">Online Eğitim</a>
-      <a href="kobi-paketi.html" data-i18n="nav_pkg">KOBİ Paketi</a>
+      <a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="nav_services">Hizmetler</a>
+      <a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="nav_method">Metodoloji</a>
+      <a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="nav_cal">Eğitim Takvimi</a>
+      <a href="https://online.esgakademi.net/public/portal?guest=true" class="cur" data-i18n="nav_edu">Online Eğitim</a>
+      <a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="nav_pkg">KOBİ Paketi</a>
     </nav>
     <div class="nav-right">
       <div class="lang" id="lang">
         <button data-lang="tr" class="on">TR</button>
         <button data-lang="en">EN</button>
       </div>
-      <a href="index.html#contact" class="btn btn-primary nav-cta" data-i18n="nav_cta">İletişim</a>
+      <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-primary nav-cta" data-i18n="nav_cta">İletişim</a>
       <button class="menu-btn" id="menuBtn" aria-label="Menu">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
       </button>
@@ -599,35 +631,509 @@ html.modal-open { overflow: hidden; }
 <main id="top">
 
 <!-- ============================== HERO ============================== -->
-<section class="hero edu-hero section wrap">
-  <div class="hero-copy">
-    <span class="eyebrow reveal" data-num="" data-i18n="edu_eyebrow">ESG Akademi · Online Eğitim</span>
-    <h1 class="reveal" data-d="1" data-i18n="edu_title">Sürdürülebilirlik yetkinliğini <span class="hl">eğitimle</span> kurun.</h1>
-    <p class="reveal" data-d="2" data-i18n="edu_sub">Karbondan döngüsel ekonomiye, sosyal sorumluluktan yönetişime; standart temelli ve uygulamaya dönük online eğitim kataloğu. E, S ve G başlıkları altında kategorize edilmiştir.</p>
-    <div class="edu-stats reveal" data-d="3">
-      <div class="e"><b id="stTotal">22</b><span data-i18n="edu_st1">Eğitim programı</span></div>
-      <div class="e"><b>E · S · G</b><span data-i18n="edu_st2">Kategori</span></div>
-      <div class="e"><b data-i18n="edu_st3v">Standart temelli</b><span data-i18n="edu_st3">ISO · CDP · GRI</span></div>
+<section class="hero section" id="hero" data-screen-label="Hero">
+  <div class="wrap">
+    <div class="hero-grid" style="align-items:center; gap: clamp(32px,5vw,80px);">
+      <div class="hero-copy">
+        <span class="eyebrow reveal" data-num="">ESG Akademi · Online Eğitim</span>
+        <h1 class="reveal" data-d="1" style="font-size: clamp(28px, 3.6vw, 48px);">Geleceğin<br>Sürdürülebilirlik Yetkinlikleri<br><span class="hl">Bugünden Kazanın</span></h1>
+        <p class="hero-sub reveal" data-d="2">Standart temelli, uygulamaya dönük ve online eğitim programlarıyla; karbon ayak izi, ESG raporlama, enerji yönetimi ve daha fazlasında sahada kullanılabilir beceriler kazanın.</p>
+        <div class="hero-cta reveal" data-d="3">
+          <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-primary">Eğitimleri İncele <span class="arrow">→</span></a>
+          <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-ghost">Kurumsal Eğitim Talep Et</a>
+        </div>
+        <div class="hero-meta reveal" data-d="3">
+          <div class="m"><b>3</b><span>E · S · G Kategorisi</span></div>
+          <div class="m"><b>ISO · GRI · CDP</b><span>Standart temelli</span></div>
+          <div class="m"><b>Sertifikalı</b><span>Öğrenme deneyimi</span></div>
+        </div>
+      </div>
+
+      <!-- vektörel illüstrasyon -->
+      <div class="reveal" data-d="2" style="display:flex; justify-content:center; align-items:center;">
+        <svg viewBox="0 0 520 480" fill="none" xmlns="http://www.w3.org/2000/svg"
+             style="width:100%; max-width:520px; height:auto;"
+             aria-label="ESG Akademi — sürdürülebilirlik eğitim görseli">
+
+          <!-- arka plan daire -->
+          <circle cx="260" cy="240" r="210" fill="var(--surface-2)" opacity=".6"/>
+
+          <!-- dış halka yayları — E S G -->
+          <!-- E — Çevresel (turuncu) -->
+          <circle cx="260" cy="240" r="170" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="4 6"/>
+          <path d="M260 70 A170 170 0 0 1 430 240"
+                stroke="var(--accent)" stroke-width="10" stroke-linecap="round" fill="none" opacity=".9"/>
+          <!-- S — Sosyal (accent-2) -->
+          <path d="M430 240 A170 170 0 0 1 177 388"
+                stroke="var(--accent-2)" stroke-width="10" stroke-linecap="round" fill="none" opacity=".85"/>
+          <!-- G — Yönetişim (ink-3) -->
+          <path d="M177 388 A170 170 0 0 1 260 70"
+                stroke="var(--ink-3)" stroke-width="10" stroke-linecap="round" fill="none" opacity=".55"/>
+
+          <!-- iç çember -->
+          <circle cx="260" cy="240" r="108" fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+
+          <!-- merkez metin -->
+          <text x="260" y="228" text-anchor="middle" font-family="'Space Grotesk', sans-serif"
+                font-size="38" font-weight="600" fill="var(--ink)" letter-spacing="-1">ESG</text>
+          <text x="260" y="256" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+                font-size="11" fill="var(--ink-3)" letter-spacing="2" text-transform="uppercase">AKADEMİ</text>
+
+          <!-- E etiketi -->
+          <circle cx="362" cy="118" r="26" fill="var(--accent)" opacity=".12"/>
+          <text x="362" y="114" text-anchor="middle" font-family="'Space Grotesk', sans-serif"
+                font-size="15" font-weight="600" fill="var(--accent)">E</text>
+          <text x="362" y="130" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+                font-size="9.5" fill="var(--accent)" letter-spacing="1">Çevresel</text>
+
+          <!-- S etiketi -->
+          <circle cx="434" cy="316" r="26" fill="var(--accent-2)" opacity=".12"/>
+          <text x="434" y="312" text-anchor="middle" font-family="'Space Grotesk', sans-serif"
+                font-size="15" font-weight="600" fill="var(--accent-2)">S</text>
+          <text x="434" y="328" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+                font-size="9.5" fill="var(--accent-2)" letter-spacing="1">Sosyal</text>
+
+          <!-- G etiketi -->
+          <circle cx="120" cy="316" r="26" fill="var(--ink-3)" opacity=".12"/>
+          <text x="120" y="312" text-anchor="middle" font-family="'Space Grotesk', sans-serif"
+                font-size="15" font-weight="600" fill="var(--ink-3)">G</text>
+          <text x="120" y="328" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+                font-size="9.5" fill="var(--ink-3)" letter-spacing="1">Yönetişim</text>
+
+          <!-- bağlantı çizgileri (spoke) -->
+          <line x1="260" y1="132" x2="260" y2="70" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+          <line x1="260" y1="348" x2="260" y2="410" stroke="var(--line)" stroke-width="1" stroke-dasharray="3 4"/>
+
+          <!-- küçük veri noktaları yörüngede -->
+          <circle cx="325" cy="82"  r="5" fill="var(--accent)"   opacity=".7"/>
+          <circle cx="420" cy="190" r="4" fill="var(--accent)"   opacity=".5"/>
+          <circle cx="415" cy="310" r="5" fill="var(--accent-2)" opacity=".7"/>
+          <circle cx="320" cy="400" r="4" fill="var(--accent-2)" opacity=".5"/>
+          <circle cx="175" cy="380" r="5" fill="var(--ink-3)"   opacity=".5"/>
+          <circle cx="102" cy="260" r="4" fill="var(--ink-3)"   opacity=".4"/>
+          <circle cx="140" cy="140" r="5" fill="var(--ink-3)"   opacity=".4"/>
+
+          <!-- sertifika rozeti (sağ alt) -->
+          <g transform="translate(368,368)">
+            <rect x="0" y="0" width="88" height="72" rx="12"
+                  fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+            <rect x="0" y="0" width="88" height="72" rx="12"
+                  fill="var(--accent)" opacity=".06"/>
+            <text x="44" y="26" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+                  font-size="9" fill="var(--accent)" letter-spacing="1">SERTİFİKA</text>
+            <path d="M24 48 L34 56 L64 36" stroke="var(--accent)" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </g>
+
+          <!-- ISO etiketi (sol üst) -->
+          <g transform="translate(52,88)">
+            <rect x="0" y="0" width="76" height="38" rx="9"
+                  fill="var(--surface)" stroke="var(--line)" stroke-width="1"/>
+            <text x="38" y="14" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+                  font-size="8" fill="var(--ink-3)" letter-spacing="1">STANDART</text>
+            <text x="38" y="28" text-anchor="middle" font-family="'Space Grotesk', sans-serif"
+                  font-size="12" font-weight="600" fill="var(--ink)">ISO · GRI</text>
+          </g>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================== TOOLBAR ============================== -->
-<div class="edu-toolbar" id="eduToolbar">
-  <div class="wrap">
-    <div class="filters" id="eduFilters"></div>
-    <div class="edu-search">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input type="text" id="eduSearchInput" placeholder="Eğitim ara…" autocomplete="off" />
-    </div>
+<!-- ============================== ÖNE ÇIKAN ŞERİT ============================== -->
+<div class="wrap" style="margin-top: -8px; margin-bottom: 8px;">
+  <div style="display:flex; align-items:center; gap:24px; background: var(--ink); color:#fff; border-radius: var(--radius); padding: 20px 30px;">
+    <span style="font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-2); flex:none;">★ Öne çıkan</span>
+    <p style="margin:0; font-family:var(--font-head); font-weight:600; font-size:clamp(15px,1.7vw,22px); line-height:1.25; letter-spacing:-.02em; flex:1;">Tüm çalışanlarınızın sürdürülebilirlik eğitimleri <span style="color:var(--accent-2);">tek platformda</span>.</p>
+    <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-primary" style="flex:none;">Kurumsal Plan <span class="arrow">→</span></a>
   </div>
 </div>
 
-<!-- ============================== SECTIONS ============================== -->
-<div class="wrap" style="padding-bottom: 90px">
-  <div id="eduSections"></div>
-  <div class="edu-empty" id="eduEmpty"></div>
-</div>
+<!-- ============================== NEDEN ============================== -->
+<section class="section" id="neden" data-screen-label="Neden ESG Akademi" style="background: var(--surface); border-top: 1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-num="">Platform</span>
+      <h2>Sürdürülebilirlik Artık Bir Tercih Değil, Kurumsal Bir Yetkinlik</h2>
+      <p>İklim krizi, yeni regülasyonlar ve ESG performans kriterleri; kurumların sürdürülebilirlik bilgisini tüm organizasyona yaymasını zorunlu kılıyor. ESG Akademi bu ihtiyaca cevap vermek için tasarlanmıştır.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="idx">01</div>
+        <div class="ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Standart Temelli Eğitim İçerikleri</h3>
+        <p>ISO standartları, ESG çerçeveleri ve raporlama beklentileri dikkate alınarak hazırlanır. Katılımcılar kavramları değil, kurumsal süreçlere nasıl uygulanacağını öğrenir.</p>
+        <ul>
+          <li>ISO 14064 · GHG Protocol</li>
+          <li>GRI · CSRD · CDP uyumlu</li>
+          <li>Güncel standart revizyonları</li>
+        </ul>
+      </div>
+      <div class="svc reveal" data-d="1">
+        <div class="idx">02</div>
+        <div class="ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h3>Uygulamalı ve Saha Odaklı Yaklaşım</h3>
+        <p>Vaka analizleri, örnek hesaplamalar, atölye çalışmaları ve gerçek iş senaryolarıyla öğrenme güçlendirilir. Bilgi ezberlemek değil, kullanabilir hale gelmek hedeflenir.</p>
+        <ul>
+          <li>Gerçek sektör vaka analizleri</li>
+          <li>Hesaplama araçları & şablonlar</li>
+          <li>Uygulamalı atölye çalışmaları</li>
+        </ul>
+      </div>
+      <div class="svc reveal" data-d="2">
+        <div class="idx">03</div>
+        <div class="ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Kurumlara Özel Gelişim Takibi</h3>
+        <p>Çalışanlara eğitim atanabilir, gelişim süreçleri takip edilebilir ve departman bazlı ilerleme değerlendirilebilir. Sürdürülebilirlik yetkinliği sistematik olarak yaygınlaştırılır.</p>
+        <ul>
+          <li>Çalışan bazlı eğitim atama</li>
+          <li>Departman ilerleme raporu</li>
+          <li>Kurumsal gelişim panosu</li>
+        </ul>
+      </div>
+      <div class="svc reveal" data-d="1">
+        <div class="idx">04</div>
+        <div class="ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91"/></svg>
+        </div>
+        <h3>Esnek Online Öğrenme</h3>
+        <p>Eğitimlere dijital platform üzerinden erişilir, kendi öğrenme hızıyla ilerlenir ve eğitim süreci iş temposuna uygun şekilde tamamlanabilir.</p>
+        <ul>
+          <li>7/24 platform erişimi</li>
+          <li>Kendi hızında ilerleme</li>
+          <li>İçerikleri tekrar izleyebilme</li>
+        </ul>
+      </div>
+      <div class="svc reveal" data-d="2">
+        <div class="idx">05</div>
+        <div class="ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <h3>Sertifikalı Öğrenme Deneyimi</h3>
+        <p>Başarı kriterlerini tamamlayan katılımcılar sertifika almaya hak kazanır. Yetkinliğinizi belgeleyerek kariyer profilinizi güçlendirin.</p>
+        <ul>
+          <li>Tamamlama sertifikası</li>
+          <li>Değerlendirme & başarı ölçümü</li>
+          <li>Dijital rozet desteği</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KATEGORİLER ============================== -->
+<section class="section" id="egitimler" data-screen-label="Eğitim Kategorileri">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-num="">Eğitim Kategorileri</span>
+      <h2>Üç Temel Sürdürülebilirlik Alanı</h2>
+      <p>Çevresel, sosyal ve yönetişim başlıklarını bütüncül şekilde ele alan eğitim programları.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc reveal" style="border-top: 3px solid var(--accent);">
+        <div class="idx">E — Çevresel</div>
+        <div class="ic" style="margin-top:16px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4.5 8-11.8A8 8 0 0012 2a8 8 0 00-8 8.2C4 17.5 12 22 12 22z"/></svg>
+        </div>
+        <h3>Çevresel Sürdürülebilirlik</h3>
+        <p>Teknik bilgi ve hesaplama becerisi kazandıran çevresel eğitimler.</p>
+        <ul>
+          <li>Karbon ayak izi & ürün karbon ayak izi</li>
+          <li>Su ayak izi & enerji yönetimi</li>
+          <li>Yaşam döngüsü değerlendirmesi (LCA)</li>
+          <li>Döngüsel ekonomi & kaynak verimliliği</li>
+        </ul>
+      </div>
+      <div class="svc reveal" data-d="1" style="border-top: 3px solid var(--accent-2);">
+        <div class="idx">S — Sosyal</div>
+        <div class="ic" style="margin-top:16px; background: color-mix(in oklab, var(--accent-2) 12%, var(--surface)); color: var(--accent-2);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Sosyal Sürdürülebilirlik</h3>
+        <p>İnsan odaklı sürdürülebilirlik yetkinlikleri için kapsamlı programlar.</p>
+        <ul>
+          <li>Sosyal etki & kurumsal sorumluluk</li>
+          <li>Çalışan deneyimi & insan hakları</li>
+          <li>Kapsayıcılık & çeşitlilik</li>
+          <li>Sürdürülebilir insan kaynakları</li>
+        </ul>
+      </div>
+      <div class="svc reveal" data-d="2" style="border-top: 3px solid var(--ink-2);">
+        <div class="idx">G — Yönetişim</div>
+        <div class="ic" style="margin-top:16px; background: var(--surface-2); color: var(--ink-2);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+        </div>
+        <h3>Yönetişim & ESG</h3>
+        <p>ESG stratejisi ve raporlama süreçlerinde kurumsal yetkinlik kazandırır.</p>
+        <ul>
+          <li>ESG stratejisi & raporlama (GRI · CSRD)</li>
+          <li>Etik yönetim & risk yönetimi</li>
+          <li>Sürdürülebilir tedarik zinciri</li>
+          <li>Kurumsal yönetişim</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KİMLER İÇİN ============================== -->
+<section class="section" style="background: var(--surface); border-top: 1px solid var(--line);" data-screen-label="Kimler İçin">
+  <div class="wrap">
+    <div class="method-grid">
+      <div class="method-copy">
+        <span class="eyebrow" data-num="">Hedef Kitle</span>
+        <h3>Kimler İçin Uygun?</h3>
+        <p>ESG Akademi eğitimleri; sürdürülebilirlik alanında kariyer yapmak isteyen bireyler, ekiplerini geliştirmek isteyen şirketler ve teknik uzmanlığını derinleştirmek isteyen profesyoneller için uygundur.</p>
+        <div class="feat">
+          <div><span class="mk">→</span><span>Sürdürülebilirlik uzmanları & çevre mühendisleri</span></div>
+          <div><span class="mk">→</span><span>Kalite ve yönetim sistemi profesyonelleri</span></div>
+          <div><span class="mk">→</span><span>İnsan kaynakları ekipleri</span></div>
+          <div><span class="mk">→</span><span>Satın alma ve tedarik zinciri yöneticileri</span></div>
+          <div><span class="mk">→</span><span>Üretim, enerji ve Ar-Ge ekipleri</span></div>
+          <div><span class="mk">→</span><span>Danışmanlar, yöneticiler ve ESG dönüşümüne katkı sunmak isteyenler</span></div>
+        </div>
+      </div>
+      <div class="viz reveal">
+        <div class="vtop">
+          <div>
+            <div class="t">Hedef kitle</div>
+            <div class="b">Tüm organizasyon</div>
+          </div>
+        </div>
+        <div class="hbars">
+          <div class="hbar"><div class="hl"><span>Sürdürülebilirlik ekipleri</span><b>Uzman</b></div><div class="track"><div class="bar" style="width:90%"></div></div></div>
+          <div class="hbar"><div class="hl"><span>Üretim & enerji</span><b>Teknik</b></div><div class="track"><div class="bar" style="width:78%"></div></div></div>
+          <div class="hbar"><div class="hl"><span>İnsan kaynakları</span><b>Sosyal S</b></div><div class="track"><div class="bar" style="width:65%"></div></div></div>
+          <div class="hbar"><div class="hl"><span>Finans & satın alma</span><b>Yönetişim G</b></div><div class="track"><div class="bar" style="width:72%"></div></div></div>
+          <div class="hbar"><div class="hl"><span>Üst yönetim</span><b>Strateji</b></div><div class="track"><div class="bar" style="width:55%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KURUMSAL ============================== -->
+<section class="section" id="kurumsal" data-screen-label="Kurumsal">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow" data-num="">Kurumlar İçin</span>
+        <p class="about-lead">Sürdürülebilirlik dönüşümü yalnızca raporlama ekiplerinin sorumluluğu değildir. Tüm organizasyonun <em>aynı dili konuşması</em> gerekir.</p>
+      </div>
+      <div class="princ">
+        <div class="p reveal">
+          <div class="h"><span class="mk">01</span><h4>Eğitim Atama</h4></div>
+          <p>Çalışanlara role özel eğitimler atanabilir, gelişim süreci merkezi olarak takip edilir.</p>
+        </div>
+        <div class="p reveal" data-d="1">
+          <div class="h"><span class="mk">02</span><h4>Gelişim Takibi</h4></div>
+          <p>Departman bazlı ilerleme değerlendirilebilir; raporlar yönetime aktarılabilir.</p>
+        </div>
+        <div class="p reveal" data-d="2">
+          <div class="h"><span class="mk">03</span><h4>Yaygınlaştırma</h4></div>
+          <p>ESG bilgisi kişilere bağlı kalmaz; kurum kültürünün kalıcı bir parçası haline gelir.</p>
+        </div>
+        <div class="p reveal" data-d="3">
+          <div class="h"><span class="mk">04</span><h4>Özelleştirme</h4></div>
+          <p>Kurumunuzun ihtiyaçlarına uygun eğitim planı birlikte oluşturulabilir.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 40px; padding: 36px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);">
+      <p style="font-size: 18px; color: var(--ink); margin: 0 0 8px; font-family: var(--font-head); font-weight: 600;">Kurumunuz için eğitim planı oluşturmak ister misiniz?</p>
+      <p style="margin: 0 0 22px; color: var(--ink-2);">Ekibinizin ihtiyaçlarına uygun eğitimleri birlikte belirleyelim.</p>
+      <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-primary">Kurumsal Teklif Al <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BİREYSEL ============================== -->
+<section class="section" style="background: var(--surface); border-top: 1px solid var(--line);" data-screen-label="Bireysel">
+  <div class="wrap">
+    <div class="method-grid">
+      <div class="viz reveal" style="align-self: start;">
+        <div class="vtop">
+          <div><div class="t">Bireysel katılımcı</div><div class="b">Kendi yolculuğun</div></div>
+        </div>
+        <div class="subbars">
+          <div class="subbar"><div class="sl"><span>Modül bazlı ilerleme</span><span>Esnek</span></div><div class="track"><div class="bar" style="width:85%"></div></div></div>
+          <div class="subbar"><div class="sl"><span>İçerikleri tekrar izleme</span><span>Sınırsız</span></div><div class="track"><div class="bar" style="width:100%"></div></div></div>
+          <div class="subbar"><div class="sl"><span>Sertifika & rozet</span><span>Doğrulanabilir</span></div><div class="track"><div class="bar" style="width:70%"></div></div></div>
+        </div>
+      </div>
+      <div class="method-copy">
+        <span class="eyebrow" data-num="">Bireysel Katılımcılar İçin</span>
+        <h3>Kendi Öğrenme Yolculuğunu Oluştur</h3>
+        <p>Sürdürülebilirlik alanında kariyerini güçlendirmek, yeni regülasyonlara hazırlanmak veya teknik ESG becerileri kazanmak istiyorsan ESG Akademi eğitimleriyle kendi öğrenme yolculuğunu oluşturabilirsin.</p>
+        <div class="feat">
+          <div><span class="mk">→</span><span>Modül bazlı ilerleme imkânı</span></div>
+          <div><span class="mk">→</span><span>Eğitim içeriklerini istediğin zaman tekrar izle</span></div>
+          <div><span class="mk">→</span><span>Uygulama örnekleriyle bilgini pekiştir</span></div>
+          <div><span class="mk">→</span><span>Yetkinliğini sertifika ile belgele</span></div>
+        </div>
+        <div style="margin-top: 26px;">
+          <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-primary">Hemen Kayıt Ol <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ABONELİK ============================== -->
+<section class="section" id="abonelik" data-screen-label="Abonelik">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-num="">Kurumsal Abonelik Seçenekleri</span>
+      <h2>Size Uygun Abonelik Planını Seçin</h2>
+      <p>Bireysel kariyerden global kurumsal akademiye; her ölçeğe uygun, esnek abonelik modelleri.</p>
+    </div>
+
+    <div class="price-grid" style="margin-bottom: 22px;">
+      <!-- Bireysel -->
+      <div class="plan reveal">
+        <h3>Bireysel Abonelik</h3>
+        <p class="lead">Bireysel kariyerinize en büyük katkı.</p>
+        <div class="price"><b>4.000₺</b><span>/ay</span></div>
+        <div class="seats">1 Kullanıcı · Bireysel</div>
+        <ul>
+          <li><span class="ck">✓</span>40+ eğitime sınırsız erişim</li>
+          <li><span class="ck">✓</span>Sürekli güncellenen içerikler</li>
+          <li><span class="ck">✓</span>Eğitmen ile 1–1 mentorluk</li>
+          <li><span class="ck">✓</span>Sertifika & ilerleme takibi</li>
+          <li><span class="ck">✓</span>CV/LinkedIn için dijital rozet & sertifika doğrulama</li>
+        </ul>
+      </div>
+
+      <!-- KOBİ -->
+      <div class="plan feat reveal" data-d="1">
+        <span class="pop">Popüler</span>
+        <h3>KOBİ Aboneliği</h3>
+        <p class="lead">Standartlara uyum, performansta gerçek artış.</p>
+        <div class="price"><b>160.000₺</b><span>/yıl</span></div>
+        <div class="seats">5 Kullanıcı</div>
+        <ul>
+          <li><span class="ck">✓</span>Tüm eğitim kataloğu</li>
+          <li><span class="ck">✓</span>Yönetici paneli</li>
+          <li><span class="ck">✓</span>Eğitim atama & takip</li>
+          <li><span class="ck">✓</span>Katılım & performans raporları</li>
+          <li><span class="ck">✓</span>Eğitmen desteği</li>
+          <li><span class="ck">✓</span>Onboarding eğitim paketi</li>
+        </ul>
+      </div>
+
+      <!-- Team -->
+      <div class="plan reveal" data-d="2">
+        <h3>Team Aboneliği</h3>
+        <p class="lead">Ekibini güçlendir, performansını büyüt.</p>
+        <div class="price"><b>290.000₺</b><span>/yıl</span></div>
+        <div class="seats">20 Kullanıcı</div>
+        <ul>
+          <li><span class="ck">✓</span>Tüm eğitimler</li>
+          <li><span class="ck">✓</span>ESG Planlama Workshop'u</li>
+          <li><span class="ck">✓</span>Gelişmiş raporlama & dashboard</li>
+          <li><span class="ck">✓</span>Rol bazlı atama</li>
+          <li><span class="ck">✓</span>Departman bazlı yetkinlik matrisi analizi</li>
+        </ul>
+      </div>
+
+      <!-- Corporate -->
+      <div class="plan reveal">
+        <h3>Corporate Aboneliği</h3>
+        <p class="lead">Sürdürülebilirliği rekabet avantajına dönüştür.</p>
+        <div class="price"><b>520.000₺</b><span>/ay</span></div>
+        <div class="seats">50 Kullanıcı</div>
+        <ul>
+          <li><span class="ck">✓</span>Atölye & vaka çalışmaları</li>
+          <li><span class="ck">✓</span>Kuruma özel içerik uyarlama</li>
+          <li><span class="ck">✓</span>Sınırsız canlı eğitim</li>
+          <li><span class="ck">✓</span>ESG/karbon KPI takip dashboard'u</li>
+          <li><span class="ck">✓</span>Kurumsal mentorluk</li>
+        </ul>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="plan feat reveal" data-d="1">
+        <span class="pop">Popüler</span>
+        <h3>Enterprise Aboneliği</h3>
+        <p class="lead">Ölçülebilir sürdürülebilirlik, güçlü yönetişim.</p>
+        <div class="price"><b>750.000₺</b><span>/yıl</span></div>
+        <div class="seats">100 Kullanıcı</div>
+        <ul>
+          <li><span class="ck">✓</span>Tüm online + canlı eğitimler</li>
+          <li><span class="ck">✓</span>Fiziki / yerinde eğitimler</li>
+          <li><span class="ck">✓</span>Üst yönetim çalıştayları</li>
+          <li><span class="ck">✓</span>ESG raporuna içerik & metodoloji desteği</li>
+        </ul>
+      </div>
+
+      <!-- Global White-Label -->
+      <div class="plan reveal" data-d="2">
+        <h3>Global White-Label</h3>
+        <p class="lead">White-label (kendi markanızla platform).</p>
+        <div class="price"><b>Teklif Alınız</b></div>
+        <div class="seats">Özel içerik geliştirme</div>
+        <ul>
+          <li><span class="ck">✓</span>Tüm eğitim katalogları</li>
+          <li><span class="ck">✓</span>Özel müşteri temsilcisi</li>
+          <li><span class="ck">✓</span>API/SSO entegrasyonu</li>
+          <li><span class="ck">✓</span>Çoklu lokasyon ve dil</li>
+          <li><span class="ck">✓</span>Tam danışmanlık & akademi kurulumu</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="dim" style="font-size: 13px; text-align: center; font-family: var(--font-mono);">Fiyatlara KDV dahil değildir. Kurumsal teklifler için bizimle iletişime geçin.</p>
+  </div>
+</section>
+
+<!-- ============================== ÖĞRENME YOLCULUĞU ============================== -->
+<section class="section" id="yolculuk" data-screen-label="Öğrenme Yolculuğu">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-num="">Süreç</span>
+      <h2>Öğrenme Yolculuğu Nasıl İlerler?</h2>
+    </div>
+    <div class="step-line"><div class="fill" id="stepFill"></div></div>
+    <div class="proc-grid">
+      <div class="step reveal">
+        <h3>Eğitiminizi Seçin</h3>
+        <p>İhtiyacınıza uygun sürdürülebilirlik, ESG, ISO veya teknik uzmanlık eğitimini belirleyin.</p>
+      </div>
+      <div class="step reveal" data-d="1">
+        <h3>Online Platformdan Erişin</h3>
+        <p>Eğitim içeriklerine dijital platform üzerinden erişerek kendi hızınızda ilerleyin.</p>
+      </div>
+      <div class="step reveal" data-d="2">
+        <h3>Uygulamalarla Pekiştirin</h3>
+        <p>Vaka analizleri, örnek çalışmalar ve değerlendirmelerle öğrendiklerinizi güçlendirin.</p>
+      </div>
+      <div class="step reveal" data-d="3">
+        <h3>Sertifikanızı Alın</h3>
+        <p>Değerlendirme süreçlerini tamamlayarak başarı durumunuzu ölçün ve sertifikanızı kazanın.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CTA ============================== -->
+<section class="section cta" data-screen-label="CTA">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2>Sürdürülebilirlikte Bilgi, Etkiye Dönüşmeli</h2>
+      <p>Her program; katılımcının iş dünyasında karşılaşacağı gerçek ihtiyaçlara cevap verecek şekilde kurgulanır. Çünkü sürdürülebilirlikte değer yaratan şey bilgiyi ezberlemek değil, doğru veriyi okumak, standartları anlamak ve uygulanabilir çözümler geliştirmektir.</p>
+      <div class="hero-cta">
+        <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-primary">Eğitim Kataloğunu İncele <span class="arrow">→</span></a>
+        <a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-ghost">İletişime Geç</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
@@ -639,32 +1145,33 @@ html.modal-open { overflow: hidden; }
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <a class="brand" href="index.html"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
+        <a class="brand" href="https://online.esgakademi.net/public/portal?guest=true"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
         <p class="desc" data-i18n="ft_desc">Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.</p>
       </div>
       <div>
         <h5 data-i18n="ft_h1">Hizmetler</h5>
         <ul>
-          <li><a href="index.html#services" data-i18n="ft_s1">Karbon yönetimi</a></li>
-          <li><a href="index.html#services" data-i18n="ft_s2">ESG raporlama</a></li>
-          <li><a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a></li>
-          <li><a href="kobi-paketi.html" data-i18n="nav_pkg">KOBİ Paketi</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="ft_s1">Karbon yönetimi</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="ft_s2">ESG raporlama</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="nav_edu">Online Eğitim</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="nav_cal">Eğitim Takvimi</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="nav_pkg">KOBİ Paketi</a></li>
         </ul>
       </div>
       <div>
         <h5 data-i18n="ft_h2">Kurum</h5>
         <ul>
-          <li><a href="index.html#about" data-i18n="ft_c1">Hakkımızda</a></li>
-          <li><a href="index.html#process" data-i18n="ft_c2">Yaklaşım</a></li>
-          <li><a href="index.html#stats" data-i18n="ft_c3">Etki</a></li>
-          <li><a href="mailto:bilgi@esgakademi.net" data-i18n="ft_c4">İletişim</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="ft_c1">Hakkımızda</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="ft_c2">Yaklaşım</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="ft_c3">Etki</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true" data-i18n="ft_c4">İletişim</a></li>
         </ul>
       </div>
       <div>
         <h5 data-i18n="ft_h3">İletişim</h5>
         <ul>
-          <li><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></li>
-          <li><a href="tel:+905339552884">+90 533 955 28 84</a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true"><span class="__cf_email__" data-cfemail="c4a6ada8a3ad84a1b7a3a5afa5a0a1a9adeaaaa1b0">[email&#160;protected]</span></a></li>
+          <li><a href="https://online.esgakademi.net/public/portal?guest=true">+90 533 955 28 84</a></li>
           <li><span data-i18n="ft_addr">Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></li>
         </ul>
       </div>
@@ -678,7 +1185,7 @@ html.modal-open { overflow: hidden; }
 
 <div id="tweak-root"></div>
 
-<script data-src="i18n.js">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-src="i18n.js">
 /* ===================================================================
    ESG LAB — i18n + etkileşimler
    =================================================================== */
@@ -747,6 +1254,7 @@ html.modal-open { overflow: hidden; }
       ft_h2: 'Kurum', ft_c1: 'Hakkımızda', ft_c2: 'Yaklaşım', ft_c3: 'Etki', ft_c4: 'İletişim',
       ft_h3: 'İletişim', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'Tüm hakları saklıdır · Gizlilik · KVKK',
       nav_pkg: 'KOBİ Paketi',
+      nav_cal: 'Eğitim Takvimi',
       nav_edu: 'Online Eğitim',
       edu_eyebrow: 'ESG Akademi · Online Eğitim',
       edu_title: 'Sürdürülebilirlik yetkinliğini <span class="hl">eğitimle</span> kurun.',
@@ -879,6 +1387,7 @@ html.modal-open { overflow: hidden; }
       ft_h2: 'Company', ft_c1: 'About', ft_c2: 'Approach', ft_c3: 'Impact', ft_c4: 'Contact',
       ft_h3: 'Contact', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'All rights reserved · Privacy · GDPR',
       nav_pkg: 'SME Package',
+      nav_cal: 'Training Calendar',
       nav_edu: 'Online Training',
       edu_eyebrow: 'ESG Academy · Online Training',
       edu_title: 'Build sustainability capability <span class="hl">through training</span>.',
@@ -1438,9 +1947,10 @@ window.ESG_COURSES = [
 </script>
 <script data-src="egitimler.js">
 /* ===================================================================
-   ESG LAB — Online Eğitim: kategori filtreleme, arama, detay modalı
+   ESG LAB — Online Eğitim: kategori filtreleme (devre dışı)
    =================================================================== */
 (function () {
+  if (!document.getElementById('eduSections')) return;
   'use strict';
 
   var CATS = {
@@ -1548,7 +2058,7 @@ window.ESG_COURSES = [
             '<div class="m-card"><h4><span class="num">03</span>' + t('who') + '</h4><p>' + esc(c.audience) + '</p></div>' +
           '</div>' +
           '<div class="modal-ft"><span class="note">' + t('note') + '</span>' +
-            '<a href="mailto:bilgi@esgakademi.net?subject=' + encodeURIComponent(c.title) + '" class="btn btn-primary"><span>' + t('cta') + '</span> <span class="arrow">→</span></a>' +
+            '<a href="https://online.esgakademi.net/public/portal?guest=true" class="btn btn-primary"><span>' + t('cta') + '</span> <span class="arrow">→</span></a>' +
           '</div>' +
         '</div>' +
       '</div>';
