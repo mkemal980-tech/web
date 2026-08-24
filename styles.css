@@ -32,7 +32,7 @@
   --radius: 14px;
   --radius-sm: 9px;
   --scale: 1; /* density */
-  --sec-pad: calc(88px * var(--scale));
+  --sec-pad: calc(58px * var(--scale));
 }
 
 /* ---- Directions ------------------------------------------------------ */
@@ -122,7 +122,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing
   content: attr(data-num);
   color: var(--ink-3);
 }
-.sec-head { max-width: 720px; margin-bottom: calc(40px * var(--scale)); }
+.sec-head { max-width: 720px; margin-bottom: calc(30px * var(--scale)); }
 .sec-head h2 { font-size: clamp(30px, 4vw, 46px); margin-top: 18px; }
 .sec-head p { color: var(--ink-2); font-size: 18px; margin: 18px 0 0; max-width: 60ch; }
 
@@ -188,6 +188,19 @@ html[data-theme="contrast"] .lang button.on { background:#000; color:#fff; }
 
 .nav-cta { padding: 9px 16px; font-size: 14px; }
 .menu-btn { display: none; }
+
+/* ---- Ara genişlikler: menü satırı taşmasın ---- */
+@media (max-width: 1150px) and (min-width: 721px) {
+  .nav-inner { min-width: 0; }
+  .nav-links {
+    gap: 0; margin-left: 0; min-width: 0; flex: 1 1 auto;
+    overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-links a { font-size: 13px; padding: 8px 8px; }
+  .nav-right { gap: 10px; flex: none; }
+  .nav-cta { display: none; }
+}
 
 /* ---- Hero ------------------------------------------------------------ */
 .hero { padding-top: calc(56px * var(--scale)); padding-bottom: calc(76px * var(--scale)); position: relative; overflow: hidden; }
@@ -390,9 +403,6 @@ html[data-theme="contrast"] .cta-box { background:#000; }
   .hero-meta { gap: 20px; }
   .nav-cta { display: none; }
 }
-
-/* tweak panel host */
-#tweak-root { position: fixed; z-index: 90; }
 
 /* hero CTA: filled button black, slightly smaller (yalnızca üst hero) */
 #hero .hero-cta .btn { padding: 10px 17px; font-size: 14px; }

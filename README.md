@@ -1,42 +1,42 @@
-# ESG LAB — Web Sitesi
+# ESG LAB — Kurumsal web sitesi
 
-Statik HTML sitesi. **Her sayfa kendi içinde tamamen bağımsızdır** (CSS, JS, görseller
-ve logolar HTML dosyalarının içine gömülüdür). Harici yerel dosya bağımlılığı **yoktur**;
-bu yüzden hangi statik sunucuda olursa olsun, ekstra ayar gerektirmeden çalışır.
+Statik HTML sitesi. Derleme (build) adımı yoktur; dosyalar olduğu gibi sunulur.
 
 ## Sayfalar
-- `index.html` — Ana sayfa (giriş noktası)
-- `kobi-paketi.html` — KOBİ Danışmanlık Paketi
-- `egitimler.html` — Online Eğitim kataloğu
-- `tsu.html` — Teknik Sürdürülebilirlik Uzmanlığı Eğitimi (menüde gizli, doğrudan link)
-- `iso46001.html` — ISO 46001 Su Verimliliği Eğitimi (menüde gizli, doğrudan link)
+| Dosya | İçerik |
+| --- | --- |
+| `index.html` | Ana sayfa — hizmetler, metodoloji, iklim, iletişim |
+| `egitimler.html` | Online eğitim kataloğu |
+| `kobi-programi.html` | 36 haftalık KOBİ sürdürülebilirlik programı |
+| `kobi-paketi.html` | 12 haftalık KOBİ paketi (önceki sürüm) |
+| `yazilim-platformlar.html` | Yazılım & platformlar (GHG, SC360, Survey, ISO, OSB360) |
+| `tsu.html` | TSU |
+| `iso46001.html` | ISO 46001 |
 
-## GitHub + Railway ile yayınlama
-1. Bu klasördeki **tüm dosyaları** GitHub deposuna yükleyin (`package.json` ve
-   `serve.json` dahil).
-2. Railway depoyu bağlayınca otomatik `npm install` + `npm start` çalıştırır.
-   - `start` komutu: `serve -l tcp://0.0.0.0:$PORT .`
-   - `serve.json`, SPA yönlendirmesini KAPATIR; böylece `kobi-paketi.html`,
-     `egitimler.html` gibi alt sayfa linkleri 404 vermeden, doğrudan açılır.
-3. Deploy bitince tüm sayfalar ve menü linkleri çalışır.
+CSS ve JS dosyaları HTML içine gömülüdür; kök dizindeki `.css` / `.js` dosyaları kaynak referansıdır.
 
-> Daha önce alt sayfalar açılmıyorduysa sebebi sunucunun SPA (single-page) modunda
-> her adrese `index.html` döndürmesiydi. `serve.json` bunu çözer.
-
-## Başka bir statik hosting kullanıyorsanız
-Dosyaları sunucunun kök dizinine (ör. `public_html`) yükleyin. `index.html` ana sayfa
-olarak otomatik açılır. PHP / veritabanı / build adımı gerekmez.
-
-## Yerel test
+## Yerelde çalıştırma
+```bash
+npx http-server . -p 8080
 ```
-npx serve .
-```
-Çıkan adrese gidin; menü linklerini ve iletişim formunu deneyin.
+Ardından http://localhost:8080
+
+## Yayınlama
+
+### GitHub Pages
+1. Repo → **Settings → Pages**
+2. **Source:** Deploy from a branch → **Branch:** `main` / `/ (root)` → Save
+3. Site `https://<kullanıcı>.github.io/web/` adresinde yayına girer.
+`.nojekyll` dosyası Jekyll işlemesini kapatır; olduğu gibi kalmalı.
+
+### Netlify / Vercel / Cloudflare Pages
+Build command: (boş) · Publish directory: `/` (kök)
+
+### Node ile sunucu
+`npm start` (`package.json` içinde `http-server`)
 
 ## İnternet bağımlılığı
-Yazı tipleri ve birkaç kütüphane (Google Fonts, React, Babel) CDN'den yüklenir.
-Sayfaların düzgün görünmesi için sunucunun/ziyaretçinin internet erişimi olmalıdır.
+Yazı tipleri Google Fonts CDN'inden yüklenir; ziyaretçinin internet erişimi olmalıdır.
 
-## İletişim formu
-Form, Web3Forms üzerinden çalışır; gönderilen mesajlar doğrudan
-`bilgi@esgakademi.net` adresine iletilir. Ek backend gerekmez.
+## Dil
+Sayfalar TR/EN ikili dil desteklidir (`i18n.js`). 36 haftalık KOBİ programı sayfası yalnızca Türkçedir.

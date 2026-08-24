@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ESG LAB — KOBİ Danışmanlık Paketi</title>
+<title>ESG LAB — KOBİ Paketi · 36 Haftalık Sürdürülebilirlik Programı</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -585,6 +585,100 @@ html[data-theme="contrast"] #hero .hero-cta .btn-primary { background:#000; colo
 }
 
 </style>
+
+<style data-src="program.css">
+/* ===================================================================
+   ESG LAB — 36 haftalık KOBİ programı sayfası bileşenleri
+   =================================================================== */
+.vals.v3 { grid-template-columns: repeat(3, 1fr); }
+#lang { display:none; } /* bu sayfa yalnızca TR içerir */
+.mod ul { list-style:none; margin:12px 0 0; padding:0; display:grid; gap:6px; }
+.mod ul li { font-size:14px; color:var(--ink-2); display:flex; gap:8px; }
+.mod ul li::before { content:"·"; color:var(--accent); }
+
+.pg-mile { display:flex; flex-wrap:wrap; gap:10px; margin-top:30px; }
+.pg-mile span { font-family:var(--font-mono); font-size:12px; padding:7px 12px; border-radius:8px; background:var(--surface); border:1px solid var(--line); color:var(--ink-2); }
+.pg-mile span b { color:var(--accent); font-weight:500; margin-right:6px; }
+
+.pg-int { margin-top:30px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); padding:28px 30px; }
+.pg-int-head { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; margin-bottom:22px; }
+.pg-int-head .t { font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
+.pg-legend { display:flex; gap:18px; flex-wrap:wrap; }
+.pg-legend i { display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:7px; }
+.pg-legend span { font-family:var(--font-mono); font-size:11.5px; color:var(--ink-2); display:inline-flex; align-items:center; }
+.pg-bars { display:grid; grid-template-columns:repeat(7,1fr); gap:14px 14px; }
+.pg-bars .b { display:flex; flex-direction:column; }
+.pg-bars .b .bar { height:140px; display:flex; align-items:flex-end; border-bottom:1px solid var(--line); }
+.pg-bars .b .bar i { display:block; width:100%; border-radius:7px 7px 0 0; }
+.pg-bars .b b { display:block; font-family:var(--font-mono); font-size:12px; color:var(--accent); padding-top:14px; }
+.pg-bars .b span { display:block; font-size:13px; color:var(--ink-2); margin-top:4px; }
+
+.pg-mx-wrap { display:grid; grid-template-columns:34px 1fr; gap:14px; align-items:stretch; }
+.pg-mx-y { writing-mode:vertical-rl; transform:rotate(180deg); display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); padding:6px 0; }
+.pg-mx { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+.pg-mx .q { background:var(--surface); padding:26px 24px; min-height:132px; }
+.pg-mx .q.hi { background:var(--accent-soft); }
+.pg-mx .q .lab { font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); }
+.pg-mx .q h4 { font-family:var(--font-head); font-size:20px; font-weight:600; margin:9px 0 7px; letter-spacing:-.02em; }
+.pg-mx .q p { margin:0; font-size:14.5px; color:var(--ink-2); }
+.pg-mx-x { display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin:10px 0 0 48px; }
+
+.pg-cols3 { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.pg-cols4 { display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+.pg-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:28px 26px; }
+.pg-card .k { font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+.pg-card h3 { font-size:19px; margin:11px 0 14px; }
+.pg-card .foot { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); font-family:var(--font-mono); font-size:11.5px; color:var(--ink-3); }
+.pg-list { list-style:none; margin:0; padding:0; display:grid; gap:11px; }
+.pg-list li { display:flex; gap:11px; align-items:flex-start; font-size:14.5px; color:var(--ink); line-height:1.45; }
+.pg-list li .ck { flex:none; color:var(--accent); margin-top:1px; }
+.pg-list.muted li { color:var(--ink-2); }
+.pg-list.muted li .ck { color:var(--ink-3); }
+
+.pg-two { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+
+.pg-ladder { display:grid; grid-template-columns:repeat(5,1fr); gap:0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--surface); margin-top:22px; }
+.pg-ladder div { padding:22px 20px; border-right:1px solid var(--line); }
+.pg-ladder div:last-child { border-right:0; }
+.pg-ladder div b { display:block; font-family:var(--font-mono); font-size:12px; color:var(--accent); }
+.pg-ladder div strong { display:block; font-family:var(--font-head); font-size:17px; font-weight:600; margin:8px 0 6px; }
+.pg-ladder div span { font-size:13.5px; color:var(--ink-2); }
+
+.pg-tbl { width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+.pg-tbl th { text-align:left; font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:500; padding:16px 22px; border-bottom:1px solid var(--line); }
+.pg-tbl td { padding:16px 22px; border-bottom:1px solid var(--line); font-size:15px; color:var(--ink); vertical-align:top; }
+.pg-tbl tr:last-child td { border-bottom:0; }
+.pg-tbl td.w { font-family:var(--font-mono); font-size:13px; color:var(--accent); white-space:nowrap; }
+.pg-tbl td.m { color:var(--ink-2); }
+
+.pg-quote { margin-top:30px; padding:22px 26px; border-left:2px solid var(--accent); background:var(--surface-2); border-radius:0 10px 10px 0; font-size:16.5px; color:var(--ink); line-height:1.55; }
+.pg-quote b { font-weight:600; }
+
+.pg-src { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--surface); }
+.pg-src div { padding:24px 26px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); }
+.pg-src div:nth-child(3n) { border-right:0; }
+.pg-src div:nth-last-child(-n+2) { border-bottom:0; }
+.pg-src div b { display:block; font-family:var(--font-head); font-size:16px; margin-bottom:7px; }
+.pg-src div span { font-size:14px; color:var(--ink-2); }
+.pg-note { margin-top:20px; font-size:14px; color:var(--ink-3); max-width:80ch; }
+
+@media (max-width: 980px) {
+  .vals.v3, .pg-cols3, .pg-cols4, .pg-src { grid-template-columns:1fr 1fr; }
+  .pg-src div:nth-child(3n) { border-right:1px solid var(--line); }
+  .pg-src div:nth-child(2n) { border-right:0; }
+  .pg-ladder { grid-template-columns:1fr 1fr; }
+  .pg-ladder div { border-bottom:1px solid var(--line); }
+  .pg-bars { grid-template-columns:repeat(4,1fr); row-gap:26px; }
+}
+@media (max-width: 720px) {
+  .vals.v3, .pg-cols3, .pg-cols4, .pg-two, .pg-src, .pg-mx, .pg-ladder { grid-template-columns:1fr; }
+  .pg-mx-wrap { grid-template-columns:1fr; }
+  .pg-mx-y { display:none; }
+  .pg-mx-x { display:none; }
+  .pg-bars { grid-template-columns:repeat(2,1fr); row-gap:26px; }
+  .pg-src div, .pg-ladder div { border-right:0 !important; }
+}
+</style>
 </head>
 <body>
 
@@ -598,7 +692,7 @@ html[data-theme="contrast"] #hero .hero-cta .btn-primary { background:#000; colo
     <nav class="nav-links">
       <a href="index.html#services" data-i18n="nav_services">Hizmetler</a>
       <a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a>
-      <a href="kobi-paketi.html" class="cur" data-i18n="nav_pkg">KOBİ Paketi</a>
+      <a href="kobi-programi.html" class="cur" data-i18n="nav_pkg">KOBİ Paketi</a>
       <a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a>
     </nav>
     <div class="nav-right">
@@ -620,288 +714,481 @@ html[data-theme="contrast"] #hero .hero-cta .btn-primary { background:#000; colo
 <section class="hero section wrap">
   <div class="hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow reveal" data-num="" data-i18n="pk_eyebrow">KOBİ'ler için · Sabit kapsam</span>
-      <h1 class="reveal pk-hero-h1" data-d="1" data-i18n="pk_title">Sürdürülebilirliğe <span class="hl">12 haftada</span> sağlam bir başlangıç.</h1>
-      <p class="hero-sub reveal" data-d="2" data-i18n="pk_sub">Büyük danışmanlık bütçeleri olmadan; KOBİ'niz için sabit kapsamlı, sabit fiyatlı ve doğrudan uygulanabilir bir sürdürülebilirlik paketi.</p>
+      <span class="eyebrow reveal" data-num="">KOBİ Paketi · Geliştirilmiş program</span>
+      <h1 class="reveal pk-hero-h1" data-d="1">Sürdürülebilirliği <span class="hl">36 haftada</span> yönetim sistemine dönüştürün.</h1>
+      <p class="hero-sub reveal" data-d="2">Yoğun başlangıç, ölçüm, yol haritası, uygulama, izleme ve kurumsallaştırma. KOBİ Paketi kapsamı temel alınarak 36 haftalık bir dönüşüm modeline genişletildi.</p>
       <div class="hero-cta reveal" data-d="3">
-        <a href="#pkg-contact" class="btn btn-primary"><span data-i18n="pk_cta1">Paket teklifi al</span> <span class="arrow">→</span></a>
-        <a href="#pkg-scope" class="btn btn-ghost" data-i18n="pk_cta2">Kapsamı incele</a>
-        <a href="kobi-programi.html" class="btn btn-ghost">36 haftalık program →</a>
+        <a href="#pkg-contact" class="btn btn-primary"><span>Program teklifi al</span> <span class="arrow">→</span></a>
+        <a href="#pkg-scope" class="btn btn-ghost">Faz faz kapsamı gör</a>
       </div>
       <div class="hero-meta reveal" data-d="3">
-        <div class="m"><b data-i18n="pk_m1v">12 hafta</b><span data-i18n="pk_m1">ana işlerin teslimi</span></div>
-        <div class="m"><b data-i18n="pk_m2v">12 ay</b><span data-i18n="pk_m2">danışmanlık süresi</span></div>
-        <div class="m"><b data-i18n="pk_m3v">Haftalık</b><span data-i18n="pk_m3">değerlendirme toplantısı</span></div>
+        <div class="m"><b>10 hafta</b><span>mevcut durum fotoğrafı</span></div>
+        <div class="m"><b>16 hafta</b><span>onaylı yol haritası</span></div>
+        <div class="m"><b>36 hafta</b><span>şirket içine devir</span></div>
       </div>
     </div>
 
-    <!-- Özet kart -->
     <div class="hero-viz reveal" data-d="2">
       <div class="card pkg-summary">
         <div class="h">
-          <span class="t" data-i18n="pk_sum_t">Paket bir bakışta</span>
-          <span class="badge" data-i18n="pk_sum_badge">KOBİ</span>
+          <span class="t">Program bir bakışta</span>
+          <span class="badge">36 HAFTA</span>
         </div>
         <ul class="pkg-checklist">
-          <li><span class="ck">✓</span><span data-i18n="pk_sum_1">Karbon ayak izi envanteri (Kapsam 1–2–3)</span></li>
-          <li><span class="ck">✓</span><span data-i18n="pk_sum_2">ESG ön-değerlendirme & olgunluk skoru</span></li>
-          <li><span class="ck">✓</span><span data-i18n="pk_sum_3">Önceliklendirilmiş azaltım yol haritası</span></li>
-          <li><span class="ck">✓</span><span data-i18n="pk_sum_4">Yarım günlük ekip eğitimi</span></li>
-          <li><span class="ck">✓</span><span data-i18n="pk_sum_5">Yönetici özeti & dijital rapor</span></li>
+          <li><span class="ck">✓</span><span>Ölç &amp; Anla — karbon envanteri, ESG olgunluk <b style="font-weight:500;color:var(--ink-3)">· H1–10</b></span></li>
+          <li><span class="ck">✓</span><span>Hedefle &amp; Planla — hedef, KPI, yol haritası <b style="font-weight:500;color:var(--ink-3)">· H11–16</b></span></li>
+          <li><span class="ck">✓</span><span>Uygula &amp; Geliştir — öncelikli projeler <b style="font-weight:500;color:var(--ink-3)">· H17–30</b></span></li>
+          <li><span class="ck">✓</span><span>Kurumsallaştır — panel, takvim, devir <b style="font-weight:500;color:var(--ink-3)">· H31–36</b></span></li>
         </ul>
         <div class="meta-row">
           <div>
-            <div class="lbl" data-i18n="pk_sum_from">Standart kapsam</div>
-            <div class="price" data-i18n="pk_sum_price">Teklife göre <small>+KDV</small></div>
+            <div class="lbl">Program kapsamı</div>
+            <div class="price">Teklife göre <small>+KDV</small></div>
           </div>
-          <a href="kobi-programi.html" class="btn btn-ghost" style="padding:9px 14px;font-size:13px">36 hafta</a>
+          <a href="kobi-paketi.html" class="btn btn-ghost" style="padding:9px 14px;font-size:13px">12 haftalık paket</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================== VALUES ============================== -->
+<!-- ============================== YÖNETİCİ ÖZETİ ============================== -->
 <section class="section wrap">
   <div class="sec-head reveal">
-    <span class="eyebrow" data-num="01" data-i18n="pk_v_eyebrow">Neden KOBİ paketi</span>
-    <h2 data-i18n="pk_v_title">Kurumsal kalite, KOBİ ölçeği</h2>
-    <p data-i18n="pk_v_sub">Büyük şirketlerin sürdürülebilirlik metodolojisini, KOBİ'lerin bütçesine ve hızına göre paketledik.</p>
+    <span class="eyebrow" data-num="01">Yönetici özeti</span>
+    <h2>36 hafta sonunda sürdürülebilirlik, şirket içinde yönetilebilir bir sisteme dönüşür.</h2>
+    <p>İlk 10 haftada ölçüm ve teşhis; 16. haftada onaylı yol haritası; 36. haftada uygulamaya alınmış bir sürdürülebilirlik yönetim sistemi.</p>
+  </div>
+  <div class="engage reveal">
+    <div class="engage-item"><span class="k">Teşhis</span><b>10 hafta</b><span class="d">Karbon envanteri, ESG olgunluk analizi ve veri kalitesi değerlendirmesi.</span></div>
+    <div class="engage-item"><span class="k">Hedef &amp; plan</span><b>16 hafta</b><span class="d">Aksiyonlar etki, maliyet ve uygulanabilirliğe göre önceliklendirilir.</span></div>
+    <div class="engage-item"><span class="k">Sistem devri</span><b>36 hafta</b><span class="d">KPI takibi, yıllık veri takvimi ve kurum içi sorumluluklar netleşir.</span></div>
+  </div>
+</section>
+
+<!-- ============================== NEDEN 36 HAFTA ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="02">Program mantığı</span>
+    <h2>Neden 36 hafta?</h2>
+    <p>KOBİ'lerde sürdürülebilirlik çoğu zaman ölçümle başlar; ama kalıcı etki için uygulama ve takip gerekir. 12 haftalık çıktı mantığı, 36 haftalık dönüşüm mantığına genişletilir.</p>
+  </div>
+  <div class="vals v3">
+    <div class="val reveal"><div class="n">01</div><h3>Veri düzeni</h3><p>Elektrik, yakıt, atık, su, satın alma ve lojistik verilerinin sistemli toplanması.</p></div>
+    <div class="val reveal" data-d="1"><div class="n">02</div><h3>Uygulama denemesi</h3><p>Yalnızca aksiyon listesi değil, seçilen projelerin sahada başlatılması.</p></div>
+    <div class="val reveal" data-d="2"><div class="n">03</div><h3>Performans takibi</h3><p>KPI, sapma, düzeltici faaliyet ve yönetim gözden geçirme ritmi.</p></div>
+  </div>
+  <div class="pg-quote reveal"><b>Ana tasarım ilkesi:</b> önce hızla netleş, sonra kontrollü uygula, sonunda şirket içine devret.</div>
+</section>
+
+<!-- ============================== BAĞLAM ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="03">Bağlam</span>
+    <h2>KOBİ için baskı ve fırsat aynı anda büyüyor</h2>
+    <p>Program, regülasyon korkusu üretmek için değil; müşteri, tedarik zinciri ve verimlilik ihtiyacına hazırlanmak için tasarlanır.</p>
   </div>
   <div class="vals">
-    <div class="val reveal"><div class="n">01</div><h3 data-i18n="pk_v1t">Sabit fiyat</h3><p data-i18n="pk_v1p">Kapsam baştan bellidir, açık uçlu danışmanlık faturası yoktur.</p></div>
-    <div class="val reveal" data-d="1"><div class="n">02</div><h3 data-i18n="pk_v2t">Hızlı sonuç</h3><p data-i18n="pk_v2p">12 hafta içinde elinizde denetime uygun bir rapor ve yol haritası olur.</p></div>
-    <div class="val reveal" data-d="2"><div class="n">03</div><h3 data-i18n="pk_v3t">Regülasyona hazır</h3><p data-i18n="pk_v3p">Tedarik zinciri ve müşteri taleplerine, yaklaşan raporlama yükümlülüklerine hazırlık.</p></div>
-    <div class="val reveal" data-d="3"><div class="n">04</div><h3 data-i18n="pk_v4t">Teşvik uyumu</h3><p data-i18n="pk_v4p">KOSGEB ve diğer destek programlarına uygunluk kontrol listesi dahildir.</p></div>
+    <div class="val reveal"><div class="n">01</div><h3>Müşteri &amp; tedarik zinciri</h3><p>Büyük müşteriler karbon, enerji, atık, iş gücü ve yönetişim verisi talep etmeye başlıyor.</p></div>
+    <div class="val reveal" data-d="1"><div class="n">02</div><h3>Maliyet &amp; verimlilik</h3><p>Enerji, su, hammadde ve atık kayıpları ölçülmeden yönetilemiyor.</p></div>
+    <div class="val reveal" data-d="2"><div class="n">03</div><h3>Finansman &amp; teşvik</h3><p>Yeşil dönüşüm desteklerinde uygunluk, veri ve proje olgunluğu önem kazanıyor.</p></div>
+    <div class="val reveal" data-d="3"><div class="n">04</div><h3>Raporlama hazırlığı</h3><p>TSRS her KOBİ için otomatik zorunluluk değildir; ama hazırlık tedarik zinciri ilişkilerini güçlendirir.</p></div>
   </div>
 </section>
 
-<!-- ============================== MODULES ============================== -->
-<section class="section wrap">
-  <div class="sec-head reveal">
-    <span class="eyebrow" data-num="02" data-i18n="pk_m_eyebrow">Paket içeriği</span>
-    <h2 data-i18n="pk_m_title">Pakette ne var?</h2>
-    <p data-i18n="pk_m_sub">Altı modül; teşhisten ekibinizin eğitimine kadar uçtan uca tek bir teslimat.</p>
-  </div>
-  <div class="mods reveal">
-    <div class="mod">
-      <div class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M12 7v5l3 2"/></svg></div>
-      <div class="mtag">M—01</div><h3 data-i18n="pk_mod1t">Karbon envanteri</h3><p data-i18n="pk_mod1p">Kapsam 1 ve 2 sera gazı hesabı, temel Kapsam 3 kalemleri.</p>
-    </div>
-    <div class="mod">
-      <div class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V9M10 20V4M16 20v-7M22 20H2"/></svg></div>
-      <div class="mtag">M—02</div><h3 data-i18n="pk_mod2t">ESG ön-değerlendirme</h3><p data-i18n="pk_mod2p">Çevresel, sosyal ve yönetişim olgunluk skoru ve kıyaslama.</p>
-    </div>
-    <div class="mod">
-      <div class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3v18M5 6h12l-2 3 2 3H5"/></svg></div>
-      <div class="mtag">M—03</div><h3 data-i18n="pk_mod3t">Azaltım yol haritası</h3><p data-i18n="pk_mod3p">Etki/maliyet önceliğine göre sıralanmış somut aksiyon planı.</p>
-    </div>
-    <div class="mod">
-      <div class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M2 16l10 5 10-5"/></svg></div>
-      <div class="mtag">M—04</div><h3 data-i18n="pk_mod4t">Ekip eğitimi</h3><p data-i18n="pk_mod4p">Yarım günlük, role özel sürdürülebilirlik farkındalık oturumu.</p>
-    </div>
-    <div class="mod">
-      <div class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2h9l5 5v15H6zM15 2v5h5"/></svg></div>
-      <div class="mtag">M—05</div><h3 data-i18n="pk_mod5t">Yönetici raporu</h3><p data-i18n="pk_mod5p">Karar vericiler için özet ve denetime uygun teknik ek.</p>
-    </div>
-    <div class="mod">
-      <div class="mi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3 8-8M21 12v7H3V5h11"/></svg></div>
-      <div class="mtag">M—06</div><h3 data-i18n="pk_mod6t">Teşvik kontrol listesi</h3><p data-i18n="pk_mod6p">Uygun destek ve hibe programları için hazırlık ve kontrol listesi.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== TIMELINE ============================== -->
+<!-- ============================== MİMARİ ============================== -->
 <section class="section wrap proc">
   <div class="sec-head reveal">
-    <span class="eyebrow" data-num="03" data-i18n="pk_t_eyebrow">Zaman çizelgesi</span>
-    <h2 class="nowrap-lg" data-i18n="pk_t_title">Ana işler 12 hafta, danışmanlık 12 ay</h2>
-    <p data-i18n="pk_t_sub">Ana işler 12 haftada, dört fazda tamamlanır. Danışmanlık ilişkisi ise 12 ay sürer — her hafta yaptığımız değerlendirme ve revizyon toplantılarıyla yol haritanızı canlı tutarız.</p>
+    <span class="eyebrow" data-num="04">Program mimarisi</span>
+    <h2>36 hafta, dört ana hareket</h2>
+    <p>Yoğunluk başta yüksektir; program ilerledikçe danışmanlık rolü uygulama takibine ve kurum içi sahipliğe devredilir.</p>
   </div>
   <div class="tline reveal">
     <div class="rail"><span class="fill" id="tlineFill"></span></div>
     <div class="phase">
-      <span class="wk">HAFTA 1–2</span><span class="pnode"></span>
-      <h3 data-i18n="pk_ph1t">Başlangıç</h3>
-      <p data-i18n="pk_ph1p">Tanışma, kapsam netleştirme ve veri toplama planı.</p>
-      <ul><li data-i18n="pk_ph1a">Başlangıç toplantısı</li><li data-i18n="pk_ph1b">Veri talep listesi</li></ul>
+      <span class="wk">HAFTA 1–10</span><span class="pnode"></span>
+      <h3>Ölç &amp; Anla</h3>
+      <p>Kapsam, veri altyapısı, karbon envanteri, ESG olgunluk, risk ve fırsat analizi.</p>
+      <ul><li>Veri sahipliği</li><li>Mevcut durum fotoğrafı</li></ul>
     </div>
     <div class="phase">
-      <span class="wk">HAFTA 3–6</span><span class="pnode"></span>
-      <h3 data-i18n="pk_ph2t">Ölçüm</h3>
-      <p data-i18n="pk_ph2p">Karbon envanteri ve ESG göstergelerinin hesaplanması.</p>
-      <ul><li data-i18n="pk_ph2a">GHG hesaplaması</li><li data-i18n="pk_ph2b">ESG skor seti</li></ul>
+      <span class="wk">HAFTA 11–16</span><span class="pnode"></span>
+      <h3>Hedefle &amp; Planla</h3>
+      <p>Kısa, orta ve uzun vadeli hedefler, KPI seti ve aksiyon yol haritası.</p>
+      <ul><li>Önceliklendirme</li><li>Yönetim onayı</li></ul>
     </div>
     <div class="phase">
-      <span class="wk">HAFTA 7–9</span><span class="pnode"></span>
-      <h3 data-i18n="pk_ph3t">Analiz</h3>
-      <p data-i18n="pk_ph3p">Sonuçların yorumlanması ve azaltım yol haritası.</p>
-      <ul><li data-i18n="pk_ph3a">Önceliklendirme</li><li data-i18n="pk_ph3b">Senaryo & hedef</li></ul>
+      <span class="wk">HAFTA 17–30</span><span class="pnode"></span>
+      <h3>Uygula &amp; Geliştir</h3>
+      <p>Öncelikli projeler, eğitimler, süreçler ve düzeltici faaliyetler.</p>
+      <ul><li>3–5 öncelikli çalışma</li><li>İzleme ve sapma analizi</li></ul>
     </div>
     <div class="phase">
-      <span class="wk">HAFTA 10–12</span><span class="pnode"></span>
-      <h3 data-i18n="pk_ph4t">Teslim</h3>
-      <p data-i18n="pk_ph4p">Rapor sunumu, ekip eğitimi ve sonraki adımlar.</p>
-      <ul><li data-i18n="pk_ph4a">Yönetici sunumu</li><li data-i18n="pk_ph4b">Eğitim oturumu</li></ul>
+      <span class="wk">HAFTA 31–36</span><span class="pnode"></span>
+      <h3>Kurumsallaştır</h3>
+      <p>Final rapor, yönetim paneli, yıllık veri takvimi ve şirket içi devir.</p>
+      <ul><li>Kapanış çalıştayı</li><li>Uygulama rehberi</li></ul>
     </div>
   </div>
 
-  <div class="engage reveal">
-    <div class="engage-item"><span class="k" data-i18n="pk_eng_k1">Ana işler</span><b data-i18n="pk_eng_v1">12 hafta</b><span class="d" data-i18n="pk_eng_d1">Dört faz, net teslimatlar</span></div>
-    <div class="engage-item"><span class="k" data-i18n="pk_eng_k2">Danışmanlık</span><b data-i18n="pk_eng_v2">12 ay</b><span class="d" data-i18n="pk_eng_d2">Uçtan uca refakat ve destek</span></div>
-    <div class="engage-item"><span class="k" data-i18n="pk_eng_k3">Ritim</span><b data-i18n="pk_eng_v3">Haftalık</b><span class="d" data-i18n="pk_eng_d3">Değerlendirme & revizyon toplantısı</span></div>
+  <div class="pg-mile reveal">
+    <span><b>H2</b>kapsam</span><span><b>H6</b>veri</span><span><b>H10</b>teşhis</span><span><b>H16</b>yol haritası</span><span><b>H24</b>uygulama</span><span><b>H30</b>izleme</span><span><b>H36</b>devir</span>
+  </div>
+
+  <div class="pg-int reveal">
+    <div class="pg-int-head">
+      <span class="t">Haftalık yoğunluk göstergesi</span>
+      <div class="pg-legend">
+        <span><i style="background:var(--accent)"></i>Çok yüksek</span>
+        <span><i style="background:color-mix(in oklab, var(--accent) 55%, var(--surface-3))"></i>Orta</span>
+        <span><i style="background:var(--surface-3)"></i>Takip</span>
+      </div>
+    </div>
+    <div class="pg-bars">
+      <div class="b"><div class="bar"><i style="height:100%;background:var(--accent)"></i></div><b>H1–2</b><span>Kapsam &amp; ekip</span></div>
+      <div class="b"><div class="bar"><i style="height:92%;background:var(--accent)"></i></div><b>H3–6</b><span>Veri altyapısı</span></div>
+      <div class="b"><div class="bar"><i style="height:70%;background:color-mix(in oklab, var(--accent) 70%, var(--surface-3))"></i></div><b>H7–10</b><span>Analiz</span></div>
+      <div class="b"><div class="bar"><i style="height:62%;background:color-mix(in oklab, var(--accent) 55%, var(--surface-3))"></i></div><b>H11–16</b><span>Yol haritası</span></div>
+      <div class="b"><div class="bar"><i style="height:48%;background:color-mix(in oklab, var(--accent) 40%, var(--surface-3))"></i></div><b>H17–24</b><span>Uygulama</span></div>
+      <div class="b"><div class="bar"><i style="height:34%;background:var(--surface-3)"></i></div><b>H25–30</b><span>İzleme</span></div>
+      <div class="b"><div class="bar"><i style="height:44%;background:color-mix(in oklab, var(--accent) 30%, var(--surface-3))"></i></div><b>H31–36</b><span>Devir</span></div>
+    </div>
   </div>
 </section>
 
-<!-- ============================== SCOPE / YAPILACAK İŞLER ============================== -->
+<!-- ============================== FAZLAR ============================== -->
 <section class="section wrap" id="pkg-scope">
   <div class="sec-head reveal">
-    <span class="eyebrow" data-num="04" data-i18n="pk_sc_eyebrow">Detaylı kapsam</span>
-    <h2 data-i18n="pk_sc_title">Yapılacak işler</h2>
-    <p data-i18n="pk_sc_sub">Tek bir standart paket, altı iş kolu. Her iş kolu net teslimatlarla sonuçlanır — neyi, nasıl ve hangi standartla yaptığımız baştan bellidir.</p>
+    <span class="eyebrow" data-num="05">Faz faz kapsam</span>
+    <h2>Yedi fazda yapılacak işler</h2>
+    <p>Her faz net bir amaçla başlar ve somut çıktılarla kapanır — neyi, ne zaman ve hangi metodolojiyle yaptığımız baştan bellidir.</p>
   </div>
 
   <div class="scope reveal">
-    <!-- A -->
     <div class="ws">
       <div class="ws-head">
-        <span class="ix">A — 01</span>
-        <h3 data-i18n="pk_sc_a_t">Karbon ayak izi & envanter</h3>
-        <span class="deliver"><span class="dl" data-i18n="pk_sc_deliver">Teslimat</span><span class="dv" data-i18n="pk_sc_a_d">Sera gazı envanter raporu (Excel + PDF)</span></span>
+        <span class="ix">FAZ 1 — HAFTA 1–2</span>
+        <h3>Başlangıç ve kapsamlandırma</h3>
+        <span class="deliver"><span class="dl">Çıktı</span><span class="dv">Başlangıç dokümanı · kapsam ve sınırlar · veri talep listesi · 36 haftalık takvim</span></span>
       </div>
       <ul class="ws-items">
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_a_1">Baz yıl ve organizasyonel sınırların belirlenmesi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_a_2">Kapsam 1: yakıt, jeneratör, araç filosu, soğutucu gaz kaçakları</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_a_3">Kapsam 2: satın alınan elektrik, ısıtma ve soğutma</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_a_4">Kapsam 3 (öncelikli): satın alınan mal/hizmet, atık, iş seyahati, lojistik</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_a_5">Emisyon faktörleri ve GHG Protocol / ISO 14064 metodolojisi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_a_6">Veri kalite kontrolü ve belirsizlik değerlendirmesi</span></li>
+        <li><span class="ck">✓</span><span>Üst yönetim başlangıç toplantısı</span></li>
+        <li><span class="ck">✓</span><span>Faaliyet, lokasyon ve operasyon kapsamının incelenmesi</span></li>
+        <li><span class="ck">✓</span><span>Proje ekibi ve şirket içi sürdürülebilirlik sorumlusunun belirlenmesi</span></li>
+        <li><span class="ck">✓</span><span>Organizasyonel ve operasyonel sınırların tanımlanması</span></li>
+        <li><span class="ck">✓</span><span>Veri talep listesi ve sorumluluk matrisinin paylaşılması</span></li>
+        <li><span class="ck">✓</span><span>Mevcut politika, prosedür ve raporların ilk taraması</span></li>
       </ul>
     </div>
 
-    <!-- B -->
     <div class="ws">
       <div class="ws-head">
-        <span class="ix">B — 02</span>
-        <h3 data-i18n="pk_sc_b_t">ESG değerlendirme & olgunluk</h3>
-        <span class="deliver"><span class="dl" data-i18n="pk_sc_deliver">Teslimat</span><span class="dv" data-i18n="pk_sc_b_d">ESG skor kartı ve değerlendirme raporu</span></span>
+        <span class="ix">FAZ 2 — HAFTA 3–6</span>
+        <h3>Veri toplama ve veri altyapısı</h3>
+        <span class="deliver"><span class="dl">Çıktı</span><span class="dv">Veri envanteri · veri sahipliği matrisi · karbon çalışma dosyası · ESG gösterge veri tabanı</span></span>
       </div>
       <ul class="ws-items">
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_b_1">Çevresel (E), Sosyal (S), Yönetişim (G) gösterge taraması</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_b_2">Çift önemlilik ve öncelikli konu analizi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_b_3">Mevzuat ve müşteri taleplerine karşı boşluk analizi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_b_4">Sektör kıyaslaması (benchmark)</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_b_5">Politika ve yönetişim yapısı değerlendirmesi</span></li>
+        <li><span class="ck">✓</span><span>Veri talebi: faturalar, tüketimler, operasyon hacimleri ve dokümanlar</span></li>
+        <li><span class="ck">✓</span><span>Veri sahibi: her veri kaleminin sorumlusu ve güncelleme sıklığı</span></li>
+        <li><span class="ck">✓</span><span>Kalite kontrol: eksik, çelişkili veya varsayım gerektiren verilerin işaretlenmesi</span></li>
+        <li><span class="ck">✓</span><span>Takip şablonu: aylık veri takibi için sürdürülebilir format</span></li>
       </ul>
     </div>
 
-    <!-- C -->
     <div class="ws">
       <div class="ws-head">
-        <span class="ix">C — 03</span>
-        <h3 data-i18n="pk_sc_c_t">Azaltım yol haritası</h3>
-        <span class="deliver"><span class="dl" data-i18n="pk_sc_deliver">Teslimat</span><span class="dv" data-i18n="pk_sc_c_d">Önceliklendirilmiş aksiyon planı</span></span>
+        <span class="ix">FAZ 3 — HAFTA 7–10</span>
+        <h3>Karbon ve ESG mevcut durum analizi</h3>
+        <span class="deliver"><span class="dl">Çıktı</span><span class="dv">Karbon envanteri · ESG skor kartı · veri kalite analizi · ilk yönetim sunumu</span></span>
       </div>
       <ul class="ws-items">
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_c_1">Azaltım fırsatlarının tespiti ve nicelendirilmesi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_c_2">Etki/maliyet önceliklendirmesi (azaltım maliyet eğrisi)</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_c_3">Enerji verimliliği ve yenilenebilir enerji önerileri</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_c_4">Kısa, orta ve uzun vadeli hedef belirleme</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_c_5">Net-sıfır patikası taslağı</span></li>
+        <li><span class="ck">✓</span><span>Kapsam 1 ve 2 emisyonlarının hesaplanması</span></li>
+        <li><span class="ck">✓</span><span>Öncelikli Kapsam 3 kalemlerinin belirlenmesi</span></li>
+        <li><span class="ck">✓</span><span>Emisyon kaynakları dağılımı ve yoğun alanlar</span></li>
+        <li><span class="ck">✓</span><span>Veri kalitesi ve belirsizlik değerlendirmesi</span></li>
+        <li><span class="ck">✓</span><span>E, S ve G gösterge taraması, politika ve uygulamaların incelenmesi</span></li>
+        <li><span class="ck">✓</span><span>Öncelikli konu, risk ve fırsat listesi; olgunluk skor kartı</span></li>
       </ul>
     </div>
 
-    <!-- D -->
     <div class="ws">
       <div class="ws-head">
-        <span class="ix">D — 04</span>
-        <h3 data-i18n="pk_sc_d_t">Tedarik zinciri & raporlama hazırlığı</h3>
-        <span class="deliver"><span class="dl" data-i18n="pk_sc_deliver">Teslimat</span><span class="dv" data-i18n="pk_sc_d_d">Raporlama hazırlık dosyası</span></span>
+        <span class="ix">FAZ 4 — HAFTA 11–16</span>
+        <h3>Hedefler ve sürdürülebilirlik yol haritası</h3>
+        <span class="deliver"><span class="dl">Çıktı</span><span class="dv">Onaylanmış yol haritası · KPI seti · aksiyon ve sorumluluk matrisi</span></span>
       </div>
       <ul class="ws-items">
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_d_1">Kritik tedarikçilerin haritalanması</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_d_2">CSRD / GRI / TSRS gereksinim eşlemesi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_d_3">Veri toplama süreç ve altyapı önerisi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_d_4">Beyan ve doğrulama yol haritası</span></li>
+        <li><span class="ck">✓</span><span>Kısa, orta ve uzun vadeli azaltım ve ESG gelişim hedefleri</span></li>
+        <li><span class="ck">✓</span><span>Enerji yoğunluğu, emisyon yoğunluğu, atık geri kazanımı, veri tamlığı göstergeleri</span></li>
+        <li><span class="ck">✓</span><span>Sorumlusu, süresi, tahmini etkisi ve maliyeti belli aksiyonlar</span></li>
+        <li><span class="ck">✓</span><span>Yönetim tarafından önceliklendirilmiş ve takip ritmine alınmış plan</span></li>
       </ul>
     </div>
 
-    <!-- E -->
     <div class="ws">
       <div class="ws-head">
-        <span class="ix">E — 05</span>
-        <h3 data-i18n="pk_sc_e_t">Eğitim & kurumsal kapasite</h3>
-        <span class="deliver"><span class="dl" data-i18n="pk_sc_deliver">Teslimat</span><span class="dv" data-i18n="pk_sc_e_d">Eğitim materyalleri ve katılım belgesi</span></span>
+        <span class="ix">FAZ 5 — HAFTA 17–24</span>
+        <h3>Öncelikli uygulamaların başlatılması</h3>
+        <span class="deliver"><span class="dl">Çıktı</span><span class="dv">Başlatılmış 3–5 öncelikli çalışma · eğitim ve süreç dokümanları</span></span>
       </div>
       <ul class="ws-items">
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_e_1">Yönetici farkındalık oturumu (yarım gün)</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_e_2">Teknik ekip uygulama atölyesi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_e_3">Sürdürülebilirlik el kitabı ve şablonlar</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_e_4">Rol bazlı sorumluluk matrisi</span></li>
+        <li><span class="ck">✓</span><span>3–5 öncelikli çalışmanın seçilmesi</span></li>
+        <li><span class="ck">✓</span><span>Her çalışma için sorumlu ve KPI atanması</span></li>
+        <li><span class="ck">✓</span><span>Politika, şablon ve süreçlerin sahada denenmesi</span></li>
+        <li><span class="ck">✓</span><span>Teknik ekip ve çalışan eğitimleri</span></li>
+        <li><span class="ck">✓</span><span>İki haftada bir uygulama ilerleme toplantısı</span></li>
       </ul>
     </div>
 
-    <!-- F -->
     <div class="ws">
       <div class="ws-head">
-        <span class="ix">F — 06</span>
-        <h3 data-i18n="pk_sc_f_t">İzleme & sürekli danışmanlık</h3>
-        <span class="deliver"><span class="dl" data-i18n="pk_sc_deliver">Teslimat</span><span class="dv" data-i18n="pk_sc_f_d">Haftalık toplantılar + 12 ay danışmanlık</span></span>
+        <span class="ix">FAZ 6 — HAFTA 25–30</span>
+        <h3>İzleme, ölçme ve düzeltici faaliyetler</h3>
+        <span class="deliver"><span class="dl">Çıktı</span><span class="dv">KPI performans raporu · düzeltici faaliyet listesi · yönetim kararları</span></span>
       </div>
       <ul class="ws-items">
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_f_1">Haftalık değerlendirme ve revizyon toplantıları</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_f_2">Aylık ilerleme raporu ve hedef takibi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_f_3">Çeyreklik izleme panosu güncellemesi</span></li>
-        <li><span class="ck">✓</span><span data-i18n="pk_sc_f_4">12 ay boyunca e-posta ve görüşme desteği</span></li>
+        <li><span class="ck">✓</span><span>Enerji, atık, su, emisyon, eğitim ve aksiyon ilerleme verilerinin güncellenmesi</span></li>
+        <li><span class="ck">✓</span><span>Hedefe göre gecikme, veri eksikliği veya uygulama engelinin belirlenmesi</span></li>
+        <li><span class="ck">✓</span><span>Sorumlu, tarih ve takip yöntemiyle düzeltici faaliyet açılması</span></li>
+        <li><span class="ck">✓</span><span>Bütçe, kaynak veya öncelik değişikliğinin yönetim gündemine taşınması</span></li>
+      </ul>
+    </div>
+
+    <div class="ws">
+      <div class="ws-head">
+        <span class="ix">FAZ 7 — HAFTA 31–36</span>
+        <h3>Kurumsallaştırma ve final</h3>
+        <span class="deliver"><span class="dl">Çıktı</span><span class="dv">Final rapor · 12–24 aylık yol haritası · yıllık veri takvimi · yönetim paneli · uygulama rehberi</span></span>
+      </div>
+      <ul class="ws-items">
+        <li><span class="ck">✓</span><span>Karbon envanteri ve ESG göstergelerinin son kontrolü</span></li>
+        <li><span class="ck">✓</span><span>Yıllık veri toplama ve raporlama takviminin hazırlanması</span></li>
+        <li><span class="ck">✓</span><span>Yönetim KPI gösterge panelinin son hale getirilmesi</span></li>
+        <li><span class="ck">✓</span><span>Açık kalan aksiyonların yeni dönem planına aktarılması</span></li>
+        <li><span class="ck">✓</span><span>Kurum içi devir ve kapanış çalıştayının yapılması</span></li>
       </ul>
     </div>
   </div>
 
-  <div class="scope-foot reveal">
-    <p data-i18n="pk_sc_foot"><b>Tek paket, tüm kapsam.</b> Kapsamı lokasyon sayınıza ve sektörünüze göre birlikte ölçeklendirir, net bir teklif sunarız.</p>
-    <a href="#pkg-contact" class="btn btn-primary"><span data-i18n="pk_sc_foot_cta">Teklif al</span> <span class="arrow">→</span></a>
+  <div class="pg-quote reveal">10. hafta programın <b>karar kapısıdır</b>: mevcut durum fotoğrafı görünür hale gelir ve hangi aksiyonlara yoğunlaşılacağına birlikte karar verilir.</div>
+</section>
+
+<!-- ============================== VERİ PLANI ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="06">Veri planı</span>
+    <h2>Başlamak için mükemmel veri gerekmez</h2>
+    <p>Veri talebi önceliklendirilmiş ve sorumlusu belli olmalıdır. Doğrudan veri varsa kullanılır; yoksa varsayım şeffaf yazılır, tekrar eden eksikler veri iyileştirme planına alınır.</p>
+  </div>
+  <div class="mods reveal">
+    <div class="mod"><div class="mtag">D—01</div><h3>Enerji &amp; yakıt</h3><ul><li>Elektrik faturaları</li><li>Doğalgaz, LPG, fuel-oil</li><li>Jeneratör ve proses yakıtları</li></ul></div>
+    <div class="mod"><div class="mtag">D—02</div><h3>Operasyon &amp; üretim</h3><ul><li>Üretim hacmi</li><li>Çalışma saatleri</li><li>Lokasyon ve makine listesi</li></ul></div>
+    <div class="mod"><div class="mtag">D—03</div><h3>Ulaşım &amp; lojistik</h3><ul><li>Araç filosu</li><li>Yakıt fişleri</li><li>Nakliye / sevkiyat verileri</li></ul></div>
+    <div class="mod"><div class="mtag">D—04</div><h3>Atık &amp; su</h3><ul><li>Atık türleri ve miktarları</li><li>Bertaraf / geri kazanım belgeleri</li><li>Su tüketimi</li></ul></div>
+    <div class="mod"><div class="mtag">D—05</div><h3>Sosyal göstergeler</h3><ul><li>Çalışan sayısı</li><li>İSG, eğitim, devamsızlık</li><li>Çeşitlilik ve çalışan uygulamaları</li></ul></div>
+    <div class="mod"><div class="mtag">D—06</div><h3>Yönetişim &amp; satın alma</h3><ul><li>Politikalar</li><li>Tedarikçi listesi</li><li>Etik / uyum uygulamaları</li></ul></div>
   </div>
 </section>
 
-<!-- ============================== FAQ ============================== -->
+<!-- ============================== ÖLÇÜM ÇERÇEVESİ ============================== -->
 <section class="section wrap">
-  <div class="sec-head reveal" style="margin-inline:auto;text-align:center">
-    <span class="eyebrow" data-num="05" data-i18n="pk_f_eyebrow" style="justify-content:center">Sık sorulanlar</span>
-    <h2 data-i18n="pk_f_title">Aklınızdaki sorular</h2>
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="07">Ölçüm çerçevesi</span>
+    <h2>Kapsam 1–2–3 ve ESG olgunluk skoru</h2>
+    <p>KOBİ için amaç teorik mükemmellik değil; karar almaya yetecek güvenilir bir emisyon fotoğrafı ve şirketin yönetim kapasitesini görünür kılan bir skor kartıdır.</p>
   </div>
-  <div class="faq reveal" id="faq">
-    <div class="faq-item">
-      <button class="faq-q"><span data-i18n="pk_q1">Paket ne kadar sürede tamamlanıyor?</span><span class="pm"></span></button>
-      <div class="faq-a"><p data-i18n="pk_a1">Tipik bir KOBİ için süreç başlangıç toplantısından nihai sunuma kadar 12 haftadır. Veri hazırlığınıza ve lokasyon sayısına göre bu süre kısalabilir veya uzayabilir.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span data-i18n="pk_q2">Hangi verileri sağlamamız gerekiyor?</span><span class="pm"></span></button>
-      <div class="faq-a"><p data-i18n="pk_a2">Genellikle enerji ve yakıt faturaları, üretim/operasyon hacimleri, araç filosu ve atık verileri yeterlidir. Başlangıçta size net bir veri talep listesi iletiyoruz.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span data-i18n="pk_q3">Rapor denetime ve müşteri taleplerine uygun mu?</span><span class="pm"></span></button>
-      <div class="faq-a"><p data-i18n="pk_a3">Evet. Hesaplamalar GHG Protocol ve ISO 14064 metodolojisine göre, üçüncü taraf doğrulamasına hazır şekilde yapılandırılır.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span data-i18n="pk_q4">Devlet teşviklerinden yararlanabilir miyiz?</span><span class="pm"></span></button>
-      <div class="faq-a"><p data-i18n="pk_a4">Pakete, KOSGEB ve ilgili destek programlarına uygunluğunuzu değerlendiren bir kontrol listesi dahildir. Başvuru sürecinde de yönlendirme sağlıyoruz.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q"><span data-i18n="pk_q5">Paket sonrası destek alabilir miyiz?</span><span class="pm"></span></button>
-      <div class="faq-a"><p data-i18n="pk_a5">Evet. Büyüme ve Kurumsal+ paketleri takip dönemleri içerir; ayrıca yıllık izleme ve raporlama için ayrı sürekli destek paketleri sunuyoruz.</p></div>
+  <div class="pg-cols3 reveal">
+    <div class="pg-card"><span class="k">Kapsam 1</span><h3>Doğrudan emisyonlar</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Şirketin sahip olduğu veya kontrol ettiği kaynaklar: doğalgaz, proses yakıtları, şirket araçları, jeneratör, soğutucu gaz kaçakları.</p></div>
+    <div class="pg-card"><span class="k">Kapsam 2</span><h3>Satın alınan enerji</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Satın alınan elektrik, buhar, ısıtma veya soğutma kaynaklı dolaylı enerji emisyonları.</p></div>
+    <div class="pg-card"><span class="k">Kapsam 3</span><h3>Değer zinciri</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Satın alınan mal/hizmet, lojistik, atık, iş seyahati gibi şirket dışındaki öncelikli dolaylı emisyonlar.</p></div>
+  </div>
+  <div class="pg-quote reveal">Kapsam 3 ayrıntı seviyesi, veri erişimine ve belirlenen öncelikli kategorilere göre <b>kademeli olarak artırılır</b>. Kaynak: GHG Protocol.</div>
+
+  <div class="pg-cols3 reveal" style="margin-top:34px">
+    <div class="pg-card"><span class="k">E — Çevresel</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Enerji</li><li><span class="ck">✓</span>Su</li><li><span class="ck">✓</span>Atık</li><li><span class="ck">✓</span>Emisyon</li><li><span class="ck">✓</span>Kaynak verimliliği</li></ul></div>
+    <div class="pg-card"><span class="k">S — Sosyal</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>İSG</li><li><span class="ck">✓</span>Eğitim</li><li><span class="ck">✓</span>Çalışan göstergeleri</li><li><span class="ck">✓</span>Çeşitlilik</li><li><span class="ck">✓</span>Toplum etkisi</li></ul></div>
+    <div class="pg-card"><span class="k">G — Yönetişim</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Politikalar</li><li><span class="ck">✓</span>Etik</li><li><span class="ck">✓</span>Risk yönetimi</li><li><span class="ck">✓</span>Tedarikçi yönetimi</li><li><span class="ck">✓</span>Raporlama</li></ul></div>
+  </div>
+
+  <div class="pg-ladder reveal">
+    <div><b>01</b><strong>Başlangıç</strong><span>Uygulama var ama sistematik değil</span></div>
+    <div><b>02</b><strong>Tanımlı</strong><span>Süreç ve sorumluluklar belirlenmiş</span></div>
+    <div><b>03</b><strong>İzlenen</strong><span>Veri ve KPI düzenli takip ediliyor</span></div>
+    <div><b>04</b><strong>Gelişen</strong><span>Hedef, aksiyon ve performans bağlantılı</span></div>
+    <div><b>05</b><strong>Olgun</strong><span>Karar alma ve raporlamaya entegre</span></div>
+  </div>
+  <p class="pg-note reveal">Skorun amacı “not vermek” değil; aksiyon planında öncelik sıralamasını netleştirmektir.</p>
+</section>
+
+<!-- ============================== ÖNCELİKLENDİRME ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="08">Önceliklendirme</span>
+    <h2>Aksiyonları nasıl seçiyoruz?</h2>
+    <p>Aksiyonlar üç filtreyle değerlendirilir: etki, maliyet ve uygulanabilirlik.</p>
+  </div>
+  <div class="pg-mx-wrap reveal">
+    <div class="pg-mx-y"><span>Düşük etki</span><span>Yüksek etki</span></div>
+    <div>
+      <div class="pg-mx">
+        <div class="q hi"><span class="lab">Yüksek etki · düşük maliyet</span><h4>Hızlı kazanım</h4><p>Hemen başlatılır; ilk görünür sonuçları bu grup üretir.</p></div>
+        <div class="q"><span class="lab">Yüksek etki · yüksek maliyet</span><h4>Yatırım projesi</h4><p>Fizibilite, bütçe ve teşvik uygunluğu ile planlanır.</p></div>
+        <div class="q"><span class="lab">Düşük etki · düşük maliyet</span><h4>Takipte tut</h4><p>Kapasite oluştukça programa alınır.</p></div>
+        <div class="q"><span class="lab">Düşük etki · yüksek maliyet</span><h4>Şimdilik beklet</h4><p>Öncelik listesinin dışında tutulur.</p></div>
+      </div>
+      <div class="pg-mx-x"><span>Düşük maliyet</span><span>Yüksek maliyet</span></div>
     </div>
   </div>
+  <div class="pg-cols3 reveal" style="margin-top:34px">
+    <div class="pg-card"><span class="k">Hızlı kazanımlar</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Enerji kullanım saatleri</li><li><span class="ck">✓</span>Atık ayrıştırma düzeni</li><li><span class="ck">✓</span>Aylık veri takip şablonu</li><li><span class="ck">✓</span>Politika / prosedür taslakları</li></ul></div>
+    <div class="pg-card"><span class="k">Orta vadeli çalışmalar</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Enerji verimliliği projeleri</li><li><span class="ck">✓</span>Tedarikçi değerlendirme</li><li><span class="ck">✓</span>Su verimliliği</li><li><span class="ck">✓</span>Çalışan eğitim programı</li></ul></div>
+    <div class="pg-card"><span class="k">Yatırım gerektirenler</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Makine dönüşümü</li><li><span class="ck">✓</span>Çatı GES</li><li><span class="ck">✓</span>Isı geri kazanımı</li><li><span class="ck">✓</span>Filo dönüşümü</li></ul></div>
+  </div>
+</section>
+
+<!-- ============================== KPI ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="09">KPI sistemi</span>
+    <h2>Başarıyı nasıl ölçeceğiz?</h2>
+    <p>KPI seti hem sürecin kurulup kurulmadığını hem de performansın iyileşip iyileşmediğini izler.</p>
+  </div>
+  <div class="pg-cols3 reveal">
+    <div class="pg-card">
+      <span class="k">Süreç KPI'ları</span><h3>Sistem kuruldu mu?</h3>
+      <ul class="pg-list"><li><span class="ck">✓</span>Veri tamlık oranı</li><li><span class="ck">✓</span>Aylık veri teslim süresi</li><li><span class="ck">✓</span>Aksiyon tamamlama oranı</li><li><span class="ck">✓</span>Toplantı katılım oranı</li></ul>
+      <div class="foot">Ölçüm sıklığı: aylık / çeyreklik</div>
+    </div>
+    <div class="pg-card">
+      <span class="k">Performans KPI'ları</span><h3>Sonuç iyileşiyor mu?</h3>
+      <ul class="pg-list"><li><span class="ck">✓</span>kWh / üretim birimi</li><li><span class="ck">✓</span>tCO₂e / üretim birimi</li><li><span class="ck">✓</span>Atık geri kazanım oranı</li><li><span class="ck">✓</span>Su tüketim yoğunluğu</li></ul>
+      <div class="foot">Ölçüm sıklığı: aylık / çeyreklik</div>
+    </div>
+    <div class="pg-card">
+      <span class="k">Yönetişim KPI'ları</span><h3>Sahiplik var mı?</h3>
+      <ul class="pg-list"><li><span class="ck">✓</span>Onaylı politika sayısı</li><li><span class="ck">✓</span>Tedarikçi yanıt oranı</li><li><span class="ck">✓</span>Eğitim katılım oranı</li><li><span class="ck">✓</span>Düzeltici faaliyet kapanış oranı</li></ul>
+      <div class="foot">Ölçüm sıklığı: aylık / çeyreklik</div>
+    </div>
+  </div>
+  <div class="pg-quote reveal">KPI seti gösteriş için değil; <b>yönetim toplantısında karar aldırmak</b> için tasarlanır.</div>
+</section>
+
+<!-- ============================== TESLİMATLAR ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="10">Teslimatlar</span>
+    <h2>36 hafta sonunda elinizde ne olacak?</h2>
+    <p>Teslimatlar dört grupta toplanır: ölçüm, planlama, uygulama ve kurumsallaştırma.</p>
+  </div>
+  <div class="pg-cols4 reveal">
+    <div class="pg-card"><span class="k">01 · Ölçüm &amp; analiz</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Sera gazı envanteri</li><li><span class="ck">✓</span>ESG skor kartı</li><li><span class="ck">✓</span>Veri kalitesi raporu</li><li><span class="ck">✓</span>Risk ve fırsat listesi</li></ul></div>
+    <div class="pg-card"><span class="k">02 · Planlama</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Karbon azaltım yol haritası</li><li><span class="ck">✓</span>ESG gelişim planı</li><li><span class="ck">✓</span>KPI seti</li><li><span class="ck">✓</span>Aksiyon/sorumluluk matrisi</li></ul></div>
+    <div class="pg-card"><span class="k">03 · Uygulama</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Öncelikli proje başlatma</li><li><span class="ck">✓</span>Eğitim materyalleri</li><li><span class="ck">✓</span>Tedarikçi şablonları</li><li><span class="ck">✓</span>Politika/prosedür taslakları</li></ul></div>
+    <div class="pg-card"><span class="k">04 · Kurumsallaştırma</span><ul class="pg-list" style="margin-top:14px"><li><span class="ck">✓</span>Yönetim gösterge paneli</li><li><span class="ck">✓</span>Yıllık veri takvimi</li><li><span class="ck">✓</span>Düzeltici faaliyet mekanizması</li><li><span class="ck">✓</span>Final yönetim sunumu</li></ul></div>
+  </div>
+  <div class="scope-foot reveal">
+    <p><b>Amaç rapor üretmek değil.</b> Sürdürülebilirliği aylık yönetim gündemine taşıyacak karar altyapısını kurmak.</p>
+    <a href="#pkg-contact" class="btn btn-primary"><span>Teklif al</span> <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ============================== ÇALIŞMA RİTMİ ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="11">Çalışma ritmi</span>
+    <h2>Toplantı ve çalışma yoğunluğu</h2>
+    <p>Toplantılar ilk haftalarda sıktır; program ilerledikçe uygulama takibi ve yönetim kararlarına odaklanır.</p>
+  </div>
+  <div class="reveal" style="overflow-x:auto">
+    <table class="pg-tbl">
+      <thead><tr><th style="width:150px">Dönem</th><th style="width:230px">Toplantı ritmi</th><th>Odak</th></tr></thead>
+      <tbody>
+        <tr><td class="w">Hafta 1–2</td><td class="m">Haftada 2 toplantı</td><td>Kapsam, ekip, veri düzeni</td></tr>
+        <tr><td class="w">Hafta 3–6</td><td class="m">Haftada 2 toplantı</td><td>Veri toplama ve teknik hesaplama</td></tr>
+        <tr><td class="w">Hafta 7–10</td><td class="m">Haftada 1 toplantı</td><td>Analiz ve mevcut durum sunumu</td></tr>
+        <tr><td class="w">Hafta 11–16</td><td class="m">2 haftada 1 + çalıştay</td><td>Hedef ve yol haritası</td></tr>
+        <tr><td class="w">Hafta 17–24</td><td class="m">2 haftada 1 toplantı</td><td>Uygulama desteği</td></tr>
+        <tr><td class="w">Hafta 25–30</td><td class="m">3 haftada 1 toplantı</td><td>İzleme ve düzeltici faaliyet</td></tr>
+        <tr><td class="w">Hafta 31–36</td><td class="m">2 haftada 1 toplantı</td><td>Kurumsallaştırma ve final</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="pg-note reveal">Ek ihtiyaçlarda ana toplantılara ek kısa teknik oturumlar yapılabilir; ancak kapsam kayması yönetim onayına bağlanır.</p>
+</section>
+
+<!-- ============================== ROLLER ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="12">Yönetişim</span>
+    <h2>Roller ve sorumluluklar</h2>
+    <p>Programın çalışması için danışman kadar şirket içi sahiplik de gereklidir.</p>
+  </div>
+  <div class="pg-cols3 reveal">
+    <div class="pg-card"><span class="k">R—01</span><h3>Üst yönetim sponsoru</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Öncelik verir, karar kapılarını yönetir, kaynak ve yetki sağlar.</p></div>
+    <div class="pg-card"><span class="k">R—02</span><h3>Proje lideri</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">İç koordinasyonu sağlar, veri sahipleriyle ilerlemeyi takip eder.</p></div>
+    <div class="pg-card"><span class="k">R—03</span><h3>Veri sahipleri</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Enerji, üretim, İK, satın alma, muhasebe ve lojistik verilerini sağlar.</p></div>
+    <div class="pg-card"><span class="k">R—04</span><h3>Danışman ekip</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Metodoloji, hesaplama, analiz, yol haritası, eğitim ve uygulama desteği verir.</p></div>
+    <div class="pg-card"><span class="k">R—05</span><h3>Sürdürülebilirlik çalışma grubu</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">Aksiyonları takip eder, engelleri gündeme taşır, öğrenmeyi yayar.</p></div>
+    <div class="pg-card" style="background:var(--surface-2)"><span class="k">İlke</span><h3>Dosya değil, veri</h3><p style="margin:0;color:var(--ink-2);font-size:14.5px">En iyi program, danışmanın hazırladığı dosyadan değil; şirketin her ay güncellediği veriden güç alır.</p></div>
+  </div>
+</section>
+
+<!-- ============================== KONUMLANDIRMA ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="13">Güvenilir konumlandırma</span>
+    <h2>Neyi sağlıyoruz, neyi sağlamıyoruz?</h2>
+    <p>Abartısız vaat, sürdürülebilirlik danışmanlığında güvenin temelidir.</p>
+  </div>
+  <div class="pg-two reveal">
+    <div class="pg-card">
+      <span class="k">Sağlıyoruz</span>
+      <ul class="pg-list" style="margin-top:16px">
+        <li><span class="ck">✓</span>Veriye dayalı mevcut durum fotoğrafı</li>
+        <li><span class="ck">✓</span>GHG Protocol / ISO 14064 yaklaşımıyla yapılandırılmış karbon hesabı</li>
+        <li><span class="ck">✓</span>Önceliklendirilmiş aksiyon ve KPI planı</li>
+        <li><span class="ck">✓</span>Raporlama ve doğrulama sürecine hazırlık</li>
+        <li><span class="ck">✓</span>36 hafta boyunca uygulama ve izleme ritmi</li>
+      </ul>
+    </div>
+    <div class="pg-card" style="background:var(--surface-2)">
+      <span class="k" style="color:var(--ink-3)">Garanti etmiyoruz</span>
+      <ul class="pg-list muted" style="margin-top:16px">
+        <li><span class="ck">✕</span>Teşvik alınacağını</li>
+        <li><span class="ck">✕</span>Her müşteri talebinin otomatik karşılanacağını</li>
+        <li><span class="ck">✕</span>Tek raporla tüm regülasyonlara tam uyum sağlanacağını</li>
+        <li><span class="ck">✕</span>Bağımsız doğrulama veya belgelendirmeyi</li>
+        <li><span class="ck">✕</span>Kapsam 3 için veri olmadan kesin sonuç üretmeyi</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KAYNAKLAR ============================== -->
+<section class="section wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="14">Kaynaklar</span>
+    <h2>Programın dayandığı referanslar</h2>
+  </div>
+  <div class="pg-src reveal">
+    <div><b>GHG Protocol</b><span>Corporate Standard ve Scope 3 Standard: kurumsal sera gazı envanteri ve değer zinciri emisyon çerçevesi.</span></div>
+    <div><b>KGK / Resmî Gazete</b><span>TSRS uygulama kapsamı eşik değerleri için 16 Ocak 2026 tarihli Kurul Kararı.</span></div>
+    <div><b>KOSGEB</b><span>Yeşil Sanayi Destek Programı: yeşil dönüşüm, kaynak verimliliği ve döngüsel ekonomi destek çerçevesi.</span></div>
+    <div><b>US EPA</b><span>GHG Inventory Development Process: sınırların belirlenmesi, veri toplama, hesaplama ve hedef takibi.</span></div>
+    <div><b>ISO 14064</b><span>Sera gazı envanterlerinin hesaplanması, raporlanması ve doğrulanmasına ilişkin yaklaşım.</span></div>
+    <div><b>ESG LAB KOBİ Paketi</b><span>Karbon envanteri, ESG ön-değerlendirme, yol haritası, eğitim, yönetici raporu ve teşvik kontrol listesi.</span></div>
+  </div>
+  <p class="pg-note reveal">Not: Bu program öneri niteliğindedir. Belgelendirme, bağımsız doğrulama, teşvik başvuru sonucu ve mevzuat uyumu ayrıca değerlendirilir. TSRS her KOBİ için otomatik zorunlu değildir; kapsam ayrıca değerlendirilmelidir.</p>
 </section>
 
 <!-- ============================== CTA ============================== -->
 <section class="section wrap cta" id="pkg-contact">
   <div class="cta-box reveal">
-    <h2 data-i18n="pk_cta_t">KOBİ'niz için doğru paketi birlikte seçelim.</h2>
-    <p data-i18n="pk_cta_p">Kısa bir görüşmede ölçeğinizi ve hedeflerinizi konuşalım; size en uygun paketi ve net bir teklifi 2 iş günü içinde iletelim.</p>
+    <h2>Ölçülen sürdürülebilirlik yönetilir; yönetilen sürdürülebilirlik rekabet avantajına dönüşür.</h2>
+    <p>Mevcut durumu ölçün, öncelikleri seçin, uygulamaları başlatın, performansı izleyin ve sistemi kurum içine devralın. 36 haftada sürdürülebilirliği “iyi niyet”ten yönetim sistemine taşıyın.</p>
     <div class="hero-cta">
-      <a href="mailto:bilgi@esgakademi.net?subject=KOBİ%20Paketi%20Teklifi" class="btn btn-primary"><span data-i18n="pk_cta_b1">Teklif iste</span> <span class="arrow">→</span></a>
-      <a href="kobi-programi.html" class="btn btn-ghost">36 haftalık programı gör</a>
-      <a href="index.html" class="btn btn-ghost" data-i18n="pk_cta_b2">Tüm hizmetler</a>
+      <a href="mailto:bilgi@esgakademi.net?subject=36%20Haftal%C4%B1k%20KOB%C4%B0%20Program%C4%B1%20Teklifi" class="btn btn-primary"><span>Teklif iste</span> <span class="arrow">→</span></a>
+      <a href="kobi-paketi.html" class="btn btn-ghost">12 haftalık paketi gör</a>
     </div>
   </div>
 </section>
@@ -1229,7 +1516,7 @@ html[data-theme="contrast"] #hero .hero-cta .btn-primary { background:#000; colo
     }
   };
 
-  let lang = localStorage.getItem('esglab_lang') || 'tr';
+  let lang = 'tr'; /* 36 haftalık program sayfası yalnızca TR */
 
   function applyLang(l) {
     lang = l;
@@ -1242,7 +1529,6 @@ html[data-theme="contrast"] #hero .hero-cta .btn-primary { background:#000; colo
     document.querySelectorAll('#lang button').forEach(function (b) {
       b.classList.toggle('on', b.getAttribute('data-lang') === l);
     });
-    localStorage.setItem('esglab_lang', l);
     window.dispatchEvent(new CustomEvent('esglab:lang', { detail: l }));
     // refresh counters that already ran
     document.querySelectorAll('.count[data-done]').forEach(function (c) {
