@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-accent="orange" data-font="grotesk" data-density="regular">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESG LAB — Yasal Metinler</title>
+<meta name="description" content="ESG LAB eğitim satışlarına ilişkin Mesafeli Satış Sözleşmesi, İptal ve İade Koşulları, Gizlilik/KVKK Aydınlatma Metni ve Teslimat & İfa Koşulları." />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+.lg-wrap { display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: 44px; align-items: start; }
+.lg-toc { position: sticky; top: 92px; display: flex; flex-direction: column; gap: 2px; }
+.lg-toc b {
+  font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-3); font-weight: 400; padding: 0 12px 10px;
+}
+.lg-toc a {
+  font-size: 14px; color: var(--ink-2); text-decoration: none; padding: 9px 12px;
+  border-radius: 8px; border-left: 2px solid transparent; transition: background .15s, color .15s, border-color .15s;
+}
+.lg-toc a:hover { background: var(--surface-2); color: var(--ink); }
+.lg-toc a.on { border-left-color: var(--accent); color: var(--ink); background: var(--surface-2); font-weight: 500; }
+.lg-meta {
+  margin-top: 18px; padding: 14px 12px 0; border-top: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 10.5px; line-height: 1.7; color: var(--ink-3);
+}
+
+.lg-doc { display: flex; flex-direction: column; gap: 30px; }
+.lg-sec {
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 34px 38px; scroll-margin-top: 96px; box-shadow: var(--shadow-sm);
+}
+.lg-sec > .eyebrow { display: inline-flex; margin-bottom: 8px; }
+.lg-sec h2 { font-size: clamp(22px, 2.6vw, 30px); letter-spacing: -.02em; margin: 0 0 6px; }
+.lg-sec .upd { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); letter-spacing: .03em; }
+.lg-sec h3 {
+  font-size: 15.5px; letter-spacing: -.01em; margin: 26px 0 8px;
+  padding-top: 18px; border-top: 1px solid var(--line);
+}
+.lg-sec h3:first-of-type { border-top: 0; padding-top: 0; margin-top: 22px; }
+.lg-sec p, .lg-sec li { color: var(--ink-2); font-size: 14.5px; line-height: 1.75; text-wrap: pretty; }
+.lg-sec p { margin: 0 0 10px; }
+.lg-sec ul, .lg-sec ol { margin: 0 0 10px; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.lg-sec strong { color: var(--ink); font-weight: 600; }
+.lg-tbl { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 0; margin: 4px 0 14px; border-top: 1px solid var(--line); }
+.lg-tbl > div { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.lg-tbl > div:nth-child(odd) { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--ink-3); padding-right: 14px; }
+.lg-note {
+  background: color-mix(in oklab, var(--accent) 6%, var(--surface));
+  border: 1px solid color-mix(in oklab, var(--accent) 26%, var(--line));
+  border-radius: 10px; padding: 13px 15px; margin: 14px 0 4px;
+  font-size: 13.5px; line-height: 1.65; color: var(--ink-2);
+}
+.lg-note b { color: var(--ink); }
+mark.todo { background: #ffe9a8; color: #4a3a00; padding: 1px 5px; border-radius: 4px; font-family: var(--font-mono); font-size: 12px; }
+@media (max-width: 900px) {
+  .lg-wrap { grid-template-columns: 1fr; gap: 24px; }
+  .lg-toc { position: static; flex-direction: row; flex-wrap: wrap; }
+  .lg-toc b { width: 100%; padding-bottom: 4px; }
+  .lg-toc a { border-left: 0; border: 1px solid var(--line); }
+  .lg-sec { padding: 26px 22px; }
+  .lg-tbl { grid-template-columns: 1fr; }
+  .lg-tbl > div:nth-child(odd) { padding-bottom: 2px; border-bottom: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span>ESG&nbsp;<span class="lab">LAB</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services">Hizmetler</a>
+      <a href="egitimler.html">Online Eğitim</a>
+      <a href="egitim-takvimi.html">Eğitim Takvimi</a>
+      <a href="kobi-programi.html">KOBİ Paketi</a>
+      <a href="yazilim-platformlar.html">Yazılım &amp; Platformlar</a>
+    </nav>
+    <div class="nav-right">
+      <a href="index.html#contact" class="btn btn-primary nav-cta">İletişim</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero section wrap" style="padding-bottom:calc(20px * var(--scale))">
+  <div class="hero-copy" style="max-width:900px">
+    <span class="eyebrow">Yasal bilgilendirme</span>
+    <h1 style="font-size:clamp(32px,4.4vw,52px)">Satış ve <span class="hl">gizlilik</span> koşulları.</h1>
+    <p class="hero-sub" style="font-size:clamp(14px,1.35vw,17px);max-width:none">Eğitim kayıtlarına ilişkin sözleşme, iade, kişisel veri ve teslimat koşullarının tamamı bu sayfadadır.</p>
+  </div>
+</section>
+
+<section class="section wrap" style="padding-top:0">
+<div class="lg-wrap">
+
+  <aside class="lg-toc" id="toc">
+    <b>Bu sayfada</b>
+    <a href="#mesafeli" class="on">Mesafeli Satış Sözleşmesi</a>
+    <a href="#iptal">İptal &amp; İade Koşulları</a>
+    <a href="#kvkk">Gizlilik / KVKK Aydınlatma</a>
+    <a href="#teslimat">Teslimat &amp; İfa Koşulları</a>
+    <div class="lg-meta">
+      Son güncelleme<br />27 Ağustos 2026<br /><br />
+      Sorularınız için<br /><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a>
+    </div>
+  </aside>
+
+  <div class="lg-doc">
+
+    <!-- ===================== 1. MESAFELİ SATIŞ ===================== -->
+    <article class="lg-sec" id="mesafeli">
+      <span class="eyebrow" data-num="01">Sözleşme</span>
+      <h2>Mesafeli Satış Sözleşmesi</h2>
+      <p class="upd">6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği uyarınca</p>
+
+      <div class="lg-note">
+        <b>Doldurulması gereken alanlar:</b> Aşağıda <mark class="todo">sarı</mark> işaretli yerlere şirketin ticaret unvanı, vergi dairesi/numarası, MERSİS numarası ve varsa ticaret sicil numarası yazılmalıdır. Bu bilgiler yasal olarak zorunludur.
+      </div>
+
+      <h3>1. Taraflar ve Konu</h3>
+      <p>İşbu sözleşme, aşağıda bilgileri yer alan <strong>SATICI</strong> ile, elektronik ortamda eğitim hizmeti satın alan <strong>ALICI</strong> arasında, Mesafeli Sözleşmeler Yönetmeliği hükümlerine uygun olarak elektronik ortamda kurulmuştur. Sözleşmenin konusu, ALICI'nın <a href="egitim-takvimi.html">esgakademi.net eğitim takvimi</a> üzerinden sipariş verdiği canlı online eğitim hizmetinin sunulması ve bedelinin tahsilidir.</p>
+
+      <h3>2. Satıcı Bilgileri</h3>
+      <div class="lg-tbl">
+        <div>Ticaret unvanı</div><div><mark class="todo">ŞİRKETİN TAM TİCARET UNVANI A.Ş./LTD.ŞTİ.</mark> (kısaca "ESG LAB")</div>
+        <div>Adres</div><div>Yahyakaptan Mah. A11:26, İzmit / Kocaeli</div>
+        <div>E-posta</div><div><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></div>
+        <div>Telefon</div><div><a href="tel:+905339552884">+90 533 955 28 84</a></div>
+        <div>Vergi dairesi / no</div><div><mark class="todo">VERGİ DAİRESİ · VKN</mark></div>
+        <div>MERSİS no</div><div><mark class="todo">MERSİS NUMARASI</mark></div>
+      </div>
+
+      <h3>3. Alıcı Bilgileri</h3>
+      <p>ALICI'nın adı-soyadı/unvanı, adresi, e-posta ve telefon bilgileri sipariş sırasında elektronik ortamda beyan ettiği bilgilerdir. Bu bilgiler sipariş kaydında ve fatura üzerinde yer alır. ALICI, verdiği bilgilerin doğru ve eksiksiz olduğunu kabul eder.</p>
+
+      <h3>4. Sözleşme Konusu Hizmetin Temel Nitelikleri ve Bedeli</h3>
+      <p>Satın alınan eğitimin adı, tarih aralığı, oturum günleri, saatleri, toplam süresi (saat) ve KDV hariç/dahil bedeli, sipariş öncesinde eğitim takvimi sayfasında ve ödeme ekranında ALICI'ya gösterilir. Sipariş onay e-postasında da aynı bilgiler tekrarlanır.</p>
+      <ul>
+        <li>Hizmet, <strong>canlı online (uzaktan, eş zamanlı)</strong> olarak sunulur.</li>
+        <li>Katılımcı, oturum kayıtlarına eğitim bitiminden itibaren <strong>30 gün</strong> erişebilir.</li>
+        <li>Eğitim sonunda <strong>katılım sertifikası</strong> düzenlenir.</li>
+        <li>Sitede belirtilen fiyatlar aksi yazmadıkça <strong>KDV hariçtir</strong>; ödeme ekranında KDV dahil toplam tutar gösterilir.</li>
+        <li>Fiyatlar, sipariş tarihinde geçerli olan tutardır; ilan edilen fiyat değişiklikleri geçmiş siparişleri etkilemez.</li>
+      </ul>
+
+      <h3>5. Ödeme Şekli</h3>
+      <p>Ödemeler, <strong>iyzico Ödeme Hizmetleri A.Ş.</strong> altyapısı üzerinden kredi kartı/banka kartı ile veya SATICI'nın bildireceği banka hesabına havale/EFT yoluyla yapılır. Kart bilgileri ESG LAB tarafından görülmez, kaydedilmez ve saklanmaz; ödeme işlemi lisanslı ödeme kuruluşunun güvenli ortamında gerçekleşir. Taksit imkânı, kart bankasının uygulamasına bağlıdır.</p>
+
+      <h3>6. Cayma Hakkı</h3>
+      <p>ALICI, sözleşmenin kurulduğu tarihten itibaren <strong>14 (on dört) gün</strong> içinde hiçbir gerekçe göstermeksizin ve cezai şart ödemeksizin cayma hakkına sahiptir. Cayma bildirimi, <a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a> adresine yazılı olarak iletilir.</p>
+      <p>Mesafeli Sözleşmeler Yönetmeliği'nin 15/1-(g) ve (ğ) maddeleri uyarınca; <strong>belirli bir tarihte yapılması gereken eğlence, dinlenme veya boş zaman değerlendirmesine ilişkin sözleşmeler</strong> ile <strong>ALICI'nın onayı ile ifasına başlanan hizmetler</strong> bakımından cayma hakkı sınırlanabilir. Buna göre:</p>
+      <ul>
+        <li>Cayma bildirimi <strong>eğitim başlangıç tarihinden 7 gün öncesine kadar</strong> ulaştığında bedel tam olarak iade edilir.</li>
+        <li>Eğitim başladıktan sonra, ALICI'nın açık onayı ile ifasına başlanmış hizmet niteliğinden ötürü cayma hakkı kullanılamaz; ancak İptal &amp; İade Koşulları'ndaki kısmi iade ve devir imkânları uygulanır.</li>
+      </ul>
+      <p>Ayrıntılı iade oranları için bkz. <a href="#iptal">İptal &amp; İade Koşulları</a>.</p>
+
+      <h3>7. Genel Hükümler</h3>
+      <ul>
+        <li>ALICI, ödeme adımında bu sözleşmeyi ve ekli metinleri okuduğunu ve kabul ettiğini onay kutusunu işaretleyerek beyan eder; bu beyan elektronik olarak kayıt altına alınır.</li>
+        <li>Eğitim materyalleri ESG LAB'in fikri mülkiyetindedir; çoğaltılamaz, dağıtılamaz, üçüncü kişilerle paylaşılamaz, ticari amaçla kullanılamaz.</li>
+        <li>Oturumlar ALICI tarafından kayda alınamaz, ekran görüntüsü alınarak yayımlanamaz.</li>
+        <li>Mücbir sebep hâllerinde SATICI, eğitimi erteleyebilir veya bedeli iade ederek sözleşmeyi feshedebilir.</li>
+        <li>Sözleşmeden doğan uyuşmazlıklarda <strong>Tüketici Hakem Heyetleri</strong> ve <strong>Tüketici Mahkemeleri</strong> yetkilidir; parasal sınırlar Ticaret Bakanlığı'nca her yıl ilan edilir.</li>
+        <li>Ticari nitelikteki (şirket adına, kurumsal fatura ile) alımlarda tüketici mevzuatı uygulanmaz; bu hâlde <mark class="todo">KOCAELİ</mark> Mahkemeleri ve İcra Daireleri yetkilidir.</li>
+      </ul>
+      <p>İşbu sözleşme, ALICI'nın ödemeyi tamamlaması ile yürürlüğe girer ve bir örneği sipariş onay e-postası ile ALICI'ya gönderilir.</p>
+    </article>
+
+    <!-- ===================== 2. İPTAL & İADE ===================== -->
+    <article class="lg-sec" id="iptal">
+      <span class="eyebrow" data-num="02">İade</span>
+      <h2>İptal ve İade Koşulları</h2>
+      <p class="upd">Tüm eğitim kayıtları için geçerlidir</p>
+
+      <h3>1. Katılımcıdan kaynaklanan iptaller</h3>
+      <p>İptal talebi <a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a> adresine yazılı olarak iletilir. Talebin ulaştığı tarih esas alınır:</p>
+      <div class="lg-tbl">
+        <div>7 gün ve öncesi</div><div>Ödenen bedelin <strong>%100'ü</strong> iade edilir.</div>
+        <div>3–6 gün kala</div><div>Ödenen bedelin <strong>%50'si</strong> iade edilir; dilerseniz tamamı sonraki döneme aktarılır.</div>
+        <div>0–2 gün kala</div><div>Bedel iade edilmez; hak <strong>bir sonraki döneme</strong> bir defaya mahsus aktarılır.</div>
+        <div>Eğitim başladıktan sonra</div><div>İade yapılmaz; kayıt erişimi ve materyaller katılımcıya sunulur.</div>
+      </div>
+      <p>Katılımcı değişikliği (aynı kurumdan başka bir kişinin katılması) eğitim başlangıcına kadar <strong>ücretsizdir</strong>; yazılı bildirim yeterlidir.</p>
+
+      <h3>2. ESG LAB'den kaynaklanan iptal veya erteleme</h3>
+      <ul>
+        <li>Asgari katılımcı sayısına ulaşılmaması, eğitmen mazereti veya mücbir sebep hâlinde eğitim ertelenebilir ya da iptal edilebilir.</li>
+        <li>Bu durumda katılımcıya <strong>en geç 3 iş günü önce</strong> bildirim yapılır.</li>
+        <li>Katılımcı, yeni tarihe aktarılma ile <strong>bedelin tamamının koşulsuz iadesi</strong> arasında seçim yapar. Kesinti uygulanmaz.</li>
+      </ul>
+
+      <h3>3. İade süresi ve yöntemi</h3>
+      <ul>
+        <li>İade, ödemenin yapıldığı yöntemle ve aynı karta/hesaba yapılır; farklı bir hesaba iade yapılmaz.</li>
+        <li>Onaylanan iadeler <strong>en geç 14 gün</strong> içinde başlatılır. Kart iadelerinin hesaba yansıma süresi bankaya bağlı olarak 2–10 iş günü sürebilir.</li>
+        <li>Taksitli ödemelerde iade, bankanın taksit iade prosedürüne göre yansır.</li>
+        <li>Havale/EFT ile yapılan ödemelerde iade için IBAN ve hesap sahibi bilgisi talep edilir.</li>
+      </ul>
+
+      <h3>4. Memnuniyet güvencesi</h3>
+      <p>Çok günlü eğitimlerde, <strong>ilk oturumun sonunda</strong> eğitimin beklentinizi karşılamadığını yazılı olarak bildirirseniz, kalan oturumlara katılmamanız kaydıyla ödediğiniz bedelin tamamı iade edilir.</p>
+
+      <h3>5. Kurum içi ve grup eğitimleri</h3>
+      <p>Kuruma özel düzenlenen eğitimlerde iptal ve iade koşulları, taraflar arasında imzalanan teklif/sözleşme metninde ayrıca düzenlenir; bu bölüm hükümleri uygulanmaz.</p>
+    </article>
+
+    <!-- ===================== 3. KVKK ===================== -->
+    <article class="lg-sec" id="kvkk">
+      <span class="eyebrow" data-num="03">Kişisel veriler</span>
+      <h2>Gizlilik ve KVKK Aydınlatma Metni</h2>
+      <p class="upd">6698 sayılı Kişisel Verilerin Korunması Kanunu md. 10 kapsamında</p>
+
+      <h3>1. Veri sorumlusu</h3>
+      <p>Kişisel verileriniz, veri sorumlusu sıfatıyla <mark class="todo">ŞİRKETİN TAM TİCARET UNVANI</mark> (ESG LAB) tarafından aşağıda açıklanan kapsamda işlenmektedir.</p>
+
+      <h3>2. İşlenen kişisel veriler</h3>
+      <div class="lg-tbl">
+        <div>Kimlik</div><div>Ad, soyad; kurumsal faturada unvan ve vergi bilgileri</div>
+        <div>İletişim</div><div>E-posta, telefon, adres</div>
+        <div>Müşteri işlem</div><div>Sipariş kaydı, eğitim katılım bilgisi, sertifika kaydı, fatura</div>
+        <div>Finans</div><div>Ödeme tutarı, işlem referansı, iade kaydı <em>(kart numarası ESG LAB'e iletilmez)</em></div>
+        <div>İşlem güvenliği</div><div>IP adresi, işlem zaman damgası, çerez kayıtları</div>
+      </div>
+
+      <h3>3. İşleme amaçları ve hukuki sebepleri</h3>
+      <ul>
+        <li><strong>Sözleşmenin kurulması ve ifası</strong> (KVKK md. 5/2-c): kayıt oluşturma, oturum bağlantısının iletilmesi, sertifika düzenleme, ödeme ve iade süreçleri.</li>
+        <li><strong>Hukuki yükümlülük</strong> (md. 5/2-ç): fatura düzenleme, vergi ve ticaret mevzuatı kapsamında saklama.</li>
+        <li><strong>Meşru menfaat</strong> (md. 5/2-f): hizmet kalitesinin ölçülmesi, memnuniyet anketi, dolandırıcılık önleme.</li>
+        <li><strong>Açık rıza</strong> (md. 5/1): yalnızca ticari elektronik ileti (bülten, yeni eğitim duyurusu) gönderimi. Rıza istenmediğinde hizmet sunumu etkilenmez.</li>
+      </ul>
+
+      <h3>4. Aktarım</h3>
+      <p>Verileriniz, yalnızca hizmetin gerektirdiği ölçüde şu taraflarla paylaşılır: ödeme kuruluşu (<strong>iyzico</strong>), e-fatura/muhasebe hizmet sağlayıcısı, canlı yayın ve öğrenme platformu sağlayıcısı, e-posta altyapısı ve yasal talep hâlinde yetkili kamu kurumları. Yurt dışına aktarım, yalnızca kullanılan platformların sunucu konumu gereği ve KVKK md. 9'daki şartlara uygun olarak yapılır.</p>
+
+      <h3>5. Saklama süresi</h3>
+      <p>Sözleşme ve fatura kayıtları, mevzuat gereği <strong>10 yıl</strong>; sertifika kayıtları belge doğrulaması için süresiz; pazarlama izinleri rıza geri alınana kadar saklanır. Süre dolduğunda veriler silinir, yok edilir veya anonim hâle getirilir.</p>
+
+      <h3>6. Haklarınız</h3>
+      <p>KVKK md. 11 uyarınca; verilerinizin işlenip işlenmediğini öğrenme, bilgi talep etme, işlenme amacına uygun kullanılıp kullanılmadığını öğrenme, aktarıldığı üçüncü kişileri bilme, düzeltilmesini, silinmesini veya yok edilmesini isteme, otomatik sistemlerle analiz sonucu aleyhinize bir sonuç doğmasına itiraz etme ve zararınızın giderilmesini talep etme haklarına sahipsiniz.</p>
+      <p>Başvurularınızı <a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a> adresine veya yukarıdaki posta adresine iletebilirsiniz. Talepler <strong>en geç 30 gün</strong> içinde sonuçlandırılır.</p>
+
+      <h3>7. Çerezler</h3>
+      <p>Sitede yalnızca oturum ve tercih (dil, görünüm) amaçlı zorunlu çerezler ile anonim ölçümleme kullanılır. Tarayıcı ayarlarınızdan çerezleri engelleyebilirsiniz; bu durumda bazı tercihleriniz hatırlanmaz.</p>
+
+      <h3>8. Güvenlik</h3>
+      <p>Veriler yetkisiz erişime karşı teknik ve idari tedbirlerle korunur; iletişim SSL/TLS ile şifrelenir. Kart bilgileri ESG LAB sistemlerinde hiçbir aşamada tutulmaz.</p>
+    </article>
+
+    <!-- ===================== 4. TESLİMAT ===================== -->
+    <article class="lg-sec" id="teslimat">
+      <span class="eyebrow" data-num="04">İfa</span>
+      <h2>Teslimat ve İfa Koşulları</h2>
+      <p class="upd">Hizmet dijital olarak sunulur; fiziksel kargo gönderimi yoktur</p>
+
+      <h3>1. Teslimat şekli</h3>
+      <ul>
+        <li>Ödeme onaylandığında <strong>anında</strong> sipariş onay e-postası gönderilir.</li>
+        <li>Katılım bağlantısı ve varsa ön hazırlık materyali, eğitim başlangıcından <strong>en geç 24 saat önce</strong> kayıt sırasında verilen e-posta adresine iletilir.</li>
+        <li>Hizmetin ifası, eğitim takviminde ilan edilen tarih ve saatlerde canlı online oturumların gerçekleştirilmesiyle tamamlanır.</li>
+        <li>Oturum kayıtları ve sunum dosyaları, eğitim bitiminden itibaren <strong>30 gün</strong> boyunca erişime açık tutulur.</li>
+        <li>Katılım sertifikası, eğitim bitiminden sonra <strong>5 iş günü</strong> içinde dijital olarak (PDF) gönderilir.</li>
+      </ul>
+
+      <h3>2. Katılım koşulları</h3>
+      <p>Katılımcının stabil internet bağlantısı, hoparlör/kulaklık ve güncel bir tarayıcı bulundurması gerekir. Bağlantı sorunlarında oturum kaydı üzerinden telafi sağlanır. Sertifika için <strong>%80 devam</strong> koşulu aranır.</p>
+
+      <h3>3. Fatura</h3>
+      <p>E-arşiv/e-fatura, ödemeyi takip eden <strong>7 gün</strong> içinde kayıt sırasında belirtilen e-posta adresine gönderilir. Kurumsal fatura için sipariş sırasında unvan, vergi dairesi ve vergi numarasının eksiksiz girilmesi gerekir; fatura düzenlendikten sonra alıcı bilgisi değiştirilemez.</p>
+
+      <h3>4. Ulaşmayan teslimat</h3>
+      <p>Onay e-postası veya katılım bağlantısı elinize ulaşmadıysa önce spam/gereksiz klasörünü kontrol edin; ardından <a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a> adresine yazın veya <a href="tel:+905339552884">+90 533 955 28 84</a> numarasını arayın. Talepler <strong>aynı iş günü</strong> içinde yanıtlanır.</p>
+    </article>
+
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
+        <p class="desc">Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.</p>
+      </div>
+      <div>
+        <h5>Hizmetler</h5>
+        <ul>
+          <li><a href="index.html#services">Karbon yönetimi</a></li>
+          <li><a href="egitimler.html">Online Eğitim</a></li>
+          <li><a href="egitim-takvimi.html">Eğitim Takvimi</a></li>
+          <li><a href="kobi-programi.html">KOBİ Paketi</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Yasal</h5>
+        <ul>
+          <li><a href="yasal.html#mesafeli">Mesafeli Satış Sözleşmesi</a></li>
+          <li><a href="yasal.html#iptal">İptal &amp; İade Koşulları</a></li>
+          <li><a href="yasal.html#kvkk">Gizlilik / KVKK</a></li>
+          <li><a href="yasal.html#teslimat">Teslimat &amp; İfa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>İletişim</h5>
+        <ul>
+          <li><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></li>
+          <li><a href="tel:+905339552884">+90 533 955 28 84</a></li>
+          <li><span>Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ESG LAB</span>
+      <span>Tüm hakları saklıdır · Gizlilik · KVKK</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var links = [].slice.call(document.querySelectorAll('.lg-toc a[href^="#"]'));
+  var secs = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  function sync() {
+    var i = 0;
+    for (var k = 0; k < secs.length; k++) {
+      if (secs[k] && secs[k].getBoundingClientRect().top < 160) i = k;
+    }
+    links.forEach(function (a, n) { a.classList.toggle('on', n === i); });
+  }
+  window.addEventListener('scroll', sync, { passive: true });
+  sync();
+
+  var mb = document.getElementById('menuBtn');
+  if (mb) mb.addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('open');
+  });
+})();
+</script>
+</body>
+</html>

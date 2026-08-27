@@ -10,6 +10,8 @@ Statik HTML sitesi. Derleme (build) adımı yoktur; dosyalar olduğu gibi sunulu
 | `kobi-programi.html` | 36 haftalık KOBİ sürdürülebilirlik programı |
 | `kobi-paketi.html` | 12 haftalık KOBİ paketi (önceki sürüm) |
 | `yazilim-platformlar.html` | Yazılım & platformlar (GHG, SC360, Survey, ISO, OSB360) |
+| `egitim-takvimi.html` | Eğitim takvimi — takvim + liste görünümü, filtre, arama |
+| `yasal.html` | Mesafeli satış, iptal/iade, KVKK, teslimat metinleri |
 | `tsu.html` | TSU |
 | `iso46001.html` | ISO 46001 |
 
@@ -37,6 +39,11 @@ Build command: (boş) · Publish directory: `/` (kök)
 
 ## İnternet bağımlılığı
 Yazı tipleri Google Fonts CDN'inden yüklenir; ziyaretçinin internet erişimi olmalıdır.
+
+## Ödeme (iyzico)
+Eğitim kayıt butonları `takvim-data.js` içindeki `pay` alanını okur:
+- `pay: ''` → buton e-posta ile kayda düşer
+- `pay: 'https://iyzi.link/XXXX'` → "Kayıt ol ve öde" olur; yasal onay kutusu işaretlenmeden tıklanamaz
 
 ## Dil
 Sayfalar TR/EN ikili dil desteklidir (`i18n.js`). 36 haftalık KOBİ programı sayfası yalnızca Türkçedir.

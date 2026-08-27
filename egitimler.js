@@ -154,3 +154,15 @@
   renderFilters();
   render();
 })();
+
+/* Takvim sayfasından gelen derin bağlantı: egitimler.html#c-<id> */
+(function () {
+  var m = (location.hash || '').match(/^#c-(.+)$/);
+  if (!m) return;
+  var open = function () {
+    var b = document.querySelector('.course[data-id="' + m[1] + '"]');
+    if (b) b.click();
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { setTimeout(open, 120); });
+  else setTimeout(open, 120);
+})();

@@ -42,7 +42,7 @@
   --radius: 14px;
   --radius-sm: 9px;
   --scale: 1; /* density */
-  --sec-pad: calc(58px * var(--scale));
+  --sec-pad: calc(44px * var(--scale));
 }
 
 /* ---- Directions ------------------------------------------------------ */
@@ -132,9 +132,9 @@ h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; letter-spacing
   content: attr(data-num);
   color: var(--ink-3);
 }
-.sec-head { max-width: 720px; margin-bottom: calc(30px * var(--scale)); }
-.sec-head h2 { font-size: clamp(30px, 4vw, 46px); margin-top: 18px; }
-.sec-head p { color: var(--ink-2); font-size: 18px; margin: 18px 0 0; max-width: 60ch; }
+.sec-head { max-width: 720px; margin-bottom: calc(22px * var(--scale)); }
+.sec-head h2 { font-size: clamp(30px, 4vw, 46px); margin-top: 10px; }
+.sec-head p { color: var(--ink-2); font-size: 17px; margin: 10px 0 0; max-width: 68ch; }
 
 /* ---- Buttons --------------------------------------------------------- */
 .btn {
@@ -213,23 +213,23 @@ html[data-theme="contrast"] .lang button.on { background:#000; color:#fff; }
 }
 
 /* ---- Hero ------------------------------------------------------------ */
-.hero { padding-top: calc(56px * var(--scale)); padding-bottom: calc(76px * var(--scale)); position: relative; overflow: hidden; }
+.hero { padding-top: calc(40px * var(--scale)); padding-bottom: calc(44px * var(--scale)); position: relative; overflow: hidden; }
 
 /* centered hero (GitBook-style) */
-.hero-center { text-align: center; padding-top: calc(64px * var(--scale)); padding-bottom: calc(28px * var(--scale)); }
+.hero-center { text-align: center; padding-top: calc(44px * var(--scale)); padding-bottom: calc(20px * var(--scale)); }
 .hero-center .hero-copy { max-width: 1040px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-.hero-center .eyebrow { margin-bottom: 26px; }
+.hero-center .eyebrow { margin-bottom: 16px; }
 .hero-center h1 { font-size: clamp(34px, 5.4vw, 66px); letter-spacing: -0.032em; line-height: 1.05; text-wrap: balance; }
 .hero-center h1 .hl { color: var(--accent); }
-.hero-center .hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); margin: 22px auto 32px; width: 100%; max-width: 860px; text-wrap: normal; }
+.hero-center .hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); margin: 14px auto 22px; width: 100%; max-width: 860px; text-wrap: normal; }
 .hero-center .hero-cta { justify-content: center; }
 @media (min-width: 1180px) { .hero-center h1 { white-space: nowrap; } }
 .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 .hero h1 { font-size: clamp(38px, 5.6vw, 68px); letter-spacing: -0.03em; }
 .hero h1 .hl { color: var(--accent); }
-.hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.4vw, 20px); margin: 26px 0 34px; max-width: 48ch; }
+.hero-sub { color: var(--ink-2); font-size: clamp(17px, 1.4vw, 20px); margin: 16px 0 22px; max-width: 48ch; }
 .hero-cta { display: flex; gap: 13px; flex-wrap: wrap; }
-.hero-meta { margin-top: 40px; display: flex; gap: 28px; flex-wrap: wrap; }
+.hero-meta { margin-top: 24px; display: flex; gap: 28px; flex-wrap: wrap; }
 .hero-meta .m { display: flex; flex-direction: column; gap: 3px; }
 .hero-meta .m b { font-family: var(--font-head); font-size: 24px; }
 .hero-meta .m span { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
@@ -955,6 +955,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
     <nav class="nav-links">
       <a href="#services" data-i18n="nav_services">Hizmetler</a>
       <a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a>
+      <a href="egitim-takvimi.html" data-i18n="nav_cal">Eğitim Takvimi</a>
       <a href="kobi-programi.html" data-i18n="nav_pkg">KOBİ Paketi</a>
       <a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a>
     </nav>
@@ -1097,6 +1098,85 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
   render();
 })();
 </script>
+
+<!-- ============================== YAKLAŞAN EĞİTİMLER ============================== -->
+<style>
+.up-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.up-card {
+  display: flex; flex-direction: column; gap: 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px 18px 16px; text-decoration: none; color: inherit;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.up-card:hover {
+  background: color-mix(in oklab, var(--accent) 4%, var(--surface));
+  border-color: color-mix(in oklab, var(--accent) 28%, var(--line));
+  box-shadow: var(--shadow); transform: translateY(-2px);
+}
+.up-card .d {
+  display: flex; align-items: baseline; gap: 7px; padding-bottom: 12px;
+  border-bottom: 1px solid var(--line); margin-bottom: 13px;
+}
+.up-card .d b { font-family: var(--font-head); font-size: 26px; font-weight: 600; letter-spacing: -.03em; line-height: 1; }
+.up-card .d span { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); }
+.up-card .d i { font-style: normal; margin-left: auto; width: 7px; height: 7px; border-radius: 50%; background: var(--cc); }
+.up-card h4 { font-size: 16px; line-height: 1.3; letter-spacing: -.015em; margin: 0 0 8px; text-wrap: pretty; }
+.up-card p { font-family: var(--font-mono); font-size: 11.5px; line-height: 1.6; color: var(--ink-3); margin: 0 0 16px; }
+.up-card .f { margin-top: auto; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.up-card .f b { font-family: var(--font-head); font-size: 17px; font-weight: 600; letter-spacing: -.02em; }
+.up-card .f b small { font-family: var(--font-mono); font-size: 9.5px; font-weight: 400; color: var(--ink-3); display: block; letter-spacing: .04em; }
+.up-card .f span { font-family: var(--font-mono); font-size: 11px; color: var(--ink-3); }
+.up-card:hover .f span { color: var(--accent); }
+.up-all { display: flex; justify-content: flex-end; margin-top: 18px; }
+@media (max-width: 1180px) { .up-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px)  { .up-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px)  { .up-grid { grid-template-columns: 1fr; } }
+</style>
+
+<section class="section wrap" id="upcoming">
+  <div class="sec-head reveal">
+    <span class="eyebrow" data-num="02" data-i18n="up_eyebrow">Eğitim Takvimi</span>
+    <h2 data-i18n="up_title">Yaklaşan eğitimler</h2>
+    <p data-i18n="up_sub">Canlı online oturumlar; kontenjanlar sınırlıdır.</p>
+  </div>
+
+  <div class="up-grid reveal">
+    <a class="up-card" href="egitim-takvimi.html#tk" style="--cc: var(--accent)">
+      <span class="d"><b>22</b><span>Eylül 2026</span><i></i></span>
+      <h4>Teknik Sürdürülebilirlik Eğitimi</h4>
+      <p>Sal · Çar · Per<br />19.00–23.00 · 60 saat</p>
+      <span class="f"><b>22.000 ₺<small>+KDV</small></b><span>Detay →</span></span>
+    </a>
+    <a class="up-card" href="egitim-takvimi.html#tk" style="--cc: #1f8a5b">
+      <span class="d"><b>28</b><span>Eylül 2026</span><i></i></span>
+      <h4>ISO 46001 Başdenetçilik Eğitimi</h4>
+      <p>Pazartesi–Cuma<br />09.00–16.00 · 30 saat</p>
+      <span class="f"><b>13.900 ₺<small>+KDV</small></b><span>Detay →</span></span>
+    </a>
+    <a class="up-card" href="egitim-takvimi.html#tk" style="--cc: #2f5fd0">
+      <span class="d"><b>05</b><span>Ekim 2026</span><i></i></span>
+      <h4>Master Raporlama Eğitimi</h4>
+      <p>Pzt · Cum · Cmt<br />19.00–23.00 / 09.00–16.00 · 40 saat</p>
+      <span class="f"><b>26.000 ₺<small>+KDV</small></b><span>Detay →</span></span>
+    </a>
+    <a class="up-card" href="egitim-takvimi.html#tk" style="--cc: #1f8a5b">
+      <span class="d"><b>05</b><span>Ekim 2026</span><i></i></span>
+      <h4>ISO 50001 Başdenetçilik Eğitimi</h4>
+      <p>Pazartesi–Cuma<br />09.00–16.00 · 30 saat</p>
+      <span class="f"><b>13.900 ₺<small>+KDV</small></b><span>Detay →</span></span>
+    </a>
+    <a class="up-card" href="egitim-takvimi.html#tk" style="--cc: #2f5fd0">
+      <span class="d"><b>12</b><span>Ekim 2026</span><i></i></span>
+      <h4>ISO 42001 Başdenetçilik Eğitimi</h4>
+      <p>Pazartesi–Cuma<br />09.00–16.00 · 30 saat</p>
+      <span class="f"><b>15.900 ₺<small>+KDV</small></b><span>Detay →</span></span>
+    </a>
+  </div>
+
+  <div class="up-all reveal">
+    <a href="egitim-takvimi.html" class="btn btn-ghost" data-i18n="up_all">Tüm eğitim takvimi →</a>
+  </div>
+</section>
 
 <!-- ============================== SERVICES ============================== -->
 <section class="section wrap" id="services">
@@ -1517,6 +1597,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
           <li><a href="#services" data-i18n="ft_s2">ESG raporlama</a></li>
           <li><a href="#services" data-i18n="ft_s3">Eğitim & farkındalık</a></li>
           <li><a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a></li>
+          <li><a href="egitim-takvimi.html" data-i18n="nav_cal">Eğitim Takvimi</a></li>
           <li><a href="kobi-programi.html" data-i18n="nav_pkg">KOBİ Paketi</a></li>
           <li><a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a></li>
           <li><a href="#method" data-i18n="ft_s4">Metodoloji</a></li>
@@ -1539,10 +1620,19 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
           <li><span data-i18n="ft_addr">Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></li>
         </ul>
       </div>
+      <div>
+        <h5>Yasal</h5>
+        <ul>
+          <li><a href="yasal.html#mesafeli">Mesafeli Satış Sözleşmesi</a></li>
+          <li><a href="yasal.html#iptal">İptal &amp; İade Koşulları</a></li>
+          <li><a href="yasal.html#kvkk">Gizlilik / KVKK</a></li>
+          <li><a href="yasal.html#teslimat">Teslimat &amp; İfa</a></li>
+        </ul>
+      </div>
     </div>
     <div class="foot-bot">
       <span>© 2026 ESG LAB</span>
-      <span data-i18n="ft_legal">Tüm hakları saklıdır · Gizlilik · KVKK</span>
+      <span data-i18n="ft_legal">Tüm hakları saklıdır · <a href="yasal.html#kvkk">Gizlilik</a> · <a href="yasal.html#mesafeli">Satış koşulları</a></span>
     </div>
   </div>
 </footer>
@@ -1568,6 +1658,8 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       trust_lbl: 'Birlikte çalıştığımız ekosistem',
       mq_title: 'Dünyanın önde gelen standartlarına uyumlu',
       mq_sub: 'Metodolojimizin dayandığı çerçeveler',
+      up_eyebrow: 'Eğitim Takvimi', up_title: 'Yaklaşan eğitimler',
+      up_sub: 'Canlı online oturumlar; kontenjanlar sınırlıdır.', up_all: 'Tüm eğitim takvimi →',
       ld_role: 'ESG Akademi · Sürdürülebilirlik Lideri',
       ld_q1: 'Kurumlara sürdürülebilirlik alanında doğru, güncel ve uygulanabilir bilgiyle rehberlik ederiz.',
       ld_q2: 'Eğitim ve danışmanlıkta teoriyi saha ihtiyaçlarıyla birleştirerek somut sonuçlara odaklanırız.',
@@ -1629,9 +1721,10 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       ft_desc: 'Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.',
       ft_h1: 'Hizmetler', ft_s1: 'Karbon yönetimi', ft_s2: 'ESG raporlama', ft_s3: 'Eğitim & farkındalık', ft_s4: 'Metodoloji',
       ft_h2: 'Kurum', ft_c1: 'Hakkımızda', ft_c2: 'Yaklaşım', ft_c3: 'Etki', ft_c4: 'İletişim',
-      ft_h3: 'İletişim', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'Tüm hakları saklıdır · Gizlilik · KVKK',
+      ft_h3: 'İletişim', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'Tüm hakları saklıdır · <a href="yasal.html#kvkk">Gizlilik</a> · <a href="yasal.html#mesafeli">Satış koşulları</a>',
       nav_pkg: 'KOBİ Paketi',
       nav_soft: 'Yazılım & Platformlar',
+      nav_cal: 'Eğitim Takvimi',
       nav_edu: 'Online Eğitim',
       edu_eyebrow: 'ESG Akademi · Online Eğitim',
       edu_title: 'Sürdürülebilirlik yetkinliğini <span class="hl">eğitimle</span> kurun.',
@@ -1715,6 +1808,8 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       trust_lbl: 'The ecosystem we work with',
       mq_title: 'Compliant with the world’s top standards',
       mq_sub: 'The frameworks our methodology is built on',
+      up_eyebrow: 'Training Calendar', up_title: 'Upcoming trainings',
+      up_sub: 'Live online sessions; seats are limited.', up_all: 'Full training calendar →',
       ld_role: 'ESG Academy · Head of Sustainability',
       ld_q1: 'We guide organizations in sustainability with accurate, up-to-date and actionable knowledge.',
       ld_q2: 'In training and consulting, we combine theory with field needs to focus on concrete results.',
@@ -1779,6 +1874,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       ft_h3: 'Contact', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'All rights reserved · Privacy · GDPR',
       nav_pkg: 'SME Package',
       nav_soft: 'Software & Platforms',
+      nav_cal: 'Training Calendar',
       nav_edu: 'Online Training',
       edu_eyebrow: 'ESG Academy · Online Training',
       edu_title: 'Build sustainability capability <span class="hl">through training</span>.',
