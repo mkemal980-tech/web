@@ -1,8 +1,9 @@
 {
+  "name": "esg-lab-site",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=18" },
   "scripts": {
-    "start": "npx http-server . -p $PORT -a 0.0.0.0"
-  },
-  "dependencies": {
-    "http-server": "^14.1.1"
+    "start": "node server.js"
   }
 }

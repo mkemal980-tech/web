@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-accent="blue" data-font="grotesk" data-density="regular">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESG LAB — Ödeme sonucu</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="kayit.css" />
+<style>
+  .rs { max-width: 640px; margin: 0 auto; text-align: center; }
+  .rs-icon { width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 22px;
+    background: var(--accent-soft); color: var(--accent); }
+  .rs.bad .rs-icon { background: color-mix(in oklab, #dc2626 12%, var(--surface)); color: #dc2626; }
+  .rs h1 { font: 600 clamp(26px,3.4vw,38px)/1.12 var(--font-head); letter-spacing: -.02em; margin: 0 0 12px; }
+  .rs p { color: var(--ink-2); font-size: 15px; line-height: 1.65; margin: 0 auto 8px; max-width: 52ch; text-wrap: pretty; }
+  .rs-ref { display: inline-block; margin-top: 18px; font: 500 12px/1 var(--font-mono); letter-spacing: .06em;
+    color: var(--ink-3); border: 1px dashed var(--line-strong); border-radius: var(--radius-sm); padding: 9px 13px; }
+  .rs-next { margin-top: 30px; display: grid; gap: 11px; text-align: left; }
+  .rs-next .n { display: flex; gap: 12px; align-items: flex-start; background: var(--surface);
+    border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 13px 15px; font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+  .rs-next .n b { display: block; color: var(--ink); font-size: 13.5px; margin-bottom: 2px; }
+  .rs-next .n i { flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--surface-2);
+    display: grid; place-items: center; font: 500 11px/1 var(--font-mono); font-style: normal; color: var(--ink-3); }
+  .rs-cta { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
+    <nav class="nav-links">
+      <a href="index.html#services">Hizmetler</a>
+      <a href="egitimler.html">Online Eğitim</a>
+      <a href="egitim-takvimi.html">Eğitim Takvimi</a>
+      <a href="kobi-programi.html">KOBİ Paketi</a>
+      <a href="yazilim-platformlar.html">Yazılım &amp; Platformlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="tr" class="on">TR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="section wrap">
+  <div class="rs" id="rs">
+    <div class="rs-icon" id="rsIcon"></div>
+    <h1 id="rsTitle">Ödeme kontrol ediliyor…</h1>
+    <p id="rsText">Bir saniye — banka onayı doğrulanıyor.</p>
+    <div id="rsRefWrap" hidden><span class="rs-ref" id="rsRef"></span></div>
+    <div class="rs-next" id="rsNext" hidden>
+      <div class="n"><i>1</i><span><b>Onay e-postası</b>Kayıt onayınız ve e-arşiv faturanız birkaç dakika içinde e-posta adresinize ulaşır.</span></div>
+      <div class="n"><i>2</i><span><b>Katılım bağlantısı</b>Eğitim bağlantısı ve ders materyalleri, programın başlangıcından 48 saat önce gönderilir.</span></div>
+      <div class="n"><i>3</i><span><b>Sertifika</b>Program sonunda, devam koşulunu sağlayan katılımcılara dijital sertifika iletilir.</span></div>
+    </div>
+    <div class="rs-cta">
+      <a class="btn btn-primary" href="egitim-takvimi.html"><span>Eğitim takvimi</span> <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="mailto:bilgi@esgakademi.net">Destek: bilgi@esgakademi.net</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><div class="foot-bot" style="border:none">
+    <span>© 2026 ESG LAB</span>
+    <span>Tüm hakları saklıdır · <a href="yasal.html#kvkk">Gizlilik</a> · <a href="yasal.html#mesafeli">Satış koşulları</a></span>
+  </div></div>
+</footer>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var durum = q.get('durum') || 'bekliyor';
+  var ref = q.get('ref') || '';
+  var msg = q.get('mesaj') || '';
+  var ok = '<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13.5l5 5L21 7.5"/></svg>';
+  var no = '<svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 7l12 12M19 7L7 19"/></svg>';
+
+  var el = { rs: rs, icon: rsIcon, t: rsTitle, p: rsText, next: rsNext, refw: rsRefWrap, ref: rsRef };
+
+  if (durum === 'basarili') {
+    el.icon.innerHTML = ok;
+    el.t.textContent = 'Kaydınız tamamlandı';
+    el.p.textContent = 'Ödemeniz alındı ve eğitim kontenjanınız ayrıldı. Aşağıdaki adımlar sizi bekliyor.';
+    el.next.hidden = false;
+  } else if (durum === 'basarisiz') {
+    el.rs.classList.add('bad');
+    el.icon.innerHTML = no;
+    el.t.textContent = 'Ödeme tamamlanamadı';
+    el.p.textContent = msg || 'Banka işlemi onaylamadı ve kartınızdan tutar çekilmedi. Farklı bir kartla yeniden deneyebilir veya bizimle iletişime geçebilirsiniz.';
+  } else {
+    el.icon.innerHTML = ok;
+    el.t.textContent = 'İşleminiz alındı';
+    el.p.textContent = 'Ödeme sonucu banka tarafından doğrulandığında size e-posta ile bilgi vereceğiz.';
+  }
+  if (ref) { el.refw.hidden = false; el.ref.textContent = 'İşlem no · ' + ref; }
+})();
+</script>
+<script src="i18n.js"></script>
+</body>
+</html>

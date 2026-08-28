@@ -47,3 +47,23 @@ Eğitim kayıt butonları `takvim-data.js` içindeki `pay` alanını okur:
 
 ## Dil
 Sayfalar TR/EN ikili dil desteklidir (`i18n.js`). 36 haftalık KOBİ programı sayfası yalnızca Türkçedir.
+
+
+## Railway'de yayınlama (ödeme dahil)
+
+Root directory: `publish` · Start command: `npm start` (server.js, harici paket yok, Node 18+).
+
+Railway → **Variables**:
+
+| Değişken | Değer |
+| --- | --- |
+| `IYZICO_API_KEY` | iyzico API key |
+| `IYZICO_SECRET_KEY` | iyzico secret key — yalnızca sunucuda durur |
+| `IYZICO_BASE` | test: `https://sandbox-api.iyzipay.com` · canlı: `https://api.iyzipay.com` |
+| `SITE_URL` | `https://<domaininiz>` (opsiyonel; boşsa istek başlığından okunur) |
+
+iyzico merchant panelinde **Callback URL** olarak `https://<domaininiz>/api/iyzico-callback` tanımlayın.
+
+Akış: `kayit.html?e=<no>` → form → `POST /api/iyzico-checkout` → iyzico Checkout Form → 3D Secure → `POST /api/iyzico-callback` (sunucuda doğrulanır) → `odeme-sonuc.html?durum=basarili&ref=…`.
+
+Ödemeyi geçici kapatmak için `odeme-config.js` içindeki `endpoint` alanını boşaltın; sayfa e-posta ile kayıt moduna düşer.

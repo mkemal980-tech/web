@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-accent="blue" data-font="grotesk" data-density="regular">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESG LAB — Kayıt ve ödeme</title>
+<meta name="description" content="ESG LAB eğitim kaydı: katılımcı ve fatura bilgileri, iyzico ile güvenli ödeme." />
+<meta name="robots" content="noindex, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="kayit.css" />
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span>ESG&nbsp;<span class="lab">LAB</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services">Hizmetler</a>
+      <a href="egitimler.html">Online Eğitim</a>
+      <a href="egitim-takvimi.html" class="cur">Eğitim Takvimi</a>
+      <a href="kobi-programi.html">KOBİ Paketi</a>
+      <a href="yazilim-platformlar.html">Yazılım &amp; Platformlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="tr" class="on">TR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="egitim-takvimi.html" class="btn btn-ghost nav-cta">← Takvime dön</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="section wrap ck">
+
+  <div class="ck-steps">
+    <b class="on"><i>1</i> Bilgiler</b><s></s>
+    <b><i>2</i> Ödeme</b><s></s>
+    <b><i>3</i> Onay</b>
+  </div>
+
+  <div class="sec-head" style="margin-bottom:22px">
+    <span class="eyebrow" data-num="">Kayıt</span>
+    <h2 style="font-size:clamp(24px,3.2vw,38px)">Katılımcı ve fatura bilgileri</h2>
+    <p>Bilgileri doldurun, ödeme adımında kart bilgilerinizi iyzico'nun güvenli ekranında girin. Kart verileri ESG LAB sunucularına hiçbir şekilde iletilmez.</p>
+  </div>
+
+  <div class="ck-grid">
+
+    <!-- ---------------- FORM ---------------- -->
+    <form id="ckForm" novalidate>
+      <div id="ckAlert"></div>
+
+      <div class="ck-card">
+        <h2>Katılımcı</h2>
+        <p>Eğitim bağlantısı ve sertifika bu bilgilere göre düzenlenir.</p>
+        <div class="ck-fields">
+          <label class="ck-f"><span>Ad <em>*</em></span><input name="ad" autocomplete="given-name" /><i class="err"></i></label>
+          <label class="ck-f"><span>Soyad <em>*</em></span><input name="soyad" autocomplete="family-name" /><i class="err"></i></label>
+          <label class="ck-f"><span>E-posta <em>*</em></span><input name="eposta" type="email" inputmode="email" autocomplete="email" /><i class="err"></i></label>
+          <label class="ck-f"><span>Telefon <em>*</em></span><input name="tel" type="tel" inputmode="tel" placeholder="0 5xx xxx xx xx" autocomplete="tel" /><i class="err"></i></label>
+          <label class="ck-f wide"><span>Kurum / unvan</span><input name="gorev" placeholder="Örn. Sürdürülebilirlik Uzmanı, ABC A.Ş." /></label>
+        </div>
+      </div>
+
+      <div class="ck-card">
+        <h2>Fatura</h2>
+        <p>Fatura, ödeme sonrası e-posta adresinize e-arşiv olarak gönderilir.</p>
+        <div class="ck-seg">
+          <label><input type="radio" name="fatura" value="bireysel" checked /><span><b>Bireysel</b><small>TC kimlik no ile</small></span></label>
+          <label><input type="radio" name="fatura" value="kurumsal" /><span><b>Kurumsal</b><small>Vergi no ile</small></span></label>
+        </div>
+        <div class="ck-fields" id="ckBireysel">
+          <label class="ck-f"><span>TC kimlik no <em>*</em></span><input name="tckn" inputmode="numeric" maxlength="11" /><i class="err"></i></label>
+        </div>
+        <div class="ck-fields" id="ckKurumsal" hidden>
+          <label class="ck-f wide"><span>Ticaret unvanı <em>*</em></span><input name="unvan" /><i class="err"></i></label>
+          <label class="ck-f"><span>Vergi dairesi <em>*</em></span><input name="vd" /><i class="err"></i></label>
+          <label class="ck-f"><span>Vergi no <em>*</em></span><input name="vkn" inputmode="numeric" maxlength="11" /><i class="err"></i></label>
+        </div>
+        <div class="ck-fields" style="margin-top:14px">
+          <label class="ck-f wide"><span>Adres <em>*</em></span><textarea name="adres" rows="2"></textarea><i class="err"></i></label>
+          <label class="ck-f"><span>İl <em>*</em></span><input name="il" /><i class="err"></i></label>
+          <label class="ck-f"><span>İlçe <em>*</em></span><input name="ilce" /><i class="err"></i></label>
+        </div>
+      </div>
+
+      <div class="ck-card">
+        <h2>Onaylar</h2>
+        <p>Ödemeye geçmeden önce sözleşmeleri okuyup onaylamanız gerekir.</p>
+        <div class="ck-consents">
+          <label class="ck-cs"><input type="checkbox" name="onbilgi" />
+            <span><a href="yasal.html#mesafeli" target="_blank" rel="noopener">Ön Bilgilendirme Formu</a> ve
+            <a href="yasal.html#mesafeli" target="_blank" rel="noopener">Mesafeli Satış Sözleşmesi</a>'ni okudum, onaylıyorum.</span></label>
+          <label class="ck-cs"><input type="checkbox" name="iade" />
+            <span><a href="yasal.html#iptal" target="_blank" rel="noopener">İptal &amp; İade Koşulları</a> ile
+            <a href="yasal.html#teslimat" target="_blank" rel="noopener">Teslimat &amp; İfa Koşulları</a>'nı kabul ediyorum.</span></label>
+          <label class="ck-cs"><input type="checkbox" name="kvkk" />
+            <span><a href="yasal.html#kvkk" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum; bilgilerimin kayıt ve faturalandırma amacıyla işlenmesini kabul ediyorum.</span></label>
+          <label class="ck-cs"><input type="checkbox" name="izin" />
+            <span>ESG LAB eğitim ve etkinlik duyurularını e-posta ile almak istiyorum. <em style="color:var(--ink-3);font-style:normal">(isteğe bağlı)</em></span></label>
+        </div>
+      </div>
+    </form>
+
+    <!-- ---------------- ÖZET ---------------- -->
+    <aside class="ck-sum" id="ckSum">
+      <div class="ck-sum-h">
+        <span class="code" id="ckCode">—</span>
+        <h3 id="ckTitle">Eğitim seçilmedi</h3>
+      </div>
+      <div class="ck-meta" id="ckMeta"></div>
+      <div class="ck-qty">
+        <span class="k">Katılımcı sayısı</span>
+        <div class="ck-stepper">
+          <button type="button" id="ckMinus" aria-label="Azalt">−</button>
+          <span id="ckQty">1</span>
+          <button type="button" id="ckPlus" aria-label="Artır">+</button>
+        </div>
+      </div>
+      <div class="ck-tot">
+        <div><span>Ara toplam</span><span id="ckNet">—</span></div>
+        <div><span>KDV (%20)</span><span id="ckVat">—</span></div>
+        <div class="grand"><span>Toplam (tek çekim)</span><span id="ckGross">—</span></div>
+      </div>
+      <div class="ck-inst">
+        <div class="h">
+          <span>Taksit seçenekleri</span>
+          <b id="ckInstBest">—</b>
+        </div>
+        <div class="ck-inst-row">
+          <span>1</span><span>2</span><span>3</span><span>6</span><span>9</span><span>12</span>
+        </div>
+        <p>Taksitli ödemelerde bankanız <b>vade farkı</b> uygulayabilir; bu fark toplam tutarı artırır. Taksit sayısına göre kesin tutarları ödeme adımında iyzico ekranında görüp onaylarsınız.</p>
+      </div>
+      <div class="ck-act">
+        <button class="btn btn-primary" id="ckPay" type="button"><span>Ödemeye geç</span> <span class="arrow">→</span></button>
+        <span class="ck-safe">
+          <svg width="11" height="12" viewBox="0 0 11 12" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.2" y="5" width="8.6" height="6" rx="1.4"/><path d="M3.4 5V3.3a2.1 2.1 0 0 1 4.2 0V5"/></svg>
+          iyzico ile 3D Secure · 12 taksite kadar
+        </span>
+      </div>
+      <div class="ck-note">
+        Kontenjan, ödeme tamamlandığında kesinleşir. Sorular için
+        <a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a> ·
+        <a href="tel:+905339552884">+90 533 955 28 84</a>
+      </div>
+    </aside>
+
+  </div>
+</section>
+</main>
+
+<div class="ck-pay" id="ckPayLayer" aria-hidden="true">
+  <div class="ck-pay-box">
+    <header>
+      <h3>Güvenli ödeme</h3>
+      <button type="button" id="ckPayClose" aria-label="Kapat">×</button>
+    </header>
+    <div id="iyzipay-checkout-form" class="responsive"></div>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-bot" style="border:none">
+      <span>© 2026 ESG LAB</span>
+      <span>Tüm hakları saklıdır · <a href="yasal.html#kvkk">Gizlilik</a> · <a href="yasal.html#mesafeli">Satış koşulları</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="takvim-data.js"></script>
+<script src="odeme-config.js"></script>
+<script src="kayit.js"></script>
+<script src="i18n.js"></script>
+</body>
+</html>

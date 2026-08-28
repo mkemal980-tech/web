@@ -105,8 +105,8 @@
         cells += '<div class="' + cls + '"><span class="tk-dn">' + d + '</span>' +
           (TATIL[key2] ? '<span class="tk-hol">' + esc(TATIL[key2]) + '</span>' : '') +
           evs.map(function (e) {
-            return '<button class="tk-ev" data-cat="' + e.s.cat + '" data-go="' + esc(e.s._uid) + '" ' +
-              'title="' + esc(e.s.title + ' · ' + rangeText(e.s) + ' · ' + e.s.days + ' · ' + e.s.time) + '">' +
+            return '<button class="tk-ev" data-cat="' + e.s.cat + '" data-no="' + e.s.no + '" data-go="' + esc(e.s._uid) + '" ' +
+              'title="' + esc(e.s.title + ' · ' + rangeText(e.s) + ' · ' + e.s.days + ' · ' + e.s.time + ' — detay için tıklayın') + '">' +
               '<b>' + esc(e.s.code) + '</b><span class="n">' + e.s.hours + ' saat · ' + money(e.s.price) + '</span></button>';
           }).join('') + '</div>';
       }
@@ -161,9 +161,15 @@
             '<span class="tk-pay"><svg width="11" height="12" viewBox="0 0 11 12" fill="none" stroke="currentColor" stroke-width="1.4">' +
             '<rect x="1.2" y="5" width="8.6" height="6" rx="1.4"/><path d="M3.4 5V3.3a2.1 2.1 0 0 1 4.2 0V5"/></svg>' +
             'iyzico ile güvenli ödeme</span>'
-          : '<a class="btn btn-primary" href="mailto:bilgi@esgakademi.net?subject=' +
-            encodeURIComponent('Kayıt: ' + s.title + ' (' + rangeText(s) + ')') + '">Kayıt ol</a>') +
-        (s.id ? '<a class="lnk" href="egitimler.html#c-' + esc(s.id) + '">Program detayı →</a>' : '') +
+          : '<a class="btn btn-primary" href="kayit.html?e=' + s.no + '">Kayıt ol</a>' +
+            '<span class="tk-pay"><svg width="11" height="12" viewBox="0 0 11 12" fill="none" stroke="currentColor" stroke-width="1.4">' +
+            '<rect x="1.2" y="5" width="8.6" height="6" rx="1.4"/><path d="M3.4 5V3.3a2.1 2.1 0 0 1 4.2 0V5"/></svg>' +
+            'iyzico ile güvenli ödeme</span>') +
+        '<button class="tk-detay" type="button" data-detay="' + s.no + '">' +
+        '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3">' +
+        '<circle cx="6" cy="6" r="5"/><path d="M6 5.2v3.2M6 3.5v.5" stroke-linecap="round"/></svg>' +
+        'Eğitim detayı</button>' +
+        (s.id ? '<a class="lnk" href="egitimler.html#c-' + esc(s.id) + '">Program sayfası →</a>' : '') +
         '</div></article>';
     }).join('');
   }
@@ -232,9 +238,113 @@
     if (b) setView(b.getAttribute('data-v'));
   });
 
+  /* ---------------- Detay penceresi ---------------- */
+  var DETAY = window.ESG_DETAY || {};
+  var modal = null, lastFocus = null;
+
+  function ul(items, cls) {
+    return '<ul class="' + cls + '">' + items.map(function (t) {
+      return '<li>' + esc(t) + '</li>';
+    }).join('') + '</ul>';
+  }
+
+  function modalHTML(s) {
+    var d = DETAY[s.no] || {};
+    var body = '';
+
+    if (d.aciklama) {
+      body += '<section class="tkm-sec"><h4><i>01</i>Eğitimin açıklaması</h4>' +
+        '<p class="tkm-lead">' + esc(d.aciklama) + '</p></section>';
+    }
+    if (d.mufredat) {
+      body += '<section class="tkm-sec"><h4><i>02</i>Müfredat</h4>' + ul(d.mufredat, 'tkm-num') + '</section>';
+    }
+    if (d.faydalar) {
+      body += '<section class="tkm-sec"><h4><i>03</i>Faydaları</h4>' + ul(d.faydalar, 'tkm-tick') + '</section>';
+    }
+    if (d.kariyer) {
+      body += '<section class="tkm-sec"><h4><i>04</i>Kariyerinize katkıları</h4>' + ul(d.kariyer, 'tkm-tick') + '</section>';
+    }
+    if (d.kimler) {
+      body += '<section class="tkm-sec"><h4><i>05</i>Kimler için uygun</h4>' + ul(d.kimler, 'tkm-who') + '</section>';
+    }
+    if (d.sss) {
+      body += '<section class="tkm-sec"><h4><i>06</i>Sık sorulan sorular</h4><div class="tkm-faq">' +
+        d.sss.map(function (qa) {
+          return '<details><summary>' + esc(qa[0]) + '</summary><p>' + esc(qa[1]) + '</p></details>';
+        }).join('') + '</div></section>';
+    }
+    if (!body) {
+      body = '<section class="tkm-sec"><p class="tkm-lead">' + esc(s.desc) + '</p></section>';
+    }
+
+    return '<div class="tkm-panel" role="dialog" aria-modal="true" aria-label="' + esc(s.title) + '" data-cat="' + s.cat + '">' +
+      '<header class="tkm-head">' +
+      '<div><span class="code">' + String(s.no).padStart(2, '0') + ' · ' + esc(s.code) + '</span>' +
+      '<h3>' + esc(s.title) + '</h3></div>' +
+      '<button class="tkm-x" type="button" data-close aria-label="Kapat">' +
+      '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">' +
+      '<path d="M4 4l8 8M12 4l-8 8"/></svg></button></header>' +
+
+      '<div class="tkm-meta">' +
+      '<div><span class="k">Tarih</span><span class="v">' + rangeText(s) + '</span></div>' +
+      '<div><span class="k">Günler</span><span class="v">' + esc(s.days) + '</span></div>' +
+      '<div><span class="k">Saat</span><span class="v">' + esc(s.time) + '</span></div>' +
+      '<div><span class="k">Süre</span><span class="v">' + s.hours + ' saat</span></div>' +
+      '<div><span class="k">Kontenjan</span><span class="v">' + s.seats + ' kişi</span></div>' +
+      '<div><span class="k">Ücret</span><span class="v">' + money(s.price) + ' <small>+KDV</small></span></div>' +
+      '</div>' +
+
+      '<div class="tkm-body">' + body + '</div>' +
+
+      '<footer class="tkm-foot">' +
+      '<span class="tkm-note">Canlı online · kayıtlara erişim · uluslararası geçerli sertifika</span>' +
+      '<a class="btn btn-primary" href="kayit.html?e=' + s.no + '">Kayıt ol</a>' +
+      '</footer></div>';
+  }
+
+  function openModal(no) {
+    var s = null;
+    DATA.forEach(function (x) { if (x.no === +no) s = x; });
+    if (!s) return;
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'tkm';
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal || e.target.closest('[data-close]')) closeModal();
+      });
+      document.body.appendChild(modal);
+    }
+    lastFocus = document.activeElement;
+    modal.innerHTML = modalHTML(s);
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { modal.classList.add('on'); }, 16);
+    var x = modal.querySelector('.tkm-x');
+    if (x) x.focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove('on');
+    document.body.style.overflow = '';
+    setTimeout(function () { if (modal) modal.innerHTML = ''; }, 220);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal && modal.classList.contains('on')) closeModal();
+  });
+
+  elRows.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-detay]');
+    if (b) openModal(b.getAttribute('data-detay'));
+  });
+
   elMonths.addEventListener('click', function (e) {
     var b = e.target.closest('.tk-ev');
     if (!b) return;
+    var no = b.getAttribute('data-no');
+    if (no) { openModal(no); return; }
     setView('list');
     var row = document.getElementById(b.getAttribute('data-go'));
     if (!row) return;

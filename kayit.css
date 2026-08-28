@@ -1,0 +1,129 @@
+/* ===================================================================
+   ESG LAB — Kayıt & ödeme ekranı
+   =================================================================== */
+.ck { padding-top: calc(var(--sec-pad) * .9); padding-bottom: calc(var(--sec-pad) * 1.6); }
+
+.ck-steps { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px;
+  font: 500 12px/1 var(--font-mono); letter-spacing: .04em; color: var(--ink-3); }
+.ck-steps b { display: inline-flex; align-items: center; gap: 7px; font-weight: 500; color: var(--ink-3); }
+.ck-steps b i { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%;
+  border: 1px solid var(--line-strong); font-style: normal; font-size: 11px; }
+.ck-steps b.on { color: var(--ink); }
+.ck-steps b.on i { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.ck-steps s { width: 22px; height: 1px; background: var(--line-strong); text-decoration: none; }
+
+.ck-grid { display: grid; grid-template-columns: minmax(0, 1fr) 372px; gap: 30px; align-items: start; }
+@media (max-width: 940px) { .ck-grid { grid-template-columns: 1fr; } }
+
+/* ---- Form -------------------------------------------------------- */
+.ck-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-sm); padding: 24px clamp(18px, 3vw, 30px); }
+.ck-card + .ck-card { margin-top: 16px; }
+.ck-card > h2 { font: 600 16px/1.2 var(--font-head); letter-spacing: -.01em; margin: 0 0 3px; }
+.ck-card > h2 + p { margin: 0 0 18px; color: var(--ink-3); font-size: 13px; }
+
+.ck-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
+.ck-fields .wide { grid-column: 1 / -1; }
+@media (max-width: 620px) { .ck-fields { grid-template-columns: 1fr; } }
+
+.ck-f { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ck-f > span { font: 500 11.5px/1 var(--font-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+.ck-f > span em { font-style: normal; color: var(--accent); }
+.ck-f input, .ck-f select, .ck-f textarea {
+  width: 100%; font: 400 14px/1.35 var(--font-body); color: var(--ink);
+  background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: var(--radius-sm); padding: 10px 12px; transition: border-color .16s, background .16s; }
+.ck-f textarea { resize: vertical; min-height: 70px; }
+.ck-f input:focus, .ck-f select:focus, .ck-f textarea:focus {
+  outline: none; border-color: var(--accent); background: var(--surface); }
+.ck-f.bad input, .ck-f.bad select, .ck-f.bad textarea { border-color: #dc2626; }
+.ck-f .err { font-size: 11.5px; color: #dc2626; min-height: 0; }
+
+/* fatura tipi seçici */
+.ck-seg { display: flex; gap: 8px; margin-bottom: 18px; }
+.ck-seg label { flex: 1; display: flex; align-items: center; gap: 9px; cursor: pointer;
+  border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 11px 13px;
+  background: var(--surface-2); transition: border-color .16s, background .16s; }
+.ck-seg label:hover { border-color: var(--line-strong); }
+.ck-seg input { accent-color: var(--accent); }
+.ck-seg label b { font: 600 13.5px/1.2 var(--font-body); }
+.ck-seg label small { display: block; font-size: 11.5px; color: var(--ink-3); margin-top: 1px; }
+.ck-seg label:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+
+/* onaylar */
+.ck-consents { display: grid; gap: 11px; margin-top: 4px; }
+.ck-cs { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: var(--ink-2); cursor: pointer; }
+.ck-cs input { margin-top: 2px; accent-color: var(--accent); flex: none; }
+.ck-cs a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.ck-cs a:hover { color: var(--accent-2); }
+.ck-cs.warn { color: #dc2626; }
+.ck-cs.warn a { color: #dc2626; }
+
+/* ---- Özet -------------------------------------------------------- */
+.ck-sum { position: sticky; top: 86px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.ck-sum-h { padding: 18px 20px 15px; border-bottom: 1px solid var(--line); }
+.ck-sum-h .code { font: 500 11px/1 var(--font-mono); letter-spacing: .07em; color: var(--accent); }
+.ck-sum-h h3 { font: 600 16px/1.25 var(--font-head); letter-spacing: -.01em; margin: 8px 0 0; text-wrap: pretty; }
+.ck-meta { display: grid; gap: 9px; padding: 15px 20px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.ck-meta div { display: flex; justify-content: space-between; gap: 14px; }
+.ck-meta dt, .ck-meta .k { color: var(--ink-3); }
+.ck-meta .v { color: var(--ink); text-align: right; font-weight: 500; }
+
+.ck-qty { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 20px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.ck-qty .k { color: var(--ink-3); }
+.ck-stepper { display: flex; align-items: center; gap: 2px; border: 1px solid var(--line);
+  border-radius: var(--radius-sm); background: var(--surface-2); }
+.ck-stepper button { width: 30px; height: 30px; font: 500 16px/1 var(--font-body); color: var(--ink-2);
+  background: none; border: none; cursor: pointer; border-radius: var(--radius-sm); }
+.ck-stepper button:hover { background: var(--surface-3); color: var(--ink); }
+.ck-stepper span { min-width: 26px; text-align: center; font: 500 14px/1 var(--font-mono); }
+
+.ck-tot { padding: 15px 20px 18px; display: grid; gap: 9px; font-size: 13px; }
+.ck-tot div { display: flex; justify-content: space-between; gap: 14px; color: var(--ink-2); }
+.ck-tot .grand { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 3px;
+  font: 600 17px/1 var(--font-head); color: var(--ink); align-items: baseline; }
+.ck-tot .grand span:first-child { font-size: 13px; font-family: var(--font-body); font-weight: 500; }
+
+/* taksit bilgisi */
+.ck-inst { margin: 0 20px 16px; padding: 13px 14px; border: 1px solid var(--line);
+  border-radius: var(--radius-sm); background: var(--surface-2); }
+.ck-inst .h { display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+  font: 500 11.5px/1 var(--font-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+.ck-inst .h b { font: 500 12px/1 var(--font-mono); color: var(--ink); text-transform: none; letter-spacing: 0; }
+.ck-inst-row { display: flex; gap: 5px; margin: 10px 0 9px; }
+.ck-inst-row span { flex: 1; text-align: center; padding: 6px 0; border-radius: 6px;
+  background: var(--surface); border: 1px solid var(--line);
+  font: 500 12px/1 var(--font-mono); color: var(--ink-2); }
+.ck-inst p { margin: 0; font-size: 11.5px; line-height: 1.55; color: var(--ink-3); }
+.ck-inst p b { color: var(--ink-2); font-weight: 600; }
+
+.ck-act { padding: 0 20px 20px; display: grid; gap: 10px; }
+.ck-act .btn { width: 100%; justify-content: center; }
+.ck-act .btn.is-busy { pointer-events: none; opacity: .6; }
+.ck-safe { display: flex; align-items: center; justify-content: center; gap: 6px;
+  font: 400 11.5px/1 var(--font-body); color: var(--ink-3); }
+.ck-safe svg { flex: none; }
+
+.ck-note { padding: 13px 20px; background: var(--surface-2); border-top: 1px solid var(--line);
+  font-size: 12px; line-height: 1.55; color: var(--ink-3); }
+.ck-note a { color: var(--accent); }
+
+/* uyarı / bilgi kutusu */
+.ck-alert { display: flex; gap: 11px; padding: 13px 15px; border-radius: var(--radius-sm);
+  border: 1px solid var(--line); background: var(--surface-2); font-size: 13px; line-height: 1.55;
+  color: var(--ink-2); margin-bottom: 18px; }
+.ck-alert.err { border-color: color-mix(in oklab, #dc2626 40%, var(--line)); background: color-mix(in oklab, #dc2626 7%, var(--surface)); color: #b91c1c; }
+.ck-alert b { color: inherit; }
+.ck-alert a { color: var(--accent); }
+
+/* iyzico form katmanı */
+.ck-pay { position: fixed; inset: 0; z-index: 120; display: none; padding: 4vh 16px;
+  background: color-mix(in oklab, var(--ink) 55%, transparent); backdrop-filter: blur(3px); overflow: auto; }
+.ck-pay.on { display: block; }
+.ck-pay-box { max-width: 520px; margin: 0 auto; background: var(--surface);
+  border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px; }
+.ck-pay-box header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.ck-pay-box h3 { font: 600 15px/1 var(--font-head); margin: 0; }
+.ck-pay-box button { background: none; border: none; cursor: pointer; color: var(--ink-3); font-size: 20px; line-height: 1; }
