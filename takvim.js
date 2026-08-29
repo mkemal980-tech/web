@@ -346,6 +346,9 @@
     var b = e.target.closest('.tk-ev');
     if (!b) return;
     var no = b.getAttribute('data-no');
+    var rec = null;
+    DATA.forEach(function (x) { if (x.no === +no) rec = x; });
+    if (rec && rec.url) { window.location.href = rec.url; return; }
     if (no) { openModal(no); return; }
     setView('list');
     var row = document.getElementById(b.getAttribute('data-go'));

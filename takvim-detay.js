@@ -89,7 +89,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  3: {
+  9: {
     aciklama: 'En yaygın kullanılan üç raporlama çerçevesi olan GRI, TSRS ve ESRS tek programda, rapor hazırlama pratiğine odaklanarak ele alınır. Katılımcılar çifte önemlilik analizinden gösterge setinin kurulmasına, veri toplama altyapısından rapor metninin yazımına kadar uçtan uca süreci uygular. Risk ve fırsat yönetimi, senaryo analizi ve dirençlilik değerlendirmesi gibi ileri konular da programın parçasıdır; böylece hem küresel hem yerel raporlama gerekliliklerine hâkimiyet sağlanır.',
     mufredat: [
       'GRI (3 gün) — GRI 1/2/3 evrensel standartları, sektör standartları, çifte önemlilik analizinin adım adım yürütülmesi, paydaş katılımı, konu bazlı standart seçimi, gösterge bazında veri toplama ve beyan yazımı',
@@ -128,7 +128,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  4: {
+  5: {
     aciklama: 'ISO 50001 Enerji Yönetim Sistemi standardı, denetçi bakış açısıyla ve hesaplama pratiğiyle birlikte ele alınır. Enerji gözden geçirme, performans göstergelerinin kurulması, baseline ve CUSUM/regresyon analizleriyle tasarrufun matematiksel olarak kanıtlanması eğitimin merkezindedir. Katılımcılar hem sistemi kurma hem de ISO 19011 ve ISO 50003 çerçevesinde denetleme yetkinliği kazanır.',
     mufredat: [
       'ISO 50001 maddelerinin denetçi gözüyle analizi; PUKÖ döngüsünün enerji yönetimine uygulanması',
@@ -170,7 +170,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  5: {
+  6: {
     aciklama: 'ISO 42001 Yapay Zekâ Yönetim Sistemi standardına uyum sağlayarak yapay zekâ risklerini yöneten, etkili bir yönetim sistemi kurmanın tüm adımları öğretilir. Standardın maddeleri denetçi bakış açısıyla incelenir; AI risk ve etki değerlendirmesi, kontrol setlerinin uygulanması ve denetim teknikleri uygulamalı biçimde ele alınır. Güvenli ve sorumlu yapay zekâ uygulamaları için gereken yönetişim bilgisini, AB AI Yasası ile ilişkisiyle birlikte kazanırsınız.',
     mufredat: [
       'Temel yapay zekâ kavramları: makine öğrenmesi, üretken modeller, model yaşam döngüsü',
@@ -212,7 +212,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  6: {
+  7: {
     aciklama: 'Yeşil taksonomiler, bir ekonomik faaliyetin “çevresel açıdan sürdürülebilir” sayılıp sayılmayacağını teknik kriterlere bağlayan sınıflandırma sistemleridir. Eğitim, AB Taksonomisi ve Türkiye Yeşil Taksonomisi’ni yan yana ele alarak uygunluk (eligibility) ve uyum (alignment) hesaplamasının nasıl yapıldığını uygulamalı biçimde öğretir. Faaliyet eşleştirmesi, önemli katkı kriterleri, önemli zarar vermeme (DNSH) testi ve asgari güvenceler adım adım işlenir; ciro, CapEx ve OpEx bazlı KPI hesaplaması örnek şirket verisi üzerinde yapılır.',
     mufredat: [
       'Taksonominin mantığı ve sürdürülebilir finans mimarisindeki yeri',
@@ -254,7 +254,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  7: {
+  8: {
     aciklama: 'Kurumsal iş akışlarında yapay zekâyı verimli ve güvenli biçimde kullanmayı hedefleyen ileri seviye uygulama programıdır. İleri istem (prompt) tasarımı, doküman ve veri üzerinde çalışma, otomasyon senaryoları ve kurum içi kullanım politikalarının oluşturulması ele alınır. Program araç tanıtımı değil; ölçülebilir zaman ve kalite kazancı üreten iş akışı tasarımı üzerine kuruludur. Her modül katılımcının kendi işinden getirdiği görevler üzerinde atölye çalışmasıyla desteklenir.',
     mufredat: [
       'Üretken modellerin çalışma mantığı, yetenek sınırları ve halüsinasyon riski',
@@ -296,7 +296,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  8: {
+  10: {
     aciklama: 'EcoVadis, tedarik zincirinde en yaygın kullanılan sürdürülebilirlik değerlendirme sistemidir ve müşteri talebiyle karşınıza çıktığında skor doğrudan ticari sonuç üretir. Eğitim, metodolojinin nasıl çalıştığını, hangi belgenin hangi kriterde puan getirdiğini ve skoru yükselten dokümantasyon pratiğini ayrıntılı biçimde öğretir. Değerlendirme öncesi hazırlık, kanıt dosyasının kurgulanması ve düzeltici faaliyet planının yazımı uygulamalı olarak ele alınır.',
     mufredat: [
       'EcoVadis metodolojisi: dört tema (Çevre, İş Gücü ve İnsan Hakları, Etik, Sürdürülebilir Tedarik) ve 21 kriter',
@@ -338,7 +338,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  9: {
+  3: {
     aciklama: 'Emisyon ticaret sistemleri, karbonu fiyatlandırarak azaltımı maliyet kalemine dönüştürür. Eğitim, Türkiye ETS’nin (TR-ETS) kurulum takvimi ve yükümlülükleriyle AB ETS’nin işleyişini karşılaştırmalı biçimde ele alır. İzleme-raporlama-doğrulama (MRV) döngüsü, izleme planı hazırlığı, tahsisat hesabı ve piyasa mekanizmaları uygulamalı olarak işlenir; SKDM (CBAM) ile ETS arasındaki ilişki ve ihracatçı şirketler için maliyet etkisi ayrıntılı biçimde değerlendirilir.',
     mufredat: [
       'Karbon fiyatlandırma araçları: vergi, ETS ve karbon kredisi piyasalarının karşılaştırması',
@@ -380,7 +380,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  10: {
+  11: {
     aciklama: 'ISO 20400, satın alma süreçlerine sürdürülebilirliğin nasıl entegre edileceğini gösteren rehber standarttır. Eğitim, tedarikçi seçim ve değerlendirme kriterlerinin kurulmasından sözleşme hükümlerine, tedarikçi risk haritalamasından performans yönetimine kadar tüm satın alma döngüsünü kapsar. Kurumsal alıcıların artan ESG taleplerine yanıt verebilen, denetlenebilir bir sürdürülebilir tedarik politikası oluşturmayı hedefler.',
     mufredat: [
       'ISO 20400 yapısı; ISO 26000 ile ilişkisi ve rehber standart olmasının pratik sonuçları',
@@ -422,7 +422,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  11: {
+  12: {
     aciklama: 'Science Based Targets initiative (SBTi), şirket iklim hedeflerinin Paris Anlaşması sıcaklık patikalarıyla uyumunu doğrulayan en yaygın çerçevedir. Eğitim, hedef belirlemenin teknik tarafına odaklanır: baz yıl envanterinin hazırlanması, sektörel azaltım patikalarının seçimi, Kapsam 3 hedef kapsamı, Net Sıfır standardının gereklilikleri ve başvuru–doğrulama sürecinin yönetimi. Hedef hesaplamaları örnek şirket verisi üzerinde adım adım yapılır.',
     mufredat: [
       'İklim bilimi temeli: karbon bütçesi, 1,5 °C patikası ve şirket hedefleriyle ilişkisi',
@@ -465,7 +465,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  12: {
+  13: {
     aciklama: 'ISO 26000, sosyal sorumluluğun kurumsal süreçlere nasıl entegre edileceğini yedi temel konu üzerinden tanımlayan rehber standarttır. Eğitim, ilkelerden uygulamaya geçişi merkeze alır: paydaş analizi ve önceliklendirme, temel konuların kurum süreçlerine yerleştirilmesi, performans ölçümü ve raporlama. İnsan hakları özenli incelemesi (due diligence), çalışma uygulamaları ve toplumsal katılım bölümleri vaka analizleriyle desteklenir.',
     mufredat: [
       'Sosyal sorumluluğun yedi ilkesi: hesap verebilirlik, şeffaflık, etik davranış, paydaş çıkarlarına saygı, hukuka saygı, uluslararası davranış normları, insan haklarına saygı',
@@ -509,7 +509,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  13: {
+  14: {
     aciklama: 'Sürdürülebilir finans, sermayenin hangi koşullarla ve hangi fiyattan erişilebildiğini belirleyen bir alana dönüşmüştür. Eğitim, yeşil ve sürdürülebilirlik bağlantılı finansman araçlarını, ESG risk değerlendirmesini, açıklama yükümlülüklerini ve yatırımcı beklentilerini uygulamalı biçimde ele alır. Yeşil tahvil çerçevesi kurgusu, KPI ve SPT belirleme, tahsis raporlaması ve etki raporlaması adım adım işlenir.',
     mufredat: [
       'Sürdürülebilir finans mimarisi: taksonomiler, açıklama rejimleri ve piyasa standartları',
@@ -551,7 +551,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  14: {
+  15: {
     aciklama: 'Sürdürülebilir insan kaynakları yaklaşımı bütüncül bir bakış açısıyla ele alınarak, kurumlarda sürdürülebilirlik kültürünün çalışan deneyimi, yetenek yönetimi ve kurumsal performansla nasıl entegre edildiği öğretilir. İnsan kaynakları süreçlerinin sürdürülebilirlik ilkeleriyle nasıl uyumlu hale getirileceği, çalışan bağlılığını artıran uygulamalar ve sürdürülebilir İK stratejilerinin kuruma sağladığı değer kapsamlı biçimde işlenir. Eğitim sonunda sürdürülebilir İK uygulamalarını kurumunuzda nasıl tasarlayıp hayata geçireceğinizi bütünsel bir çerçevede öğrenmiş olursunuz.',
     mufredat: [
       '1. Sürdürülebilirlik kavramı ve ESG yaklaşımı',
