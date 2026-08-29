@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-accent="orange" data-font="grotesk" data-density="regular">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ESG LAB — Claude Ustalık Programı · İleri Seviye Uygulamalı Yapay Zekâ Eğitimi</title>
+<meta name="description" content="16 modül, %75 laboratuvar, 15 çalışan teslim. Beyaz yaka profesyoneller ve teknik ekipler için ileri seviye, uygulamalı Claude eğitimi." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+/* ===== Claude Ustalık Programı sayfasına özel ===== */
+.cu-hero { padding-top: calc(58px * var(--scale)); padding-bottom: calc(40px * var(--scale)); }
+.cu-hero h1 { font-size: clamp(34px, 5vw, 58px); letter-spacing: -.03em; line-height: 1.05; }
+.cu-hero h1 .hl { color: var(--accent); }
+.cu-hero .lead { color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); margin: 24px 0 0; max-width: 52ch; }
+.cu-cta { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 32px; }
+
+.cu-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+.cu-card .hd { background: var(--ink); color: #fff; padding: 22px 24px; position: relative; overflow: hidden; }
+html[data-theme="contrast"] .cu-card .hd { background: #000; }
+.cu-card .hd::after { content: ""; position: absolute; right: -20%; top: -60%; width: 240px; height: 240px; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 60%, transparent), transparent 66%); opacity: .55; }
+.cu-card .hd .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: color-mix(in oklab, var(--accent) 55%, #fff); position: relative; }
+.cu-card .hd .v { font-family: var(--font-head); font-size: 22px; margin-top: 6px; position: relative; }
+.cu-card .rows { padding: 8px 24px 20px; }
+.cu-card .r { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.cu-card .r:last-child { border-bottom: 0; }
+.cu-card .r .l { font-size: 14px; color: var(--ink-2); }
+.cu-card .r .val { font-family: var(--font-head); font-size: 15px; font-weight: 600; text-align: right; }
+
+.cu-stats { background: var(--surface); border-block: 1px solid var(--line); }
+.cu-stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.cu-stat { padding: 32px 26px; border-right: 1px solid var(--line); }
+.cu-stat:last-child { border-right: 0; }
+.cu-stat .n { font-family: var(--font-head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 600; letter-spacing: -.03em; display: flex; align-items: baseline; gap: 3px; }
+.cu-stat .n .u { font-size: .5em; color: var(--accent); }
+.cu-stat .k { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); margin-top: 10px; }
+
+.cu-aim { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 60px); }
+.cu-aim-lead { font-family: var(--font-head); font-size: clamp(21px, 2.3vw, 29px); line-height: 1.25; letter-spacing: -.02em; }
+.cu-aim-lead em { color: var(--accent); font-style: normal; }
+.cu-aim-body p { color: var(--ink-2); margin: 0 0 16px; }
+.cu-aim-body p:last-child { margin-bottom: 0; }
+.cu-quote { margin: 26px 0 0; padding: 22px 26px; background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; font-family: var(--font-head); font-size: 17px; line-height: 1.45; letter-spacing: -.01em; color: var(--ink); }
+
+.cu-feat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cu-f { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px 28px; }
+.cu-f .ix { font-family: var(--font-mono); font-size: 11.5px; color: var(--accent); letter-spacing: .08em; }
+.cu-f h3 { font-size: 17.5px; line-height: 1.2; margin-top: 12px; }
+.cu-f p { color: var(--ink-2); font-size: 14.5px; margin: 11px 0 0; }
+
+.cu-split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.cu-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 30px 32px; }
+.cu-panel.hi { border-color: color-mix(in oklab, var(--accent) 45%, var(--line)); background: color-mix(in oklab, var(--accent) 5%, var(--surface)); }
+.cu-panel .ph { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
+.cu-panel.hi .ph { color: var(--accent); }
+.cu-panel h3 { font-size: 20px; letter-spacing: -.015em; margin-bottom: 16px; }
+.cu-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 13px; }
+.cu-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--ink); line-height: 1.5; }
+.cu-list li .ck { flex: none; width: 21px; height: 21px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 11px; margin-top: 2px; }
+.cu-list.neg li .ck { background: var(--surface-2); color: var(--ink-3); }
+.cu-panel .foot-note { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin: 18px 0 0; line-height: 1.6; }
+
+.cu-tbl-wrap { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.cu-tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.cu-tbl th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); background: var(--surface-2); padding: 14px 20px; font-weight: 500; border-bottom: 1px solid var(--line); }
+.cu-tbl td { padding: 13px 20px; color: var(--ink-2); border-bottom: 1px solid var(--line); }
+.cu-tbl tr:last-child td { border-bottom: 0; }
+.cu-tbl td.env { font-family: var(--font-head); font-weight: 600; color: var(--ink); white-space: nowrap; }
+.cu-tbl td.num { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-3); width: 54px; }
+
+.cu-blocks { display: grid; gap: 26px; }
+.cu-block { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 30px 32px 34px; }
+.cu-block-hd { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.cu-block-hd h3 { font-size: 22px; letter-spacing: -.02em; }
+.cu-block-hd .rng { font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+.cu-mods { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; margin-top: 26px; }
+.cu-mod .mn { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--ink-3); }
+.cu-mod h4 { font-family: var(--font-head); font-size: 17px; font-weight: 600; margin-top: 7px; letter-spacing: -.015em; }
+.cu-mod p { color: var(--ink-2); font-size: 14.5px; margin: 10px 0 0; }
+.cu-mod .kz { font-size: 13.5px; color: var(--ink); margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--line); }
+.cu-mod .kz b { color: var(--accent); font-weight: 600; }
+
+.cu-deliver { display: grid; grid-template-columns: 1.05fr .95fr; gap: 22px; align-items: start; }
+.cu-dlist { list-style: none; margin: 0; padding: 0; counter-reset: d; }
+.cu-dlist li { counter-increment: d; display: flex; gap: 14px; font-size: 14.5px; color: var(--ink-2); padding: 11px 0; border-bottom: 1px solid var(--line); }
+.cu-dlist li:last-child { border-bottom: 0; }
+.cu-dlist li::before { content: counter(d, decimal-leading-zero); font-family: var(--font-mono); font-size: 12px; color: var(--accent); flex: none; padding-top: 2px; }
+
+.cu-levels { display: grid; gap: 12px; }
+.cu-level { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.cu-level.top { background: var(--ink); border-color: var(--ink); color: #fff; }
+html[data-theme="contrast"] .cu-level.top { background: #000; }
+.cu-level .lv { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.cu-level p { margin: 8px 0 0; font-size: 14px; color: var(--ink-2); }
+.cu-level.top p { color: rgba(255,255,255,.75); }
+
+.cu-faq { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); overflow: hidden; }
+.cu-faq details { border-bottom: 1px solid var(--line); }
+.cu-faq details:last-child { border-bottom: 0; }
+.cu-faq summary { cursor: pointer; list-style: none; padding: 20px 26px; font-family: var(--font-head); font-size: 16.5px; font-weight: 600; letter-spacing: -.015em; display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+.cu-faq summary::-webkit-details-marker { display: none; }
+.cu-faq summary::after { content: "+"; color: var(--accent); font-family: var(--font-mono); font-size: 18px; flex: none; }
+.cu-faq details[open] summary::after { content: "–"; }
+.cu-faq details p { margin: 0; padding: 0 26px 22px; color: var(--ink-2); font-size: 15px; max-width: 82ch; }
+
+@media (max-width: 980px) {
+  .cu-aim, .cu-split, .cu-deliver, .cu-mods { grid-template-columns: 1fr; }
+  .cu-feat { grid-template-columns: 1fr 1fr; }
+  .cu-stats .wrap { grid-template-columns: 1fr 1fr; }
+  .cu-stat { border-bottom: 1px solid var(--line); }
+  .cu-stat:nth-child(2n) { border-right: 0; }
+}
+@media (max-width: 640px) {
+  .cu-feat { grid-template-columns: 1fr; }
+  .cu-block { padding: 24px 22px 28px; }
+  .cu-panel { padding: 24px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span>ESG&nbsp;<span class="lab">LAB</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services" data-i18n="nav_services">Hizmetler</a>
+      <a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a>
+      <a href="egitim-takvimi.html" data-i18n="nav_cal">Eğitim Takvimi</a>
+      <a href="kobi-programi.html" data-i18n="nav_pkg">KOBİ Paketi</a>
+      <a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="tr" class="on">TR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="#cu-contact" class="btn btn-primary nav-cta">Kontenjan sor</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================== HERO ============================== -->
+<section class="cu-hero section wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow reveal" data-num="">İleri seviye · Uygulamalı yapay zekâ eğitimi</span>
+      <h1 class="reveal" data-d="1">Claude'u kullanmayı değil, Claude ile <span class="hl">kurmayı</span> öğretiyoruz.</h1>
+      <p class="lead reveal" data-d="2">Beyaz yaka profesyoneller ve teknik ekipler için ileri seviye, uygulamalı Claude eğitimi. Üç gün sonunda elinizde slayt notu değil, çalışan kurulumlar olur.</p>
+      <div class="cu-cta reveal" data-d="3">
+        <a href="#cu-contact" class="btn btn-primary"><span>Kontenjan ve takvim</span> <span class="arrow">→</span></a>
+        <a href="#cu-mufredat" class="btn btn-ghost">Müfredatı incele</a>
+      </div>
+      <div class="hero-meta reveal" data-d="3">
+        <div class="m"><b>16 modül</b><span>dört blokta</span></div>
+        <div class="m"><b>%75</b><span>laboratuvar / uygulama</span></div>
+        <div class="m"><b>15 teslim</b><span>katılımcı başına</span></div>
+      </div>
+    </div>
+
+    <div class="reveal" data-d="2">
+      <div class="cu-card">
+        <div class="hd">
+          <div class="k">Program bir bakışta</div>
+          <div class="v">Claude Ustalık Programı</div>
+        </div>
+        <div class="rows">
+          <div class="r"><span class="l">Seviye</span><span class="val">İleri</span></div>
+          <div class="r"><span class="l">Format</span><span class="val">3 tam gün <span style="color:var(--ink-3);font-weight:400">veya</span> 8 hafta × 2 saat</span></div>
+          <div class="r"><span class="l">Grup</span><span class="val">12–16 kişi</span></div>
+          <div class="r"><span class="l">Uygulama oranı</span><span class="val">%75 laboratuvar</span></div>
+          <div class="r"><span class="l">Takip</span><span class="val">4 hafta klinik + 60. gün</span></div>
+          <div class="r"><span class="l">Sertifika</span><span class="val">Teslime bağlı, 3 seviye</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STAT BAND ============================== -->
+<section class="cu-stats">
+  <div class="wrap">
+    <div class="cu-stat reveal"><div class="n">16</div><div class="k">Modül</div></div>
+    <div class="cu-stat reveal" data-d="1"><div class="n">75<span class="u">%</span></div><div class="k">Laboratuvar</div></div>
+    <div class="cu-stat reveal" data-d="2"><div class="n">15</div><div class="k">Çalışan teslim</div></div>
+    <div class="cu-stat reveal" data-d="3"><div class="n">4</div><div class="k">Hafta uygulama kliniği</div></div>
+  </div>
+</section>
+
+<!-- ============================== GENEL BAKIŞ ============================== -->
+<section class="section wrap" id="cu-genel">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="01">Genel bakış</span>
+    <h2>Araç güçlü, kullanım biçimi zayıf</h2>
+  </div>
+  <div class="cu-aim">
+    <div class="cu-aim-lead reveal">Fark, hangi düğmeye bastığınızda değil, <em>hangi işi hangi ortamda yaptığınızda</em> ortaya çıkıyor.</div>
+    <div class="cu-aim-body reveal" data-d="1">
+      <p>Çoğu kurumda yapay zekâ kullanımı aynı yerde takılı kalıyor: insanlar bir sohbet kutusuna soru soruyor, gelen cevabı kopyalayıp bir yere yapıştırıyor ve ertesi gün aynı şeyi baştan yapıyor. Ortaya çıkan tablo tanıdık: "denedik, fena değil ama işimizi değiştirmedi."</p>
+      <p>Claude tek bir sohbet penceresinden ibaret değil; farklı çalışma ortamları, kalıcı bağlam katmanları, otomasyon ve entegrasyon araçlarından oluşan bir bütün. Bu program o bütünü özellik özellik öğretir. Her modülde tek bir soruya cevap verilir: bu nedir, ne işe yarar, nasıl kullanılır, ben bununla ne kurarım.</p>
+      <p>Her modül, katılımcının kendi verisiyle yaptığı bir uygulamayla biter.</p>
+      <div class="cu-quote">Program bittiğinde katılımcı "yapay zekâyı öğrendim" demez. Kurduğu projeyi, yazdığı yeteneği, canlıya aldığı zamanlanmış görevi ve ölçtüğü zaman kazancını gösterir.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== NEDEN FARKLI ============================== -->
+<section class="section wrap" id="cu-fark">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="02">Neden bu program farklı</span>
+    <h2>Altı fark</h2>
+  </div>
+  <div class="cu-feat">
+    <div class="cu-f reveal"><div class="ix">01</div><h3>Kendi verinizle çalışırsınız</h3><p>Hiçbir laboratuvarda hayali örnek kullanılmaz. Katılımcı kendi dosyalarını, kendi klasörünü, kendi süreçlerini getirir. Sınıfta çalışan şey, ertesi gün masada da çalışır.</p></div>
+    <div class="cu-f reveal" data-d="1"><div class="ix">02</div><h3>Zamanın dörtte üçü uygulamadır</h3><p>Program %75 laboratuvar, %25 anlatım olarak tasarlandı. Anlatım blokları kısa tutulur; asıl zaman katılımcının kendi ekranında geçer.</p></div>
+    <div class="cu-f reveal" data-d="2"><div class="ix">03</div><h3>Ölçülen kazanım, tahmin edilen değil</h3><p>Her laboratuvarda süre tutulur: bu iş elle kaç dakika sürüyordu, şimdi kaç dakika sürüyor. Program sonundaki kazanım raporu bu ölçümlere dayanır.</p></div>
+    <div class="cu-f reveal"><div class="ix">04</div><h3>Yanlış kullanımı da öğretir</h3><p>Halüsinasyon, veri sızıntısı, aşırı yetki ve talimat enjeksiyonu sınıfta bilerek sahnelenir. Katılımcı riski duymaz, görür ve engellemeyi dener.</p></div>
+    <div class="cu-f reveal" data-d="1"><div class="ix">05</div><h3>Maliyet yönetimi müfredatın parçasıdır</h3><p>Hangi işin hangi modelde yapılacağı, bağlamın nasıl temiz tutulacağı ve aynı işin nasıl daha az kaynak harcayarak yapılacağı ayrı bir modülde işlenir.</p></div>
+    <div class="cu-f reveal" data-d="2"><div class="ix">06</div><h3>Eğitim biter, kullanım başlar</h3><p>Program dört haftalık uygulama kliniği ve şampiyon yapısıyla tamamlanır. Üçüncü hafta düşen kullanım eğrisi, bu takip yapısıyla ayakta tutulur.</p></div>
+  </div>
+</section>
+
+<!-- ============================== KİMLER İÇİN ============================== -->
+<section class="section wrap" id="cu-kimler">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="03">Kimler için</span>
+    <h2>Doğru katılımcı, doğru beklenti</h2>
+  </div>
+  <div class="cu-split">
+    <div class="cu-panel hi reveal">
+      <div class="ph">Doğru katılımcı</div>
+      <ul class="cu-list">
+        <li><span class="ck">✓</span><span>Claude'u sohbet düzeyinde düzenli kullanan, ama "daha fazlası olmalı" diyen profesyoneller</span></li>
+        <li><span class="ck">✓</span><span>Tekrar eden işleri olan beyaz yaka ekipler: finans, satış, pazarlama, İK, satınalma, kalite, operasyon, proje yönetimi</span></li>
+        <li><span class="ck">✓</span><span>Departmanında yapay zekâ yayılımını üstlenecek şampiyon adayları</span></li>
+        <li><span class="ck">✓</span><span>İç otomasyon ve entegrasyon kuracak teknik ekipler</span></li>
+        <li><span class="ck">✓</span><span>Ekibine standart getirmek isteyen yöneticiler</span></li>
+      </ul>
+    </div>
+    <div class="cu-panel reveal" data-d="1">
+      <div class="ph">Bu program kimin için değil</div>
+      <ul class="cu-list neg">
+        <li><span class="ck">—</span><span>Yapay zekâya sıfırdan başlayanlar — ön koşul, Claude'u sohbet düzeyinde kullanabiliyor olmaktır; temel istem yazımı bu programda öğretilmez</span></li>
+        <li><span class="ck">—</span><span>Yalnızca genel bir farkındalık sunumu arayan kurumlar</span></li>
+        <li><span class="ck">—</span><span>Uygulama yapmadan yalnızca izlemek isteyen katılımcılar — program teslim üzerine kuruludur</span></li>
+      </ul>
+      <p class="foot-note">Sıfır düzeydeki ekipler için ayrı bir giriş programı bulunmaktadır; kayıt öncesi seviye tespiti ile doğru programa yönlendirme yapılır.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KARAR TABLOSU ============================== -->
+<section class="section wrap" id="cu-omurga">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="04">Programın omurgası</span>
+    <h2>Hızlı karar tablosu</h2>
+    <p>Programın tamamı tek bir soruya dayanır: bu işi nerede yapmalıyım? Profesyonel kullanımdaki en pahalı hata, yanlış ortamı seçmektir.</p>
+  </div>
+  <div class="cu-tbl-wrap reveal">
+    <table class="cu-tbl">
+      <thead><tr><th class="num">#</th><th>İhtiyacınız</th><th>Doğru yer</th></tr></thead>
+      <tbody>
+        <tr><td class="num">01</td><td>Düşünmek, taslak çıkarmak, analiz etmek</td><td class="env">Chat</td></tr>
+        <tr><td class="num">02</td><td>Aynı iş alanında sürekli bağlam</td><td class="env">Project</td></tr>
+        <tr><td class="num">03</td><td>Paylaşılacak, güncellenecek canlı sayfa</td><td class="env">Artifact</td></tr>
+        <tr><td class="num">04</td><td>Diskteki dosyalarla toplu iş</td><td class="env">Cowork</td></tr>
+        <tr><td class="num">05</td><td>Uzaktan, ofisteki dosyalarla iş</td><td class="env">Dispatch</td></tr>
+        <tr><td class="num">06</td><td>Kendiliğinden tekrar eden iş</td><td class="env">Scheduled task</td></tr>
+        <tr><td class="num">07</td><td>Her işte geçerli kural, araç ve süreç</td><td class="env">Customize</td></tr>
+        <tr><td class="num">08</td><td>Standart prosedür ve format</td><td class="env">Skill</td></tr>
+        <tr><td class="num">09</td><td>Kurumsal sisteme okuma ve yazma</td><td class="env">Connector</td></tr>
+        <tr><td class="num">10</td><td>Hazır paketle hızlı kurulum</td><td class="env">Plugin</td></tr>
+        <tr><td class="num">11</td><td>Görsel, arayüz, sunum, marka</td><td class="env">Design</td></tr>
+        <tr><td class="num">12</td><td>Kod, otomasyon, ajan, entegrasyon</td><td class="env">Claude Code</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================== MÜFREDAT ============================== -->
+<section class="section wrap" id="cu-mufredat">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="05">Müfredat</span>
+    <h2>16 modül, dört blok</h2>
+    <p>Her modül aynı yapıyı izler: kısa anlatım, kendi verinizle laboratuvar, süre ölçümü ve bir teslim.</p>
+  </div>
+
+  <div class="cu-blocks">
+    <!-- BLOK 1 -->
+    <div class="cu-block reveal">
+      <div class="cu-block-hd">
+        <h3>Blok 1 — Çalışma ortamları</h3>
+        <span class="rng">Modül 01–04</span>
+      </div>
+      <div class="cu-mods">
+        <div class="cu-mod">
+          <div class="mn">MODÜL 01</div><h4>Çalışma Ortamı Haritası</h4>
+          <p>Chat, Cowork, Code ve Design arasındaki farkı yetki ve ortam üzerinden öğrenirsiniz. Dört soruluk seçim testiyle kendi işlerinizi doğru ortama atarsınız.</p>
+          <div class="kz"><b>Kazanım:</b> Bir daha yanlış yerde çalışıp zaman kaybetmezsiniz.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 02</div><h4>Chat Disiplini</h4>
+          <p>Bağlam yönetimi, sohbet hijyeni, plan isteme, ara özet alma, eleştiri turu ve belirsizliği işaretletme.</p>
+          <div class="kz"><b>Kazanım:</b> Aynı işi daha az mesajla ve daha yüksek kalitede bitirirsiniz.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 03</div><h4>Projects</h4>
+          <p>Tekrarlayan bir iş alanı için kalıcı talimat ve bilgi tabanı kurarsınız. Altı bileşenli proje talimatı ve devir testi.</p>
+          <div class="kz"><b>Kazanım:</b> Her sohbette bağlamı baştan anlatma döngüsü biter; ekip aynı bağlamla çalışır.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 04</div><h4>Artifacts</h4>
+          <p>Sohbetten çıkan, kendi bağlantısı olan ve güncellenebilen canlı çıktılar: referans sayfası, hesaplayıcı, pano.</p>
+          <div class="kz"><b>Kazanım:</b> Çıktıları link olarak paylaşır, aynı adrese güncelleme yayınlarsınız.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOK 2 -->
+    <div class="cu-block reveal">
+      <div class="cu-block-hd">
+        <h3>Blok 2 — Ajanlı çalışma</h3>
+        <span class="rng">Modül 05–08</span>
+      </div>
+      <div class="cu-mods">
+        <div class="cu-mod">
+          <div class="mn">MODÜL 05</div><h4>Cowork</h4>
+          <p>Claude'un klasörlerinizde gerçekten çalıştığı kip. Güvenli ajan protokolünün altı adımı, izin modeli, doğrulama ve örneklem kontrolü.</p>
+          <div class="kz"><b>Kazanım:</b> Yüzlerce dosyayı kapsayan işleri kontrollü biçimde devredersiniz.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 06</div><h4>Dispatch</h4>
+          <p>Telefondan görev gönderip masaüstündeki ajana yaptırma. Kurulum, eksiksiz görev metni yazımı, sınırlar ve riskler.</p>
+          <div class="kz"><b>Kazanım:</b> Ofisteki dosyalarınıza yoldayken de erişir, işi kuyruğa alırsınız.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 07</div><h4>Scheduled Tasks</h4>
+          <p>Kendiliğinden çalışan görevler. Bağımsız görev metni yazma, insan onay kapısı, sessiz başarısızlık ve sahiplik.</p>
+          <div class="kz"><b>Kazanım:</b> Rutin raporlar siz uyanmadan hazırlanır — ama hiçbir şey onaysız dışarı çıkmaz.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 08</div><h4>Customize</h4>
+          <p>Kurumun kurallarını, araçlarını ve süreçlerini bir kez öğretme katmanı. Talimatın üç seviyesi ve uzun talimatın gizli maliyeti.</p>
+          <div class="kz"><b>Kazanım:</b> Her oturum, sistemleriniz bağlı ve kurallarınız yerinde başlar.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOK 3 -->
+    <div class="cu-block reveal">
+      <div class="cu-block-hd">
+        <h3>Blok 3 — Kurumsallaştırma</h3>
+        <span class="rng">Modül 09–12</span>
+      </div>
+      <div class="cu-mods">
+        <div class="cu-mod">
+          <div class="mn">MODÜL 09</div><h4>Skills</h4>
+          <p>Bir prosedürü yeniden kullanılabilir yeteneğe dönüştürme. Anatomi, en hızlı yazım yolu, tutarlılık testi, sahiplik ve sürüm.</p>
+          <div class="kz"><b>Kazanım:</b> Kurumsal bilgi kişiye bağlı olmaktan çıkar; aynı iş herkeste aynı yapıda çıkar.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 10</div><h4>Connectors (MCP)</h4>
+          <p>Kurumsal sistemlere okuma ve yazma köprüleri. En az yetki ilkesi, erişim sınırlarının testi, taslak modu ve talimat enjeksiyonu riski.</p>
+          <div class="kz"><b>Kazanım:</b> Veri taşımacılığı biter; iş kaynağın kendisinde tamamlanır.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 11</div><h4>Plugins</h4>
+          <p>Bağlayıcı, yetenek ve komutların tek pakette dağıtımı. Kurulum, içerik incelemesi, kurumsal paket oluşturma ve güvenlik.</p>
+          <div class="kz"><b>Kazanım:</b> Yeni çalışan ya da yeni ekip dakikalar içinde doğru araç ve süreçle başlar.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 12</div><h4>Design</h4>
+          <p>Sohbet ve tuvalin yan yana çalıştığı tasarım ortamı. Marka sisteminin önce kurulması, artboard düzeyinde çalışma, geliştirmeye devir.</p>
+          <div class="kz"><b>Kazanım:</b> Fikirlerinizi 20 dakikada görünür hâle getirir, iç materyalinizi kendiniz üretirsiniz.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOK 4 -->
+    <div class="cu-block reveal">
+      <div class="cu-block-hd">
+        <h3>Blok 4 — İnşa</h3>
+        <span class="rng">Modül 13–16</span>
+      </div>
+      <div class="cu-mods">
+        <div class="cu-mod">
+          <div class="mn">MODÜL 13</div><h4>Claude Code ile İnşa</h4>
+          <p>Programın en teknik modülü, üç somut vaka ile: n8n otomasyonu kurmak, kurumun kendi sistemi için MCP sunucusu yazmak ve uçtan uca çalışan bir ajan tasarlamak. Çalışma düzeni, plan modu, sürüm kontrolü ve gölge mod.</p>
+          <div class="kz"><b>Kazanım:</b> Tekrar eden bir işi bir kez kurup her ay tek komutla çalıştırırsınız.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 14</div><h4>Modeller ve Token Ekonomisi</h4>
+          <p>Hangi iş hangi modelde yapılır, bağlam nereye gider, aynı sonucu daha az kaynakla nasıl alırsınız. On beş somut alışkanlık.</p>
+          <div class="kz"><b>Kazanım:</b> Aynı işi daha ucuza ve hızlı yaparsınız; "limitim neden doluyor" sorusu biter.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 15</div><h4>Güvenlik ve İzin Mimarisi</h4>
+          <p>Ajanlı çalışmada risk yanlış cevap değil, yanlış işlemdir. Üç risk sınıfı, talimat enjeksiyonu, koruma kuralları ve veri sınıflandırma.</p>
+          <div class="kz"><b>Kazanım:</b> Yaygınlaştırmayı güvenle yaparsınız; bilgi güvenliğine sunacak yazılı bir çerçeveniz olur.</div>
+        </div>
+        <div class="cu-mod">
+          <div class="mn">MODÜL 16</div><h4>Zincirleme Ustalık</h4>
+          <p>Öğrenilen parçaların tek işte birleştiği kapanış: aylık yönetim raporu hattı, teklif fabrikası ve operasyon ajanı vakaları. Capstone sunumu ve değerlendirme.</p>
+          <div class="kz"><b>Kazanım:</b> Tek bir özelliği değil, uçtan uca çalışan bir sistemi teslim edersiniz.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FORMAT ============================== -->
+<section class="section wrap" id="cu-format">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="06">Format ve takvim</span>
+    <h2>İki varyant, tek çerçeve</h2>
+  </div>
+  <div class="cu-split">
+    <div class="cu-panel reveal">
+      <div class="ph">Varyant A — üç tam gün (yoğun)</div>
+      <ul class="cu-list">
+        <li><span class="ck">1</span><span>Gün 1: Modül 01–04 — çalışma ortamları</span></li>
+        <li><span class="ck">2</span><span>Gün 2: Modül 05–08 — ajanlı çalışma</span></li>
+        <li><span class="ck">3</span><span>Gün 3: Modül 09–16 — kurumsallaştırma ve inşa</span></li>
+      </ul>
+      <p class="foot-note">Kurum içi kapalı grup ya da açık katılım olarak verilir.</p>
+    </div>
+    <div class="cu-panel hi reveal" data-d="1">
+      <div class="ph">Varyant B — sekiz hafta × iki saat (uzaktan)</div>
+      <h3>Kalıcılığı en yüksek varyant</h3>
+      <p style="color:var(--ink-2);font-size:14.5px;margin:0">Haftada iki modül, arada saha ödevi ve her hafta başında on beş dakikalık paylaşım turu. Öğrenilen her modül, bir sonraki oturuma kadar gerçek işte denenir.</p>
+      <p class="foot-note">Uzaktan verildiğinde eşli çalışma odaları kullanılır.</p>
+    </div>
+  </div>
+  <div class="cu-split" style="margin-top:22px">
+    <div class="cu-panel reveal">
+      <div class="ph">Sınıf ve takip</div>
+      <ul class="cu-list">
+        <li><span class="ck">✓</span><span>12–16 kişilik küçük gruplar</span></li>
+        <li><span class="ck">✓</span><span>Dört hafta boyunca haftada bir 45 dakikalık uygulama kliniği</span></li>
+        <li><span class="ck">✓</span><span>Altmışıncı günde yönetim değerlendirme oturumu</span></li>
+      </ul>
+    </div>
+    <div class="cu-panel reveal" data-d="1">
+      <div class="ph">Katılım koşulları</div>
+      <ul class="cu-list">
+        <li><span class="ck">✓</span><span>Ücretli planda kurumsal hesap</span></li>
+        <li><span class="ck">✓</span><span>Masaüstü uygulaması kurulu bir bilgisayar</span></li>
+        <li><span class="ck">✓</span><span>Katılımcının kendi iş dosyaları; İnşa bloğu için terminal erişimi</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TESLİMLER ============================== -->
+<section class="section wrap" id="cu-teslim">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="07">Ne ile ayrılırsınız</span>
+    <h2>On beş teslim</h2>
+    <p>Program bilgi değil, çalışan kurulum üretir. Sertifika sınav notuna değil teslime bağlıdır.</p>
+  </div>
+  <div class="cu-deliver">
+    <div class="cu-panel reveal">
+      <div class="ph">Katılımcı başına teslim listesi</div>
+      <ul class="cu-dlist">
+        <li>Kendi işleriniz için ortam atama tablosu</li>
+        <li>Devir testi geçmiş bir Project</li>
+        <li>Yayınlanmış üç Artifact: referans, araç ve pano</li>
+        <li>Cowork protokolüyle tamamlanmış bir toplu iş ve süre ölçümü</li>
+        <li>Telefondan tamamlanmış bir Dispatch görevi</li>
+        <li>Canlıda çalışan bir zamanlanmış görev ve onay kapısı</li>
+        <li>Yürürlükte bir küresel talimat</li>
+        <li>Devir testi geçmiş bir Skill</li>
+        <li>Bir okuma ve bir taslak-yazma bağlayıcı görevi</li>
+        <li>Kurulmuş ve kuruma uyarlanmış bir Plugin</li>
+        <li>Marka sistemine uyan üç artboard'lık tasarım</li>
+        <li>n8n akışı, MCP sunucusu ya da ajan tasarımı</li>
+        <li>Token disiplini kartı ve ölçülmüş karşılaştırma</li>
+        <li>Talimat enjeksiyonunu engelleyen koruyucu talimat</li>
+        <li>Capstone: uçtan uca çalışan bir zincir ve sunumu</li>
+      </ul>
+    </div>
+    <div class="reveal" data-d="1">
+      <div class="cu-panel">
+        <div class="ph">Sertifika seviyeleri</div>
+        <div class="cu-levels">
+          <div class="cu-level">
+            <div class="lv">Uygulayıcı</div>
+            <p>İlk sekiz teslim tamamlanmış.</p>
+          </div>
+          <div class="cu-level">
+            <div class="lv">İleri uygulayıcı</div>
+            <p>On ikinci teslime kadar tamamlanmış.</p>
+          </div>
+          <div class="cu-level top">
+            <div class="lv">Kurum mimarı</div>
+            <p>Tüm teslimler, capstone değerlendirmesinde en az 75/100 ve yayında bir kurumsal paket.</p>
+          </div>
+        </div>
+        <p class="foot-note">Sertifika sınav notuna değil, teslime bağlıdır. Yapmayan alamaz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KURUM KAZANIMI ============================== -->
+<section class="section wrap" id="cu-kurum">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="08">Kurum için kazanım</span>
+    <h2>Bireysel katılımcının ötesinde</h2>
+    <p>Program kuruma dört kalıcı varlık bırakır.</p>
+  </div>
+  <div class="cu-feat">
+    <div class="cu-f reveal"><div class="ix">A</div><h3>Kurumsal kütüphane</h3><p>Prompt kartları, projeler, yetenekler ve eklentiler; her birinin sahibi ve sürümü belli. Kişiye bağlı bilgi, kuruma ait varlığa dönüşür.</p></div>
+    <div class="cu-f reveal" data-d="1"><div class="ix">B</div><h3>Yazılı kullanım çerçevesi</h3><p>Veri sınıflandırması, izin mimarisi ve onay kapıları. Bilgi güvenliği ve hukuk birimiyle konuşulabilir, denetime gösterilebilir bir zemin.</p></div>
+    <div class="cu-f reveal" data-d="2"><div class="ix">C</div><h3>Şampiyon ağı</h3><p>Her departmanda, sorulacak bir kişi. Yayılım eğitmenin ayrılmasıyla durmaz.</p></div>
+    <div class="cu-f reveal"><div class="ix">D</div><h3>Ölçüm alışkanlığı</h3><p>Süre ve hata kayıtları programın parçasıdır; yatırımın karşılığı tahminle değil kayıtla konuşulur.</p></div>
+  </div>
+</section>
+
+<!-- ============================== SSS ============================== -->
+<section class="section wrap" id="cu-sss">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="09">Sık sorulan sorular</span>
+    <h2>SSS</h2>
+  </div>
+  <div class="cu-faq reveal">
+    <details open>
+      <summary>Katılımcının teknik olması gerekiyor mu?</summary>
+      <p>Hayır. On üçüncü modül dışında teknik bilgi gerekmez, o modülde de teknik olmayan katılımcılar teknik olanlarla eşleştirilir. Programın çerçevesi kod yazmak değil, bir işi tekrarlanabilir hâle getirmektir.</p>
+    </details>
+    <details>
+      <summary>Sıfırdan başlayan biri katılabilir mi?</summary>
+      <p>Bu program ileri seviyedir; Claude'u sohbet düzeyinde kullanabiliyor olmak ön koşuldur. Sıfır düzeydeki ekipler için ayrı bir giriş programı vardır ve kayıt öncesi seviye tespiti yapılır.</p>
+    </details>
+    <details>
+      <summary>Kendi verimizle mi çalışacağız?</summary>
+      <p>Evet, esas olan budur. Katılımcı kendi dosyalarını getirir. İlk modülde veri sınıflandırması yapılır; hassas veri sınıfa girmez, maskelenmiş türevleriyle çalışılır.</p>
+    </details>
+    <details>
+      <summary>Kurumsal verimiz güvende mi?</summary>
+      <p>Program veri sınıflandırması ve izin mimarisi üzerine kurulu. Eğitim öncesinde kurumun plan koşulları ve izin verilen bağlayıcılar, bilgi güvenliği ve hukuk birimleriyle birlikte yazılı olarak teyit edilir.</p>
+    </details>
+    <details>
+      <summary>Uzaktan verildiğinde aynı verimi alır mıyız?</summary>
+      <p>Evet, hatta sekiz haftalık uzaktan varyant kalıcılık açısından daha güçlüdür; öğrenilen her modül bir sonraki oturuma kadar gerçek işte denenir.</p>
+    </details>
+    <details>
+      <summary>Ürün değişirse eğitim eskir mi?</summary>
+      <p>Müfredat, her uygulamadan önce doğrulanır: plan kapsamı, açık özellikler, izin verilen bağlayıcılar ve ekran akışları eğitim öncesi kontrol edilir. Eğitmen kuralı nettir: doğrulanmamış hiçbir ürün iddiası sınıfta kurulmaz.</p>
+    </details>
+    <details>
+      <summary>Eğitim sonrası destek var mı?</summary>
+      <p>Dört hafta boyunca haftalık uygulama kliniği ve altmışıncı günde yönetim değerlendirme oturumu programa dâhildir.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============================== CTA ============================== -->
+<section class="section wrap" id="cu-contact">
+  <div class="cta-box reveal">
+    <h2>Bir eğitim daha almayın. Bir sistem kurun.</h2>
+    <p>Kurum içi kapalı grup, açık katılım ve uzaktan varyantlar mevcuttur. Kurumunuzun süreçlerine göre modül ağırlıkları ve vaka seçimi uyarlanır.</p>
+    <div class="hero-cta">
+      <a href="mailto:bilgi@esgakademi.net?subject=Claude%20Ustal%C4%B1k%20Program%C4%B1%20-%20Kontenjan%20ve%20takvim" class="btn btn-primary"><span>Kontenjan ve takvim isteyin</span> <span class="arrow">→</span></a>
+      <a href="egitim-takvimi.html" class="btn btn-ghost">Eğitim takvimine bakın</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
+        <p class="desc" data-i18n="ft_desc">Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.</p>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h1">Hizmetler</h5>
+        <ul>
+          <li><a href="index.html#services" data-i18n="ft_s1">Karbon yönetimi</a></li>
+          <li><a href="index.html#services" data-i18n="ft_s2">ESG raporlama</a></li>
+          <li><a href="kobi-paketi.html" data-i18n="nav_pkg">KOBİ Paketi</a></li>
+          <li><a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h2">Kurum</h5>
+        <ul>
+          <li><a href="index.html#about" data-i18n="ft_c1">Hakkımızda</a></li>
+          <li><a href="index.html#process" data-i18n="ft_c2">Yaklaşım</a></li>
+          <li><a href="index.html#stats" data-i18n="ft_c3">Etki</a></li>
+          <li><a href="#cu-contact" data-i18n="ft_c4">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h3">İletişim</h5>
+        <ul>
+          <li><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></li>
+          <li><a href="tel:+905339552884">+90 533 955 28 84</a></li>
+          <li><span data-i18n="ft_addr">Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Yasal</h5>
+        <ul>
+          <li><a href="yasal.html#mesafeli">Mesafeli Satış Sözleşmesi</a></li>
+          <li><a href="yasal.html#iptal">İptal &amp; İade Koşulları</a></li>
+          <li><a href="yasal.html#kvkk">Gizlilik / KVKK</a></li>
+          <li><a href="yasal.html#teslimat">Teslimat &amp; İfa</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ESG LAB</span>
+      <span data-i18n="ft_legal">Tüm hakları saklıdır · <a href="yasal.html#kvkk">Gizlilik</a> · <a href="yasal.html#mesafeli">Satış koşulları</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+</body>
+</html>

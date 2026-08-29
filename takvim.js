@@ -165,10 +165,12 @@
             '<span class="tk-pay"><svg width="11" height="12" viewBox="0 0 11 12" fill="none" stroke="currentColor" stroke-width="1.4">' +
             '<rect x="1.2" y="5" width="8.6" height="6" rx="1.4"/><path d="M3.4 5V3.3a2.1 2.1 0 0 1 4.2 0V5"/></svg>' +
             'iyzico ile güvenli ödeme</span>') +
-        '<button class="tk-detay" type="button" data-detay="' + s.no + '">' +
+        (s.url
+          ? '<a class="tk-detay" href="' + esc(s.url) + '">'
+          : '<button class="tk-detay" type="button" data-detay="' + s.no + '">') +
         '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3">' +
         '<circle cx="6" cy="6" r="5"/><path d="M6 5.2v3.2M6 3.5v.5" stroke-linecap="round"/></svg>' +
-        'Eğitim detayı</button>' +
+        'Eğitim detayı' + (s.url ? '</a>' : '</button>') +
         (s.id ? '<a class="lnk" href="egitimler.html#c-' + esc(s.id) + '">Program sayfası →</a>' : '') +
         '</div></article>';
     }).join('');
