@@ -99,6 +99,45 @@ window.ESG_DETAY = {
     ]
   },
 
+  8: {
+    aciklama: 'Teorik değil, gerçek ve uygulamalı bir eğitim. ISO 14040/14044 yaşam döngüsü değerlendirmesi (LCA) ile ISO 14067 ürün karbon ayak izi (PCF) hesaplamaları slaytlar üzerinden anlatılmaz; gerçek ürün verileri toplanarak, yazılım üzerinde modellenerek ve sonuçlar yorumlanarak baştan sona yapılır. İlk dört gün her konu kısa bir çerçeve anlatımının ardından uygulamaya dönüşür; beşinci gün tamamen atölyedir ve katılımcılar bir ürünün LCA ve karbon ayak izi çalışmasını uçtan uca tamamlar. Katılımcılar eğitim sonrasında da çalışmaya devam edebilmeleri için 3 ay boyunca LCA ve PCF yazılımına tam erişim lisansı alır.',
+    mufredat: [
+      'Gün 1 — LCA çerçevesi ve amaç-kapsam: ISO 14040/14044 yapısı, çalışmanın amacı ve hedef kitlesi, fonksiyonel birim ve referans akış, sistem sınırı (beşikten kapıya, beşikten mezara), kesme kriterleri. Gerçek bir ürün için amaç ve kapsam tanımı.',
+      'Gün 2 — Envanter analizi (LCI): süreç akış şeması, birincil veri toplama şablonları, ikincil veri tabanlarının kullanımı, veri kalitesi değerlendirmesi, tahsis (allocation) kuralları ve geri dönüşüm yaklaşımları. Gerçek ürün verileriyle envanterin yazılımda kurulması.',
+      'Gün 3 — Etki değerlendirmesi ve yorumlama (LCIA): etki kategorileri ve yöntem seçimi, karakterizasyon, sıcak nokta (hotspot) analizi, duyarlılık ve belirsizlik analizleri, sonuçların yorumlanması ve kritik gözden geçirme.',
+      'Gün 4 — ISO 14067 ürün karbon ayak izi: PCF hesaplama gereklilikleri, GWP değerleri, biyojenik karbon ve arazi kullanımı değişikliği, ürün kategori kuralları (PCR), kısmi ve tam PCF, EPD ile ilişkisi, PCF çalışma raporu ve iletişim kuralları.',
+      'Gün 5 — Atölye: katılımcılar bir ürünün LCA ve karbon ayak izi çalışmasını veri toplamadan rapora kadar yazılım üzerinde uçtan uca tamamlar; sonuçlar eğitmen geri bildirimiyle gözden geçirilir ve azaltım önerileri geliştirilir.'
+    ],
+    faydalar: [
+      '3 ay LCA ve PCF yazılımı tam erişim lisansı: eğitimde kurduğunuz modeller üzerinde çalışmaya kendi kurumunuzda devam edin',
+      'Teori yerine gerçek ürün verileriyle yazılım üzerinde yapılan hesaplamalar',
+      'Tamamen uygulamaya ayrılmış beşinci gün atölyesi ve uçtan uca tamamlanmış bir ürün çalışması',
+      'Veri toplama şablonları, envanter kontrol listeleri ve rapor yapısı örnekleri',
+      'Sonuçların ISO 14044 ve ISO 14067 raporlama gerekliliklerine uygun biçimde yorumlanması'
+    ],
+    kariyer: [
+      'Ürün bazlı karbon ve çevresel etki hesaplaması yapabilen profesyonellere olan talep hızla artıyor',
+      'Müşteri, ihracat ve SKDM (CBAM) kaynaklı ürün karbon ayak izi taleplerine teknik olarak yanıt verebilmenizi sağlar',
+      'EPD ve çevre etiketi süreçlerinde veri ve model sahibi rolünü üstlenmenize hazırlar',
+      'Danışmanlık ve doğrulama çalışmalarında LCA modellemesi yapabilme yetkinliği kazandırır'
+    ],
+    kimler: [
+      'Sürdürülebilirlik ve çevre uzmanları',
+      'Ürün geliştirme, Ar-Ge ve kalite mühendisleri',
+      'İhracat yapan firmalarda müşteri taleplerini yöneten ekipler',
+      'Danışmanlar ve akademisyenler',
+      'Ürün karbon ayak izi hesaplaması yapmak isteyen teknik profesyoneller'
+    ],
+    sss: [
+      ['Eğitim ne kadar uygulamalı?', 'Eğitim teorik değil, uygulamalıdır. Her konu kısa bir çerçeve anlatımının ardından gerçek ürün verileriyle yazılım üzerinde uygulanır; beşinci gün tamamen atölyedir.'],
+      ['Program hangi gün ve saatlerde?', '2–6 Kasım 2026 tarihleri arasında, Pazartesi–Cuma her gün 09.00–15.00 saatlerinde yürütülür. Beşinci gün atölye günüdür.'],
+      ['Yazılım lisansı nasıl veriliyor?', 'Katılımcılara 3 ay boyunca LCA ve ürün karbon ayak izi (PCF) yazılımına tam erişim lisansı verilir. Böylece eğitimde kurduğunuz modeller üzerinde kendi kurumunuzda çalışmaya devam edebilirsiniz.'],
+      ['Kendi ürünümüzle çalışabilir miyiz?', 'Evet. Atölyede katılımcılar kendi ürünlerinin verileriyle çalışabilir; verisi hazır olmayan katılımcılar için gerçek bir ürün vakası kullanılır.'],
+      ['Ön bilgi gerekiyor mu?', 'LCA konusunda ön bilgi aranmaz. Temel çevre ve karbon kavramlarına aşinalık ve bilgisayarla rahat çalışabilmek yeterlidir.'],
+      ['Ücret nedir?', 'Eğitimin ücreti 26.000 TL + KDV’dir.']
+    ]
+  },
+
   /* 'eski-N' anahtarları: Kasım 2026 yeniden düzenlemesinde takvimden
      kaldırılan eğitimlerin içerikleri. Yeniden eklenirse anahtarı yeni no yapın. */
 
@@ -111,7 +150,7 @@ window.ESG_DETAY = {
       'Modül 3 — ISO 14067: Ürün karbon ayak izi. Cradle-to-gate ve cradle-to-grave hesaplama, tahsis kuralları, biyojenik karbon, ürün kategori kuralları (PCR) ve EPD ilişkisi.',
       'Modül 4 — ISO 14046: Su ayak izi. Mavi, gri ve yeşil su bileşenleri, su kıtlığı ağırlıklandırması, su balansı kurulumu.',
       'Modül 5 — ISO 50001: Enerji yönetim sistemi. Enerji gözden geçirme, önemli enerji kullanımları (SEU), EnPI ve baseline kurulumu, CUSUM ve regresyon analizi ile performans doğrulama.',
-      'Modül 6 — Sürdürülebilirlik raporlaması: TSRS, GRI ve ESRS. TSRS 1–2 (IFRS S1–S2 uyumlu) yükümlülük kapsamı ve geçiş takvimi, GRI Standartları yapısı (Universal–Sector–Topic) ve önemlilik yaklaşımı, ESRS/CSRD çift önemlilik analizi ve veri noktaları; üç çerçevenin karşılaştırılması, gösterge eşleme (mapping) çalışması ve hesaplama çıktılarının rapora aktarılması.',
+      'Modül 6 — Vaka analizi: Gerçek bir şirket üzerinde uygulama. İlk beş modülde öğrenilen hesaplamaların gerçek bir şirketin verileriyle uçtan uca uygulanması: sınırların ve kapsamın belirlenmesi, faaliyet verilerinin toplanması ve doğrulanması, kurumsal ve ürün karbon ayak izi, su ayak izi ve enerji performansı hesaplamaları, sonuçların yorumlanması ve şirkete özgü iyileştirme önerilerinin geliştirilmesi.',
       'Kapanış atölyesi — Hesaplama sonuçlarının yönetim raporuna ve azaltım yol haritasına dönüştürülmesi; veri kalitesi ve belirsizlik değerlendirmesi.'
     ],
     faydalar: [
@@ -270,7 +309,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  'eski-6': {
+  5: {
     aciklama: 'ISO 42001 Yapay Zekâ Yönetim Sistemi standardına uyum sağlayarak yapay zekâ risklerini yöneten, etkili bir yönetim sistemi kurmanın tüm adımları öğretilir. Standardın maddeleri denetçi bakış açısıyla incelenir; AI risk ve etki değerlendirmesi, kontrol setlerinin uygulanması ve denetim teknikleri uygulamalı biçimde ele alınır. Güvenli ve sorumlu yapay zekâ uygulamaları için gereken yönetişim bilgisini, AB AI Yasası ile ilişkisiyle birlikte kazanırsınız.',
     mufredat: [
       'Temel yapay zekâ kavramları: makine öğrenmesi, üretken modeller, model yaşam döngüsü',
@@ -522,7 +561,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  'eski-12': {
+  6: {
     aciklama: 'Science Based Targets initiative (SBTi), şirket iklim hedeflerinin Paris Anlaşması sıcaklık patikalarıyla uyumunu doğrulayan en yaygın çerçevedir. Eğitim, hedef belirlemenin teknik tarafına odaklanır: baz yıl envanterinin hazırlanması, sektörel azaltım patikalarının seçimi, Kapsam 3 hedef kapsamı, Net Sıfır standardının gereklilikleri ve başvuru–doğrulama sürecinin yönetimi. Hedef hesaplamaları örnek şirket verisi üzerinde adım adım yapılır.',
     mufredat: [
       'İklim bilimi temeli: karbon bütçesi, 1,5 °C patikası ve şirket hedefleriyle ilişkisi',

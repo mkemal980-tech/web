@@ -19,7 +19,7 @@ window.ESG_TAKVIM = [
   {
     no: 1, id: '', code: 'Teknik Sürdürülebilirlik', cat: 'GEN',
     title: 'Teknik Sürdürülebilirlik Uzmanlığı Eğitimi',
-    desc: 'Sürdürülebilirliğin teknik altyapısı: karbon ve kaynak hesaplama, veri yönetimi, raporlama standartları ve saha uygulamaları. Dört haftaya yayılan akşam programı; toplam 60 saat.',
+    desc: 'Sürdürülebilirliğin teknik altyapısı: karbon ve kaynak hesaplama, veri yönetimi ve gerçek bir şirket üzerinde vaka analizi. Dört haftaya yayılan akşam programı; toplam 60 saat.',
     /* 52 ders saati × 45 dk · akşam başına 5 ders (19.00–23.00, aralar dahil)
        27–28 Eki + 3–19 Kas: 11 akşam (29 Eki tatil) · son akşam 2 ders */
     start: '2026-10-27', end: '2026-11-19', wd: [1, 2, 3],
@@ -60,6 +60,41 @@ window.ESG_TAKVIM = [
     days: 'Cuma–Salı, her gün', time: '09.00–16.00',
     hours: 40, canli: 40, price: 15000, seats: 24, pay: '',
     pkgPrice: 12000, pkgNote: 'en az 2 programa katılımda'
+  },
+  {
+    no: 5, id: '', code: 'ISO 42001', cat: 'G',
+    title: 'ISO 42001 Başdenetçilik Eğitimi',
+    desc: 'Yapay zekâ yönetim sistemi denetçiliği: AI risk ve etki değerlendirmesi, kontrol setleri, denetim teknikleri ve uygunluk raporlaması.',
+    start: '2026-10-19', end: '2026-10-23', wd: [0, 1, 2, 3, 4],
+    days: 'Pazartesi–Cuma', time: '09.00–16.00',
+    hours: 30, price: 15900, seats: 20, pay: ''
+  },
+  {
+    no: 6, id: '', code: 'SBTi', cat: 'E',
+    title: 'SBTi Eğitimi',
+    desc: 'Bilime dayalı hedef belirleme: sektörel azaltım patikaları, Kapsam 3 hedefleri, Net Sıfır standardı ve SBTi başvuru süreci.',
+    start: '2026-11-30', end: '2026-12-01', wd: [0, 1],
+    days: 'Pazartesi–Salı', time: '09.00–16.00',
+    hours: 16, price: 24000, seats: 24, pay: ''
+  },
+  {
+    no: 7, id: '', url: 'claude-ustalik-programi.html', code: 'Claude Ustalık', cat: 'GEN',
+    title: 'Claude Ustalık Eğitimi',
+    desc: 'İleri seviye, uygulamalı Claude eğitimi: çalışma ortamları, projeler ve yetenekler, ajanlı çalışma, bağlayıcılar, güvenlik ve token ekonomisi. Dört haftaya yayılan akşam programı; %75 laboratuvar.',
+    /* 8 oturum × 90 dk (2 ders × 45 dk) · 23 Kas – 18 Ara */
+    start: '2026-11-23', end: '2026-12-18', wd: [0, 4],
+    days: 'Pazartesi ve Cuma', time: '19.00–20.30',
+    hours: 16, canli: 16, price: 26000, seats: 16, pay: ''
+  },
+  {
+    no: 8, id: '', code: 'ISO 14040/44 · ISO 14067', cat: 'E',
+    title: 'Uygulamalı LCA ISO 14040/44 ve Ürün Karbon Ayak İzi ISO 14067 Eğitimi',
+    desc: 'Teorik değil, gerçek ve uygulamalı: yaşam döngüsü değerlendirmesi ve ürün karbon ayak izi, gerçek ürün verileriyle ve yazılım üzerinde adım adım hesaplanır. Beşinci gün atölye. Katılımcılara 3 ay LCA ve ürün karbon ayak izi (PCF) yazılımı tam erişim lisansı.',
+    /* 5 gün × 6 ders (45 dk) · 09.00–15.00, öğle arası ve aralar dahil · 5. gün atölye */
+    start: '2026-11-02', end: '2026-11-06', wd: [0, 1, 2, 3, 4],
+    days: 'Pazartesi–Cuma', time: '09.00–15.00',
+    hours: 30, canli: 30, price: 26000, seats: 20, pay: '',
+    vurgu: '3 ay LCA ve PCF yazılımı tam erişim lisansı'
   }
 ];
 
