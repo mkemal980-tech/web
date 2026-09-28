@@ -6,6 +6,102 @@
    TR-ETS mevzuatı).
    =================================================================== */
 window.ESG_DETAY = {
+  2: {
+    aciklama: 'Uygulama ağırlıklı bu program, TSRS, GRI ve ESRS ile sürdürülebilirlik raporlama sürecini baştan sona bir örnek şirket üzerinden çalıştıran uygulamalı programdır. Dört modülde üç çerçevenin önemlilik yaklaşımları, açıklama yapıları ve veri ihtiyaçları işlenir; ardından ortak verinin farklı çerçevelerde nasıl açıklandığı karşılaştırmalı olarak ele alınır. Katılımcılar eğitim boyunca örnek şirket için raporlama kapsamını, önemlilik çalışmasını, açıklama taslaklarını ve eğitmen geri bildirimiyle geliştirilen bir rapor bölümünü kendileri hazırlar. Katılımcılar, AI destekli raporlama platformlarımızı 3 ay boyunca ücretsiz kullanır.',
+    mufredat: [
+      'Modül 1 — TSRS 1 ve TSRS 2: Finansal önemlilik, sürdürülebilirlikle ilgili risk ve fırsatlar, iklimle ilgili açıklamalar.',
+      'Modül 2 — GRI Standartları: Etki önemliliği, paydaşlar ve öncelikli konular.',
+      'Modül 3 — ESRS: Çifte önemlilik, açıklama yapısı ve veri ihtiyaçları.',
+      'Modül 4 — Karşılaştırmalı çalışma: Ortak veriler, farklı açıklamalar ve içerik eşleştirme.'
+    ],
+    faydalar: [
+      'AI destekli raporlama platformlarımız 3 ay ücretsiz: eğitimde öğrendiklerinizi kendi raporlama sürecinizde hemen uygulayın',
+      'Örnek şirket için raporlama kapsamı ve veri toplama planı',
+      'İlgili çerçeveye göre önemlilik çalışması ve içerik eşleştirme tablosu',
+      'Seçilmiş açıklamalar için metin taslakları ve dayanak kayıtları',
+      'Eğitmen geri bildirimiyle geliştirilen örnek rapor bölümü',
+      'Uygulama desteği: ders kayıtları, veri toplama şablonları, rapor inceleme çalışmaları ve proje geri bildirimi'
+    ],
+    kimler: [
+      'Sürdürülebilirlik ve raporlama ekipleri',
+      'Finans profesyonelleri',
+      'Yöneticiler',
+      'Danışmanlar'
+    ],
+    sss: [
+      ['Program haftaya kaç gün ve hangi saatlerde?', 'Salı, Çarşamba ve Perşembe akşamları 19.00–23.00 arasında yürütülür. Program toplam 40 saattir: canlı dersler 24 Kasım – 9 Aralık 2026 arasında üç haftaya yayılır, uygulama çalışmalarını ise katılımcılar ders aralarında kendileri tamamlar.'],
+      ['Ücret nedir, paket avantajı var mı?', 'Eğitimin ücreti 21.000 TL + KDV’dir. Seriden en az iki programa birlikte katıldığınızda bu program için ödeyeceğiniz tutar 15.000 TL + KDV’ye iner.'],
+      ['Serideki diğer programlar hangileri?', 'Bu program, birbirini tamamlayan ve toplam 180 saatlik Sürdürülebilirlik Programları serisinin parçasıdır: Teknik Sürdürülebilirlik Uzmanlığı, Sürdürülebilirlik Uygulama Ağırlıklı Raporlama, EcoVadis ve CDP Hazırlık Atölyesi ile ISO 26000 Temelli Kurumsal Uygulamalar. En az iki programa birlikte katıldığınızda indirimli program ücretleri geçerli olur. Dört programın tamamına katıldığınızda ise kredi kartına peşin fiyatına 12 taksit ya da peşin ödemede %20 indirim avantajından yararlanırsınız. Program seçenekleri için bizimle iletişime geçebilirsiniz.'],
+      ['AI destekli raporlama platformlarından nasıl yararlanırım?', 'Eğitime katılan herkes, AI destekli raporlama platformlarımızı 3 ay boyunca ücretsiz kullanır. Erişim bilgileri eğitimin başında paylaşılır.'],
+      ['Taksit imkânı var mı?', 'Tek programa katılımda kredi kartına 3 ay vade farksız taksit uygulanır.'],
+      ['Eğitim KGK uzmanlık lisansı sağlar mı?', 'Hayır. Eğitime katılım, tek başına KGK uzmanlık lisansı sağlamaz.'],
+      ['Katılamadığım oturumu sonradan izleyebilir miyim?', 'Evet. Ders kayıtları katılımcılarla paylaşılır.']
+    ]
+  },
+
+  /* 3 ve 4: serinin 3. ve 4. programları */
+  3: {
+    aciklama: 'EcoVadis ve CDP değerlendirme ve açıklama süreçleri için verilerinizi ve kanıtlarınızı hazırlamayı öğrendiğiniz uygulamalı atölyedir. Program 20 saat EcoVadis ve 20 saat CDP uygulamasından oluşur. Katılımcılar örnek şirket üzerinden belge eksiklerini belirler, örnek yanıtlar, kanıt tabloları ve iyileştirme planları oluşturur.',
+    mufredat: [
+      'EcoVadis 1 — Değerlendirme temaları, puanlama yaklaşımı ve belge uygunluğu.',
+      'EcoVadis 2 — Politika, uygulama ve sonuç kayıtlarının birlikte değerlendirilmesi.',
+      'EcoVadis 3 — Mevcut durum analizi ve iyileştirme aksiyonlarının belirlenmesi.',
+      'CDP 1 — İlgili açıklama döneminin soru yapısı ve metodoloji kaynakları.',
+      'CDP 2 — İklim ve su verileri, yönetişim, riskler, hedefler ve veri sorumlulukları.',
+      'CDP 3 — Seçilmiş sorulara yanıt hazırlama ve veri tutarlılığını kontrol etme.'
+    ],
+    faydalar: [
+      'EcoVadis belge envanteri, eksiklik analizi ve iyileştirme planı',
+      'CDP veri sorumluluğu tablosu ve örnek yanıt dosyası',
+      'Yanıtları dayanak kayıtlarıyla eşleştiren kontrol listesi',
+      'Uygulama desteği: online vaka çalışmaları, ders kayıtları, kontrol listeleri ve eğitmen geri bildirimi'
+    ],
+    kimler: [
+      'Sürdürülebilirlik, kalite ve tedarik ekipleri',
+      'Müşteri değerlendirmelerini yönetenler',
+      'Danışmanlar'
+    ],
+    sss: [
+      ['Program hangi gün ve saatlerde?', 'Cumartesi ve Pazar günleri 09.00–16.00 arasında yürütülür. Program toplam 40 saattir: canlı dersler 21–22 ve 28–29 Kasım 2026 tarihlerinde iki hafta sonuna yayılır, uygulama çalışmalarını ise katılımcılar ders aralarında kendileri tamamlar.'],
+      ['Ücret nedir, birden fazla programa katılımda indirim var mı?', 'Eğitimin ücreti 15.000 TL + KDV’dir. Seriden en az iki programa birlikte katıldığınızda bu program için ödeyeceğiniz tutar 12.000 TL + KDV’ye iner. Tek programa katılımda kredi kartına 3 ay vade farksız taksit uygulanır.'],
+      ['Katılamadığım oturumu sonradan izleyebilir miyim?', 'Evet. Ders kayıtları katılımcılarla paylaşılır.'],
+      ['Birden fazla programa katılımda avantaj var mı?', 'Bu program, birbirini tamamlayan ve toplam 180 saatlik Sürdürülebilirlik Programları serisinin parçasıdır: Teknik Sürdürülebilirlik Uzmanlığı, Sürdürülebilirlik Uygulama Ağırlıklı Raporlama, EcoVadis ve CDP Hazırlık Atölyesi ile ISO 26000 Temelli Kurumsal Uygulamalar. En az iki programa birlikte katıldığınızda indirimli program ücretleri geçerli olur. Dört programın tamamına katıldığınızda ise kredi kartına peşin fiyatına 12 taksit ya da peşin ödemede %20 indirim avantajından yararlanırsınız. Program seçenekleri için bizimle iletişime geçebilirsiniz.']
+    ]
+  },
+
+  4: {
+    aciklama: 'ISO 26000 rehberliğinde kurumunuz için uygulanabilir bir sosyal sorumluluk planı geliştirdiğiniz uygulamalı programdır. İnsan hakları, çalışma uygulamaları, etik ve paydaş ilişkileri sosyal sorumluluk yaklaşımıyla ele alınır; sorumluları, takvimi ve göstergeleri belirlenmiş bir aksiyon planıyla iyileştirme kurum içine taşınır.',
+    mufredat: [
+      'Modül 1 — ISO 26000 yaklaşımı: İlkeler, temel konular ve kuruluşla ilişkilendirme.',
+      'Modül 2 — İnsan hakları ve çalışma uygulamaları: Riskler ve çalışan katılımı.',
+      'Modül 3 — Yönetişim ve etik: Sorumluluklar ve adil faaliyet uygulamaları.',
+      'Modül 4 — Çevre, tüketici ve toplum: Etkiler, beklentiler ve iyileştirme alanları.',
+      'Modül 5 — Paydaşlar ve tedarikçiler: Katılım, değerlendirme ve iş birliği.'
+    ],
+    faydalar: [
+      'Örnek şirket için paydaş haritası ve mevcut durum değerlendirmesi',
+      'Sosyal sorumluluk politika taslağı ve öncelikli iyileştirme alanları',
+      'Sorumluları, takvimi ve göstergeleri tanımlanmış aksiyon planı',
+      'Uygulama desteği: ders kayıtları, örnek dokümanlar, kurum senaryoları ve proje geri bildirimi'
+    ],
+    kimler: [
+      'İnsan kaynakları ekipleri',
+      'Sürdürülebilirlik ekipleri',
+      'Satın alma ve yönetim ekipleri',
+      'Danışmanlar'
+    ],
+    sss: [
+      ['Program hangi gün ve saatlerde?', '4–8 Aralık 2026 tarihleri arasında, hafta sonu dahil beş gün boyunca her gün 09.00–16.00 saatlerinde yürütülür. Program toplam 40 saattir.'],
+      ['Ücret nedir, birden fazla programa katılımda indirim var mı?', 'Eğitimin ücreti 15.000 TL + KDV’dir. Seriden en az iki programa birlikte katıldığınızda bu program için ödeyeceğiniz tutar 12.000 TL + KDV’ye iner. Tek programa katılımda kredi kartına 3 ay vade farksız taksit uygulanır.'],
+      ['Katılamadığım oturumu sonradan izleyebilir miyim?', 'Evet. Ders kayıtları katılımcılarla paylaşılır.'],
+      ['ISO 26000 belgelendirilebilir bir standart mı?', 'Hayır. ISO 26000, kuruluş belgelendirmesine yönelik bir gereklilik standardı değildir; sosyal sorumluluk için rehber niteliğindedir.'],
+      ['Birden fazla programa katılımda avantaj var mı?', 'Bu program, birbirini tamamlayan ve toplam 180 saatlik Sürdürülebilirlik Programları serisinin parçasıdır: Teknik Sürdürülebilirlik Uzmanlığı, Sürdürülebilirlik Uygulama Ağırlıklı Raporlama, EcoVadis ve CDP Hazırlık Atölyesi ile ISO 26000 Temelli Kurumsal Uygulamalar. En az iki programa birlikte katıldığınızda indirimli program ücretleri geçerli olur. Dört programın tamamına katıldığınızda ise kredi kartına peşin fiyatına 12 taksit ya da peşin ödemede %20 indirim avantajından yararlanırsınız. Program seçenekleri için bizimle iletişime geçebilirsiniz.']
+    ]
+  },
+
+  /* 'eski-N' anahtarları: Kasım 2026 yeniden düzenlemesinde takvimden
+     kaldırılan eğitimlerin içerikleri. Yeniden eklenirse anahtarı yeni no yapın. */
+
 
   1: {
     aciklama: 'Sürdürülebilirliği konuşan değil; hesaplayan, raporlayan ve yöneten uzman yetiştirmeyi amaçlayan teknik çekirdek programdır. Karbon, su, enerji ve ürün bazlı çevresel etkilerin ISO standartlarına uygun biçimde nasıl hesaplandığı adım adım, tablolar ve gerçek veri setleri üzerinden işlenir. Program hesaplama ağırlıklıdır: her modül atölye çalışmaları ve vaka analizleriyle desteklenir, katılımcılar kendi kurumlarının verisiyle çalışabilecekleri hesaplama şablonlarını edinir.',
@@ -20,7 +116,8 @@ window.ESG_DETAY = {
     ],
     faydalar: [
       'Beş ayrı standardın hesaplama mantığını tek programda, birbirleriyle ilişkili biçimde öğrenme',
-      'Excel tabanlı hazır hesaplama şablonları ve dokümantasyon setleri',
+      '1 yıl ücretsiz yazılım erişimi, programa dahil ve ek ücretsiz: Kurumsal Karbon Ayak İzi, Su Ayak İzi, LCA (Yaşam Döngüsü Değerlendirmesi) ve Ürün Karbon Ayak İzi yazılımları',
+      'Hesaplamaları manuel formüller yerine izlenebilir, AI destekli yazılımlarla yapma alışkanlığı',
       'Adım adım çözülen onlarca örnek; kendi verinizle çalışma imkânı',
       'Eğitim kayıtlarına erişim ve standart güncellemelerinde içerik yenilenmesi',
       'Uluslararası geçerli sertifikasyon ve Sanayi ve Teknoloji Bakanlığı dijital sertifika/rozet sistemi'
@@ -39,14 +136,17 @@ window.ESG_DETAY = {
       'Bu alanda kariyer hedefleyen teknik altyapıya sahip adaylar'
     ],
     sss: [
-      ['Program haftaya kaç gün ve hangi saatlerde?', 'Salı, Çarşamba ve Perşembe akşamları 19.00–23.00 arasında, toplam 60 saat ve beş haftaya yayılarak yürütülür. Çalışanların iş saatlerini etkilemeyecek şekilde planlanmıştır.'],
+      ['Program haftaya kaç gün ve hangi saatlerde?', 'Salı, Çarşamba ve Perşembe akşamları 19.00–23.00 arasında yürütülür. Program toplam 60 saattir: canlı dersler 27 Ekim – 19 Kasım 2026 arasında dört haftaya yayılır, uygulama çalışmalarını ise katılımcılar ders aralarında kendileri tamamlar (29 Ekim Cumhuriyet Bayramı’nda ders yapılmaz). Çalışanların iş saatlerini etkilemeyecek şekilde planlanmıştır.'],
       ['Mühendislik altyapısı olmayan biri takip edebilir mi?', 'Hesaplamalar sıfırdan, formül düzeyinde anlatıldığı için ön koşul aranmaz. Ancak program hesaplama ağırlıklıdır; Excel ile rahat çalışmak katılımı belirgin şekilde kolaylaştırır.'],
       ['Katılamadığım oturumu sonradan izleyebilir miyim?', 'Evet. Tüm oturumların kaydı katılımcılarla paylaşılır; kayıtlar üzerinden telafi yapabilirsiniz.'],
+      ['Yazılım erişimi nasıl sağlanıyor?', 'Program ücretine dahil olarak, ek ücret olmadan Kurumsal Karbon Ayak İzi, Su Ayak İzi, LCA ve Ürün Karbon Ayak İzi yazılımlarına 1 yıl boyunca erişim sağlanır.'],
+      ['Ücret ve ödeme seçenekleri nelerdir?', 'Programın ücreti 22.000 TL + KDV’dir. Tek programa katılımda kredi kartına 3 ay vade farksız taksit uygulanır.'],
+      ['Birden fazla programa katılımda avantaj var mı?', 'Bu program, birbirini tamamlayan ve toplam 180 saatlik Sürdürülebilirlik Programları serisinin parçasıdır: Teknik Sürdürülebilirlik Uzmanlığı, Sürdürülebilirlik Uygulama Ağırlıklı Raporlama, EcoVadis ve CDP Hazırlık Atölyesi ile ISO 26000 Temelli Kurumsal Uygulamalar. En az iki programa birlikte katıldığınızda indirimli program ücretleri geçerli olur. Dört programın tamamına katıldığınızda ise kredi kartına peşin fiyatına 12 taksit ya da peşin ödemede %20 indirim avantajından yararlanırsınız. Program seçenekleri için bizimle iletişime geçebilirsiniz.'],
       ['Hesaplama şablonları veriliyor mu?', 'Evet. Her modülde kullanılan hesaplama dosyaları, dokümantasyon örnekleri ve kontrol listeleri katılımcılara açık biçimde teslim edilir.']
     ]
   },
 
-  2: {
+  'eski-2': {
     aciklama: 'ISO 46001 Su Verimliliği Yönetim Sistemi standardının tüm maddeleri denetçi bakış açısıyla derinlemesine incelenir. Denetim planlaması, denetimin sahada nasıl yürütüleceği, denetim teknikleri, denetim raporunun hazırlanması ve uygunsuzlukların tespiti, sınıflandırılması ile yönetimi ayrıntılı olarak ele alınır. Eğitim ayrıca su balansı kurulumu ve ISO 14046 kapsamındaki mavi-gri-yeşil su hesaplamalarını uygulamalı biçimde içerir; böylece katılımcı yalnızca denetim değil, sistem kurma yetkinliği de kazanır.',
     mufredat: [
       'Su verimliliği kavramları, teknikleri ve küresel su riski tablosu',
@@ -89,7 +189,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  9: {
+  'eski-9': {
     aciklama: 'En yaygın kullanılan üç raporlama çerçevesi olan GRI, TSRS ve ESRS tek programda, rapor hazırlama pratiğine odaklanarak ele alınır. Katılımcılar çifte önemlilik analizinden gösterge setinin kurulmasına, veri toplama altyapısından rapor metninin yazımına kadar uçtan uca süreci uygular. Risk ve fırsat yönetimi, senaryo analizi ve dirençlilik değerlendirmesi gibi ileri konular da programın parçasıdır; böylece hem küresel hem yerel raporlama gerekliliklerine hâkimiyet sağlanır.',
     mufredat: [
       'GRI (3 gün) — GRI 1/2/3 evrensel standartları, sektör standartları, çifte önemlilik analizinin adım adım yürütülmesi, paydaş katılımı, konu bazlı standart seçimi, gösterge bazında veri toplama ve beyan yazımı',
@@ -128,7 +228,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  5: {
+  'eski-5': {
     aciklama: 'ISO 50001 Enerji Yönetim Sistemi standardı, denetçi bakış açısıyla ve hesaplama pratiğiyle birlikte ele alınır. Enerji gözden geçirme, performans göstergelerinin kurulması, baseline ve CUSUM/regresyon analizleriyle tasarrufun matematiksel olarak kanıtlanması eğitimin merkezindedir. Katılımcılar hem sistemi kurma hem de ISO 19011 ve ISO 50003 çerçevesinde denetleme yetkinliği kazanır.',
     mufredat: [
       'ISO 50001 maddelerinin denetçi gözüyle analizi; PUKÖ döngüsünün enerji yönetimine uygulanması',
@@ -170,7 +270,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  6: {
+  'eski-6': {
     aciklama: 'ISO 42001 Yapay Zekâ Yönetim Sistemi standardına uyum sağlayarak yapay zekâ risklerini yöneten, etkili bir yönetim sistemi kurmanın tüm adımları öğretilir. Standardın maddeleri denetçi bakış açısıyla incelenir; AI risk ve etki değerlendirmesi, kontrol setlerinin uygulanması ve denetim teknikleri uygulamalı biçimde ele alınır. Güvenli ve sorumlu yapay zekâ uygulamaları için gereken yönetişim bilgisini, AB AI Yasası ile ilişkisiyle birlikte kazanırsınız.',
     mufredat: [
       'Temel yapay zekâ kavramları: makine öğrenmesi, üretken modeller, model yaşam döngüsü',
@@ -212,7 +312,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  7: {
+  'eski-7': {
     aciklama: 'Yeşil taksonomiler, bir ekonomik faaliyetin “çevresel açıdan sürdürülebilir” sayılıp sayılmayacağını teknik kriterlere bağlayan sınıflandırma sistemleridir. Eğitim, AB Taksonomisi ve Türkiye Yeşil Taksonomisi’ni yan yana ele alarak uygunluk (eligibility) ve uyum (alignment) hesaplamasının nasıl yapıldığını uygulamalı biçimde öğretir. Faaliyet eşleştirmesi, önemli katkı kriterleri, önemli zarar vermeme (DNSH) testi ve asgari güvenceler adım adım işlenir; ciro, CapEx ve OpEx bazlı KPI hesaplaması örnek şirket verisi üzerinde yapılır.',
     mufredat: [
       'Taksonominin mantığı ve sürdürülebilir finans mimarisindeki yeri',
@@ -254,7 +354,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  8: {
+  'eski-8': {
     aciklama: 'Kurumsal iş akışlarında yapay zekâyı verimli ve güvenli biçimde kullanmayı hedefleyen ileri seviye uygulama programıdır. İleri istem (prompt) tasarımı, doküman ve veri üzerinde çalışma, otomasyon senaryoları ve kurum içi kullanım politikalarının oluşturulması ele alınır. Program araç tanıtımı değil; ölçülebilir zaman ve kalite kazancı üreten iş akışı tasarımı üzerine kuruludur. Her modül katılımcının kendi işinden getirdiği görevler üzerinde atölye çalışmasıyla desteklenir.',
     mufredat: [
       'Üretken modellerin çalışma mantığı, yetenek sınırları ve halüsinasyon riski',
@@ -296,7 +396,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  10: {
+  'eski-10': {
     aciklama: 'EcoVadis, tedarik zincirinde en yaygın kullanılan sürdürülebilirlik değerlendirme sistemidir ve müşteri talebiyle karşınıza çıktığında skor doğrudan ticari sonuç üretir. Eğitim, metodolojinin nasıl çalıştığını, hangi belgenin hangi kriterde puan getirdiğini ve skoru yükselten dokümantasyon pratiğini ayrıntılı biçimde öğretir. Değerlendirme öncesi hazırlık, kanıt dosyasının kurgulanması ve düzeltici faaliyet planının yazımı uygulamalı olarak ele alınır.',
     mufredat: [
       'EcoVadis metodolojisi: dört tema (Çevre, İş Gücü ve İnsan Hakları, Etik, Sürdürülebilir Tedarik) ve 21 kriter',
@@ -338,7 +438,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  3: {
+  'eski-3': {
     aciklama: 'Emisyon ticaret sistemleri, karbonu fiyatlandırarak azaltımı maliyet kalemine dönüştürür. Eğitim, Türkiye ETS’nin (TR-ETS) kurulum takvimi ve yükümlülükleriyle AB ETS’nin işleyişini karşılaştırmalı biçimde ele alır. İzleme-raporlama-doğrulama (MRV) döngüsü, izleme planı hazırlığı, tahsisat hesabı ve piyasa mekanizmaları uygulamalı olarak işlenir; SKDM (CBAM) ile ETS arasındaki ilişki ve ihracatçı şirketler için maliyet etkisi ayrıntılı biçimde değerlendirilir.',
     mufredat: [
       'Karbon fiyatlandırma araçları: vergi, ETS ve karbon kredisi piyasalarının karşılaştırması',
@@ -380,7 +480,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  11: {
+  'eski-11': {
     aciklama: 'ISO 20400, satın alma süreçlerine sürdürülebilirliğin nasıl entegre edileceğini gösteren rehber standarttır. Eğitim, tedarikçi seçim ve değerlendirme kriterlerinin kurulmasından sözleşme hükümlerine, tedarikçi risk haritalamasından performans yönetimine kadar tüm satın alma döngüsünü kapsar. Kurumsal alıcıların artan ESG taleplerine yanıt verebilen, denetlenebilir bir sürdürülebilir tedarik politikası oluşturmayı hedefler.',
     mufredat: [
       'ISO 20400 yapısı; ISO 26000 ile ilişkisi ve rehber standart olmasının pratik sonuçları',
@@ -422,7 +522,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  12: {
+  'eski-12': {
     aciklama: 'Science Based Targets initiative (SBTi), şirket iklim hedeflerinin Paris Anlaşması sıcaklık patikalarıyla uyumunu doğrulayan en yaygın çerçevedir. Eğitim, hedef belirlemenin teknik tarafına odaklanır: baz yıl envanterinin hazırlanması, sektörel azaltım patikalarının seçimi, Kapsam 3 hedef kapsamı, Net Sıfır standardının gereklilikleri ve başvuru–doğrulama sürecinin yönetimi. Hedef hesaplamaları örnek şirket verisi üzerinde adım adım yapılır.',
     mufredat: [
       'İklim bilimi temeli: karbon bütçesi, 1,5 °C patikası ve şirket hedefleriyle ilişkisi',
@@ -465,7 +565,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  13: {
+  'eski-13': {
     aciklama: 'ISO 26000, sosyal sorumluluğun kurumsal süreçlere nasıl entegre edileceğini yedi temel konu üzerinden tanımlayan rehber standarttır. Eğitim, ilkelerden uygulamaya geçişi merkeze alır: paydaş analizi ve önceliklendirme, temel konuların kurum süreçlerine yerleştirilmesi, performans ölçümü ve raporlama. İnsan hakları özenli incelemesi (due diligence), çalışma uygulamaları ve toplumsal katılım bölümleri vaka analizleriyle desteklenir.',
     mufredat: [
       'Sosyal sorumluluğun yedi ilkesi: hesap verebilirlik, şeffaflık, etik davranış, paydaş çıkarlarına saygı, hukuka saygı, uluslararası davranış normları, insan haklarına saygı',
@@ -509,7 +609,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  14: {
+  'eski-14': {
     aciklama: 'Sürdürülebilir finans, sermayenin hangi koşullarla ve hangi fiyattan erişilebildiğini belirleyen bir alana dönüşmüştür. Eğitim, yeşil ve sürdürülebilirlik bağlantılı finansman araçlarını, ESG risk değerlendirmesini, açıklama yükümlülüklerini ve yatırımcı beklentilerini uygulamalı biçimde ele alır. Yeşil tahvil çerçevesi kurgusu, KPI ve SPT belirleme, tahsis raporlaması ve etki raporlaması adım adım işlenir.',
     mufredat: [
       'Sürdürülebilir finans mimarisi: taksonomiler, açıklama rejimleri ve piyasa standartları',
@@ -551,7 +651,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  15: {
+  'eski-15': {
     aciklama: 'Sürdürülebilir insan kaynakları yaklaşımı bütüncül bir bakış açısıyla ele alınarak, kurumlarda sürdürülebilirlik kültürünün çalışan deneyimi, yetenek yönetimi ve kurumsal performansla nasıl entegre edildiği öğretilir. İnsan kaynakları süreçlerinin sürdürülebilirlik ilkeleriyle nasıl uyumlu hale getirileceği, çalışan bağlılığını artıran uygulamalar ve sürdürülebilir İK stratejilerinin kuruma sağladığı değer kapsamlı biçimde işlenir. Eğitim sonunda sürdürülebilir İK uygulamalarını kurumunuzda nasıl tasarlayıp hayata geçireceğinizi bütünsel bir çerçevede öğrenmiş olursunuz.',
     mufredat: [
       '1. Sürdürülebilirlik kavramı ve ESG yaklaşımı',

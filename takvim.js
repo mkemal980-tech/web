@@ -142,13 +142,17 @@
         '<h3>' + esc(s.title) + '</h3><p>' + esc(s.desc) + '</p>' +
         '<div class="tk-tags"><span class="tk-tag">' + esc(s.days) + '</span>' +
         '<span class="tk-tag">' + esc(s.time) + '</span>' +
-        '<span class="tk-tag">Canlı online</span></div></div>' +
+        '<span class="tk-tag">Canlı online</span>' +
+        (s.vurgu ? '<span class="tk-tag hl">' + esc(s.vurgu) + '</span>' : '') + '</div></div>' +
 
         '<div class="tk-cell"><span class="k">Süre</span>' +
         '<span class="v">' + s.hours + ' saat' + (s._solid ? '<small>' + s._days.length + ' gün</small>' : '') + '</span></div>' +
 
         '<div class="tk-cell price"><span class="k">Fiyat</span>' +
-        '<span class="v">' + money(s.price) + '<small>kişi · KDV hariç</small></span></div>' +
+        '<span class="v">' + money(s.price) + '<small>kişi · KDV hariç</small>' +
+        (s.priceNote ? '<small class="pkg">' + esc(s.priceNote) + '</small>' : '') +
+        (s.pkgPrice ? '<small class="pkg">' + esc(s.pkgNote || 'paket içinde') + ' ' + money(s.pkgPrice) + '</small>' : '') +
+        '</span></div>' +
 
         '<div class="tk-go">' +
         (s.pay
@@ -294,8 +298,13 @@
       '<div><span class="k">Saat</span><span class="v">' + esc(s.time) + '</span></div>' +
       '<div><span class="k">Süre</span><span class="v">' + s.hours + ' saat</span></div>' +
       '<div><span class="k">Kontenjan</span><span class="v">' + s.seats + ' kişi</span></div>' +
-      '<div><span class="k">Ücret</span><span class="v">' + money(s.price) + ' <small>+KDV</small></span></div>' +
+      '<div><span class="k">Ücret</span><span class="v">' + money(s.price) + ' <small>+KDV</small>' +
+      (s.priceNote ? '<br><small>' + esc(s.priceNote) + '</small>' : '') +
+      (s.pkgPrice ? '<br><small>' + esc(s.pkgNote || 'paket içinde') + ' ' + money(s.pkgPrice) + ' +KDV</small>' : '') +
+      '</span></div>' +
       '</div>' +
+
+      (s.vurgu ? '<div class="tkm-hl"><b>Avantaj</b>' + esc(s.vurgu) + '</div>' : '') +
 
       '<div class="tkm-body">' + body + '</div>' +
 

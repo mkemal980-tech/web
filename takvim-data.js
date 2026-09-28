@@ -1,5 +1,5 @@
 /* ===================================================================
-   ESG LAB — Eğitim takvimi verisi (Eylül–Aralık 2026)
+   ESG LAB — Eğitim takvimi verisi (2026 dönemi)
    Her kayıt bir eğitim programıdır; oturum günleri start–end aralığında
    "wd" (hafta günleri) kuralına göre otomatik üretilir.
 
@@ -8,127 +8,58 @@
    id   : egitimler.html içindeki eğitim kimliği (boşsa detay bağlantısı gizlenir)
    url  : kendi program sayfası (id yerine kullanılabilir)
    pay  : iyzico Ödeme Linki (iyziLink) — boşsa buton e-posta ile kayda düşer
+   hours    : sitede gösterilen toplam süre (canlı ders + katılımcının kendi yaptığı uygulama)
+   canli    : takvimi oluşturan canlı ders saati (45 dk) — oturum sayısı buna göre planlanır
+   pkgPrice : birden fazla programa katılımda geçerli fiyat (isteğe bağlı)
+   pkgNote  : bu fiyatın koşulu (isteğe bağlı)
+   priceNote: price'ın kendisi koşullu ise koşulu (isteğe bağlı)
+   vurgu    : listede ve detay penceresinde öne çıkan avantaj (isteğe bağlı)
    =================================================================== */
 window.ESG_TAKVIM = [
   {
     no: 1, id: '', code: 'Teknik Sürdürülebilirlik', cat: 'GEN',
-    title: 'Teknik Sürdürülebilirlik Eğitimi',
-    desc: 'Sürdürülebilirliğin teknik altyapısı: karbon ve kaynak hesaplama, veri yönetimi, raporlama standartları ve saha uygulamaları. Beş haftaya yayılan akşam programı.',
-    start: '2026-09-22', end: '2026-10-22', wd: [1, 2, 3],
+    title: 'Teknik Sürdürülebilirlik Uzmanlığı Eğitimi',
+    desc: 'Sürdürülebilirliğin teknik altyapısı: karbon ve kaynak hesaplama, veri yönetimi, raporlama standartları ve saha uygulamaları. Dört haftaya yayılan akşam programı; toplam 60 saat.',
+    /* 52 ders saati × 45 dk · akşam başına 5 ders (19.00–23.00, aralar dahil)
+       27–28 Eki + 3–19 Kas: 11 akşam (29 Eki tatil) · son akşam 2 ders */
+    start: '2026-10-27', end: '2026-11-19', wd: [1, 2, 3],
     days: 'Salı, Çarşamba, Perşembe', time: '19.00–23.00',
-    hours: 60, price: 22000, seats: 24, pay: ''
+    hours: 60, canli: 52, price: 22000, seats: 24, pay: '',
+    vurgu: '1 yıl ücretsiz yazılım erişimi · karbon, su, LCA ve ürün karbon ayak izi'
   },
   {
-    no: 2, id: 'iso-46001', code: 'ISO 46001', cat: 'E',
-    title: 'ISO 46001 Başdenetçilik Eğitimi',
-    desc: 'Su verimliliği yönetim sistemi denetçiliği: sistem gereklilikleri, denetim planlama, bulguların raporlanması ve başdenetçi yetkinlikleri.',
-    start: '2026-09-28', end: '2026-10-02', wd: [0, 1, 2, 3, 4],
-    days: 'Pazartesi–Cuma', time: '09.00–16.00',
-    hours: 30, price: 13900, seats: 20, pay: ''
+    no: 2, id: '', code: 'Uygulamalı Raporlama', cat: 'G',
+    title: 'Sürdürülebilirlik Uygulama Ağırlıklı Raporlama Eğitimi',
+    desc: 'TSRS, GRI ve ESRS ile raporlama sürecini örnek şirket üzerinden çalışın: önemlilik, açıklama yapısı, veri ihtiyaçları ve içerik eşleştirme. Katılımcılara AI destekli raporlama platformlarımız 3 ay ücretsiz. Üç haftaya yayılan akşam programı; toplam 40 saat.',
+    /* 36 ders saati × 45 dk · akşam başına 5 ders (19.00–23.00, aralar dahil)
+       24 Kas – 9 Ara: 8 akşam · son akşam 1 ders */
+    start: '2026-11-24', end: '2026-12-09', wd: [1, 2, 3],
+    days: 'Salı, Çarşamba, Perşembe', time: '19.00–23.00',
+    hours: 40, canli: 36, price: 21000, seats: 24, pay: '',
+    pkgPrice: 15000, pkgNote: 'en az 2 programa katılımda',
+    vurgu: 'AI destekli raporlama platformlarımız 3 ay ücretsiz'
   },
   {
-    no: 3, id: 'ets', code: 'ETS', cat: 'E',
-    title: 'Emisyon Ticaret Sistemi Eğitimi',
-    desc: 'TR-ETS ve AB-ETS işleyişi: izleme-raporlama-doğrulama (MRV), tahsisat hesabı, piyasa mekanizmaları ve SKDM ile ilişkisi.',
-    start: '2026-10-05', end: '2026-10-06', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 9900, seats: 24, pay: ''
+    no: 3, id: '', code: 'EcoVadis · CDP', cat: 'GEN',
+    title: 'EcoVadis ve CDP Hazırlık Atölyesi',
+    desc: 'Değerlendirme ve açıklama süreçleri için verilerinizi ve kanıtlarınızı hazırlayın: 20 saat EcoVadis ve 20 saat CDP uygulaması, örnek şirket üzerinden. İki hafta sonuna yayılan program; toplam 40 saat.',
+    /* 32 ders saati × 45 dk · günde 8 ders (09.00–16.00, aralar dahil)
+       21–22 ve 28–29 Kas: 4 gün */
+    start: '2026-11-21', end: '2026-11-29', wd: [5, 6],
+    days: 'Cumartesi, Pazar', time: '09.00–16.00',
+    hours: 40, canli: 32, price: 15000, seats: 24, pay: '',
+    pkgPrice: 12000, pkgNote: 'en az 2 programa katılımda'
   },
   {
-    no: 4, id: '', url: 'claude-ustalik-programi.html', code: 'Claude Ustalık', cat: 'GEN',
-    title: 'Claude Ustalık Eğitimi',
-    desc: 'İleri seviye, uygulamalı Claude eğitimi: çalışma ortamları, projeler ve yetenekler, ajanlı çalışma, bağlayıcılar, güvenlik ve token ekonomisi. Dört haftaya yayılan akşam programı; %75 laboratuvar.',
-    start: '2026-10-05', end: '2026-10-30', wd: [0, 4],
-    days: 'Pazartesi ve Cuma', time: '19.00–20.30',
-    hours: 16, price: 14900, seats: 16, pay: ''
-  },
-  {
-    no: 5, id: 'iso-50001', code: 'ISO 50001', cat: 'E',
-    title: 'ISO 50001 Başdenetçilik Eğitimi',
-    desc: 'Enerji yönetim sistemi denetçiliği: enerji gözden geçirme, performans göstergeleri, denetim programı yönetimi ve belgelendirme süreci.',
-    start: '2026-10-12', end: '2026-10-16', wd: [0, 1, 2, 3, 4],
-    days: 'Pazartesi–Cuma', time: '09.00–16.00',
-    hours: 30, price: 13900, seats: 20, pay: ''
-  },
-  {
-    no: 6, id: '', code: 'ISO 42001', cat: 'G',
-    title: 'ISO 42001 Başdenetçilik Eğitimi',
-    desc: 'Yapay zekâ yönetim sistemi denetçiliği: AI risk ve etki değerlendirmesi, kontrol setleri, denetim teknikleri ve uygunluk raporlaması.',
-    start: '2026-10-19', end: '2026-10-23', wd: [0, 1, 2, 3, 4],
-    days: 'Pazartesi–Cuma', time: '09.00–16.00',
-    hours: 30, price: 15900, seats: 20, pay: ''
-  },
-  {
-    no: 7, id: '', code: 'Taksonomi', cat: 'G',
-    title: 'Taksonomi Eğitimi',
-    desc: 'AB ve Türkiye yeşil taksonomisi: uygunluk kriterleri, önemli zarar vermeme (DNSH) testi, asgari güvenceler ve uyum hesaplaması.',
-    start: '2026-10-26', end: '2026-10-27', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 9900, seats: 24, pay: ''
-  },
-  {
-    no: 8, id: '', code: 'AI — İleri Seviye', cat: 'GEN',
-    title: 'Çalışanlar İçin AI Eğitimi — İleri Seviye',
-    desc: 'Kurumsal iş akışlarında yapay zekâ: ileri seviye istem tasarımı, veri güvenliği, otomasyon senaryoları ve sorumlu kullanım politikaları.',
-    start: '2026-11-02', end: '2026-11-06', wd: [0, 1, 2, 3, 4],
-    days: 'Pazartesi–Cuma', time: '09.00–16.00',
-    hours: 30, price: 13900, seats: 24, pay: ''
-  },
-  {
-    no: 9, id: '', code: 'Master Raporlama', cat: 'G',
-    title: 'Master Raporlama Eğitimi',
-    desc: 'Kurumsal sürdürülebilirlik raporlamasının uçtan uca uygulaması: çifte önemlilik, gösterge seti, veri toplama, GRI/TSRS uyumu ve rapor yazımı.',
-    start: '2026-11-02', end: '2026-11-21', wd: [0, 4, 5],
-    days: 'Pazartesi, Cuma, Cumartesi', time: 'Pzt./Cum. 19.00–23.00 · Cmt. 09.00–16.00',
-    hours: 40, price: 26000, seats: 20, pay: ''
-  },
-  {
-    no: 10, id: 'ecovadis', code: 'EcoVadis', cat: 'GEN',
-    title: 'Ecovadis Eğitimi',
-    desc: 'EcoVadis değerlendirme metodolojisi, 21 gösterge, belge gereksinimleri ve skoru yükselten dokümantasyon pratiği.',
-    start: '2026-11-09', end: '2026-11-10', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 7900, seats: 24, pay: ''
-  },
-  {
-    no: 11, id: 'iso-20400', code: 'ISO 20400', cat: 'G',
-    title: 'ISO 20400 Tedarikçi Yönetimi',
-    desc: 'Satın alma süreçlerine ESG kriterlerinin entegrasyonu, tedarikçi seçimi ve performans yönetimi, sürdürülebilir tedarik politikası.',
-    start: '2026-11-16', end: '2026-11-17', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 13900, seats: 24, pay: ''
-  },
-  {
-    no: 12, id: '', code: 'SBTi', cat: 'E',
-    title: 'SBTi Eğitimi',
-    desc: 'Bilime dayalı hedef belirleme: sektörel azaltım patikaları, Kapsam 3 hedefleri, Net Sıfır standardı ve SBTi başvuru süreci.',
-    start: '2026-11-30', end: '2026-12-01', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 15900, seats: 24, pay: ''
-  },
-  {
-    no: 13, id: 'iso-26000', code: 'ISO 26000', cat: 'S',
+    no: 4, id: '', code: 'ISO 26000', cat: 'S',
     title: 'ISO 26000 Sosyal Sorumluluk Eğitimi',
-    desc: 'Yedi temel konu başlığı, paydaş analizi, sosyal sorumluluğun kurumsal süreçlere entegrasyonu, performans ölçümü ve raporlama.',
-    start: '2026-12-07', end: '2026-12-08', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 13900, seats: 24, pay: ''
-  },
-  {
-    no: 14, id: '', code: 'Sürdürülebilir Finans', cat: 'G',
-    title: 'Sürdürülebilir Finans Eğitimi',
-    desc: 'Yeşil ve sürdürülebilirlik bağlantılı finansman araçları, ESG risk değerlendirmesi, açıklama yükümlülükleri ve yatırımcı beklentileri.',
-    start: '2026-12-14', end: '2026-12-15', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 13900, seats: 24, pay: ''
-  },
-  {
-    no: 15, id: 'surdurulebilir-ik', code: 'Sürdürülebilir İK', cat: 'S',
-    title: 'Sürdürülebilir İK Eğitimi',
-    desc: 'Yeşil İK uygulamaları, çeşitlilik ve kapsayıcılık, çalışan esenliği ve ESG hedefleriyle uyumlu insan kaynakları stratejisi.',
-    start: '2026-12-21', end: '2026-12-22', wd: [0, 1],
-    days: 'Pazartesi–Salı', time: '09.00–16.00',
-    hours: 16, price: 7900, seats: 24, pay: ''
+    desc: 'ISO 26000 rehberliğinde kurumunuz için uygulanabilir bir sosyal sorumluluk planı geliştirin: insan hakları, çalışma uygulamaları, etik ve paydaş ilişkileri, örnek şirket üzerinden. Beş gün süren yoğun program; toplam 40 saat.',
+    /* 40 ders saati × 45 dk · günde 8 ders (09.00–16.00, aralar dahil)
+       4–8 Ara: 5 ardışık gün, hafta sonu dahil */
+    start: '2026-12-04', end: '2026-12-08', wd: [0, 1, 2, 3, 4, 5, 6],
+    days: 'Cuma–Salı, her gün', time: '09.00–16.00',
+    hours: 40, canli: 40, price: 15000, seats: 24, pay: '',
+    pkgPrice: 12000, pkgNote: 'en az 2 programa katılımda'
   }
 ];
 

@@ -43,7 +43,8 @@
       '<div><span class="k">Günler</span><span class="v">' + esc(ders.days) + '</span></div>' +
       '<div><span class="k">Saat</span><span class="v">' + esc(ders.time) + '</span></div>' +
       '<div><span class="k">Süre</span><span class="v">' + ders.hours + ' saat · canlı online</span></div>' +
-      '<div><span class="k">Birim ücret</span><span class="v">' + money(ders.price) + '<small style="color:var(--ink-3);font-weight:400"> +KDV</small></span></div>';
+      '<div><span class="k">Birim ücret</span><span class="v">' + money(ders.price) + '<small style="color:var(--ink-3);font-weight:400"> +KDV' +
+        (ders.priceNote ? ' · ' + ders.priceNote : '') + '</small></span></div>';
   }
 
   function totals() {
