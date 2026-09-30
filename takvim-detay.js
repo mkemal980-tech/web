@@ -267,7 +267,7 @@ window.ESG_DETAY = {
     ]
   },
 
-  'eski-5': {
+  9: {
     aciklama: 'ISO 50001 Enerji Yönetim Sistemi standardı, denetçi bakış açısıyla ve hesaplama pratiğiyle birlikte ele alınır. Enerji gözden geçirme, performans göstergelerinin kurulması, baseline ve CUSUM/regresyon analizleriyle tasarrufun matematiksel olarak kanıtlanması eğitimin merkezindedir. Katılımcılar hem sistemi kurma hem de ISO 19011 ve ISO 50003 çerçevesinde denetleme yetkinliği kazanır.',
     mufredat: [
       'ISO 50001 maddelerinin denetçi gözüyle analizi; PUKÖ döngüsünün enerji yönetimine uygulanması',
@@ -302,6 +302,8 @@ window.ESG_DETAY = {
       'Denetçiler ve danışmanlar'
     ],
     sss: [
+      ['Program hangi gün ve saatlerde?', '2–5 Kasım 2026 tarihleri arasında, Pazartesi–Perşembe her gün 09.00–17.00 saatlerinde yürütülür. Program 4 gün ve toplam 28 saattir.'],
+      ['Eğitim ücreti nedir?', 'Eğitimin ücreti kişi başı 16.000 TL + KDV’dir.'],
       ['İstatistik bilgim zayıf, regresyon kısmını takip edebilir miyim?', 'Evet. CUSUM ve regresyon, Excel üzerinde adım adım ve formül düzeyinde gösterilir; ön istatistik bilgisi gerekmez.'],
       ['Eğitim sadece teorik mi?', 'Hayır. Sistemin kurulumu, dokümantasyonu ve hesaplamaları uygulamalı olarak yapılır; vaka analizleri ve atölye çalışmaları programın ayrılmaz parçasıdır.'],
       ['ISO 19011 iç tetkik eğitimi dahil mi?', 'Evet. Denetim planlama ve yürütme, ISO 19011 rehberliğinde ayrı bir modül olarak işlenir.'],

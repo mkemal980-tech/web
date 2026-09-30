@@ -95,6 +95,15 @@ window.ESG_TAKVIM = [
     days: 'Pazartesi–Cuma', time: '09.00–15.00',
     hours: 30, canli: 30, price: 26000, seats: 20, pay: '',
     vurgu: '3 ay LCA ve PCF yazılımı tam erişim lisansı'
+  },
+  {
+    no: 9, id: 'iso-50001', code: 'ISO 50001', cat: 'E',
+    title: 'ISO 50001 Enerji Yönetim Sistemi Başdenetçilik Eğitimi',
+    desc: 'ISO 50001 enerji yönetim sistemi gereklilikleri ile ISO 19011 denetim yaklaşımını birlikte ele alan yoğun başdenetçilik programı: enerji gözden geçirmesi, EnPI ve baz çizgisi, denetim planlama, kanıt toplama, uygunsuzluk yazımı ve raporlama.',
+    /* 2–5 Kasım: Pazartesi–Perşembe, 4 gün */
+    start: '2026-11-02', end: '2026-11-05', wd: [0, 1, 2, 3],
+    days: 'Pazartesi–Perşembe', time: '09.00–17.00',
+    hours: 28, canli: 28, price: 16000, seats: 20, pay: ''
   }
 ];
 
