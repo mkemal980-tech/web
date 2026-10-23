@@ -14,6 +14,7 @@ Statik HTML sitesi. Derleme (build) adımı yoktur; dosyalar olduğu gibi sunulu
 | `yasal.html` | Mesafeli satış, iptal/iade, KVKK, teslimat metinleri |
 | `tsu.html` | TSU |
 | `iso46001.html` | ISO 46001 |
+| `ets-danismanligi.html` | TR-ETS uyum danışmanlığı (yalnızca TR) — mevzuat tarihleri elle güncellenir |
 
 CSS ve JS dosyaları HTML içine gömülüdür; kök dizindeki `.css` / `.js` dosyaları kaynak referansıdır.
 

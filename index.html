@@ -321,6 +321,17 @@ html[data-theme="contrast"] .lang button.on { background:#000; color:#fff; }
 .svc ul { list-style: none; margin: auto 0 0; padding: 16px 0 0; border-top: 1px solid var(--line); display: grid; gap: 9px; }
 .svc li { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-2); display:flex; gap: 9px; align-items:center; }
 .svc li::before { content:""; width: 5px; height: 5px; border-radius: 1px; background: var(--accent-2); flex:none; }
+.svc-feature {
+  margin-top: 22px; display: flex; align-items: center; gap: 24px; padding: 22px 26px;
+  background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: var(--radius);
+  transition: border-color .2s, box-shadow .25s;
+}
+.svc-feature:hover { border-color: var(--line-strong); border-left-color: var(--accent); box-shadow: var(--shadow); }
+.svc-feature .sf-tag { flex: none; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 5px 10px; border-radius: 6px; }
+.svc-feature .sf-body { flex: 1; display: grid; gap: 4px; }
+.svc-feature .sf-body b { font-family: var(--font-head); font-size: 19px; font-weight: 600; letter-spacing: -.015em; }
+.svc-feature .sf-body span { color: var(--ink-2); font-size: 15px; }
+.svc-feature .sf-cta { flex: none; display: inline-flex; gap: 8px; font-size: 15px; font-weight: 500; color: var(--accent); }
 
 /* ---- Process --------------------------------------------------------- */
 .proc { position: relative; }
@@ -474,6 +485,7 @@ html[data-theme="contrast"] .cta-box { background:#000; }
   .nav-links { display: none; }
   .menu-btn { display: inline-grid; place-items:center; width: 40px; height: 40px; border-radius: 9px; border: 1px solid var(--line-strong); background: var(--surface); }
   .svc-grid, .princ, .foot-grid { grid-template-columns: 1fr; }
+  .svc-feature { flex-direction: column; align-items: flex-start; gap: 12px; }
   .hero-meta { gap: 20px; }
   .nav-cta { display: none; }
 }
@@ -958,6 +970,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       <a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a>
       <a href="egitim-takvimi.html" data-i18n="nav_cal">Eğitim Takvimi</a>
       <a href="kobi-programi.html" data-i18n="nav_pkg">KOBİ Paketi</a>
+      <a href="ets-danismanligi.html">TR-ETS</a>
       <a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a>
     </nav>
     <div class="nav-right">
@@ -1239,6 +1252,14 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       </ul>
     </article>
   </div>
+  <a class="svc-feature reveal" href="ets-danismanligi.html">
+    <span class="sf-tag" data-i18n="svcx_tag">Yeni · Mevzuat uyumu</span>
+    <span class="sf-body">
+      <b data-i18n="svcx_t">TR-ETS uyum danışmanlığı</b>
+      <span data-i18n="svcx_p">Pilot tesisler için ilk İzleme Metodolojisi Planı son tarihi 27 Ocak 2027. İMP, emisyon izni, doğrulamaya hazır raporlar ve ücretsiz tahsisat yönetimi.</span>
+    </span>
+    <span class="sf-cta"><span data-i18n="svcx_cta">Detaylar</span> <span class="arrow">→</span></span>
+  </a>
 </section>
 
 <!-- ============================== PROCESS ============================== -->
@@ -1614,6 +1635,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
         <ul>
           <li><a href="#services" data-i18n="ft_s1">Karbon yönetimi</a></li>
           <li><a href="#services" data-i18n="ft_s2">ESG raporlama</a></li>
+          <li><a href="ets-danismanligi.html" data-i18n="ft_ets">TR-ETS danışmanlığı</a></li>
           <li><a href="#services" data-i18n="ft_s3">Eğitim & farkındalık</a></li>
           <li><a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a></li>
           <li><a href="egitim-takvimi.html" data-i18n="nav_cal">Eğitim Takvimi</a></li>
@@ -1705,6 +1727,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       svc2_l1: 'GRI · CSRD · TSRS uyumu', svc2_l2: 'Çift önemlilik analizi', svc2_l3: 'ESG skor & derecelendirme',
       svc3_t: 'Eğitim & kurumsal farkındalık', svc3_p: 'Yönetim kurulundan saha ekiplerine kadar role özel eğitim programları ve kapasite geliştirme.',
       svc3_l1: 'Yönetici farkındalık atölyeleri', svc3_l2: 'Teknik ekip sertifikasyonu', svc3_l3: 'Sürdürülebilirlik akademisi',
+      svcx_tag: 'Yeni · Mevzuat uyumu', svcx_t: 'TR-ETS uyum danışmanlığı', svcx_p: 'Pilot tesisler için ilk İzleme Metodolojisi Planı son tarihi 27 Ocak 2027. İMP, emisyon izni, doğrulamaya hazır raporlar ve ücretsiz tahsisat yönetimi.', svcx_cta: 'Detaylar',
       proc_eyebrow: 'Yaklaşım', proc_title: 'Veriyle başlar, etkiyle biter',
       proc_sub: 'Her projeyi denetlenebilir bir veri zinciri olarak kurguluyoruz — varsayım değil, kanıt.',
       p1_t: 'Teşhis', p1_p: 'Mevcut durum analizi, veri olgunluğu ve regülasyon maruziyeti taraması.',
@@ -1738,7 +1761,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       ct_f_msg: 'Mesajınız <span class="req">*</span>', ct_ph: 'Kurumunuz ve ihtiyacınız hakkında kısaca yazın…',
       ct_send: 'Mesajı gönder', ct_note: 'Yanıt süresi: ~2 iş günü',
       ft_desc: 'Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.',
-      ft_h1: 'Hizmetler', ft_s1: 'Karbon yönetimi', ft_s2: 'ESG raporlama', ft_s3: 'Eğitim & farkındalık', ft_s4: 'Metodoloji',
+      ft_h1: 'Hizmetler', ft_s1: 'Karbon yönetimi', ft_s2: 'ESG raporlama', ft_ets: 'TR-ETS danışmanlığı', ft_s3: 'Eğitim & farkındalık', ft_s4: 'Metodoloji',
       ft_h2: 'Kurum', ft_c1: 'Hakkımızda', ft_c2: 'Yaklaşım', ft_c3: 'Etki', ft_c4: 'İletişim',
       ft_h3: 'İletişim', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'Tüm hakları saklıdır · <a href="yasal.html#kvkk">Gizlilik</a> · <a href="yasal.html#mesafeli">Satış koşulları</a>',
       nav_pkg: 'KOBİ Paketi',
@@ -1855,6 +1878,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       svc2_l1: 'GRI · CSRD · TSRS alignment', svc2_l2: 'Double materiality analysis', svc2_l3: 'ESG score & rating',
       svc3_t: 'Training & corporate awareness', svc3_p: 'Role-specific training programs and capacity building, from the boardroom to field teams.',
       svc3_l1: 'Executive awareness workshops', svc3_l2: 'Technical team certification', svc3_l3: 'Sustainability academy',
+      svcx_tag: 'New · Regulatory compliance', svcx_t: 'Turkish ETS compliance advisory', svcx_p: 'First Monitoring Methodology Plan deadline for pilot installations: 27 January 2027. MMP, emissions permit, verification-ready reports and free allocation management.', svcx_cta: 'Details (in Turkish)',
       proc_eyebrow: 'Approach', proc_title: 'Starts with data, ends with impact',
       proc_sub: 'We design every project as an auditable chain of evidence — proof, not assumption.',
       p1_t: 'Diagnose', p1_p: 'Current-state analysis, data maturity and regulatory exposure scan.',
@@ -1888,7 +1912,7 @@ html[data-theme="contrast"] .contact-aside { background: #000; }
       ct_f_msg: 'Your message <span class="req">*</span>', ct_ph: 'Tell us briefly about your organization and needs…',
       ct_send: 'Send message', ct_note: 'Response time: ~2 business days',
       ft_desc: 'Data-driven sustainability consulting. Carbon, ESG reporting and corporate capacity building.',
-      ft_h1: 'Services', ft_s1: 'Carbon management', ft_s2: 'ESG reporting', ft_s3: 'Training & awareness', ft_s4: 'Methodology',
+      ft_h1: 'Services', ft_s1: 'Carbon management', ft_s2: 'ESG reporting', ft_ets: 'Turkish ETS advisory', ft_s3: 'Training & awareness', ft_s4: 'Methodology',
       ft_h2: 'Company', ft_c1: 'About', ft_c2: 'Approach', ft_c3: 'Impact', ft_c4: 'Contact',
       ft_h3: 'Contact', ft_addr: 'Yahyakaptan Mah A11:26, İzmit/Kocaeli', ft_legal: 'All rights reserved · Privacy · GDPR',
       nav_pkg: 'SME Package',
