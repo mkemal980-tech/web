@@ -813,29 +813,40 @@ html[data-theme="dark"] .cl-suggest { background: color-mix(in oklab, #1a2c49 78
    =================================================================== */
 .tier .scope { border-top: 0; }
 
-/* ---- Hero: görsel + sayfa içi menü ---- */
+/* ---- Hero: metin + görsel + sayfa içi gezinme ---- */
 .ets-hero { overflow-x: clip; }
-.eh-grid { display:grid; grid-template-columns: .95fr 1.2fr; gap: clamp(32px, 5vw, 64px); }
-.eh-media { order:2; position:relative; isolation:isolate; align-self:center; }
-.eh-blob { position:absolute; z-index:-1; width:440px; height:440px; top:-120px; left:-120px; border-radius:50%; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 26%, transparent) 0%, transparent 68%); pointer-events:none; }
-.eh-media img { width:100%; height:auto; border-radius:16px; background:#fff; box-shadow: 0 25px 50px -12px rgba(13,26,45,.25); }
-.eh-copy { order:1; display:flex; flex-direction:column; justify-content:space-between; gap:30px; }
-.eh-copy h1 { font-size: clamp(46px, 6vw, 76px); font-weight:700; letter-spacing:-.045em; line-height:1.02; margin-top:14px; }
+.eh-grid { display:grid; grid-template-columns: 1fr 1.08fr; gap: clamp(36px, 5vw, 72px); align-items:center; }
+.ets-hero .eyebrow::before { display:none; }
+.eh-copy h1 { font-size: clamp(40px, 4.6vw, 62px); font-weight:700; letter-spacing:-.04em; line-height:1.04; margin-top:16px; }
 .eh-copy h1 .hl { color:var(--accent); }
-.eh-list { list-style:none; margin:0; padding:0; display:grid; gap:8px; }
-.eh-list a { display:inline-flex; align-items:center; gap:10px; font-size:18px; letter-spacing:-.02em; color:var(--ink); opacity:.8; transition: opacity .4s ease-out, transform .4s ease-out, color .2s; }
-.eh-list a .ar { color:var(--accent); opacity:0; transform:translateX(-6px); transition: opacity .3s, transform .3s; }
-.eh-list a:hover { opacity:1; transform:translateY(-3px); color:var(--accent); }
-.eh-list a:hover .ar { opacity:1; transform:none; }
-.eh-foot h2 { font-size:24px; font-weight:500; letter-spacing:-.01em; }
-.eh-foot p { margin:14px 0 22px; max-width:44ch; font-size:17px; color:var(--ink-2); letter-spacing:-.01em; }
-.eh-foot p a { color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px; }
+.eh-lead { color:var(--ink-2); font-size: clamp(17px, 1.4vw, 20px); margin:16px 0 26px; max-width:40ch; }
+.eh-media { position:relative; isolation:isolate; }
+.eh-blob { position:absolute; z-index:-1; width:380px; height:380px; top:-100px; left:-100px; border-radius:50%; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 24%, transparent) 0%, transparent 68%); pointer-events:none; }
+.eh-media img { width:100%; height:auto; border-radius:18px; background:#fff; border:1px solid var(--line); box-shadow: 0 25px 50px -12px rgba(13,26,45,.22); }
+.eh-chip {
+  position:absolute; z-index:5; left:-28px; bottom:-26px; max-width:330px;
+  display:flex; align-items:center; gap:12px; padding:13px 16px; border-radius:14px;
+  background: color-mix(in oklab, #ffffff 84%, transparent);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  border:1px solid rgba(255,255,255,.7); box-shadow: 0 22px 46px -24px rgba(13,26,45,.5);
+}
+html[data-theme="dark"] .eh-chip { background: color-mix(in oklab, #1a2c49 84%, transparent); border-color: rgba(255,255,255,.12); }
+.eh-chip .si { flex:none; width:38px; height:38px; border-radius:10px; display:grid; place-items:center; background:var(--accent-soft); color:var(--accent); }
+.eh-chip p { margin:0; font-size:13px; line-height:1.4; color:var(--ink-2); }
+.eh-chip p b { display:block; font-family:var(--font-head); font-size:14.5px; font-weight:600; color:var(--ink); }
+.eh-nav { display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top: clamp(48px, 6vw, 76px); padding-top:20px; border-top:1px solid var(--line); }
+.eh-nav .lbl { margin-right:8px; font-family:var(--font-mono); font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); }
+.eh-nav a { font-size:14.5px; color:var(--ink-2); padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface); white-space:nowrap; transition: color .2s, border-color .2s; }
+.eh-nav a:hover { color:var(--accent); border-color: color-mix(in oklab, var(--accent) 45%, var(--line)); }
 @media (max-width: 860px) {
   .eh-grid { grid-template-columns:1fr; }
-  .eh-media { order:0; }
+  .eh-media { margin-bottom:50px; }
+  .eh-chip { left:12px; right:12px; bottom:-46px; max-width:none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .eh-list a, .eh-list a .ar { transition:none; }
+@media (max-width: 720px) {
+  .eh-nav { flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; }
+  .eh-nav::-webkit-scrollbar { display:none; }
+  .eh-nav .lbl, .eh-nav a { flex:none; }
 }
 
 /* ---- Görsel kartlar (climate.css üzerine) ---- */
@@ -1054,33 +1065,39 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
 <!-- ============================== HERO ============================== -->
 <section class="section wrap ets-hero">
   <div class="eh-grid">
+    <div class="eh-copy">
+      <span class="eyebrow reveal">Mevzuat uyumu · Danışmanlık</span>
+      <h1 class="reveal" data-d="1">TR-ETS uyumu<span class="hl">.</span></h1>
+      <p class="eh-lead reveal" data-d="2">İzleme planından tahsisat teslimine tüm uyum döngüsünü sizin için yönetiyoruz.</p>
+      <div class="hero-cta reveal" data-d="2">
+        <a href="#ets-contact" class="btn btn-primary"><span>Ücretsiz ön değerlendirme</span> <span class="arrow">→</span></a>
+        <a href="#takvim" class="btn btn-ghost">Uyum takvimi</a>
+      </div>
+      <div class="hero-meta reveal" data-d="3">
+        <div class="m"><b>27.01.2027</b><span>ilk İMP son tarihi</span></div>
+        <div class="m"><b>30.04.2027</b><span>2026 raporları</span></div>
+        <div class="m"><b>Kasım 2028</b><span>ilk teslim</span></div>
+      </div>
+    </div>
     <div class="eh-media reveal" data-d="1">
       <span class="eh-blob"></span>
       <img src="ets-karbon-maliyeti.jpg" width="1600" height="1030" alt="Bacasından CO₂ yükselen sanayi tesisi ve emisyona asılmış fiyat etiketi illüstrasyonu" />
-    </div>
-    <div class="eh-copy">
-      <div class="reveal">
-        <span class="eyebrow" data-num="">Mevzuat uyumu · Danışmanlık</span>
-        <h1>TR-ETS uyumu<span class="hl">.</span></h1>
-      </div>
-      <ul class="eh-list reveal" data-d="1">
-        <li><a href="#guncel">Güncel durum <span class="ar">→</span></a></li>
-        <li><a href="#kategori">Kapsam ve kategori <span class="ar">→</span></a></li>
-        <li><a href="#takvim">Uyum takvimi <span class="ar">→</span></a></li>
-        <li><a href="#kapsam">Hizmet paketleri <span class="ar">→</span></a></li>
-        <li><a href="#on-kontrol">Tahsisat simülatörü <span class="ar">→</span></a></li>
-        <li><a href="#sss">Sık sorulan sorular <span class="ar">→</span></a></li>
-      </ul>
-      <div class="eh-foot reveal" data-d="2">
-        <h2>PİLOT 2026–2027</h2>
-        <p>İlk İzleme Metodolojisi Planı için son tarih <a href="#takvim">27 Ocak 2027</a>. İzleme planından tahsisat teslimine tüm uyum döngüsünü sizin için yönetiyoruz.</p>
-        <div class="hero-cta">
-          <a href="#ets-contact" class="btn btn-primary"><span>Ücretsiz ön değerlendirme</span> <span class="arrow">→</span></a>
-          <a href="#takvim" class="btn btn-ghost">Uyum takvimi</a>
-        </div>
+      <span class="cl-badge">PİLOT 2026–2027</span>
+      <div class="eh-chip">
+        <span class="si"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21V10l5 3v-3l5 3V7l8 4v10z"/><path d="M3 21h18"/></svg></span>
+        <p><b>Pilot sektörler</b>Elektrik · çimento · demir-çelik · alüminyum · gübre</p>
       </div>
     </div>
   </div>
+  <nav class="eh-nav reveal" aria-label="Bu sayfada">
+    <span class="lbl">Bu sayfada</span>
+    <a href="#guncel">Güncel durum</a>
+    <a href="#kategori">Kapsam ve kategori</a>
+    <a href="#takvim">Uyum takvimi</a>
+    <a href="#kapsam">Hizmet paketleri</a>
+    <a href="#on-kontrol">Tahsisat simülatörü</a>
+    <a href="#sss">SSS</a>
+  </nav>
 </section>
 
 <!-- ============================== GÜNCEL DURUM ============================== -->
