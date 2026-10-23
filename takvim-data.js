@@ -106,7 +106,7 @@ window.ESG_TAKVIM = [
     hours: 28, canli: 28, price: 16000, seats: 20, pay: ''
   },
   {
-    no: 10, id: '', code: 'TR-ETS', cat: 'E',
+    no: 10, id: '', url: 'tr-ets-egitimi.html', code: 'TR-ETS', cat: 'E',
     title: 'TR-ETS Uygulamalı Uyum Eğitimi',
     desc: 'Türkiye ETS yükümlülük döngüsü tek oturumda: kapsam ve kategori, emisyon izni, İzleme Metodolojisi Planı (son tarih 27 Ocak 2027), doğrulama, ücretsiz tahsisat ve piyasa kuralları. Örnek tesisin tahsisat pozisyonu Excel’de hesaplanır.',
     /* tek oturum · 4 saat (15 dk ara dahil) */

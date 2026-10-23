@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="light" data-accent="orange" data-font="grotesk" data-density="regular">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TR-ETS Uygulamalı Uyum Eğitimi — ESG Akademi</title>
+<meta name="description" content="Türkiye ETS yükümlülük döngüsü tek oturumda: kapsam ve kategori, emisyon izni, İzleme Metodolojisi Planı, doğrulama, ücretsiz tahsisat ve piyasa kuralları. 12 Kasım 2026, 4 saat, çevrim içi canlı, 5.900 TL + KDV." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="TR-ETS Uygulamalı Uyum Eğitimi — ESG Akademi" />
+<meta property="og:description" content="4 saatte TR-ETS: kapsamdan tahsisat teslimine. Örnek tesisin tahsisat pozisyonu Excel’de hesaplanır. 12 Kasım 2026, çevrim içi." />
+<meta property="og:locale" content="tr_TR" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="whatsapp.css" />
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Course",
+ "name": "TR-ETS Uygulamalı Uyum Eğitimi",
+ "description": "Türkiye Emisyon Ticaret Sistemi yükümlülük döngüsü: kapsam ve kategori, sera gazı emisyon izni, İzleme Metodolojisi Planı, doğrulama, ücretsiz tahsisat ve piyasa kuralları. Örnek tesisin tahsisat pozisyonu Excel’de hesaplanır.",
+ "inLanguage": "tr",
+ "provider": {"@type": "Organization", "name": "ESG Akademi", "email": "bilgi@esgakademi.net"},
+ "hasCourseInstance": {
+  "@type": "CourseInstance",
+  "courseMode": "online",
+  "startDate": "2026-11-12T09:30:00+03:00",
+  "endDate": "2026-11-12T13:30:00+03:00",
+  "courseWorkload": "PT4H",
+  "location": {"@type": "VirtualLocation", "name": "Çevrim içi, canlı"}
+ },
+ "offers": {
+  "@type": "Offer",
+  "category": "Paid",
+  "price": "5900",
+  "priceCurrency": "TRY",
+  "priceSpecification": {"@type": "PriceSpecification", "price": "5900", "priceCurrency": "TRY", "valueAddedTaxIncluded": false},
+  "availability": "https://schema.org/InStock"
+ }
+}
+</script>
+<style>
+/* ===== TR-ETS eğitim sayfası · Claude Ustalık sayfasının bileşenleri (cu-*) ===== */
+.cu-hero { padding-top: calc(58px * var(--scale)); padding-bottom: calc(40px * var(--scale)); }
+.cu-hero h1 { font-size: clamp(34px, 5vw, 58px); letter-spacing: -.03em; line-height: 1.05; }
+.cu-hero h1 .hl { color: var(--accent); }
+.cu-hero .lead { color: var(--ink-2); font-size: clamp(17px, 1.5vw, 20px); margin: 24px 0 0; max-width: 52ch; }
+.cu-cta { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 32px; }
+
+.cu-card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; }
+.cu-card .hd { background: var(--ink); color: #fff; padding: 22px 24px; position: relative; overflow: hidden; }
+html[data-theme="contrast"] .cu-card .hd { background: #000; }
+.cu-card .hd::after { content: ""; position: absolute; right: -20%; top: -60%; width: 240px; height: 240px; background: radial-gradient(circle, color-mix(in oklab, var(--accent) 60%, transparent), transparent 66%); opacity: .55; }
+.cu-card .hd .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: color-mix(in oklab, var(--accent) 55%, #fff); position: relative; }
+.cu-card .hd .v { font-family: var(--font-head); font-size: 22px; margin-top: 6px; position: relative; }
+.cu-card .rows { padding: 8px 24px 20px; }
+.cu-card .r { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.cu-card .r:last-child { border-bottom: 0; }
+.cu-card .r .l { font-size: 14px; color: var(--ink-2); }
+.cu-card .r .val { font-family: var(--font-head); font-size: 15px; font-weight: 600; text-align: right; }
+
+.cu-stats { background: var(--surface); border-block: 1px solid var(--line); }
+.cu-stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+.cu-stat { padding: 32px 26px; border-right: 1px solid var(--line); }
+.cu-stat:last-child { border-right: 0; }
+.cu-stat .n { font-family: var(--font-head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 600; letter-spacing: -.03em; display: flex; align-items: baseline; gap: 3px; }
+.cu-stat .n .u { font-size: .5em; color: var(--accent); }
+.cu-stat .k { font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); margin-top: 10px; }
+
+.cu-aim { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 60px); }
+.cu-aim-lead { font-family: var(--font-head); font-size: clamp(21px, 2.3vw, 29px); line-height: 1.25; letter-spacing: -.02em; }
+.cu-aim-lead em { color: var(--accent); font-style: normal; }
+.cu-aim-body p { color: var(--ink-2); margin: 0 0 16px; }
+.cu-aim-body p:last-child { margin-bottom: 0; }
+.cu-quote { margin: 26px 0 0; padding: 22px 26px; background: var(--surface-2); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; font-family: var(--font-head); font-size: 17px; line-height: 1.45; letter-spacing: -.01em; color: var(--ink); }
+
+.cu-feat { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.cu-f { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px 28px; }
+.cu-f .ix { font-family: var(--font-mono); font-size: 11.5px; color: var(--accent); letter-spacing: .08em; }
+.cu-f h3 { font-size: 17.5px; line-height: 1.2; margin-top: 12px; }
+.cu-f p { color: var(--ink-2); font-size: 14.5px; margin: 11px 0 0; }
+
+.cu-split { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.cu-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 30px 32px; }
+.cu-panel.hi { border-color: color-mix(in oklab, var(--accent) 45%, var(--line)); background: color-mix(in oklab, var(--accent) 5%, var(--surface)); }
+.cu-panel .ph { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 18px; }
+.cu-panel.hi .ph { color: var(--accent); }
+.cu-panel h3 { font-size: 20px; letter-spacing: -.015em; margin-bottom: 16px; }
+.cu-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 13px; }
+.cu-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14.5px; color: var(--ink); line-height: 1.5; }
+.cu-list li .ck { flex: none; width: 21px; height: 21px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 11px; margin-top: 2px; }
+.cu-list.neg li .ck { background: var(--surface-2); color: var(--ink-3); }
+.cu-panel .foot-note { font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); margin: 18px 0 0; line-height: 1.6; }
+
+.cu-tbl-wrap { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--surface); }
+.cu-tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.cu-tbl th { text-align: left; font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); background: var(--surface-2); padding: 14px 20px; font-weight: 500; border-bottom: 1px solid var(--line); }
+.cu-tbl td { padding: 13px 20px; color: var(--ink-2); border-bottom: 1px solid var(--line); }
+.cu-tbl tr:last-child td { border-bottom: 0; }
+.cu-tbl td.env { font-family: var(--font-head); font-weight: 600; color: var(--ink); white-space: nowrap; }
+.cu-tbl td.num { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-3); width: 54px; }
+
+.cu-blocks { display: grid; gap: 26px; }
+.cu-block { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 30px 32px 34px; }
+.cu-block-hd { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.cu-block-hd h3 { font-size: 22px; letter-spacing: -.02em; }
+.cu-block-hd .rng { font-family: var(--font-mono); font-size: 12px; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+.cu-mods { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px; margin-top: 26px; }
+.cu-mod .mn { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--ink-3); }
+.cu-mod h4 { font-family: var(--font-head); font-size: 17px; font-weight: 600; margin-top: 7px; letter-spacing: -.015em; }
+.cu-mod p { color: var(--ink-2); font-size: 14.5px; margin: 10px 0 0; }
+.cu-mod .kz { font-size: 13.5px; color: var(--ink); margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--line); }
+.cu-mod .kz b { color: var(--accent); font-weight: 600; }
+
+.cu-deliver { display: grid; grid-template-columns: 1.05fr .95fr; gap: 22px; align-items: start; }
+.cu-dlist { list-style: none; margin: 0; padding: 0; counter-reset: d; }
+.cu-dlist li { counter-increment: d; display: flex; gap: 14px; font-size: 14.5px; color: var(--ink-2); padding: 11px 0; border-bottom: 1px solid var(--line); }
+.cu-dlist li:last-child { border-bottom: 0; }
+.cu-dlist li::before { content: counter(d, decimal-leading-zero); font-family: var(--font-mono); font-size: 12px; color: var(--accent); flex: none; padding-top: 2px; }
+
+.cu-levels { display: grid; gap: 12px; }
+.cu-level { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+.cu-level.top { background: var(--ink); border-color: var(--ink); color: #fff; }
+html[data-theme="contrast"] .cu-level.top { background: #000; }
+.cu-level .lv { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.cu-level p { margin: 8px 0 0; font-size: 14px; color: var(--ink-2); }
+.cu-level.top p { color: rgba(255,255,255,.75); }
+
+.cu-faq { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); overflow: hidden; }
+.cu-faq details { border-bottom: 1px solid var(--line); }
+.cu-faq details:last-child { border-bottom: 0; }
+.cu-faq summary { cursor: pointer; list-style: none; padding: 20px 26px; font-family: var(--font-head); font-size: 16.5px; font-weight: 600; letter-spacing: -.015em; display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+.cu-faq summary::-webkit-details-marker { display: none; }
+.cu-faq summary::after { content: "+"; color: var(--accent); font-family: var(--font-mono); font-size: 18px; flex: none; }
+.cu-faq details[open] summary::after { content: "–"; }
+.cu-faq details p { margin: 0; padding: 0 26px 22px; color: var(--ink-2); font-size: 15px; max-width: 82ch; }
+
+@media (max-width: 980px) {
+  .cu-aim, .cu-split, .cu-deliver, .cu-mods { grid-template-columns: 1fr; }
+  .cu-feat { grid-template-columns: 1fr 1fr; }
+  .cu-stats .wrap { grid-template-columns: 1fr 1fr; }
+  .cu-stat { border-bottom: 1px solid var(--line); }
+  .cu-stat:nth-child(2n) { border-right: 0; }
+}
+@media (max-width: 640px) {
+  .cu-feat { grid-template-columns: 1fr; }
+  .cu-block { padding: 24px 22px 28px; }
+  .cu-panel { padding: 24px 22px; }
+}
+
+/* ===== bu sayfaya özel ===== */
+.te-prog td.saat { font-family: var(--font-mono); font-size: 12.5px; color: var(--accent); white-space: nowrap; width: 120px; }
+.te-prog td.mod { font-family: var(--font-head); font-weight: 600; color: var(--ink); white-space: nowrap; }
+.te-prog tr.ara td { background: var(--surface-2); color: var(--ink-3); }
+.te-prog tr.uyg td { background: color-mix(in oklab, var(--accent) 7%, var(--surface)); }
+.te-tag { display: inline-block; margin-left: 8px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .06em; padding: 3px 7px; border-radius: 5px; background: var(--accent); color: #fff; vertical-align: 2px; }
+@media (max-width: 720px) {
+  /* program tablosu telefonda satır kartına dönüşür */
+  .te-prog, .te-prog tbody, .te-prog tr, .te-prog td { display: block; width: auto; }
+  .te-prog tr:first-child { display: none; }
+  .te-prog tr { padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .te-prog tr:last-child { border-bottom: 0; }
+  .te-prog td { padding: 0; border: 0; }
+  .te-prog td.saat { margin-bottom: 4px; }
+  .te-prog td.mod { white-space: normal; margin-bottom: 6px; }
+  .te-prog tr.ara, .te-prog tr.ara td { background: var(--surface-2); }
+  .te-prog tr.uyg, .te-prog tr.uyg td { background: color-mix(in oklab, var(--accent) 7%, var(--surface)); }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"></span>
+      <span>ESG&nbsp;<span class="lab">LAB</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#services" data-i18n="nav_services">Hizmetler</a>
+      <a href="egitimler.html" data-i18n="nav_edu">Online Eğitim</a>
+      <a href="egitim-takvimi.html" data-i18n="nav_cal">Eğitim Takvimi</a>
+      <a href="kobi-programi.html" data-i18n="nav_pkg">KOBİ Paketi</a>
+      <a href="ets-danismanligi.html">TR-ETS</a>
+      <a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="tr" class="on">TR</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="kayit.html?e=10" class="btn btn-primary nav-cta">Kayıt ol</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 5h14M2 9h14M2 13h14"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================== HERO ============================== -->
+<section class="cu-hero section wrap">
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow reveal" data-num="">Canlı online eğitim · 12 Kasım 2026</span>
+      <h1 class="reveal" data-d="1">TR-ETS uyumunu <span class="hl">dört saatte</span>, uygulayarak öğrenin.</h1>
+      <p class="lead reveal" data-d="2">Kapsam ve kategoriden tahsisat teslimine, bir tesisin yükümlülük döngüsü. Örnek tesisin tahsisat pozisyonunu Excel’de birlikte hesaplıyoruz.</p>
+      <div class="cu-cta reveal" data-d="3">
+        <a href="kayit.html?e=10" class="btn btn-primary"><span>Kayıt ol · 5.900 ₺ + KDV</span> <span class="arrow">→</span></a>
+        <a href="#program" class="btn btn-ghost">Programı incele</a>
+      </div>
+      <div class="hero-meta reveal" data-d="3">
+        <div class="m"><b>4 saat</b><span>tek oturum</span></div>
+        <div class="m"><b>60 dk</b><span>Excel uygulaması</span></div>
+        <div class="m"><b>27.01.2027</b><span>ilk İMP son tarihi</span></div>
+      </div>
+    </div>
+
+    <div class="reveal" data-d="2">
+      <div class="cu-card">
+        <div class="hd">
+          <div class="k">Eğitim bir bakışta</div>
+          <div class="v">TR-ETS Uygulamalı Uyum Eğitimi</div>
+        </div>
+        <div class="rows">
+          <div class="r"><span class="l">Tarih</span><span class="val">12 Kasım 2026, Perşembe</span></div>
+          <div class="r"><span class="l">Saat</span><span class="val">09.30–13.30 <span style="color:var(--ink-3);font-weight:400">· 15 dk ara</span></span></div>
+          <div class="r"><span class="l">Format</span><span class="val">Çevrim içi, canlı</span></div>
+          <div class="r"><span class="l">Kontenjan</span><span class="val">24 kişi</span></div>
+          <div class="r"><span class="l">Materyal</span><span class="val">Excel araç seti, sunum, ders kaydı</span></div>
+          <div class="r"><span class="l">Ücret</span><span class="val">5.900 ₺ <span style="color:var(--ink-3);font-weight:400">+ KDV, kişi başı</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STAT BAND ============================== -->
+<section class="cu-stats">
+  <div class="wrap">
+    <div class="cu-stat reveal"><div class="n">4<span class="u">sa</span></div><div class="k">Canlı oturum</div></div>
+    <div class="cu-stat reveal" data-d="1"><div class="n">5</div><div class="k">Modül</div></div>
+    <div class="cu-stat reveal" data-d="2"><div class="n">60<span class="u">dk</span></div><div class="k">Tahsisat uygulaması</div></div>
+    <div class="cu-stat reveal" data-d="3"><div class="n">3</div><div class="k">Uygulama aracı</div></div>
+  </div>
+</section>
+
+<!-- ============================== NEDEN ============================== -->
+<section class="section wrap" id="te-neden">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="01">Neden şimdi</span>
+    <h2>Takvim işlemeye başladı</h2>
+  </div>
+  <div class="cu-aim">
+    <p class="cu-aim-lead reveal">Yönetmelik 27 Ağustos’ta yürürlüğe girdi. Pilot tesislerde ilk İMP <em>27 Ocak 2027</em>, 2026 raporları <em>30 Nisan 2027</em>.</p>
+    <div class="cu-aim-body reveal" data-d="1">
+      <p>Pilot dönem elektrik üretimi, çimento, demir-çelik, alüminyum ve gübre sektörlerindeki Kategori B ve C tesisleri kapsıyor. Rafineri, kireç, cam, seramik, kâğıt gibi sektörler de birinci uygulama dönemine hazırlanıyor.</p>
+      <p>Bu eğitim yönetmeliği madde madde okumaz; bir tesisin yükümlülük döngüsünü baştan sona izler. En uzun blok uygulamaya ayrılır.</p>
+      <div class="cu-quote">“%100 ücretsiz tahsisat” emisyonunuzun tamamını karşılamaz. Neden karşılamadığını kendi verinizle hesaplayacaksınız.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PROGRAM ============================== -->
+<section class="section wrap" id="program">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="02">Program</span>
+    <h2>Dört saat, beş modül</h2>
+    <p>Her modülün süresi baştan belli; uygulama bölümleri araç setindeki Excel sayfalarıyla yapılır.</p>
+  </div>
+  <div class="cu-tbl-wrap reveal">
+    <table class="cu-tbl te-prog">
+      <tr><th>Saat</th><th>Modül</th><th>İçerik</th></tr>
+      <tr><td class="saat">09.30–10.15</td><td class="mod">01 · Çerçeve ve kapsam</td><td>7552 sayılı İklim Kanunu ve TR-ETS Yönetmeliği; Kurul, Başkanlık, EPDK, TÜRKAK ve MEDAS’ın rolleri; kapsamdaki sektörler, Kategori A/B/C, toplama kuralı. <b>Uygulama:</b> kapsam karar akışı.</td></tr>
+      <tr><td class="saat">10.15–11.00</td><td class="mod">02 · İzin ve izleme</td><td>Sera gazı emisyon izni (60 gün, 5 yıl, değişiklik bildirimi); İzleme Metodolojisi Planı; alt tesis yapısı ve faaliyet seviyesi. <b>Uygulama:</b> İMP kontrol listesi.</td></tr>
+      <tr class="ara"><td class="saat">11.00–11.15</td><td class="mod">Ara</td><td></td></tr>
+      <tr><td class="saat">11.15–11.45</td><td class="mod">03 · Raporlama ve doğrulama</td><td>Yıllık döngü ve 30 Nisan; MEDAS üzerinden doğrulayıcı ataması; ISO/IEC 17029 akreditasyonu; sık görülen bulgular.</td></tr>
+      <tr class="uyg"><td class="saat">11.45–12.45</td><td class="mod">04 · Tahsisat pozisyonu<span class="te-tag">UYGULAMA</span></td><td>Ulusal Tahsisat Planı ve kıyas yöntemi; ücretsiz tahsisat formülü; örnek tesis Excel’de: emisyon, tahsisat, açık pozisyon, fiyat senaryoları ve duyarlılık; teslim, denkleştirme, yaptırımlar.</td></tr>
+      <tr><td class="saat">12.45–13.15</td><td class="mod">05 · Piyasa ve SKDM</td><td>EPDK piyasa kuralları (birincil ve ikincil piyasa, Kayıt Sistemi); SKDM kesişimi ve ödenen karbon fiyatının mahsubu.</td></tr>
+      <tr><td class="saat">13.15–13.30</td><td class="mod">Soru-cevap</td><td>Açıklanmamış parametreler, uyum takvimi, sonraki adımlar.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============================== ÇIKTILAR ============================== -->
+<section class="section wrap" id="te-cikti">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="03">Kazanımlar</span>
+    <h2>Eğitimden elinizde ne kalır?</h2>
+  </div>
+  <div class="cu-split">
+    <div class="cu-panel hi reveal">
+      <div class="ph">Öğrenecekleriniz</div>
+      <ul class="cu-list">
+        <li><span class="ck">✓</span><span>Tesisinizin kapsam ve kategori durumunu kendiniz belirlemek</span></li>
+        <li><span class="ck">✓</span><span>27 Ocak 2027’ye kadar İMP için yapılacakları planlamak</span></li>
+        <li><span class="ck">✓</span><span>Ücretsiz tahsisatı ve açık pozisyonu hesaplamak</span></li>
+        <li><span class="ck">✓</span><span>Karbon maliyetini fiyat senaryolarıyla bütçeye taşımak</span></li>
+        <li><span class="ck">✓</span><span>Açıklanmamış parametreleri hangi kurumun açıklayacağını bilmek</span></li>
+      </ul>
+    </div>
+    <div class="cu-panel reveal" data-d="1">
+      <div class="ph">Araç seti</div>
+      <ul class="cu-list">
+        <li><span class="ck">01</span><span><b>Kapsam karar akışı</b> — dört adımda kategori ve ETS durumu</span></li>
+        <li><span class="ck">02</span><span><b>İMP kontrol listesi</b> — 22 madde, sorumlu, tarih ve ilerleme</span></li>
+        <li><span class="ck">03</span><span><b>Tahsisat pozisyonu şablonu</b> — fiyat ve duyarlılık senaryolarıyla</span></li>
+        <li><span class="ck">04</span><span><b>Uyum takvimi</b> — 2026–2028 son tarihleri, kalan gün</span></li>
+      </ul>
+      <p class="foot-note">Excel araç seti, sunum (PDF) ve ders kaydı kayıtlı katılımcılara e-postayla gönderilir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KİMLER ============================== -->
+<section class="section wrap" id="te-kimler">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="04">Kimler için</span>
+    <h2>ETS’yi yönetecek ekipler</h2>
+  </div>
+  <div class="cu-feat">
+    <div class="cu-f reveal"><div class="ix">01</div><h3>Çevre, enerji ve sürdürülebilirlik</h3><p>ETS kapsamındaki ya da kapsam durumunu netleştirmek isteyen tesislerin sorumluları.</p></div>
+    <div class="cu-f reveal" data-d="1"><div class="ix">02</div><h3>Üretim, tesis ve kalite</h3><p>Faaliyet seviyesi verisini üreten ve ölçüm altyapısını yöneten ekipler.</p></div>
+    <div class="cu-f reveal" data-d="2"><div class="ix">03</div><h3>Finans ve strateji</h3><p>Karbon maliyetini bütçeye ve yatırım kararlarına yansıtacak ekipler.</p></div>
+    <div class="cu-f reveal"><div class="ix">04</div><h3>SKDM sorumluları</h3><p>AB’ye ihracat yapan şirketlerde gömülü emisyon beyanını yöneten ekipler.</p></div>
+    <div class="cu-f reveal" data-d="1"><div class="ix">05</div><h3>Danışmanlar</h3><p>Pilot ve pilot sonrası sektörlerde tesislere destek verenler.</p></div>
+    <div class="cu-f reveal" data-d="2"><div class="ix">ÖN KOŞUL</div><h3>Yok</h3><p>Sera gazı hesabına aşinalık faydalı; Excel’in temel kullanımı yeterli.</p></div>
+  </div>
+</section>
+
+<!-- ============================== SSS ============================== -->
+<section class="section wrap" id="te-sss">
+  <div class="sec-head">
+    <span class="eyebrow" data-num="05">Sık sorulan sorular</span>
+    <h2>SSS</h2>
+  </div>
+  <div class="cu-faq reveal">
+    <details open>
+      <summary>Eğitim ne zaman ve nasıl yapılıyor?</summary>
+      <p>12 Kasım 2026 Perşembe, 09.30–13.30 saatleri arasında çevrim içi ve canlı yapılır. Toplam 4 saattir; arada 15 dakikalık bir mola verilir.</p>
+    </details>
+    <details>
+      <summary>Ücret nedir?</summary>
+      <p>Eğitimin ücreti kişi başı 5.900 TL + KDV’dir. Kayıt sayfasından kredi kartıyla ödeme yapabilirsiniz.</p>
+    </details>
+    <details>
+      <summary>Tesisimizin kapsamda olup olmadığını bilmiyoruz; eğitim bize uygun mu?</summary>
+      <p>Evet. İlk bölümde kapsam listesi ve kategori hesabı bir karar akışıyla işlenir; katılımcılar kendi tesislerini eğitim sırasında sınıflandırır. Kapsam dışı kalan tesislerin izleme ve raporlama yükümlülükleri de anlatılır.</p>
+    </details>
+    <details>
+      <summary>Ön bilgi gerekiyor mu?</summary>
+      <p>Hayır. Sera gazı hesabına aşinalık faydalıdır ama zorunlu değildir; uygulama bölümü için Excel’in temel kullanımı yeterlidir.</p>
+    </details>
+    <details>
+      <summary>Hangi materyaller veriliyor?</summary>
+      <p>Sunum, kapsam karar akışı, İMP hazırlık kontrol listesi ve tahsisat pozisyonu Excel şablonu. Ders kaydı da katılımcılarla paylaşılır.</p>
+    </details>
+    <details>
+      <summary>Henüz açıklanmamış parametreler nasıl ele alınıyor?</summary>
+      <p>Kıyas değerleri, ücretsiz tahsisat oranları ve denkleştirme sınırı gibi parametreler tahmin edilmez. Her birinin hangi kurumca, hangi aşamada belirleneceği ve yayımlandığında uyum planına nasıl yansıtılacağı gösterilir.</p>
+    </details>
+    <details>
+      <summary>Danışmanlık hizmetinden farkı ne?</summary>
+      <p>Eğitim ekibinize çerçeveyi ve hesap mantığını kazandırır. Tesisinize özel İMP, izin dosyası ve tahsisat başvurusu için <a href="ets-danismanligi.html" style="color:var(--accent)">TR-ETS uyum danışmanlığı</a> hizmetimize bakabilirsiniz.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ============================== CTA ============================== -->
+<section class="section wrap" id="te-kayit">
+  <div class="cta-box reveal">
+    <h2>27 Ocak’a hazırlanmaya 12 Kasım’da başlayın.</h2>
+    <p>Kontenjan 24 kişiyle sınırlı. Kayıt sayfasında katılımcı bilgilerini girip kredi kartıyla ödeme yapabilirsiniz; kurumsal faturalama için bize yazın.</p>
+    <div class="hero-cta">
+      <a href="kayit.html?e=10" class="btn btn-primary"><span>Kayıt ol · 5.900 ₺ + KDV</span> <span class="arrow">→</span></a>
+      <a href="ets-danismanligi.html" class="btn btn-ghost">TR-ETS danışmanlığı</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark"></span><span>ESG&nbsp;<span class="lab">LAB</span></span></a>
+        <p class="desc" data-i18n="ft_desc">Veriye dayalı sürdürülebilirlik danışmanlığı. Karbon, ESG raporlama ve kurumsal kapasite geliştirme.</p>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h1">Hizmetler</h5>
+        <ul>
+          <li><a href="index.html#services" data-i18n="ft_s1">Karbon yönetimi</a></li>
+          <li><a href="index.html#services" data-i18n="ft_s2">ESG raporlama</a></li>
+          <li><a href="ets-danismanligi.html">TR-ETS danışmanlığı</a></li>
+          <li><a href="tr-ets-egitimi.html">TR-ETS eğitimi</a></li>
+          <li><a href="kobi-paketi.html" data-i18n="nav_pkg">KOBİ Paketi</a></li>
+          <li><a href="yazilim-platformlar.html" data-i18n="nav_soft">Yazılım &amp; Platformlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h2">Kurum</h5>
+        <ul>
+          <li><a href="index.html#about" data-i18n="ft_c1">Hakkımızda</a></li>
+          <li><a href="index.html#process" data-i18n="ft_c2">Yaklaşım</a></li>
+          <li><a href="index.html#stats" data-i18n="ft_c3">Etki</a></li>
+          <li><a href="#te-kayit" data-i18n="ft_c4">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="ft_h3">İletişim</h5>
+        <ul>
+          <li><a href="mailto:bilgi@esgakademi.net">bilgi@esgakademi.net</a></li>
+          <li><a href="tel:+905339552884">+90 533 955 28 84</a></li>
+          <li><span data-i18n="ft_addr">Yahyakaptan Mah A11:26, İzmit/Kocaeli</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Yasal</h5>
+        <ul>
+          <li><a href="yasal.html#mesafeli">Mesafeli Satış Sözleşmesi</a></li>
+          <li><a href="yasal.html#iptal">İptal &amp; İade Koşulları</a></li>
+          <li><a href="yasal.html#kvkk">Gizlilik / KVKK</a></li>
+          <li><a href="yasal.html#teslimat">Teslimat &amp; İfa</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 ESG LAB</span>
+      <span data-i18n="ft_legal">Tüm hakları saklıdır · <a href="yasal.html#kvkk">Gizlilik</a> · <a href="yasal.html#mesafeli">Satış koşulları</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="whatsapp.js"></script>
+</body>
+</html>
