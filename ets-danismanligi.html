@@ -967,7 +967,7 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
    "name": "Tesisim ETS kapsamında mı?",
    "acceptedAnswer": {
     "@type": "Answer",
-    "text": "Yönetmeliğin EK-1 listesindeki bir faaliyeti yürüten ve kurulu kapasiteye göre ihtiyatlı hesaplanan yıllık emisyonu 50.000 t CO₂e'nin üzerinde olan tesisler (Kategori B ve C) ETS kapsamındadır. Pilot dönemde kapsam; elektrik üretimi, çimento, demir-çelik, alüminyum ve gübre sektörleriyle sınırlıdır. Kategori A tesisler ETS dışında kalır ancak izleme, raporlama ve doğrulama yükümlülükleri devam eder."
+    "text": "Yönetmeliğin kapsam listesindeki bir faaliyeti (20 MW üzeri elektrik üretimi, çimento, demir-çelik, alüminyum, gübre, rafineri, kok, kireç, cam, seramik, alçı, kâğıt, hidrojen, soda külü) yürüten ve kurulu kapasiteye göre ihtiyatlı hesaplanan yıllık emisyonu 50.000 t CO₂e'nin üzerinde olan tesisler (Kategori B ve C) ETS kapsamındadır. Pilot dönemde kapsam; elektrik üretimi, çimento, demir-çelik, alüminyum ve gübre sektörleriyle sınırlıdır. Kategori A tesisler ETS dışında kalır ancak izleme, raporlama ve doğrulama yükümlülükleri devam eder."
    }
   },
   {
@@ -1184,7 +1184,7 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
   <div class="sec-head reveal">
     <span class="eyebrow" data-num="03">Kapsam</span>
     <h2>Tesisiniz ETS kapsamında mı?</h2>
-    <p>EK-1'deki faaliyetiniz ve yıllık emisyon kategoriniz belirler.</p>
+    <p>İki şey belirler: sektörünüz aşağıdaki listede mi ve yıllık emisyonunuz hangi kategoride?</p>
   </div>
   <div class="tbl-wrap reveal">
     <table class="pg-tbl">
@@ -1205,16 +1205,14 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
       </div>
     </div>
     <div class="pg-card" style="background:var(--surface-2)">
-      <span class="k" style="color:var(--ink-3)">Pilot dışındaysanız</span>
-      <h3>Yükümlülük bitmiyor, erteleniyor</h3>
-      <ul class="pg-list muted">
-        <li><span class="ck">→</span>Diğer EK-1 faaliyetleri: birinci uygulama dönemine hazırlık</li>
-        <li><span class="ck">→</span>Kategori A: ETS dışı, izleme ve raporlama sürer</li>
-        <li><span class="ck">→</span>Okul, hastane, üniversite, savunma: ETS dışı, izleme sürer</li>
-      </ul>
+      <span class="k" style="color:var(--ink-3)">Birinci uygulama dönemi</span>
+      <h3>Kapsamda, ama pilot dışında</h3>
+      <div class="pg-mile sectors">
+        <span>Petrol rafinerisi</span><span>Kok</span><span>Kireç</span><span>Cam</span><span>Seramik</span><span>Alçı</span><span>Kâğıt · selüloz</span><span>Hidrojen</span><span>Soda külü</span>
+      </div>
     </div>
   </div>
-  <p class="pg-note reveal">Kategori, kurulu kapasiteye göre ihtiyatlı hesaplanan yıllık emisyonla belirlenir.</p>
+  <p class="pg-note reveal">Kategori, kurulu kapasiteye göre ihtiyatlı hesaplanan yıllık emisyonla belirlenir. Tesiste listedeki bir faaliyet varsa, aynı tesisteki diğer listeli faaliyetler kapasiteden bağımsız olarak hesaba katılır. Kategori A tesisler ile okul, hastane, üniversite ve savunma tesisleri ETS dışındadır; izleme ve raporlama sürer.</p>
 </section>
 
 <!-- ============================== TAKVİM ============================== -->
@@ -1322,17 +1320,31 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
     <div class="ets-tool">
       <span class="k">Araç 1 · Kategori ön kontrolü</span>
       <h3>Tesisim hangi kategoride?</h3>
-      <p>Sektörünüzü ve kurulu kapasiteye göre yaklaşık yıllık emisyonunuzu girin.</p>
+      <p>Sektörünüzü seçin, yaklaşık yıllık emisyonunuzu girin.</p>
       <div class="ets-f" id="catTool">
-        <label>Sektör / faaliyet
+        <label>Sektör
           <select name="sector">
-            <option value="pilot">Elektrik üretimi</option>
-            <option value="pilot">Çimento</option>
-            <option value="pilot" selected>Demir-çelik</option>
-            <option value="pilot">Alüminyum</option>
-            <option value="pilot">Gübre</option>
-            <option value="ek1">EK-1'deki diğer bir faaliyet</option>
-            <option value="unsure">Emin değilim</option>
+            <optgroup label="Pilot dönemde (2026–2027)">
+              <option value="pilot">Elektrik üretimi (20 MW ve üzeri)</option>
+              <option value="pilot">Çimento</option>
+              <option value="pilot" selected>Demir-çelik</option>
+              <option value="pilot">Alüminyum</option>
+              <option value="pilot">Gübre</option>
+            </optgroup>
+            <optgroup label="Kapsamda, pilot dışında">
+              <option value="later">Petrol rafinerisi</option>
+              <option value="later">Kok üretimi</option>
+              <option value="later">Kireç</option>
+              <option value="later">Cam</option>
+              <option value="later">Seramik (tuğla, kiremit, karo, porselen)</option>
+              <option value="later">Alçı</option>
+              <option value="later">Kâğıt, karton, selüloz</option>
+              <option value="later">Hidrojen</option>
+              <option value="later">Soda külü, sodyum bikarbonat</option>
+            </optgroup>
+            <optgroup label="Diğer">
+              <option value="none">Sektörüm listede yok</option>
+            </optgroup>
           </select>
         </label>
         <label>Yıllık emisyon (t CO₂e)
@@ -1405,7 +1417,7 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
       <div class="cl-art">
         <span class="cl-glow"></span>
         <div class="cl-coil"><span class="c1"></span><span class="c2"></span><span class="c3"></span></div>
-        <span class="cl-badge">8 MODÜL</span>
+        <span class="cl-badge">12 KASIM · 4 SAAT</span>
         <div class="cl-stage">
           <div class="cl-tiles">
             <div class="tile t-route"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg></div>
@@ -1416,15 +1428,15 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
           </div>
           <div class="cl-suggest">
             <span class="si"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/><path d="M9 21h6M10 17v4M14 17v4"/></svg></span>
-            <p>İzleme sorumlusu için rol bazlı eğitim planı hazırlandı…</p>
+            <p>Örnek tesisin tahsisat pozisyonu Excel’de hesaplandı…</p>
           </div>
         </div>
       </div>
       <div class="cl-body">
         <span class="cl-eyebrow">Eğitim</span>
         <h3>Ekibiniz süreci içeriden yönetir</h3>
-        <p>TR-ETS / AB-ETS eğitimimizle izleme ve raporlama sorumlularınız her yıl dışarıya bağımlı kalmaz.</p>
-        <a href="egitimler.html#c-ets" class="cl-pill"><span>Eğitim içeriği</span> <span class="ar">→</span></a>
+        <p>4 saatlik TR-ETS Uygulamalı Uyum Eğitimi ile ekibiniz kapsamdan tahsisat hesabına kadar süreci içeriden yönetir. 5.900 ₺ + KDV.</p>
+        <a href="egitim-takvimi.html#detay-10" class="cl-pill"><span>Eğitimi incele</span> <span class="ar">→</span></a>
       </div>
     </article>
 
@@ -1531,7 +1543,7 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
     </div>
     <div class="faq-item">
       <button class="faq-q">Tesisim ETS kapsamında mı?<span class="pm"></span></button>
-      <div class="faq-a"><p>Yönetmeliğin EK-1 listesindeki bir faaliyeti yürüten ve kurulu kapasiteye göre ihtiyatlı hesaplanan yıllık emisyonu 50.000 t CO₂e'nin üzerinde olan tesisler (Kategori B ve C) ETS kapsamındadır. Pilot dönemde kapsam; elektrik üretimi, çimento, demir-çelik, alüminyum ve gübre sektörleriyle sınırlıdır. Kategori A tesisler ETS dışında kalır ancak izleme, raporlama ve doğrulama yükümlülükleri devam eder.</p></div>
+      <div class="faq-a"><p>Yönetmeliğin kapsam listesindeki bir faaliyeti (20 MW üzeri elektrik üretimi, çimento, demir-çelik, alüminyum, gübre, rafineri, kok, kireç, cam, seramik, alçı, kâğıt, hidrojen, soda külü) yürüten ve kurulu kapasiteye göre ihtiyatlı hesaplanan yıllık emisyonu 50.000 t CO₂e'nin üzerinde olan tesisler (Kategori B ve C) ETS kapsamındadır. Pilot dönemde kapsam; elektrik üretimi, çimento, demir-çelik, alüminyum ve gübre sektörleriyle sınırlıdır. Kategori A tesisler ETS dışında kalır ancak izleme, raporlama ve doğrulama yükümlülükleri devam eder.</p></div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Pilot dönemde karbon bedeli ödeyecek miyiz?<span class="pm"></span></button>
@@ -2127,12 +2139,17 @@ html[data-theme="dark"] .cl-pos { background: color-mix(in oklab, #1a2c49 72%, t
     const em = num(cat.querySelector('[name="em"]').value);
     const t = catOut.querySelector('.t'), p = catOut.querySelector('p');
     if (!(em >= 0)) { t.textContent = '—'; p.textContent = 'Yıllık emisyonu ton CO₂e olarak girin.'; catOut.classList.remove('on'); return; }
+    if (sector === 'none') {
+      t.textContent = 'Büyük olasılıkla ETS dışı';
+      p.textContent = 'ETS yalnızca listedeki sektörleri kapsar. Tesisinizde bu faaliyetlerden biri (ör. 20 MW ve üzeri elektrik üretimi) varsa durum değişebilir; ön değerlendirmede netleştirelim.';
+      catOut.classList.remove('on');
+      return;
+    }
     const k = em <= 50000 ? 'A' : (em <= 500000 ? 'B' : 'C');
     let msg;
     if (k === 'A') msg = 'ETS dışındasınız; izleme, raporlama ve doğrulama yükümlülükleriniz devam eder.';
     else if (sector === 'pilot') msg = 'Pilot kapsamındasınız. İlk İMP son tarihi 27 Ocak 2027; 2026 yılı doğrulanmış raporları 30 Nisan 2027.';
-    else if (sector === 'ek1') msg = 'ETS kapsamındasınız ancak pilot dışındasınız. İMP, birinci uygulama döneminden önceki yılın sonuna kadar sunulur.';
-    else msg = 'Emisyon düzeyiniz ETS eşiğinin üzerinde. Faaliyetinizin EK-1 eşleştirmesini ön değerlendirmede netleştirelim.';
+    else msg = 'ETS kapsamındasınız ancak pilot dışındasınız. İMP, birinci uygulama döneminden önceki yılın sonuna kadar sunulur.';
     t.textContent = 'Kategori ' + k + (k === 'A' ? ' · ETS dışı' : ' · ETS kapsamında');
     p.textContent = msg;
     catOut.classList.toggle('on', k !== 'A');
