@@ -1,0 +1,85 @@
+/* English-site WhatsApp and international contact controls. */
+.intl-contact {
+  display: none !important;
+}
+
+html[lang="en"] li.intl-contact {
+  display: list-item !important;
+}
+
+html[lang="en"] .ca-item.intl-contact {
+  display: flex !important;
+}
+
+html[lang="en"] .footer-intl-contact {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-intl-contact a {
+  color: inherit;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 999;
+  display: none;
+  align-items: center;
+  gap: 9px;
+  min-height: 50px;
+  padding: 0 17px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  background: #128c4a;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(13, 26, 45, .24);
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+html[lang="en"] .whatsapp-float {
+  display: inline-flex;
+}
+
+.whatsapp-float:hover {
+  background: #0d7a3f;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(13, 26, 45, .3);
+}
+
+.whatsapp-float:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.whatsapp-float svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(14px, env(safe-area-inset-bottom));
+    min-height: 48px;
+    padding-inline: 15px;
+  }
+}
+
+@media print {
+  .whatsapp-float { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float { transition: none; }
+}
