@@ -731,5 +731,41 @@ window.ESG_DETAY = {
       ['Küçük ölçekli bir şirkette uygulanabilir mi?', 'Evet. Uygulamalar şirket ölçeğine göre kademelendirilir; küçük ekipler için sadeleştirilmiş öneri seti sunulur.'],
       ['Eğitim süresi ne kadar?', 'Toplam 16 saat; iki tam gün 09.00–16.00 ve son gün 09.00–13.00 biçiminde üç güne yayılır.']
     ]
+  },
+
+  10: {
+    aciklama: 'Türkiye Emisyon Ticaret Sistemi Yönetmeliği 27 Ağustos 2026’da yürürlüğe girdi; pilot tesisler için ilk İzleme Metodolojisi Planı son tarihi 27 Ocak 2027. Bu 4 saatlik canlı eğitim yönetmeliği madde madde okumaz; bir tesisin yükümlülük döngüsünü baştan sona izler: kapsam ve kategori tespiti, sera gazı emisyon izni, İMP ve alt tesis yapısı, doğrulama, ücretsiz tahsisat ve teslim. En uzun blok uygulamaya ayrılır: katılımcılar örnek bir tesisin tahsisat pozisyonunu Excel’de hesaplar ve kıyas değeri ile emisyon yoğunluğunun karbon maliyetine etkisini görür. Karbon Piyasası Kurulu ve Başkanlık kararıyla henüz netleşmemiş parametreler tahmin edilmez; hangi kurumun ne zaman belirleyeceği gösterilir.',
+    mufredat: [
+      '09.30–10.15 · Çerçeve ve kapsam: 7552 sayılı İklim Kanunu, TR-ETS Yönetmeliği ve 2014 izleme rejiminden geçiş; Karbon Piyasası Kurulu, İklim Değişikliği Başkanlığı, EPDK, TÜRKAK ve MEDAS’ın rolleri; kapsamdaki sektörler, Kategori A/B/C, ihtiyatlı emisyon hesabı ve toplama kuralı; pilot dönem (2026–2027)',
+      '10.15–11.00 · İzin ve izleme: sera gazı emisyon izni (başvuru, 60 günlük değerlendirme, 5 yıl geçerlilik, değişiklik bildirimleri); izleme planı ve İzleme Metodolojisi Planı; alt tesis yapısı ve faaliyet seviyesi raporu',
+      '11.00–11.15 · Ara',
+      '11.15–11.45 · Raporlama ve doğrulama: yıllık takvim ve 30 Nisan teslimi; MEDAS üzerinden doğrulayıcı ataması; ISO/IEC 17029’a göre TÜRKAK akreditasyonu; doğrulamada sık görülen bulgular',
+      '11.45–12.45 · Uygulama — tahsisat pozisyonu: Ulusal Tahsisat Planı ve kıyas yöntemi, ücretsiz tahsisat formülü, pilotta %100 oranın anlamı; örnek tesis için Excel’de emisyon, ücretsiz tahsisat, açık pozisyon ve maliyet senaryosu; teslim yükümlülüğü, denkleştirme ve yaptırımlar',
+      '12.45–13.15 · Piyasa ve SKDM: EPDK piyasa kuralları (birincil ve ikincil piyasa, ihale, Kayıt Sistemi); SKDM kesişimi ve ödenen karbon fiyatının mahsubu; karbon maliyetinin yatırım kararlarına yansıması',
+      '13.15–13.30 · Soru-cevap'
+    ],
+    faydalar: [
+      'Tesisinizin kapsam ve kategori durumunu karar akışıyla kendiniz belirleme',
+      '27 Ocak 2027 için İMP hazırlık kontrol listesi',
+      'Tahsisat pozisyonu Excel şablonu: kendi üretim ve emisyon verinizle senaryo kurma',
+      'Pilot ve birinci uygulama dönemi için tarih tarih uyum takvimi',
+      'Netleşmemiş parametrelerin hangi kurumda olduğunu bilerek uyum planı yapabilme'
+    ],
+    kimler: [
+      'ETS kapsamındaki ya da kapsam durumunu netleştirmek isteyen tesislerin çevre, enerji ve sürdürülebilirlik sorumluları',
+      'Üretim, tesis yönetimi ve kalite ekipleri',
+      'Karbon maliyetini bütçeye yansıtacak finans ve strateji ekipleri',
+      'AB’ye ihracat yapan şirketlerin SKDM sorumluları',
+      'Elektrik, çimento, demir-çelik, alüminyum, gübre, rafineri, kireç, cam, seramik ve kâğıt sektörlerindeki danışmanlar'
+    ],
+    sss: [
+      ['Eğitim ne zaman ve nasıl yapılıyor?', '12 Kasım 2026 Perşembe, 09.30–13.30 saatleri arasında çevrim içi ve canlı yapılır. Toplam 4 saattir; arada 15 dakikalık bir mola verilir.'],
+      ['Ücret nedir?', 'Eğitimin ücreti kişi başı 5.900 TL + KDV’dir.'],
+      ['Tesisimizin kapsamda olup olmadığını bilmiyoruz; eğitim bize uygun mu?', 'Evet. İlk bölümde kapsam listesi ve kategori hesabı bir karar akışıyla işlenir; katılımcılar kendi tesislerini eğitim sırasında sınıflandırır. Kapsam dışı kalan tesislerin izleme ve raporlama yükümlülükleri de anlatılır.'],
+      ['Ön bilgi gerekiyor mu?', 'Hayır. Sera gazı hesabına aşinalık faydalıdır ama zorunlu değildir; uygulama bölümü için Excel’in temel kullanımı yeterlidir.'],
+      ['Hangi materyaller veriliyor?', 'Sunum, kapsam karar akışı, İMP hazırlık kontrol listesi ve tahsisat pozisyonu Excel şablonu. Ders kaydı da katılımcılarla paylaşılır.'],
+      ['Henüz açıklanmamış parametreler nasıl ele alınıyor?', 'Kıyas değerleri, ücretsiz tahsisat oranları ve denkleştirme sınırı gibi parametreler tahmin edilmez. Her birinin hangi kurumca, hangi aşamada belirleneceği ve yayımlandığında uyum planına nasıl yansıtılacağı gösterilir.'],
+      ['Danışmanlık hizmetinden farkı ne?', 'Eğitim ekibinize çerçeveyi ve hesap mantığını kazandırır. Tesisinize özel İMP, izin dosyası ve tahsisat başvurusu için TR-ETS uyum danışmanlığı hizmetimize bakabilirsiniz.']
+    ]
   }
 };

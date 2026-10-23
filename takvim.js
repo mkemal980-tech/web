@@ -56,6 +56,7 @@
 
   function rangeText(s) {
     var a = parts(s.start), b = parts(s.end);
+    if (s.start === s.end) return a.d + ' ' + MONTHS[a.m] + ' ' + a.y;
     if (a.m === b.m) return a.d + '–' + b.d + ' ' + MONTHS[a.m] + ' ' + a.y;
     return a.d + ' ' + MONTHS[a.m] + ' – ' + b.d + ' ' + MONTHS[b.m] + ' ' + b.y;
   }
@@ -383,4 +384,7 @@
     var saved = localStorage.getItem('esglab_tk_view');
     if (saved === 'list' || saved === 'cal') setView(saved);
   } catch (err) {}
+  /* egitim-takvimi.html#detay-<no> → ilgili eğitimin detay penceresini aç */
+  var hm = (location.hash || '').match(/^#detay-(\d+)$/);
+  if (hm) openModal(hm[1]);
 })();

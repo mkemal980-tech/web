@@ -22,6 +22,7 @@
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
   function rangeText(s) {
     var a = s.start.split('-').map(Number), b = s.end.split('-').map(Number);
+    if (s.start === s.end) return a[2] + ' ' + MONTHS[a[1] - 1] + ' ' + a[0];
     if (a[1] === b[1]) return a[2] + '–' + b[2] + ' ' + MONTHS[a[1] - 1] + ' ' + a[0];
     return a[2] + ' ' + MONTHS[a[1] - 1] + ' – ' + b[2] + ' ' + MONTHS[b[1] - 1] + ' ' + b[0];
   }

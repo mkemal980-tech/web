@@ -104,6 +104,16 @@ window.ESG_TAKVIM = [
     start: '2026-11-02', end: '2026-11-05', wd: [0, 1, 2, 3],
     days: 'Pazartesi–Perşembe', time: '09.00–17.00',
     hours: 28, canli: 28, price: 16000, seats: 20, pay: ''
+  },
+  {
+    no: 10, id: '', code: 'TR-ETS', cat: 'E',
+    title: 'TR-ETS Uygulamalı Uyum Eğitimi',
+    desc: 'Türkiye ETS yükümlülük döngüsü tek oturumda: kapsam ve kategori, emisyon izni, İzleme Metodolojisi Planı (son tarih 27 Ocak 2027), doğrulama, ücretsiz tahsisat ve piyasa kuralları. Örnek tesisin tahsisat pozisyonu Excel’de hesaplanır.',
+    /* tek oturum · 4 saat (15 dk ara dahil) */
+    start: '2026-11-12', end: '2026-11-12', wd: [3],
+    days: 'Perşembe', time: '09.30–13.30',
+    hours: 4, canli: 4, price: 5900, seats: 24, pay: '',
+    vurgu: 'Tahsisat pozisyonu Excel şablonu ve İMP hazırlık kontrol listesi'
   }
 ];
 
