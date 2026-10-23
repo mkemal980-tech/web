@@ -42,7 +42,7 @@
     var out = [], cur = toDate(s.start), last = toDate(s.end);
     while (cur <= last) {
       var key = iso(cur.getFullYear(), cur.getMonth(), cur.getDate());
-      if (s.wd.indexOf(wdOf(cur)) !== -1 && !TATIL[key]) out.push(key);
+      if (s.wd.indexOf(wdOf(cur)) !== -1 && !TATIL[key] && !(s.ara && s.ara.indexOf(key) !== -1)) out.push(key);
       cur.setDate(cur.getDate() + 1);
     }
     return out;

@@ -14,6 +14,7 @@
    pkgNote  : bu fiyatın koşulu (isteğe bağlı)
    priceNote: price'ın kendisi koşullu ise koşulu (isteğe bağlı)
    vurgu    : listede ve detay penceresinde öne çıkan avantaj (isteğe bağlı)
+   ara      : yalnızca bu programda oturum yapılmayacak günler, 'YYYY-AA-GG' (isteğe bağlı)
    =================================================================== */
 window.ESG_TAKVIM = [
   {
@@ -114,6 +115,18 @@ window.ESG_TAKVIM = [
     days: 'Perşembe', time: '09.30–13.30',
     hours: 4, canli: 4, price: 5900, seats: 24, pay: '',
     vurgu: 'Tahsisat pozisyonu Excel şablonu ve İMP hazırlık kontrol listesi'
+  },
+  {
+    no: 11, id: '', url: 'ets-uzmanligi.html', code: 'ETS Uzmanlığı', cat: 'E',
+    title: 'ETS Uzmanlığı Eğitimi',
+    desc: 'TR ETS döngüsünü şirkette yönetecek uzmanlar için: kapsam ve alt tesis tasarımı, İMP ve FSR, doğrulama yönetimi, ücretsiz tahsisat, İşlem Kayıt Sistemi ve piyasa işlemleri, teslim ve karbon maliyeti. Sekiz akşamlık program; toplam 48 saat.',
+    /* 40 ders saati × 45 dk · akşam başına 5 ders (19.00–23.00, aralar dahil)
+       15–17, 22–24 Ara + 5–6 Oca: 8 akşam · 29–31 Ara yılbaşı arası */
+    start: '2026-12-15', end: '2027-01-06', wd: [1, 2, 3],
+    ara: ['2026-12-29', '2026-12-30', '2026-12-31'],
+    days: 'Salı, Çarşamba, Perşembe', time: '19.00–23.00',
+    hours: 48, canli: 40, price: 24000, seats: 20, pay: '',
+    vurgu: 'Bitirme projesi: tesisiniz için ETS uyum dosyası'
   }
 ];
 
