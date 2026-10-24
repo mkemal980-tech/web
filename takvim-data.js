@@ -121,8 +121,8 @@ window.ESG_TAKVIM = [
     title: 'ETS Uzmanlığı Eğitimi',
     desc: 'TR ETS döngüsünü şirkette yönetecek uzmanlar için: kapsam ve alt tesis tasarımı, İMP ve FSR, doğrulama yönetimi, ücretsiz tahsisat, İşlem Kayıt Sistemi ve piyasa işlemleri, teslim ve karbon maliyeti. Sekiz akşamlık program; toplam 48 saat.',
     /* 40 ders saati × 45 dk · akşam başına 5 ders (19.00–23.00, aralar dahil)
-       15–17, 22–24 Ara + 5–6 Oca: 8 akşam · 29–31 Ara yılbaşı arası */
-    start: '2026-12-15', end: '2027-01-06', wd: [1, 2, 3],
+       22–24 Ara + 5–7, 12–13 Oca: 8 akşam · 29–31 Ara yılbaşı arası */
+    start: '2026-12-22', end: '2027-01-13', wd: [1, 2, 3],
     ara: ['2026-12-29', '2026-12-30', '2026-12-31'],
     days: 'Salı, Çarşamba, Perşembe', time: '19.00–23.00',
     hours: 48, canli: 40, price: 24000, seats: 20, pay: '',

@@ -16,7 +16,7 @@ Statik HTML sitesi. Derleme (build) adımı yoktur; dosyalar olduğu gibi sunulu
 | `iso46001.html` | ISO 46001 |
 | `ets-danismanligi.html` | TR-ETS uyum danışmanlığı (yalnızca TR) — mevzuat tarihleri elle güncellenir |
 | `tr-ets-egitimi.html` | TR-ETS Uygulamalı Uyum Eğitimi (12 Kasım 2026, takvim no 10) |
-| `ets-uzmanligi.html` | ETS Uzmanlığı Eğitimi (15 Ara 2026 – 6 Oca 2027, 48 saat, takvim no 11, Sürdürülebilirlik Programları serisinde) |
+| `ets-uzmanligi.html` | ETS Uzmanlığı Eğitimi (22 Ara 2026 – 13 Oca 2027, 48 saat, takvim no 11, Sürdürülebilirlik Programları serisinde) |
 
 CSS ve JS dosyaları HTML içine gömülüdür; kök dizindeki `.css` / `.js` dosyaları kaynak referansıdır.
 
